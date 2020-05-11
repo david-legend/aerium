@@ -7,12 +7,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:portfoliosite/presentation/pages/home_screen.dart';
-import 'package:portfoliosite/presentation/pages/about_screen.dart';
-import 'package:portfoliosite/presentation/pages/contact_screen.dart';
-import 'package:portfoliosite/presentation/pages/experience_screen.dart';
-import 'package:portfoliosite/presentation/pages/work_screen.dart';
-import 'package:portfoliosite/presentation/pages/resume_screen.dart';
+import 'package:portfoliosite/presentation/pages/home_page.dart';
+import 'package:portfoliosite/presentation/pages/about_page.dart';
+import 'package:portfoliosite/presentation/pages/contact_page.dart';
+import 'package:portfoliosite/presentation/pages/experience_page.dart';
+import 'package:portfoliosite/presentation/pages/work_page.dart';
+import 'package:portfoliosite/presentation/pages/resume_page.dart';
 
 abstract class Routes {
   static const homeScreen = '/';
@@ -44,32 +44,32 @@ class Router extends RouterBase {
     switch (settings.name) {
       case Routes.homeScreen:
         return MaterialPageRoute<dynamic>(
-          builder: (context) => HomeScreen(),
+          builder: (context) => HomePage(),
           settings: settings,
         );
       case Routes.aboutScreen:
         return MaterialPageRoute<dynamic>(
-          builder: (context) => AboutScreen(),
+          builder: (context) => AboutPage(),
           settings: settings,
         );
       case Routes.contactScreen:
         return MaterialPageRoute<dynamic>(
-          builder: (context) => ContactScreen(),
+          builder: (context) => ContactPage(),
           settings: settings,
         );
       case Routes.experienceScreen:
         return MaterialPageRoute<dynamic>(
-          builder: (context) => ExperienceScreen(),
+          builder: (context) => ExperiencePage(),
           settings: settings,
         );
       case Routes.workScreen:
         return MaterialPageRoute<dynamic>(
-          builder: (context) => WorkScreen(),
+          builder: (context) => WorkPage(),
           settings: settings,
         );
       case Routes.resumeScreen:
         return MaterialPageRoute<dynamic>(
-          builder: (context) => ResumeScreen(),
+          builder: (context) => ResumePage(),
           settings: settings,
         );
       default:

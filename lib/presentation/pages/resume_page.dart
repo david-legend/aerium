@@ -6,7 +6,7 @@ import 'package:portfoliosite/presentation/widgets/desktop_navigation.dart';
 import 'package:portfoliosite/presentation/widgets/menu_list.dart';
 import 'package:portfoliosite/values/values.dart';
 
-class ResumeScreen extends StatelessWidget {
+class ResumePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

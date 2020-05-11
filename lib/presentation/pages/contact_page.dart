@@ -6,7 +6,7 @@ import 'package:portfoliosite/presentation/widgets/desktop_navigation.dart';
 import 'package:portfoliosite/presentation/widgets/menu_list.dart';
 import 'package:portfoliosite/values/values.dart';
 
-class WorkScreen extends StatelessWidget {
+class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +28,7 @@ class WorkScreen extends StatelessWidget {
                           ),
                           child: MenuList(
                             menuList: Data.menuList,
-                            selectedItemRouteName: Routes.workScreen,
+                            selectedItemRouteName: Routes.contactScreen,
                           ),
                         ),
                       ),

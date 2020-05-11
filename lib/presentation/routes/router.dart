@@ -1,21 +1,21 @@
 import 'package:auto_route/auto_route_annotations.dart';
-import 'package:portfoliosite/presentation/pages/contact_screen.dart';
-import 'package:portfoliosite/presentation/pages/experience_screen.dart';
-import 'package:portfoliosite/presentation/pages/home_screen.dart';
-import 'package:portfoliosite/presentation/pages/about_screen.dart';
-import 'package:portfoliosite/presentation/pages/resume_screen.dart';
-import 'package:portfoliosite/presentation/pages/work_screen.dart';
+import 'package:portfoliosite/presentation/pages/contact_page.dart';
+import 'package:portfoliosite/presentation/pages/experience_page.dart';
+import 'package:portfoliosite/presentation/pages/home_page.dart';
+import 'package:portfoliosite/presentation/pages/about_page.dart';
+import 'package:portfoliosite/presentation/pages/resume_page.dart';
+import 'package:portfoliosite/presentation/pages/work_page.dart';
 
 @MaterialAutoRouter()
 class $Router {
 
   @initial
-  HomeScreen homeScreen;
+  HomePage homeScreen;
 
-  AboutScreen aboutScreen;
-  ContactScreen contactScreen;
-  ExperienceScreen experienceScreen;
-  WorkScreen workScreen;
-  ResumeScreen resumeScreen;
+  AboutPage aboutScreen;
+  ContactPage contactScreen;
+  ExperiencePage experienceScreen;
+  WorkPage workScreen;
+  ResumePage resumeScreen;
 
 }

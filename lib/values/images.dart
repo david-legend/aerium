@@ -17,7 +17,7 @@ class ImagePath {
 
 
   //Images
-  static const String MALE = "$imageDir/man.png";
+  static const String DEV = "$imageDir/dev.png";
 }
 
 

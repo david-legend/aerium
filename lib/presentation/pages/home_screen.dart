@@ -4,6 +4,8 @@ import 'package:portfoliosite/layout/adaptive.dart';
 import 'package:portfoliosite/presentation/routes/router.gr.dart';
 import 'package:portfoliosite/presentation/widgets/content_view.dart';
 import 'package:portfoliosite/presentation/widgets/desktop_navigation.dart';
+import 'package:portfoliosite/presentation/widgets/menu_item.dart';
+import 'package:portfoliosite/presentation/widgets/menu_list.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
 
@@ -37,34 +39,8 @@ class HomeScreen extends StatelessWidget {
                               top: Sizes.MARGIN_20,
                               bottom: Sizes.MARGIN_20,
                             ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text('About', style: menuTextStyle),
-                                SpaceH8(),
-                                Text('Experience', style: menuTextStyle),
-                                SpaceH8(),
-                                Text('Work', style: menuTextStyle),
-                                SpaceH8(),
-                                Text('Contact', style: menuTextStyle),
-                                SpaceH8(),
-                                Text('Resume', style: menuTextStyle),
-                                Spacer(
-                                  flex: 1,
-                                ),
-                                Text(
-                                  'DAVID COBBINA',
-                                  style: theme.textTheme.headline4.copyWith(
-                                    color: AppColors.grey200,
-                                    letterSpacing: 4,
-                                  ),
-                                ),
-                                Text(
-                                  'FLUTTER DEV',
-                                  style: theme.textTheme.headline6.copyWith(
-                                      letterSpacing: 4, color: Colors.grey),
-                                ),
-                              ],
+                            child: MenuList(
+                              menuList: Data.menuList,
                             ),
                           ),
                         ),
@@ -77,7 +53,10 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               Center(
-                child: Image.asset(ImagePath.MALE),
+                child: Image.asset(
+                  ImagePath.DEV,
+                  fit: BoxFit.cover,
+                ),
               )
             ],
           ),

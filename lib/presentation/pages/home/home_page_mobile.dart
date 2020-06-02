@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/layout/adaptive.dart';
+import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
 import 'package:portfoliosite/presentation/widgets/circular_container.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
@@ -11,10 +12,14 @@ class HomePageMobile extends StatefulWidget {
 }
 
 class _HomePageMobileState extends State<HomePageMobile> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: AppDrawer(),
       body: Container(
         child: SafeArea(
           child: Stack(
@@ -64,7 +69,10 @@ class _HomePageMobileState extends State<HomePageMobile> {
                                 child: CircularContainer(
                                   width: 28,
                                   height: 28,
-                                  child: Icon(Icons.keyboard_arrow_down, color: AppColors.deepBlue,),
+                                  child: Icon(
+                                    Icons.keyboard_arrow_down,
+                                    color: AppColors.deepBlue,
+                                  ),
                                 ),
                               ),
                               SizedBox(
@@ -104,7 +112,16 @@ class _HomePageMobileState extends State<HomePageMobile> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Icon(Icons.menu),
+          IconButton(
+            onPressed: () {
+              if (_scaffoldKey.currentState.isEndDrawerOpen) {
+                _scaffoldKey.currentState.openDrawer();
+              } else {
+                _scaffoldKey.currentState.openEndDrawer();
+              }
+            },
+            icon: Icon(Icons.menu),
+          ),
           CircularContainer(
             color: AppColors.grey300,
             child: Icon(

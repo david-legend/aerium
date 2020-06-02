@@ -11,6 +11,7 @@ class AppColors {
 
 
   static const Color cream = Color(0xFFEBEBEC);
+//  static const Color cream = Color(0xFFC7C8CA);
 
   static const Color deepBlue = Color(0xFF3E5067);
 

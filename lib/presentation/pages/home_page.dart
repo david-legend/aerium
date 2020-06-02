@@ -1,13 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/layout/adaptive.dart';
+import 'package:portfoliosite/presentation/pages/about_page.dart';
+import 'package:portfoliosite/presentation/routes/router.dart';
 import 'package:portfoliosite/presentation/routes/router.gr.dart';
 import 'package:portfoliosite/presentation/widgets/content_view.dart';
 import 'package:portfoliosite/presentation/widgets/desktop_navigation.dart';
-import 'package:portfoliosite/presentation/widgets/menu_item.dart';
 import 'package:portfoliosite/presentation/widgets/menu_list.dart';
-import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
+
 
 class HomePage extends StatelessWidget {
   @override
@@ -55,7 +56,10 @@ class HomePage extends StatelessWidget {
               Center(
                 child: Image.asset(
                   ImagePath.DEV,
-                  fit: BoxFit.cover,
+                  width: widthOfScreen(context),
+                  height: heightOfScreen(context),
+                  fit: BoxFit.fitHeight,
+                  scale: 2.0,
                 ),
               )
             ],

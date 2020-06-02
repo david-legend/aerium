@@ -28,7 +28,7 @@ class AboutPage extends StatelessWidget {
                           ),
                           child: MenuList(
                             menuList: Data.menuList,
-                            selectedItemRouteName: Routes.aboutScreen,
+                            selectedItemRouteName: Routes.aboutPage,
                           ),
                         ),
                       ),
@@ -44,6 +44,7 @@ class AboutPage extends StatelessWidget {
               child: Image.asset(
                 ImagePath.DEV,
                 fit: BoxFit.cover,
+                scale: 0.5,
               ),
             )
           ],

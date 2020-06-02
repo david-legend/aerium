@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
 
 class MenuItem extends StatelessWidget {
@@ -33,11 +34,21 @@ class MenuItem extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        child: Text(
-          title,
-          style: selected
-              ? (selectedStyle ?? selectedMenuTextStyle)
-              : (titleStyle ?? menuTextStyle),
+        child: Row(
+          children: [
+           selected ? Container(
+              width: 2,
+              height: 18,
+              color: AppColors.grey,
+            ) : Container(),
+            selected ? SpaceW12() : Container(),
+            Text(
+              title,
+              style: selected
+                  ? (selectedStyle ?? menuTextStyle)
+                  : (titleStyle ?? menuTextStyle),
+            ),
+          ],
         ),
       ),
     );

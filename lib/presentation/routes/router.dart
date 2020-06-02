@@ -8,14 +8,17 @@ import 'package:portfoliosite/presentation/pages/work_page.dart';
 
 @MaterialAutoRouter()
 class $Router {
-
   @initial
-  HomePage homeScreen;
+  HomePage homePage;
 
-  AboutPage aboutScreen;
-  ContactPage contactScreen;
-  ExperiencePage experienceScreen;
-  WorkPage workScreen;
-  ResumePage resumeScreen;
+  AboutPage aboutPage;
 
+  ContactPage contactPage;
+
+  ExperiencePage experiencePage;
+
+  WorkPage workPage;
+
+  ResumePage resumePage;
 }
+

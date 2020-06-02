@@ -15,19 +15,19 @@ import 'package:portfoliosite/presentation/pages/work_page.dart';
 import 'package:portfoliosite/presentation/pages/resume_page.dart';
 
 abstract class Routes {
-  static const homeScreen = '/';
-  static const aboutScreen = '/about-screen';
-  static const contactScreen = '/contact-screen';
-  static const experienceScreen = '/experience-screen';
-  static const workScreen = '/work-screen';
-  static const resumeScreen = '/resume-screen';
+  static const homePage = '/';
+  static const aboutPage = '/about-page';
+  static const contactPage = '/contact-page';
+  static const experiencePage = '/experience-page';
+  static const workPage = '/work-page';
+  static const resumePage = '/resume-page';
   static const all = {
-    homeScreen,
-    aboutScreen,
-    contactScreen,
-    experienceScreen,
-    workScreen,
-    resumeScreen,
+    homePage,
+    aboutPage,
+    contactPage,
+    experiencePage,
+    workPage,
+    resumePage,
   };
 }
 
@@ -42,32 +42,32 @@ class Router extends RouterBase {
   @override
   Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case Routes.homeScreen:
+      case Routes.homePage:
         return MaterialPageRoute<dynamic>(
           builder: (context) => HomePage(),
           settings: settings,
         );
-      case Routes.aboutScreen:
+      case Routes.aboutPage:
         return MaterialPageRoute<dynamic>(
           builder: (context) => AboutPage(),
           settings: settings,
         );
-      case Routes.contactScreen:
+      case Routes.contactPage:
         return MaterialPageRoute<dynamic>(
           builder: (context) => ContactPage(),
           settings: settings,
         );
-      case Routes.experienceScreen:
+      case Routes.experiencePage:
         return MaterialPageRoute<dynamic>(
           builder: (context) => ExperiencePage(),
           settings: settings,
         );
-      case Routes.workScreen:
+      case Routes.workPage:
         return MaterialPageRoute<dynamic>(
           builder: (context) => WorkPage(),
           settings: settings,
         );
-      case Routes.resumeScreen:
+      case Routes.resumePage:
         return MaterialPageRoute<dynamic>(
           builder: (context) => ResumePage(),
           settings: settings,

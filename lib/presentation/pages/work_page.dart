@@ -28,7 +28,7 @@ class WorkPage extends StatelessWidget {
                           ),
                           child: MenuList(
                             menuList: Data.menuList,
-                            selectedItemRouteName: Routes.workScreen,
+                            selectedItemRouteName: Routes.workPage,
                           ),
                         ),
                       ),

@@ -12,10 +12,10 @@ class MenuData {
 
 class Data {
   static  List<MenuData> menuList =  [
-    MenuData(title: StringConst.ABOUT, routeName: Routes.aboutScreen),
-    MenuData(title: StringConst.EXPERIENCE, routeName: Routes.experienceScreen),
-    MenuData(title: StringConst.WORK, routeName: Routes.workScreen),
-    MenuData(title: StringConst.CONTACT, routeName: Routes.contactScreen),
-    MenuData(title: StringConst.RESUME, routeName: Routes.resumeScreen),
+    MenuData(title: StringConst.ABOUT, routeName: Routes.aboutPage),
+    MenuData(title: StringConst.EXPERIENCE, routeName: Routes.experiencePage),
+    MenuData(title: StringConst.WORK, routeName: Routes.workPage),
+    MenuData(title: StringConst.CONTACT, routeName: Routes.contactPage),
+    MenuData(title: StringConst.RESUME, routeName: Routes.resumePage),
   ];
 }

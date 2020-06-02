@@ -28,7 +28,7 @@ class ContactPage extends StatelessWidget {
                           ),
                           child: MenuList(
                             menuList: Data.menuList,
-                            selectedItemRouteName: Routes.contactScreen,
+                            selectedItemRouteName: Routes.contactPage,
                           ),
                         ),
                       ),

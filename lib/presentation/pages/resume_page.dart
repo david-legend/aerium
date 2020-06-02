@@ -28,7 +28,7 @@ class ResumePage extends StatelessWidget {
                           ),
                           child: MenuList(
                             menuList: Data.menuList,
-                            selectedItemRouteName: Routes.resumeScreen,
+                            selectedItemRouteName: Routes.resumePage,
                           ),
                         ),
                       ),

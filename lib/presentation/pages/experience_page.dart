@@ -28,7 +28,7 @@ class ExperiencePage extends StatelessWidget {
                           ),
                           child: MenuList(
                             menuList: Data.menuList,
-                            selectedItemRouteName: Routes.experienceScreen,
+                            selectedItemRouteName: Routes.experiencePage,
                           ),
                         ),
                       ),

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:portfoliosite/layout/adaptive.dart';
 import 'package:portfoliosite/values/values.dart';
 
-class ContentView extends StatelessWidget {
-  ContentView({
+class ContentWrapper extends StatelessWidget {
+  ContentWrapper({
     this.width,
     this.height,
-    this.color = AppColors.grey100,
+    this.color,
     this.gradient,
     this.child,
   });
@@ -19,10 +19,14 @@ class ContentView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
       width: width ?? widthOfScreen(context),
       height: height ?? heightOfScreen(context),
-      decoration: BoxDecoration(color: color, gradient: gradient),
+      decoration: BoxDecoration(
+        color: color,
+        gradient: gradient
+      ),
       child: child,
     );
   }

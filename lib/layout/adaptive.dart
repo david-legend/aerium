@@ -45,10 +45,21 @@ double heightOfScreen(BuildContext context) {
   return MediaQuery.of(context).size.height;
 }
 
-double height({@required BuildContext context, @required double fraction}) {
-  return heightOfScreen(context) * fraction ;
-}
 
-double width({@required BuildContext context, @required double fraction}) {
-  return widthOfScreen(context) * fraction ;
+double assignHeight({
+  @required BuildContext context,
+  @required double fraction,
+  double additions = 0,
+  double subs = 0,
+}) {
+  return (heightOfScreen(context) - (subs) + (additions)) * fraction;
+}
+//
+double assignWidth({
+  @required BuildContext context,
+  @required double fraction,
+  double additions = 0,
+  double subs = 0,
+}) {
+  return (widthOfScreen(context) - (subs) + (additions)) * fraction;
 }

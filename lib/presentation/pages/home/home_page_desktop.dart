@@ -4,13 +4,12 @@ import 'package:portfoliosite/layout/adaptive.dart';
 import 'package:portfoliosite/presentation/pages/about_page.dart';
 import 'package:portfoliosite/presentation/routes/router.dart';
 import 'package:portfoliosite/presentation/routes/router.gr.dart';
-import 'package:portfoliosite/presentation/widgets/content_view.dart';
-import 'package:portfoliosite/presentation/widgets/desktop_navigation.dart';
+import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/menu_list.dart';
 import 'package:portfoliosite/values/values.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
-
-class HomePage extends StatelessWidget {
+class HomePageDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
@@ -32,8 +31,9 @@ class HomePage extends StatelessWidget {
                   children: <Widget>[
                     Row(
                       children: <Widget>[
-                        DesktopNavigation(
-                          width: width(context: context, fraction: 0.5),
+                        ContentWrapper(
+                          width: assignWidth(context: context, fraction: 0.5),
+                          gradient:  Gradients.primaryGradient,
                           child: Container(
                             margin: EdgeInsets.only(
                               left: Sizes.MARGIN_20,
@@ -45,8 +45,9 @@ class HomePage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        ContentView(
-                          width: width(context: context, fraction: 0.5),
+                        ContentWrapper(
+                          width: assignWidth(context: context, fraction: 0.5),
+                          color: AppColors.grey100,
                         )
                       ],
                     )

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/layout/adaptive.dart';
 import 'package:portfoliosite/presentation/routes/router.gr.dart';
-import 'package:portfoliosite/presentation/widgets/content_view.dart';
-import 'package:portfoliosite/presentation/widgets/desktop_navigation.dart';
+import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/menu_list.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
@@ -29,8 +28,8 @@ class _AboutPageState extends State<AboutPage> {
 
   @override
   Widget build(BuildContext context) {
-    widthOfImage = width(context: context, fraction: 0.3);
-    double heightOfImage = height(context: context, fraction: 0.7);
+    widthOfImage = assignWidth(context: context, fraction: 0.3);
+    double heightOfImage = assignHeight(context: context, fraction: 0.7);
     return Scaffold(
       body: Container(
         child: Stack(
@@ -56,8 +55,9 @@ class _AboutPageState extends State<AboutPage> {
                         ),
                         builder:
                             (BuildContext context, double value, Widget child) {
-                          return DesktopNavigation(
-                            width: width(context: context, fraction: value),
+                          return ContentWrapper(
+                            width: assignWidth(context: context, fraction: value),
+
                             child: child,
                           );
                         },
@@ -67,8 +67,9 @@ class _AboutPageState extends State<AboutPage> {
                         duration: Duration(milliseconds: duration),
                         builder:
                             (BuildContext context, double value, Widget child) {
-                          return ContentView(
-                            width: width(context: context, fraction: value),
+                          return ContentWrapper(
+                            width: assignWidth(context: context, fraction: value),
+                            color: AppColors.grey100,
                             child: aboutPageContent(),
                           );
                         },
@@ -81,11 +82,11 @@ class _AboutPageState extends State<AboutPage> {
             AnimatedPositioned(
               duration: Duration(milliseconds: duration),
               top: animate
-                  ? height(context: context, fraction: 0.0)
-                  : height(context: context, fraction: 0.4),
+                  ? assignHeight(context: context, fraction: 0.0)
+                  : assignHeight(context: context, fraction: 0.4),
               left: animate
-                  ? (width(context: context, fraction: 0.3) - widthOfImage / 2)
-                  : (width(context: context, fraction: 0.5) - widthOfImage / 2),
+                  ? (assignWidth(context: context, fraction: 0.3) - widthOfImage / 2)
+                  : (assignWidth(context: context, fraction: 0.5) - widthOfImage / 2),
               child: Container(
                 child: TweenAnimationBuilder(
                   tween: Tween<double>(begin: 2, end: 1),
@@ -116,7 +117,7 @@ class _AboutPageState extends State<AboutPage> {
     return Container(
       margin: EdgeInsets.only(
         left: (widthOfImage / 2) + 20,
-        top: height(context: context, fraction: 0.12),
+        top: assignHeight(context: context, fraction: 0.12),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

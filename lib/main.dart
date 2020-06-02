@@ -13,9 +13,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: AppTheme.lightThemeData,
+      debugShowCheckedModeBanner: false,
       builder: ExtendedNavigator<Router>(
         router: Router(),
-        initialRoute: Routes.aboutPage,
+        initialRoute: Routes.homePage,
       ),
     );
   }

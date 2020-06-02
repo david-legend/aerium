@@ -7,7 +7,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:portfoliosite/presentation/pages/home_page.dart';
+import 'package:portfoliosite/presentation/pages/home/home_page.dart';
 import 'package:portfoliosite/presentation/pages/about_page.dart';
 import 'package:portfoliosite/presentation/pages/contact_page.dart';
 import 'package:portfoliosite/presentation/pages/experience_page.dart';

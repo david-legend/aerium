@@ -6,7 +6,7 @@ class ContentWrapper extends StatelessWidget {
   ContentWrapper({
     this.width,
     this.height,
-    this.color,
+    this.color = AppColors.grey100,
     this.gradient,
     this.child,
   });

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 
 import 'package:portfoliosite/core/extensions/hover_extensions.dart';
-import 'package:portfoliosite/presentation/widgets/underline.dart';
+import 'package:portfoliosite/presentation/widgets/horizontal_bar.dart';
 import 'package:portfoliosite/values/values.dart';
 
 class PortfolioCard extends StatefulWidget {

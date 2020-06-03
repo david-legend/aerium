@@ -97,7 +97,7 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop> {
   }
 
   Widget _buildPortfolioGallery() {
-    List<int> fixedLengthList = new List(8);
+    List<int> fixedLengthList =  List(8);
     return ListView(
       children: [
         Wrap(

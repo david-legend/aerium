@@ -17,6 +17,9 @@ class AppTheme {
       textTheme: _textTheme,
       iconTheme: IconThemeData(color: AppColors.white),
       canvasColor: colorScheme.background,
+      appBarTheme: AppBarTheme(
+        color: AppColors.deepBlue100,
+      ),
       scaffoldBackgroundColor: colorScheme.background,
       highlightColor: Colors.transparent,
       accentColor: colorScheme.primary,

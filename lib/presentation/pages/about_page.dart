@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfoliosite/layout/adaptive.dart';
+import 'package:portfoliosite/core/layout/adaptive.dart';
 import 'package:portfoliosite/presentation/routes/router.gr.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/menu_list.dart';
@@ -56,8 +56,8 @@ class _AboutPageState extends State<AboutPage> {
                         builder:
                             (BuildContext context, double value, Widget child) {
                           return ContentWrapper(
-                            width: assignWidth(context: context, fraction: value),
-
+                            width:
+                                assignWidth(context: context, fraction: value),
                             child: child,
                           );
                         },
@@ -68,7 +68,8 @@ class _AboutPageState extends State<AboutPage> {
                         builder:
                             (BuildContext context, double value, Widget child) {
                           return ContentWrapper(
-                            width: assignWidth(context: context, fraction: value),
+                            width:
+                                assignWidth(context: context, fraction: value),
                             color: AppColors.grey100,
                             child: aboutPageContent(),
                           );
@@ -85,8 +86,10 @@ class _AboutPageState extends State<AboutPage> {
                   ? assignHeight(context: context, fraction: 0.0)
                   : assignHeight(context: context, fraction: 0.4),
               left: animate
-                  ? (assignWidth(context: context, fraction: 0.3) - widthOfImage / 2)
-                  : (assignWidth(context: context, fraction: 0.5) - widthOfImage / 2),
+                  ? (assignWidth(context: context, fraction: 0.3) -
+                      widthOfImage / 2)
+                  : (assignWidth(context: context, fraction: 0.5) -
+                      widthOfImage / 2),
               child: Container(
                 child: TweenAnimationBuilder(
                   tween: Tween<double>(begin: 2, end: 1),

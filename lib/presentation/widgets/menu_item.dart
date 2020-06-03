@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
 
+import 'package:portfoliosite/core/extensions/hover_extensions.dart';
+
 class MenuItem extends StatelessWidget {
   MenuItem({
     @required this.title,

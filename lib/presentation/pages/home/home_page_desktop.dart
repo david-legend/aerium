@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:portfoliosite/layout/adaptive.dart';
+import 'package:portfoliosite/core/layout/adaptive.dart';
 import 'package:portfoliosite/presentation/pages/about_page.dart';
 import 'package:portfoliosite/presentation/routes/router.dart';
 import 'package:portfoliosite/presentation/routes/router.gr.dart';

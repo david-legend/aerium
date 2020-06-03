@@ -3,8 +3,8 @@ import 'package:portfoliosite/presentation/pages/contact_page.dart';
 import 'package:portfoliosite/presentation/pages/experience_page.dart';
 import 'package:portfoliosite/presentation/pages/about_page.dart';
 import 'package:portfoliosite/presentation/pages/home/home_page.dart';
+import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
 import 'package:portfoliosite/presentation/pages/resume_page.dart';
-import 'package:portfoliosite/presentation/pages/work_page.dart';
 
 @MaterialAutoRouter()
 class $Router {
@@ -17,7 +17,7 @@ class $Router {
 
   ExperiencePage experiencePage;
 
-  WorkPage workPage;
+  PortfolioPage portfolioPage;
 
   ResumePage resumePage;
 }

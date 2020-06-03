@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfoliosite/layout/adaptive.dart';
+import 'package:portfoliosite/core/layout/adaptive.dart';
 import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
 import 'package:portfoliosite/presentation/widgets/circular_container.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';

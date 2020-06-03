@@ -12,7 +12,7 @@ class MenuData {
 
 class Data {
   static  List<MenuData> menuList =  [
-    MenuData(title: StringConst.ABOUT, routeName: Routes.aboutPage),
+    MenuData(title: StringConst.ABOUT_ME, routeName: Routes.aboutPage),
     MenuData(title: StringConst.PORTFOLIO, routeName: Routes.portfolioPage),
     MenuData(title: StringConst.EXPERIENCE, routeName: Routes.experiencePage),
     MenuData(title: StringConst.CONTACT, routeName: Routes.contactPage),

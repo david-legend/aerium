@@ -6,12 +6,12 @@ import 'package:portfoliosite/presentation/widgets/menu_list.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
 
-class AboutPage extends StatefulWidget {
+class AboutPageDesktop extends StatefulWidget {
   @override
-  _AboutPageState createState() => _AboutPageState();
+  _AboutPageDesktopState createState() => _AboutPageDesktopState();
 }
 
-class _AboutPageState extends State<AboutPage> {
+class _AboutPageDesktopState extends State<AboutPageDesktop> {
   bool animate = false;
   int duration = 800;
   double widthOfImage;
@@ -57,7 +57,7 @@ class _AboutPageState extends State<AboutPage> {
                             (BuildContext context, double value, Widget child) {
                           return ContentWrapper(
                             width:
-                                assignWidth(context: context, fraction: value),
+                            assignWidth(context: context, fraction: value),
                             child: child,
                           );
                         },
@@ -69,7 +69,7 @@ class _AboutPageState extends State<AboutPage> {
                             (BuildContext context, double value, Widget child) {
                           return ContentWrapper(
                             width:
-                                assignWidth(context: context, fraction: value),
+                            assignWidth(context: context, fraction: value),
                             color: AppColors.grey100,
                             child: aboutPageContent(),
                           );
@@ -87,9 +87,9 @@ class _AboutPageState extends State<AboutPage> {
                   : assignHeight(context: context, fraction: 0.4),
               left: animate
                   ? (assignWidth(context: context, fraction: 0.3) -
-                      widthOfImage / 2)
+                  widthOfImage / 2)
                   : (assignWidth(context: context, fraction: 0.5) -
-                      widthOfImage / 2),
+                  widthOfImage / 2),
               child: Container(
                 child: TweenAnimationBuilder(
                   tween: Tween<double>(begin: 2, end: 1),
@@ -133,13 +133,13 @@ class _AboutPageState extends State<AboutPage> {
           Text(
             'subtitle goes here ',
             style:
-                theme.textTheme.bodyText1.copyWith(color: AppColors.bodyText1),
+            theme.textTheme.bodyText1.copyWith(color: AppColors.bodyText1),
           ),
           SpaceH16(),
           Text(
             StringConst.ABOUT_DEV_TEXT,
             style:
-                theme.textTheme.bodyText1.copyWith(color: AppColors.bodyText1),
+            theme.textTheme.bodyText1.copyWith(color: AppColors.bodyText1),
           ),
           SpaceH16(),
           Text('SKILLS GOES HERE'),

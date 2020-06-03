@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
 import 'package:portfoliosite/presentation/widgets/circular_container.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
+import 'package:portfoliosite/presentation/widgets/custom_app_bar.dart';
 import 'package:portfoliosite/presentation/widgets/portfolio_card.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
@@ -15,40 +16,22 @@ class _PortfolioPageMobileState extends State<PortfolioPageMobile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(StringConst.PORTFOLIO),
-        leading: IconButton(
-          padding: const EdgeInsets.symmetric(
-            horizontal: Sizes.PADDING_16,
-            vertical: Sizes.PADDING_8,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(56.0),
+        child: CustomAppBar(
+          title: StringConst.PORTFOLIO,
+          actionIcon: Icon(
+            Icons.email,
+            color: AppColors.deepBlue,
           ),
-          onPressed: () {},
-          icon: Icon(Icons.menu),
+          onLeadingPressed: () {},
+          onActionsPressed: () {},
         ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: Sizes.PADDING_16,
-              vertical: Sizes.PADDING_8,
-            ),
-            child: CircularContainer(
-              color: AppColors.grey100,
-              child: IconButton(
-                padding: const EdgeInsets.all(Sizes.PADDING_0),
-                icon: Icon(
-                  Icons.email,
-                  color: AppColors.deepBlue,
-                ),
-                onPressed: () {},
-              ),
-            ),
-          )
-        ],
       ),
       body: ContentWrapper(
         child: ListView.separated(
           padding: const EdgeInsets.symmetric(
-            horizontal: Sizes.PADDING_16,
+            horizontal: Sizes.PADDING_24,
             vertical: Sizes.PADDING_16,
           ),
           itemCount: 8,

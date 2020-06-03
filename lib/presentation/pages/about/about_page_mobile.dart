@@ -19,10 +19,6 @@ class _AboutPageMobileState extends State<AboutPageMobile> {
         preferredSize: Size.fromHeight(56.0),
         child: CustomAppBar(
           title: StringConst.ABOUT_ME,
-          actionIcon: Icon(
-            Icons.email,
-            color: AppColors.deepBlue,
-          ),
           onLeadingPressed: () {},
           onActionsPressed: () {},
         ),

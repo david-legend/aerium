@@ -5,7 +5,7 @@ import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/menu_list.dart';
 import 'package:portfoliosite/values/values.dart';
 
-class ContactPage extends StatelessWidget {
+class ContactPageDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

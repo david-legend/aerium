@@ -7,8 +7,13 @@ class StringConst {
   static const String ABOUT_ME = "About Me";
   static const String PORTFOLIO = "Portfolio";
   static const String EXPERIENCE = "Experience";
+  static const String SERVICES = "Services";
   static const String CONTACT = "Contact";
+  static const String PHONE_NUMBER = "Phone Number";
   static const String RESUME = "Resume";
+  static const String EMAIL = "E-MAIL";
+  static const String EMAIL_VALUE = "davidcobbina47@gmail.com";
+  static const String MESSAGE_ME = "Message me";
 
   static const String PROJECT_NAME = "Project Name";
 

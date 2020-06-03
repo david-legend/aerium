@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       builder: ExtendedNavigator<Router>(
         router: Router(),
-        initialRoute: Routes.aboutPage,
+        initialRoute: Routes.messagePage,
       ),
     );
   }

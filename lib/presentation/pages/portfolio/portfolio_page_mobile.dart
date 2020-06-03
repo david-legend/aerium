@@ -20,10 +20,6 @@ class _PortfolioPageMobileState extends State<PortfolioPageMobile> {
         preferredSize: Size.fromHeight(56.0),
         child: CustomAppBar(
           title: StringConst.PORTFOLIO,
-          actionIcon: Icon(
-            Icons.email,
-            color: AppColors.deepBlue,
-          ),
           onLeadingPressed: () {},
           onActionsPressed: () {},
         ),

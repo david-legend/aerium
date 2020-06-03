@@ -9,9 +9,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:portfoliosite/presentation/pages/home/home_page.dart';
 import 'package:portfoliosite/presentation/pages/about/about_page.dart';
-import 'package:portfoliosite/presentation/pages/contact_page.dart';
+import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/presentation/pages/experience_page.dart';
+import 'package:portfoliosite/presentation/pages/services/services_page.dart';
 import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
+import 'package:portfoliosite/presentation/pages/message/message_page.dart';
 import 'package:portfoliosite/presentation/pages/project_detail/project_detail.dart';
 import 'package:portfoliosite/presentation/pages/resume_page.dart';
 
@@ -20,7 +22,9 @@ abstract class Routes {
   static const aboutPage = '/about-page';
   static const contactPage = '/contact-page';
   static const experiencePage = '/experience-page';
+  static const servicesPage = '/services-page';
   static const portfolioPage = '/portfolio-page';
+  static const messagePage = '/message-page';
   static const projectDetailPage = '/project-detail-page';
   static const resumePage = '/resume-page';
   static const all = {
@@ -28,7 +32,9 @@ abstract class Routes {
     aboutPage,
     contactPage,
     experiencePage,
+    servicesPage,
     portfolioPage,
+    messagePage,
     projectDetailPage,
     resumePage,
   };
@@ -65,9 +71,19 @@ class Router extends RouterBase {
           builder: (context) => ExperiencePage(),
           settings: settings,
         );
+      case Routes.servicesPage:
+        return MaterialPageRoute<dynamic>(
+          builder: (context) => ServicesPage(),
+          settings: settings,
+        );
       case Routes.portfolioPage:
         return MaterialPageRoute<dynamic>(
           builder: (context) => PortfolioPage(),
+          settings: settings,
+        );
+      case Routes.messagePage:
+        return MaterialPageRoute<dynamic>(
+          builder: (context) => MessagePage(),
           settings: settings,
         );
       case Routes.projectDetailPage:

@@ -14,8 +14,12 @@ class ProjectDetailMobile extends StatelessWidget {
         preferredSize: Size.fromHeight(56.0),
         child: CustomAppBar(
           title: StringConst.PROJECT_NAME,
-          onLeadingPressed: (){},
-          onActionsPressed: (){},
+          actionIcon: Icon(
+            Icons.arrow_back_ios,
+            color: AppColors.deepBlue,
+          ),
+          onLeadingPressed: () {},
+          onActionsPressed: () {},
         ),
       ),
       body: ContentWrapper(

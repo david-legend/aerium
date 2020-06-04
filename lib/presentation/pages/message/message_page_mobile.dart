@@ -4,7 +4,12 @@ import 'package:portfoliosite/presentation/widgets/custom_text_form_field.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
 
-class MessagePageMobile extends StatelessWidget {
+class MessagePageMobile extends StatefulWidget {
+  @override
+  _MessagePageMobileState createState() => _MessagePageMobileState();
+}
+
+class _MessagePageMobileState extends State<MessagePageMobile> {
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
@@ -36,6 +41,7 @@ class MessagePageMobile extends StatelessWidget {
               ],
             ),
           ),
+          SpaceH16(),
           _buildForm(),
         ],
       ),
@@ -43,7 +49,8 @@ class MessagePageMobile extends StatelessWidget {
   }
 
   Widget _buildForm() {
-    Container(
+    ThemeData theme = Theme.of(context);
+    return Container(
       padding: const EdgeInsets.symmetric(
         horizontal: Sizes.PADDING_16,
 //        vertical: Sizes.PADDING_16,
@@ -53,22 +60,47 @@ class MessagePageMobile extends StatelessWidget {
           CustomTextFormField(
             filled: true,
             fillColor: AppColors.grey100,
+            hintText: StringConst.NAME_HINT_TEXT,
           ),
-          SpaceH8(),
+          SpaceH16(),
           CustomTextFormField(
             filled: true,
             fillColor: AppColors.grey100,
+            hintText: StringConst.PHONE_HINT_TEXT,
           ),
-          SpaceH8(),
+          SpaceH16(),
           CustomTextFormField(
             filled: true,
             fillColor: AppColors.grey100,
+            hintText: StringConst.EMAIL_HINT_TEXT,
           ),
-          SpaceH8(),
+          SpaceH16(),
           CustomTextFormField(
             filled: true,
             fillColor: AppColors.grey100,
+            hintText: StringConst.MESSAGE_HINT_TEXT,
+            maxLines: 12,
           ),
+          SpaceH40(),
+          FlatButton(
+              onPressed: () {},
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    StringConst.SEND_MESSAGE,
+                    style: theme.textTheme.headline6
+                        .copyWith(color: AppColors.grey100),
+                  ),
+                  SpaceW12(),
+                  CircularContainer(
+                    child: Icon(
+                      Icons.arrow_forward_ios,
+                      color: AppColors.deepBlue,
+                    ),
+                  )
+                ],
+              ))
         ],
       ),
     );

@@ -1,19 +1,28 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
+import 'package:portfoliosite/presentation/routes/router.gr.dart';
 import 'package:portfoliosite/presentation/widgets/circular_container.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
+
+import 'menu_item.dart';
 
 //TODO:: Add selected menu underline styles
 //TODO:: Add VK, INST to bottom of app drawer
 class AppDrawer extends StatelessWidget {
   AppDrawer({
+    @required this.menuList,
     this.color = AppColors.grey100,
     this.width,
+    this.selectedItemRouteName,
   });
 
   final Color color;
   final double width;
+  final String selectedItemRouteName;
+  final List<MenuData> menuList;
 
   @override
   Widget build(BuildContext context) {
@@ -52,24 +61,74 @@ class AppDrawer extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text('Menu 1', style: selectedStyle),
-                SpaceH16(),
-                Text('Menu 2', style: unSelectedStyle),
-                 SpaceH16(),
-                Text('Menu 3', style: unSelectedStyle),
-                 SpaceH16(),
-                Text('Menu 4', style: unSelectedStyle),
+                ..._buildMenuList(menuList),
+//                Text(
+//                  StringConst.ABOUT_ME,
+//                  style: selectedStyle,
+//                ),
+//                SpaceH16(),
+//                Text(StringConst.PORTFOLIO, style: unSelectedStyle),
+//                SpaceH16(),
+//                Text(StringConst.SERVICES, style: unSelectedStyle),
+//                SpaceH16(),
+//                Text(StringConst.CONTACT, style: unSelectedStyle),
+//                SpaceH16(),
+//                Text(StringConst.RESUME, style: unSelectedStyle),
               ],
             ),
             Spacer(flex: 1),
-            Row(
-              children: [
-
-              ],
-            )
+            _buildSocials(),
+            SpaceH44(),
           ],
         ),
       ),
     );
+  }
+
+  Widget _buildSocials() {
+    return IntrinsicHeight(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            FontAwesomeIcons.github,
+            color: AppColors.deepBlue,
+          ),
+          VerticalDivider(
+            width: Sizes.WIDTH_30,
+            thickness: 2,
+          ),
+          Icon(
+            FontAwesomeIcons.linkedin,
+            color: AppColors.deepBlue,
+          ),
+          VerticalDivider(
+            width: Sizes.WIDTH_30,
+            thickness: 2,
+          ),
+          Icon(
+            FontAwesomeIcons.twitter,
+            color: AppColors.deepBlue,
+          ),
+        ],
+      ),
+    );
+  }
+
+  List<Widget> _buildMenuList(List<MenuData> menuList) {
+    List<Widget> menuItems = [];
+    for (var i = 0; i < menuList.length; i++) {
+      menuItems.add(
+        MenuItem(
+          onTap: () => ExtendedNavigator.ofRouter<Router>()
+              .pushNamed(menuList[i].routeName),
+          title: menuList[i].title,
+          isMobile: true,
+          selected: selectedItemRouteName == menuList[i].routeName ? true : false,
+        ),
+      );
+      menuItems.add(SpaceH16());
+    }
+    return menuItems;
   }
 }

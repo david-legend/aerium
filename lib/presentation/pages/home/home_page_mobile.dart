@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
+import 'package:portfoliosite/presentation/routes/router.gr.dart';
 import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
 import 'package:portfoliosite/presentation/widgets/circular_container.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
+import 'package:portfoliosite/presentation/widgets/horizontal_bar.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
 
@@ -19,11 +22,15 @@ class _HomePageMobileState extends State<HomePageMobile> {
     ThemeData theme = Theme.of(context);
     return Scaffold(
       key: _scaffoldKey,
-      drawer: AppDrawer(),
+      drawer: AppDrawer(
+        menuList: Data.menuList,
+        selectedItemRouteName: Routes.aboutPage,
+      ),
       body: Container(
         child: SafeArea(
           child: Stack(
             children: [
+
               Column(
                 children: [
                   Row(
@@ -96,6 +103,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
               ),
               _buildAppBar(),
               _buildDevImage(),
+              _buildSocials(),
             ],
           ),
         ),
@@ -142,6 +150,28 @@ class _HomePageMobileState extends State<HomePageMobile> {
         width: assignWidth(context: context, fraction: 0.6),
         height: assignHeight(context: context, fraction: 1),
         fit: BoxFit.cover,
+      ),
+    );
+  }
+
+  Widget _buildSocials() {
+    return Positioned(
+      right: 16,
+      bottom: 30,
+      child: Column(
+        children: [
+          Icon(FontAwesomeIcons.github),
+          HorizontalBar(
+            width: Sizes.WIDTH_40,
+            margin: EdgeInsets.symmetric(vertical: 8),
+          ),
+          Icon(FontAwesomeIcons.linkedin),
+          HorizontalBar(
+            width: Sizes.WIDTH_40,
+            margin: EdgeInsets.symmetric(vertical: 8),
+          ),
+          Icon(FontAwesomeIcons.twitter,),
+        ],
       ),
     );
   }

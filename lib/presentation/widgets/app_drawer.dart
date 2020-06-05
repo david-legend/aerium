@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
 import 'package:portfoliosite/presentation/routes/router.gr.dart';
 import 'package:portfoliosite/presentation/widgets/circular_container.dart';
+import 'package:portfoliosite/presentation/widgets/socials.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
 
@@ -62,22 +63,10 @@ class AppDrawer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 ..._buildMenuList(menuList),
-//                Text(
-//                  StringConst.ABOUT_ME,
-//                  style: selectedStyle,
-//                ),
-//                SpaceH16(),
-//                Text(StringConst.PORTFOLIO, style: unSelectedStyle),
-//                SpaceH16(),
-//                Text(StringConst.SERVICES, style: unSelectedStyle),
-//                SpaceH16(),
-//                Text(StringConst.CONTACT, style: unSelectedStyle),
-//                SpaceH16(),
-//                Text(StringConst.RESUME, style: unSelectedStyle),
               ],
             ),
             Spacer(flex: 1),
-            _buildSocials(),
+            Socials(isHorizontal: true),
             SpaceH44(),
           ],
         ),
@@ -85,35 +74,6 @@ class AppDrawer extends StatelessWidget {
     );
   }
 
-  Widget _buildSocials() {
-    return IntrinsicHeight(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            FontAwesomeIcons.github,
-            color: AppColors.deepBlue,
-          ),
-          VerticalDivider(
-            width: Sizes.WIDTH_30,
-            thickness: 2,
-          ),
-          Icon(
-            FontAwesomeIcons.linkedin,
-            color: AppColors.deepBlue,
-          ),
-          VerticalDivider(
-            width: Sizes.WIDTH_30,
-            thickness: 2,
-          ),
-          Icon(
-            FontAwesomeIcons.twitter,
-            color: AppColors.deepBlue,
-          ),
-        ],
-      ),
-    );
-  }
 
   List<Widget> _buildMenuList(List<MenuData> menuList) {
     List<Widget> menuItems = [];

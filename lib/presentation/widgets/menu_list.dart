@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/presentation/routes/router.gr.dart';
 import 'package:portfoliosite/presentation/widgets/menu_item.dart';
+import 'package:portfoliosite/presentation/widgets/socials.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
 
@@ -22,6 +23,11 @@ class MenuList extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         ..._buildMenuList(menuList),
+
+        Spacer(
+          flex: 1,
+        ),
+        Socials(isVertical: true, crossAxisAlignment: CrossAxisAlignment.start),
         Spacer(
           flex: 1,
         ),

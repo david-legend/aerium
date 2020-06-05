@@ -6,6 +6,7 @@ import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
 import 'package:portfoliosite/presentation/widgets/circular_container.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/horizontal_bar.dart';
+import 'package:portfoliosite/presentation/widgets/socials.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
 
@@ -30,7 +31,6 @@ class _HomePageMobileState extends State<HomePageMobile> {
         child: SafeArea(
           child: Stack(
             children: [
-
               Column(
                 children: [
                   Row(
@@ -158,21 +158,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
     return Positioned(
       right: 16,
       bottom: 30,
-      child: Column(
-        children: [
-          Icon(FontAwesomeIcons.github),
-          HorizontalBar(
-            width: Sizes.WIDTH_40,
-            margin: EdgeInsets.symmetric(vertical: 8),
-          ),
-          Icon(FontAwesomeIcons.linkedin),
-          HorizontalBar(
-            width: Sizes.WIDTH_40,
-            margin: EdgeInsets.symmetric(vertical: 8),
-          ),
-          Icon(FontAwesomeIcons.twitter,),
-        ],
-      ),
+      child: Socials(isVertical: true, crossAxisAlignment: CrossAxisAlignment.end,),
     );
   }
 }

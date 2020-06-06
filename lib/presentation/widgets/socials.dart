@@ -54,7 +54,7 @@ class Socials extends StatelessWidget {
               children: [
                 Icon(
                   FontAwesomeIcons.github,
-                  color: color ?? AppColors.deepBlue,
+                  color: color ?? AppColors.deepBlue300,
                 ),
                 VerticalDivider(
                   width: Sizes.WIDTH_30,
@@ -62,7 +62,7 @@ class Socials extends StatelessWidget {
                 ),
                 Icon(
                   FontAwesomeIcons.linkedin,
-                  color: color ?? AppColors.deepBlue,
+                  color: color ?? AppColors.deepBlue300,
                 ),
                 VerticalDivider(
                   width: Sizes.WIDTH_30,
@@ -70,7 +70,7 @@ class Socials extends StatelessWidget {
                 ),
                 Icon(
                   FontAwesomeIcons.twitter,
-                  color: color ?? AppColors.deepBlue,
+                  color: color ?? AppColors.deepBlue300,
                 ),
               ],
             ),

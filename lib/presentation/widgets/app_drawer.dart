@@ -29,7 +29,7 @@ class AppDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     TextStyle selectedStyle = theme.textTheme.headline4.copyWith(
-      color: AppColors.deepBlue,
+      color: AppColors.deepBlue300,
     );
     TextStyle unSelectedStyle = theme.textTheme.headline5.copyWith(
       color: AppColors.grey200,
@@ -52,7 +52,7 @@ class AppDrawer extends StatelessWidget {
                     child: Icon(
                       Icons.close,
                       size: Sizes.ICON_SIZE_20,
-                      color: AppColors.deepBlue,
+                      color: AppColors.deepBlue300,
                     ),
                   ),
                 ],

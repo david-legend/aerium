@@ -64,7 +64,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                                       StringConst.SPECIALITY,
                                       style: theme.textTheme.headline6.copyWith(
                                         letterSpacing: 4,
-                                        color: AppColors.deepBlue,
+                                        color: AppColors.deepBlue300,
                                       ),
                                     ),
                                   ],
@@ -73,13 +73,28 @@ class _HomePageMobileState extends State<HomePageMobile> {
                               Spacer(flex: 1),
                               Container(
                                 padding: const EdgeInsets.only(left: 24.0),
-                                child: CircularContainer(
-                                  width: 28,
-                                  height: 28,
-                                  child: Icon(
-                                    Icons.keyboard_arrow_down,
-                                    color: AppColors.deepBlue,
-                                  ),
+                                child: Column(
+                                  children: [
+                                    RotatedBox(
+                                      quarterTurns: 3,
+                                      child: Text(
+                                        StringConst.VIEW_PORTFOLIO,
+                                        textAlign: TextAlign.end,
+                                        style: TextStyle(
+                                          color: AppColors.grey400,
+                                        ),
+                                      ),
+                                    ),
+                                    SpaceH12(),
+                                    CircularContainer(
+                                      width: Sizes.WIDTH_24,
+                                      height: Sizes.HEIGHT_24,
+                                      child: Icon(
+                                        Icons.keyboard_arrow_down,
+                                        color: AppColors.deepBlue300,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                               SizedBox(
@@ -134,7 +149,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
             color: AppColors.grey300,
             child: Icon(
               Icons.email,
-              color: AppColors.deepBlue,
+              color: AppColors.deepBlue300,
             ),
           ),
         ],
@@ -158,7 +173,10 @@ class _HomePageMobileState extends State<HomePageMobile> {
     return Positioned(
       right: 16,
       bottom: 30,
-      child: Socials(isVertical: true, crossAxisAlignment: CrossAxisAlignment.end,),
+      child: Socials(
+        isVertical: true,
+        crossAxisAlignment: CrossAxisAlignment.end,
+      ),
     );
   }
 }

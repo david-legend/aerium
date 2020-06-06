@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/values/values.dart';
 
+import 'package:portfoliosite/core/extensions/hover_extensions.dart';
+
 class CircularContainer extends StatelessWidget {
   CircularContainer({
     this.child,
@@ -26,6 +28,6 @@ class CircularContainer extends StatelessWidget {
         borderRadius: borderRadius ?? BorderRadius.circular(Sizes.RADIUS_60)
       ),
       child: child,
-    );
+    ).showCursorOnHover;
   }
 }

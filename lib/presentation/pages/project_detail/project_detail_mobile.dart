@@ -16,7 +16,7 @@ class ProjectDetailMobile extends StatelessWidget {
           title: StringConst.PROJECT_NAME,
           actionIcon: Icon(
             Icons.arrow_back_ios,
-            color: AppColors.deepBlue,
+            color: AppColors.deepBlue300,
           ),
           onLeadingPressed: () {},
           onActionsPressed: () {},

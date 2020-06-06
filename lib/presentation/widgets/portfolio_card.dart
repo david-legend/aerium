@@ -65,7 +65,7 @@ class _PortfolioCardState extends State<PortfolioCard> {
                     child: Container(
                       width: widget.width,
                       height: widget.height,
-                      color: AppColors.deepBlue,
+                      color: AppColors.deepBlue300,
                       child: Column(
                         children: [
                           Spacer(flex: 1),

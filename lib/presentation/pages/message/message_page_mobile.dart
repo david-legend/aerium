@@ -15,7 +15,7 @@ class _MessagePageMobileState extends State<MessagePageMobile> {
     ThemeData theme = Theme.of(context);
 
     return Scaffold(
-      backgroundColor: AppColors.deepBlue100,
+      backgroundColor: AppColors.deepBlue700,
       body: ListView(
         children: [
           Container(
@@ -35,7 +35,7 @@ class _MessagePageMobileState extends State<MessagePageMobile> {
                 CircularContainer(
                   child: Icon(
                     Icons.close,
-                    color: AppColors.deepBlue,
+                    color: AppColors.deepBlue300,
                   ),
                 )
               ],
@@ -96,7 +96,7 @@ class _MessagePageMobileState extends State<MessagePageMobile> {
                   CircularContainer(
                     child: Icon(
                       Icons.arrow_forward_ios,
-                      color: AppColors.deepBlue,
+                      color: AppColors.deepBlue300,
                     ),
                   )
                 ],

@@ -119,7 +119,7 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop> {
             onPressed: () {},
             icon: Icon(
               Icons.mail,
-              color: AppColors.deepBlue,
+              color: AppColors.deepBlue300,
             ),
           ),
         ),
@@ -136,7 +136,7 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop> {
           onPressed: () {},
           icon: Icon(
             Icons.keyboard_arrow_down,
-            color: AppColors.deepBlue,
+            color: AppColors.deepBlue300,
           ),
         )
       ],

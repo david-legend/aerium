@@ -42,7 +42,7 @@ class MenuList extends StatelessWidget {
           StringConst.SPECIALITY,
           style: theme.textTheme.headline6.copyWith(
             letterSpacing: 4,
-            color: AppColors.deepBlue,
+            color: AppColors.deepBlue300,
           ),
         ),
       ],

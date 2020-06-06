@@ -15,8 +15,10 @@ class AppColors {
   static const Color cream = Color(0xFFEBEBEC);
 //  static const Color cream = Color(0xFFC7C8CA);
 
-  static const Color deepBlue = Color(0xFF3E5067);
-  static const Color deepBlue100 = Color(0xFF141A21);
+  static const Color deepBlue100 = Color(0xFF5F6E80);
+  static const Color deepBlue200 = Color(0xFF546478);
+  static const Color deepBlue300 = Color(0xFF3E5067);
+  static const Color deepBlue700 = Color(0xFF141A21);
 
   static const Color bodyText1 = Color(0xFF8393A1);
 

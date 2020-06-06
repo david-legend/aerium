@@ -29,7 +29,7 @@ class ProjectCover extends StatelessWidget {
             child: Container(
               width: width - offset,
               height: height -offset,
-              color: AppColors.deepBlue,
+              color: AppColors.deepBlue300,
             ),
           ),
           Positioned(

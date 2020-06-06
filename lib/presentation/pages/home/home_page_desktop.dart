@@ -1,8 +1,13 @@
+
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
+import 'package:portfoliosite/presentation/widgets/circular_container.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/menu_list.dart';
+import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
+
+import 'package:portfoliosite/core/extensions/hover_extensions.dart';
 
 class HomePageDesktop extends StatelessWidget {
   @override
@@ -28,7 +33,7 @@ class HomePageDesktop extends StatelessWidget {
                       children: <Widget>[
                         ContentWrapper(
                           width: assignWidth(context: context, fraction: 0.5),
-                          gradient:  Gradients.primaryGradient,
+                          gradient: Gradients.primaryGradient,
                           child: Container(
                             margin: EdgeInsets.only(
                               left: Sizes.MARGIN_20,
@@ -43,6 +48,70 @@ class HomePageDesktop extends StatelessWidget {
                         ContentWrapper(
                           width: assignWidth(context: context, fraction: 0.5),
                           color: AppColors.grey100,
+                          child: Container(
+                            margin: EdgeInsets.only(
+                              top: Sizes.MARGIN_30,
+                              right: Sizes.MARGIN_30,
+                              bottom: Sizes.MARGIN_20,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      StringConst.SEND_ME_A_MESSAGE,
+                                      style: theme.textTheme.bodyText1.copyWith(
+                                        color: AppColors.deepBlue100,
+                                      ),
+                                    ),
+                                    SpaceW8(),
+                                    CircularContainer(
+                                      width: Sizes.WIDTH_24,
+                                      height: Sizes.HEIGHT_24,
+                                      color: AppColors.grey300,
+                                      child: Icon(
+                                        Icons.add,
+                                        color: AppColors.deepBlue200,
+                                        size: Sizes.ICON_SIZE_20,
+                                      ),
+                                    )
+                                  ],
+                                ).showCursorOnHover,
+                                Spacer(flex: 1),
+                                RotatedBox(
+                                  quarterTurns: 1,
+                                  child: Text(
+                                    StringConst.DEV_EMAIL,
+                                    textAlign: TextAlign.end,
+                                    style: TextStyle(
+                                      color: AppColors.grey400,
+                                    ),
+                                  ),
+                                ),
+                                Spacer(flex: 1),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      StringConst.VIEW_PORTFOLIO,
+                                      style: theme.textTheme.bodyText1.copyWith(
+                                        color: AppColors.deepBlue100,
+                                      ),
+                                    ),
+                                    SpaceW8(),
+                                    CircularContainer(
+                                      color: Color(0xFF242D36),
+                                      width: Sizes.WIDTH_24,
+                                      height: Sizes.HEIGHT_24,
+                                      child: Icon(Icons.chevron_right),
+                                    )
+                                  ],
+                                ).showCursorOnHover,
+                              ],
+                            ),
+                          ),
                         )
                       ],
                     )

@@ -13,13 +13,17 @@ class StringConst {
   static const String RESUME = "Resume";
   static const String EMAIL = "E-MAIL";
   static const String EMAIL_VALUE = "davidcobbina47@gmail.com";
+
   static const String MESSAGE_ME = "Message me";
+  static const String SEND_ME_A_MESSAGE = "Send me a message";
+  static const String VIEW_PORTFOLIO = "View Portfolio";
 
   static const String PROJECT_NAME = "Project Name";
 
 
 
   static const String DEV_NAME = "DAVID COBBINA";
+  static const String DEV_EMAIL = "davidcobbina47@gmail.com";
   static const String SPECIALITY = "FLUTTER DEV";
 
 //  static const String CONTACT_NO = "+(233) 549-546-867 ";

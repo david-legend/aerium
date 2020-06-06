@@ -18,7 +18,7 @@ class ContactPageMobile extends StatelessWidget {
       ),
       body: Container(
         height: assignHeight(context: context, fraction: 0.4),
-        color: AppColors.deepBlue100,
+        color: AppColors.deepBlue700,
         child: ListView(
           children: [
             Text(StringConst.PHONE_NUMBER),

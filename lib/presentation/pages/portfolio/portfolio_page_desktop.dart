@@ -8,8 +8,10 @@ import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/menu_list.dart';
 import 'package:portfoliosite/presentation/widgets/portfolio_card.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
+import 'package:portfoliosite/presentation/widgets/trailing_info.dart';
 import 'package:portfoliosite/values/values.dart';
 
+//TODO:: Add the proper trailing widget for the trailinginfo widget
 class PortfolioPageDesktop extends StatefulWidget {
   @override
   _PortfolioPageDesktopState createState() => _PortfolioPageDesktopState();
@@ -75,11 +77,18 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop> {
                                   ),
                                   child: _buildPortfolioGallery(),
                                 ),
-//                                Container(
-//                                  width: assignWidth(
-//                                      context: context, fraction: 0.09),
-//                                  child: _contactColumn(),
-//                                ),
+                                SizedBox(
+                                  width: assignWidth(
+                                    context: context,
+                                    fraction: 0.05,
+                                  ),
+                                ),
+                                TrailingInfo(
+                                  width: assignWidth(
+                                    context: context,
+                                    fraction: 0.05,
+                                  ),
+                                ),
                               ],
                             ),
                           );
@@ -97,7 +106,7 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop> {
   }
 
   Widget _buildPortfolioGallery() {
-    List<int> fixedLengthList =  List(8);
+    List<int> fixedLengthList = List(8);
     return ListView(
       children: [
         Wrap(
@@ -110,38 +119,6 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop> {
     );
   }
 
-  Widget _contactColumn() {
-    return Column(
-      children: [
-        CircularContainer(
-          color: AppColors.grey300,
-          child: IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.mail,
-              color: AppColors.deepBlue300,
-            ),
-          ),
-        ),
-        Spacer(flex: 1),
-        Transform.rotate(
-          angle: 90 * (pi / 180),
-          child: Text(
-            StringConst.CONTACT_NO,
-            style: TextStyle(color: AppColors.grey400, fontSize: 20),
-          ),
-        ),
-        Spacer(flex: 1),
-        IconButton(
-          onPressed: () {},
-          icon: Icon(
-            Icons.keyboard_arrow_down,
-            color: AppColors.deepBlue300,
-          ),
-        )
-      ],
-    );
-  }
 
   List<Widget> hu(List portfolios) {
     List<Widget> widgets = [];

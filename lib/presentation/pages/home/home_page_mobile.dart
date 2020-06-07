@@ -159,10 +159,10 @@ class _HomePageMobileState extends State<HomePageMobile> {
 
   Widget _buildDevImage() {
     return Positioned(
-      right: 0,
+      left: assignWidth(context: context, fraction: 0.2),
       child: Image.asset(
         ImagePath.DEV,
-        width: assignWidth(context: context, fraction: 0.6),
+        width: assignWidth(context: context, fraction: 1),
         height: assignHeight(context: context, fraction: 1),
         fit: BoxFit.cover,
       ),

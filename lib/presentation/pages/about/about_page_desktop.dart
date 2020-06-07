@@ -4,6 +4,7 @@ import 'package:portfoliosite/presentation/routes/router.gr.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/menu_list.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
+import 'package:portfoliosite/presentation/widgets/trailing_info.dart';
 import 'package:portfoliosite/values/values.dart';
 
 class AboutPageDesktop extends StatefulWidget {
@@ -57,7 +58,8 @@ class _AboutPageDesktopState extends State<AboutPageDesktop> {
                             (BuildContext context, double value, Widget child) {
                           return ContentWrapper(
                             width:
-                            assignWidth(context: context, fraction: value),
+                                assignWidth(context: context, fraction: value),
+                            gradient: Gradients.primaryGradient,
                             child: child,
                           );
                         },
@@ -69,9 +71,27 @@ class _AboutPageDesktopState extends State<AboutPageDesktop> {
                             (BuildContext context, double value, Widget child) {
                           return ContentWrapper(
                             width:
-                            assignWidth(context: context, fraction: value),
+                                assignWidth(context: context, fraction: value),
                             color: AppColors.grey100,
-                            child: aboutPageContent(),
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: assignWidth(
+                                      context: context, fraction: 0.60),
+                                  child: aboutPageContent(),
+                                ),
+                                SizedBox(
+                                  width: assignWidth(
+                                    context: context,
+                                    fraction: 0.05,
+                                  ),
+                                ),
+                                TrailingInfo(
+                                  width: assignWidth(
+                                      context: context, fraction: 0.05),
+                                ),
+                              ],
+                            ),
                           );
                         },
                       ),
@@ -87,9 +107,9 @@ class _AboutPageDesktopState extends State<AboutPageDesktop> {
                   : assignHeight(context: context, fraction: 0.4),
               left: animate
                   ? (assignWidth(context: context, fraction: 0.3) -
-                  widthOfImage / 2)
+                      widthOfImage / 2)
                   : (assignWidth(context: context, fraction: 0.5) -
-                  widthOfImage / 2),
+                      widthOfImage / 2),
               child: Container(
                 child: TweenAnimationBuilder(
                   tween: Tween<double>(begin: 2, end: 1),
@@ -133,13 +153,13 @@ class _AboutPageDesktopState extends State<AboutPageDesktop> {
           Text(
             'subtitle goes here ',
             style:
-            theme.textTheme.bodyText1.copyWith(color: AppColors.bodyText1),
+                theme.textTheme.bodyText1.copyWith(color: AppColors.bodyText1),
           ),
           SpaceH16(),
           Text(
             StringConst.ABOUT_DEV_TEXT,
             style:
-            theme.textTheme.bodyText1.copyWith(color: AppColors.bodyText1),
+                theme.textTheme.bodyText1.copyWith(color: AppColors.bodyText1),
           ),
           SpaceH16(),
           Text('SKILLS GOES HERE'),

@@ -145,6 +145,7 @@ class Sizes {
   static const double PADDING_40 = 40.0;
   static const double PADDING_36 = 36.0;
   static const double PADDING_32 = 32.0;
+  static const double PADDING_30 = 30.0;
   static const double PADDING_24 = 24.0;
   static const double PADDING_22 = 22.0;
   static const double PADDING_20 = 20.0;

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:portfoliosite/presentation/widgets/horizontal_bar.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
 
 import 'package:portfoliosite/core/extensions/hover_extensions.dart';
+
+import 'flicker_text_animation.dart';
 
 class MenuItem extends StatefulWidget {
   MenuItem({
@@ -26,26 +29,26 @@ class MenuItem extends StatefulWidget {
   _MenuItemState createState() => _MenuItemState();
 }
 
-class _MenuItemState extends State<MenuItem>
-    with SingleTickerProviderStateMixin {
+class _MenuItemState extends State<MenuItem> with TickerProviderStateMixin {
   bool _hovering = false;
-  Animation<Color> _animation;
   AnimationController _controller;
 
   @override
   void initState() {
     _controller = AnimationController(
-        duration: const Duration(milliseconds: 200), vsync: this);
-
-    final CurvedAnimation curve =
-        CurvedAnimation(parent: _controller, curve: Curves.bounceInOut);
-
-    _animation = ColorTween(begin: AppColors.grey200, end: Color(0xFF7B8186))
-        .animate(curve);
-
-    _animation.addListener(_showAnimationOnHover);
-
+      duration: const Duration(milliseconds: 2000),
+      vsync: this,
+    );
     super.initState();
+  }
+
+  Future<void> _playAnimation() async {
+    try {
+      await _controller.forward().orCancel;
+      await _controller.reverse().orCancel;
+    } on TickerCanceled {
+      // the animation got canceled, probably because it was disposed of
+    }
   }
 
   @override
@@ -56,20 +59,13 @@ class _MenuItemState extends State<MenuItem>
 
   void _showAnimationOnHover() {
     if (_hovering) {
-      _controller.forward();
-      _animation.addStatusListener((status) {
-        if (status == AnimationStatus.completed) {
-          _controller.reverse();
-        } else if (status == AnimationStatus.dismissed) {
-          _controller.reverse();
-        }
-//      setState(() {});
-      });
+      _playAnimation();
     }
   }
 
   @override
   Widget build(BuildContext context) {
+//    timeDilation = 10.0;
     ThemeData theme = Theme.of(context);
 
     TextStyle menuTextStyle = theme.textTheme.bodyText1.copyWith(
@@ -87,50 +83,51 @@ class _MenuItemState extends State<MenuItem>
       onExit: (e) => _mouseEnter(false),
       child: InkWell(
         onTap: widget.onTap,
-        child: AnimatedBuilder(
-          animation: _animation,
-          builder: (BuildContext context, Widget child) {
-            return Container(
-              child: !widget.isMobile
-                  ? Row(
-                      children: [
-                        widget.selected
-                            ? Container(
-                                width: 2,
-                                height: 18,
-                                color: AppColors.grey,
-                              )
-                            : Container(),
-                        widget.selected ? SpaceW12() : Container(),
-                        Text(widget.title,
-                            style: TextStyle(
-                              color: _animation.value,
-                            )
-//                          widget.selected
-//                              ? (widget.selectedStyle ?? menuTextStyle)
-//                              : (widget.titleStyle ?? menuTextStyle),
-                            ),
-                      ],
-                    )
-                  : //This menuList shows only on mobile
-                  Column(
-                      children: [
-                        Text(
-                          widget.title,
-                          style: widget.selected
-                              ? (widget.selectedStyle ?? selectedMenuTextStyle)
-                              : (widget.titleStyle ?? menuTextStyle),
-                        ),
-                        widget.selected ? SpaceH8() : Container(),
-                        widget.selected
-                            ? HorizontalBar(
-                                color: AppColors.deepBlue300,
-                              )
-                            : Container(),
-                      ],
+        child: Container(
+          child: !widget.isMobile
+              ? Row(
+                  children: [
+                    widget.selected
+                        ? Container(
+                            width: 2,
+                            height: 18,
+                            color: AppColors.grey,
+                          )
+                        : Container(),
+                    widget.selected ? SpaceW12() : Container(),
+                    FlickerTextAnimation(
+                      text: widget.title,
+                      textColor: AppColors.grey200,
+                      fadeInColor: AppColors.fadedGrey,
+                      controller: _controller.view,
                     ),
-            );
-          },
+//                        Text(widget.title,
+//                            style: TextStyle(
+//                              color: _animation.value,
+//                            )
+////                          widget.selected
+////                              ? (widget.selectedStyle ?? menuTextStyle)
+////                              : (widget.titleStyle ?? menuTextStyle),
+//                            ),
+                  ],
+                )
+              : //This menuList shows only on mobile
+              Column(
+                  children: [
+                    Text(
+                      widget.title,
+                      style: widget.selected
+                          ? (widget.selectedStyle ?? selectedMenuTextStyle)
+                          : (widget.titleStyle ?? menuTextStyle),
+                    ),
+                    widget.selected ? SpaceH8() : Container(),
+                    widget.selected
+                        ? HorizontalBar(
+                            color: AppColors.deepBlue300,
+                          )
+                        : Container(),
+                  ],
+                ),
         ),
       ),
     ).showCursorOnHover;
@@ -142,4 +139,22 @@ class _MenuItemState extends State<MenuItem>
     });
     _showAnimationOnHover();
   }
+
+//  List<Widget> rotatedText(String title, int quarterTurns) {
+//    List<Widget> text = [];
+//    for (var i = 0; i < title.length; i++) {
+//      text.add(
+//        RotatedBox(
+//          quarterTurns: quarterTurns,
+//          child: Text(
+//            title[i],
+//            style: TextStyle(
+//              color: AppColors.grey100,
+//            ),
+//          ),
+//        ),
+//      );
+//    }
+//    return text;
+//  }
 }

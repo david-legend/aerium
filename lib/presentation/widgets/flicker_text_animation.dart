@@ -1,14 +1,18 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/values/values.dart';
 
-class FlickerTextAnimation extends StatelessWidget {
+class FlickerTextAnimation extends StatefulWidget {
   FlickerTextAnimation({
     Key key,
     this.controller,
     this.textColor,
     this.fadeInColor,
-    this.text
-  })  : color = Tween<Color>(
+    this.text,
+    this.textStyle,
+    this.fontSize = Sizes.TEXT_SIZE_16,
+  })  : color = ColorTween(
           begin: textColor,
           end: fadeInColor,
         ).animate(
@@ -16,64 +20,74 @@ class FlickerTextAnimation extends StatelessWidget {
             parent: controller,
             curve: Interval(
               0.0,
-              1.0,
-              curve: Curves.ease,
+              0.1,
+              curve: Curves.easeIn,
             ),
           ),
         ),
-//        quarterTurns = Tween<int>(
-//          begin: 0,
-//          end: 2,
-//        ).animate(
-//          CurvedAnimation(
-//            parent: controller,
-//            curve: Interval(
-//              0.0,
-//              0.250,
-//              curve: Curves.ease,
-//            ),
-//          ),
-//        ),
-//        rectifyQuarterTurns = Tween<int>(
-//          begin: 2,
-//          end: 0,
-//        ).animate(
-//          CurvedAnimation(
-//            parent: controller,
-//            curve: Interval(
-//              0.250,
-//              0.500,
-//              curve: Curves.ease,
-//            ),
-//          ),
-//        ),
+        title = IntTween(
+          begin: (Random().nextDouble() * pow(10, text.length)).toInt(),
+          end: (Random().nextDouble() * pow(10, text.length)).toInt(),
+        ).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(
+              0.0,
+              1,
+              curve: Curves.easeIn,
+            ),
+          ),
+        ),
         super(key: key);
+
   final Animation<double> controller;
   final Animation<Color> color;
-//  final Animation<int> quarterTurns;
-//  final Animation<int> rectifyQuarterTurns;
+  final Animation<int> title;
   final Color textColor;
   final Color fadeInColor;
   final String text;
+  final double fontSize;
+  final TextStyle textStyle;
+
+  @override
+  _FlickerTextAnimationState createState() => _FlickerTextAnimationState();
+}
+
+class _FlickerTextAnimationState extends State<FlickerTextAnimation> {
+  bool isAnimating = false;
+
+  @override
+  void initState() {
+    widget.controller.addStatusListener((status) {
+      if (status == AnimationStatus.forward) {
+        setState(() {
+          isAnimating = true;
+        });
+      }
+      if (status == AnimationStatus.completed) {
+        setState(() {
+          isAnimating = false;
+        });
+      }
+    });
+
+    super.initState();
+  }
 
   Widget _buildAnimation(BuildContext context, Widget child) {
+    ThemeData theme = Theme.of(context);
     return Container(
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          RotatedBox(
-            quarterTurns: 0,
-            child: Text(
-              text,
-              style: TextStyle(
-//                color: color.value,
-              ),
-            ),
+          Text(
+            isAnimating ? widget.title.value.toString() : widget.text,
+            style: widget.textStyle ??
+                theme.textTheme.bodyText1.copyWith(
+                  color: widget.color.value,
+                  fontSize: widget.fontSize,
+                ),
           )
-//          ...rotatedText(
-//            title: text,
-//            quarterTurns: 0, //quarterTurns.value,
-//            textColor: color.value,
-//          )
         ],
       ),
     );
@@ -83,25 +97,7 @@ class FlickerTextAnimation extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       builder: _buildAnimation,
-      animation: controller,
+      animation: widget.controller,
     );
-  }
-
-  List<Widget> rotatedText({String title, int quarterTurns, Color textColor}) {
-    List<Widget> text = [];
-    for (var i = 0; i < title.length; i++) {
-      text.add(
-        RotatedBox(
-          quarterTurns: quarterTurns,
-          child: Text(
-            title[i],
-            style: TextStyle(
-              color: textColor,
-            ),
-          ),
-        ),
-      );
-    }
-    return text;
   }
 }

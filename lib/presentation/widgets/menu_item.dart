@@ -36,7 +36,7 @@ class _MenuItemState extends State<MenuItem> with TickerProviderStateMixin {
   @override
   void initState() {
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 2000),
+      duration: const Duration(milliseconds: 300),
       vsync: this,
     );
     super.initState();
@@ -65,7 +65,6 @@ class _MenuItemState extends State<MenuItem> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-//    timeDilation = 10.0;
     ThemeData theme = Theme.of(context);
 
     TextStyle menuTextStyle = theme.textTheme.bodyText1.copyWith(
@@ -87,6 +86,7 @@ class _MenuItemState extends State<MenuItem> with TickerProviderStateMixin {
           child: !widget.isMobile
               ? Row(
                   children: [
+
                     widget.selected
                         ? Container(
                             width: 2,
@@ -100,14 +100,15 @@ class _MenuItemState extends State<MenuItem> with TickerProviderStateMixin {
                       textColor: AppColors.grey200,
                       fadeInColor: AppColors.fadedGrey,
                       controller: _controller.view,
+//                      textStyle:  widget.selected
+//                              ? (widget.selectedStyle ?? menuTextStyle)
+//                              : (widget.titleStyle ?? menuTextStyle),
                     ),
 //                        Text(widget.title,
-//                            style: TextStyle(
-//                              color: _animation.value,
-//                            )
-////                          widget.selected
-////                              ? (widget.selectedStyle ?? menuTextStyle)
-////                              : (widget.titleStyle ?? menuTextStyle),
+//                            style:
+//                          widget.selected
+//                              ? (widget.selectedStyle ?? menuTextStyle)
+//                              : (widget.titleStyle ?? menuTextStyle),
 //                            ),
                   ],
                 )

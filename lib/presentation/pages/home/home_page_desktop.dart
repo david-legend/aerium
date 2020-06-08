@@ -52,6 +52,7 @@ class HomePageDesktop extends StatelessWidget {
                             leadingWidget: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
+
                                   Text(
                                     StringConst.SEND_ME_A_MESSAGE,
                                     style: theme.textTheme.bodyText1.copyWith(

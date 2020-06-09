@@ -15,6 +15,11 @@ class StringConst {
   static const String EMAIL_VALUE = "davidcobbina47@gmail.com";
 
   static const String MESSAGE_ME = "Message me";
+
+  static const String KEY_SKILLS = "KEY SKILLS";
+  static const String EXPERIENCE_2 = "EXPERIENCE";
+  static const String EDUCATION = "EDUCATION";
+
   static const String SEND_ME_A_MESSAGE = "Send me a message";
   static const String VIEW_PORTFOLIO = "View Portfolio";
 
@@ -40,6 +45,19 @@ class StringConst {
 
 
   static const String SEND_MESSAGE = "Send Message";
+
+
+  //Skills
+  static const String FLUTTER = "Flutter";
+  static const String JAVA_ANDROID = "Java Android";
+  static const String KOTLIN = "Kotlin";
+  static const String JAVASCRIPT = "Javascript";
+  static const String PHP = "PHP";
+  static const String LARAVEL = "Laravel";
+  static const String SQL = "SQL";
+  static const String WORDPRESS = "Wordpress";
+  static const String BOOTSTRAP = "Bootstrap";
+  static const String HTML_CSS = "HTML/CSS";
 
 
 }

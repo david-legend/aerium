@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
 import 'package:portfoliosite/presentation/routes/router.gr.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
+import 'package:portfoliosite/presentation/widgets/flicker_text_animation.dart';
 import 'package:portfoliosite/presentation/widgets/menu_list.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
+import 'package:portfoliosite/presentation/widgets/sub_menu_item.dart';
+import 'package:portfoliosite/presentation/widgets/sub_menu_list.dart';
 import 'package:portfoliosite/presentation/widgets/trailing_info.dart';
 import 'package:portfoliosite/values/values.dart';
 
@@ -12,124 +15,308 @@ class AboutPageDesktop extends StatefulWidget {
   _AboutPageDesktopState createState() => _AboutPageDesktopState();
 }
 
-class _AboutPageDesktopState extends State<AboutPageDesktop> {
+class _AboutPageDesktopState extends State<AboutPageDesktop>
+    with TickerProviderStateMixin {
   bool animate = false;
   int duration = 800;
   double widthOfImage;
+  AnimationController _controller;
+  AnimationController _flickerAnimationController;
+  AnimationController _flickerAnimationController2;
+  AnimationController _aboutDevAnimationController;
+  Animation<double> widthOfLeftSide;
+  Animation<double> widthOfRightSide;
+  Animation<double> widthOfTrailingInfo;
+  Animation<double> heightPositionOfImage;
+  Animation<double> widthPositionOfImage;
+  Animation<double> aboutDevAnimation;
+  Animation<double> scale;
+  bool _isAboutContentVisible = false;
+  bool _visible = false;
+  bool _isSubtitleVisible = false;
+  bool _isSubMenuListVisible = false;
 
   @override
   void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      setState(() {
-        animate = true;
-      });
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 2000),
+      vsync: this,
+    );
+    _flickerAnimationController = AnimationController(
+      duration: const Duration(milliseconds: 300),
+      vsync: this,
+    );
+    _flickerAnimationController2 = AnimationController(
+      duration: const Duration(milliseconds: 300),
+      vsync: this,
+    );
+    _aboutDevAnimationController = AnimationController(
+      duration: const Duration(milliseconds: 300),
+      vsync: this,
+    );
+    initializeTweens();
+    _playAnimation();
+
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        setState(() {
+          _isAboutContentVisible = true;
+        });
+        WidgetsBinding.instance.addPersistentFrameCallback((_) {
+          _playFlickerAnimation();
+        });
+      }
     });
+
+    _flickerAnimationController.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        setState(() {
+          _isSubtitleVisible = true;
+        });
+        WidgetsBinding.instance.addPersistentFrameCallback((_) {
+          _playFlickerAnimation2();
+        });
+      }
+    });
+
+    _flickerAnimationController2.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        setState(() {
+          _visible = true;
+        });
+        WidgetsBinding.instance.addPersistentFrameCallback((_) {
+          _playAboutDevAnimation();
+        });
+      }
+    });
+
+    _aboutDevAnimationController.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        setState(() {
+          _isSubMenuListVisible = true;
+        });
+      }
+    });
+    super.initState();
+  }
+
+  initializeTweens() {
+    widthOfLeftSide = Tween<double>(
+      begin: 0.5,
+      end: 0.3,
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Interval(
+          0.4,
+          1.0,
+          curve: Curves.easeIn,
+        ),
+      ),
+    );
+    widthOfRightSide = Tween<double>(
+      begin: 0.5,
+      end: 0.7,
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Interval(
+          0.4,
+          1.0,
+          curve: Curves.easeIn,
+        ),
+      ),
+    );
+    widthOfTrailingInfo = Tween<double>(
+      begin: 0.4,
+      end: 0.6,
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Interval(
+          0.4,
+          1.0,
+          curve: Curves.easeIn,
+        ),
+      ),
+    );
+    widthPositionOfImage = Tween<double>(
+      begin: 0.5,
+      end: 0.3,
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Interval(
+          0.4,
+          1.0,
+          curve: Curves.easeIn,
+        ),
+      ),
+    );
+    heightPositionOfImage = Tween<double>(
+      begin: 0.4,
+      end: 0.0,
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Interval(
+          0.4,
+          1.0,
+          curve: Curves.easeIn,
+        ),
+      ),
+    );
+    scale = Tween<double>(
+      begin: 1.5,
+      end: 1.0,
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Interval(
+          0.4,
+          1.0,
+          curve: Curves.easeIn,
+        ),
+      ),
+    );
+    aboutDevAnimation = Tween<double>(
+      begin: 0.0,
+      end: 1.0,
+    ).animate(
+      CurvedAnimation(
+        parent: _aboutDevAnimationController,
+        curve: Interval(
+          0.0,
+          1.0,
+          curve: Curves.easeIn,
+        ),
+      ),
+    );
+  }
+
+  Future<void> _playAnimation() async {
+    try {
+      await _controller.forward().orCancel;
+    } on TickerCanceled {
+      // the animation got canceled, probably because it was disposed of
+    }
+  }
+
+  Future<void> _playFlickerAnimation() async {
+    try {
+      await _flickerAnimationController.forward().orCancel;
+      await _flickerAnimationController.reverse().orCancel;
+    } on TickerCanceled {
+      // the animation got canceled, probably because it was disposed of
+    }
+  }
+
+  Future<void> _playFlickerAnimation2() async {
+    try {
+      await _flickerAnimationController2.forward().orCancel;
+      await _flickerAnimationController2.reverse().orCancel;
+    } on TickerCanceled {
+      // the animation got canceled, probably because it was disposed of
+    }
+  }
+
+  Future<void> _playAboutDevAnimation() async {
+    try {
+      await _aboutDevAnimationController.forward().orCancel;
+    } on TickerCanceled {
+      // the animation got canceled, probably because it was disposed of
+    }
+  }
+
+  Widget _buildAnimation(BuildContext context, Widget child) {
+    double heightOfImage = assignHeight(context: context, fraction: 1);
+    return Stack(
+      children: <Widget>[
+        Container(
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  ContentWrapper(
+                    width: assignWidth(
+                      context: context,
+                      fraction: widthOfLeftSide.value,
+                    ),
+                    gradient: Gradients.primaryGradient,
+                    child: Container(
+                      margin: EdgeInsets.only(
+                        left: Sizes.MARGIN_20,
+                        top: Sizes.MARGIN_20,
+                        bottom: Sizes.MARGIN_20,
+                      ),
+                      child: MenuList(
+                        menuList: Data.menuList,
+                        selectedItemRouteName: Routes.aboutPage,
+                      ),
+                    ),
+                  ),
+                  ContentWrapper(
+                    width: assignWidth(
+                        context: context, fraction: widthOfRightSide.value),
+                    color: AppColors.grey100,
+                    child: Row(
+                      children: [
+                        Container(
+                          width: assignWidth(
+                              context: context,
+                              fraction: widthOfTrailingInfo.value),
+                          child: _isAboutContentVisible
+                              ? aboutPageContent()
+                              : Container(),
+                        ),
+                        SizedBox(
+                          width: assignWidth(
+                            context: context,
+                            fraction: 0.05,
+                          ),
+                        ),
+                        TrailingInfo(
+                          width: assignWidth(context: context, fraction: 0.05),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
+        ),
+        Transform.translate(
+          offset: Offset(
+            assignWidth(
+                    context: context, fraction: widthPositionOfImage.value) -
+                widthOfImage / 2,
+            assignHeight(
+                context: context, fraction: heightPositionOfImage.value),
+          ),
+          child: Transform.scale(
+            scale: scale.value,
+            child: Image.asset(
+              ImagePath.DEV,
+              width: widthOfImage,
+              height: heightOfImage,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+      ],
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    widthOfImage = assignWidth(context: context, fraction: 0.3);
+    widthOfImage = assignWidth(context: context, fraction: 0.4);
     double heightOfImage = assignHeight(context: context, fraction: 0.7);
     return Scaffold(
       body: Container(
-        child: Stack(
-          children: <Widget>[
-            Container(
-              child: Column(
-                children: <Widget>[
-                  Row(
-                    children: <Widget>[
-                      TweenAnimationBuilder(
-                        tween: Tween<double>(begin: 0.5, end: 0.3),
-                        duration: Duration(milliseconds: duration),
-                        child: Container(
-                          margin: EdgeInsets.only(
-                            left: Sizes.MARGIN_20,
-                            top: Sizes.MARGIN_20,
-                            bottom: Sizes.MARGIN_20,
-                          ),
-                          child: MenuList(
-                            menuList: Data.menuList,
-                            selectedItemRouteName: Routes.aboutPage,
-                          ),
-                        ),
-                        builder:
-                            (BuildContext context, double value, Widget child) {
-                          return ContentWrapper(
-                            width:
-                                assignWidth(context: context, fraction: value),
-                            gradient: Gradients.primaryGradient,
-                            child: child,
-                          );
-                        },
-                      ),
-                      TweenAnimationBuilder(
-                        tween: Tween<double>(begin: 0.5, end: 0.7),
-                        duration: Duration(milliseconds: duration),
-                        builder:
-                            (BuildContext context, double value, Widget child) {
-                          return ContentWrapper(
-                            width:
-                                assignWidth(context: context, fraction: value),
-                            color: AppColors.grey100,
-                            child: Row(
-                              children: [
-                                Container(
-                                  width: assignWidth(
-                                      context: context, fraction: 0.60),
-                                  child: aboutPageContent(),
-                                ),
-                                SizedBox(
-                                  width: assignWidth(
-                                    context: context,
-                                    fraction: 0.05,
-                                  ),
-                                ),
-                                TrailingInfo(
-                                  width: assignWidth(
-                                      context: context, fraction: 0.05),
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ),
-            AnimatedPositioned(
-              duration: Duration(milliseconds: duration),
-              top: animate
-                  ? assignHeight(context: context, fraction: 0.0)
-                  : assignHeight(context: context, fraction: 0.4),
-              left: animate
-                  ? (assignWidth(context: context, fraction: 0.3) -
-                      widthOfImage / 2)
-                  : (assignWidth(context: context, fraction: 0.5) -
-                      widthOfImage / 2),
-              child: Container(
-                child: TweenAnimationBuilder(
-                  tween: Tween<double>(begin: 2, end: 1),
-                  duration: Duration(milliseconds: duration),
-                  child: Image.asset(
-                    ImagePath.DEV,
-                    width: widthOfImage,
-                    height: heightOfImage,
-                    fit: BoxFit.cover,
-                  ),
-                  builder: (BuildContext context, double value, Widget child) {
-                    return Transform.scale(
-                      scale: value,
-                      child: child,
-                    );
-                  },
-                ),
-              ),
-            ),
-          ],
+        child: AnimatedBuilder(
+          builder: _buildAnimation,
+          animation: _controller.view,
         ),
       ),
     );
@@ -137,32 +324,53 @@ class _AboutPageDesktopState extends State<AboutPageDesktop> {
 
   Widget aboutPageContent() {
     ThemeData theme = Theme.of(context);
+
     return Container(
-      margin: EdgeInsets.only(
+      padding: EdgeInsets.only(
         left: (widthOfImage / 2) + 20,
         top: assignHeight(context: context, fraction: 0.12),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Heading goes Here',
-            style: theme.textTheme.headline4,
+          FlickerTextAnimation(
+            text: 'Heading',
+            textColor: AppColors.primaryColor,
+            fadeInColor: AppColors.primaryColor,
+            fontSize: Sizes.TEXT_SIZE_34,
+            controller: _flickerAnimationController.view,
           ),
           SpaceH4(),
-          Text(
-            'subtitle goes here ',
-            style:
-                theme.textTheme.bodyText1.copyWith(color: AppColors.bodyText1),
-          ),
+          _isSubtitleVisible
+              ? FlickerTextAnimation(
+                  text: 'Subtitle',
+                  textColor: AppColors.primaryColor,
+                  fadeInColor: AppColors.primaryColor,
+                  controller: _flickerAnimationController2.view,
+                  textStyle: theme.textTheme.bodyText1
+                      .copyWith(color: AppColors.bodyText1),
+                )
+              : Container(),
           SpaceH16(),
-          Text(
-            StringConst.ABOUT_DEV_TEXT,
-            style:
-                theme.textTheme.bodyText1.copyWith(color: AppColors.bodyText1),
+          AnimatedOpacity(
+            opacity: _visible ? aboutDevAnimation.value : 0.0,
+            duration: _aboutDevAnimationController.duration,
+            child: Text(
+              StringConst.ABOUT_DEV_TEXT,
+              style: theme.textTheme.bodyText1
+                  .copyWith(color: AppColors.bodyText1),
+            ),
           ),
-          SpaceH16(),
-          Text('SKILLS GOES HERE'),
+          SpaceH40(),
+          _isSubMenuListVisible
+              ? SubMenuList(
+                  subMenuData: Data.subMenuData,
+                  width: assignWidth(
+                      context: context,
+                      fraction: 0.6,
+                      subs: (widthOfImage / 2) + 20),
+                )
+              : Container(),
         ],
       ),
     );

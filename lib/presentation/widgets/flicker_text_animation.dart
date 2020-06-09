@@ -11,6 +11,9 @@ class FlickerTextAnimation extends StatefulWidget {
     this.fadeInColor,
     this.text,
     this.textStyle,
+    this.start,
+    this.end,
+    this.mainAxisAlignment = MainAxisAlignment.start,
     this.fontSize = Sizes.TEXT_SIZE_16,
   })  : color = ColorTween(
           begin: textColor,
@@ -19,8 +22,8 @@ class FlickerTextAnimation extends StatefulWidget {
           CurvedAnimation(
             parent: controller,
             curve: Interval(
-              0.0,
-              0.1,
+              start == null ? 0.0 : start,
+              end == null ? 1.0 : end,
               curve: Curves.easeIn,
             ),
           ),
@@ -32,8 +35,8 @@ class FlickerTextAnimation extends StatefulWidget {
           CurvedAnimation(
             parent: controller,
             curve: Interval(
-              0.0,
-              1,
+              start == null ? 0.0 : start,
+              end == null ? 1.0 : end,
               curve: Curves.easeIn,
             ),
           ),
@@ -48,6 +51,10 @@ class FlickerTextAnimation extends StatefulWidget {
   final String text;
   final double fontSize;
   final TextStyle textStyle;
+//  final TextStyle textStyle;
+  final double start;
+  final double end;
+  final MainAxisAlignment mainAxisAlignment;
 
   @override
   _FlickerTextAnimationState createState() => _FlickerTextAnimationState();
@@ -78,7 +85,7 @@ class _FlickerTextAnimationState extends State<FlickerTextAnimation> {
     ThemeData theme = Theme.of(context);
     return Container(
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: widget.mainAxisAlignment,
         children: [
           Text(
             isAnimating ? widget.title.value.toString() : widget.text,
@@ -86,6 +93,7 @@ class _FlickerTextAnimationState extends State<FlickerTextAnimation> {
                 theme.textTheme.bodyText1.copyWith(
                   color: widget.color.value,
                   fontSize: widget.fontSize,
+//                  fontWeight:
                 ),
           )
         ],

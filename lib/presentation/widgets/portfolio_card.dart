@@ -19,7 +19,7 @@ class PortfolioCard extends StatefulWidget {
     this.titleTextStyle,
     this.subtitleTextStyle,
     this.actionTitleTextStyle,
-    this.duration = 3000,
+    this.duration = 1000,
   });
 
   final double width;
@@ -42,7 +42,7 @@ class PortfolioCard extends StatefulWidget {
 
 class _PortfolioCardState extends State<PortfolioCard>
     with TickerProviderStateMixin {
-  AnimationController _controller;
+//  AnimationController _controller;
   AnimationController _portfolioCoverController;
   Animation<double> _opacityAnimation;
   Animation<double> _opacityAnimation2;
@@ -51,42 +51,42 @@ class _PortfolioCardState extends State<PortfolioCard>
 
   @override
   void initState() {
-    _controller = AnimationController(
-      duration: Duration(milliseconds: widget.duration),
-      vsync: this,
-    );
+//    _controller = AnimationController(
+//      duration: Duration(milliseconds: widget.duration),
+//      vsync: this,
+//    );
     _portfolioCoverController = AnimationController(
       duration: Duration(milliseconds: duration),
       vsync: this,
     );
     initTweens();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _playAnimation();
-    });
+//    WidgetsBinding.instance.addPostFrameCallback((_) {
+//      _playAnimation();
+//    });
     super.initState();
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+//    _controller.dispose();
     _portfolioCoverController.dispose();
     super.dispose();
   }
 
   void initTweens() {
-    _opacityAnimation = Tween<double>(
-      begin: 0.0,
-      end: 1.0,
-    ).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: Interval(
-          0.0,
-          1.0,
-          curve: Curves.easeIn,
-        ),
-      ),
-    );
+//    _opacityAnimation = Tween<double>(
+//      begin: 0.0,
+//      end: 1.0,
+//    ).animate(
+//      CurvedAnimation(
+//        parent: _controller,
+//        curve: Interval(
+//          0.0,
+//          1.0,
+//          curve: Curves.easeIn,
+//        ),
+//      ),
+//    );
     _opacityAnimation2 = Tween<double>(
       begin: 0.0,
       end: 0.8,
@@ -104,7 +104,7 @@ class _PortfolioCardState extends State<PortfolioCard>
 
   Future<void> _playAnimation() async {
     try {
-      await _controller.forward().orCancel;
+//      await _controller.forward().orCancel;
     } on TickerCanceled {
       // the animation got canceled, probably because it was disposed of
     }
@@ -121,68 +121,65 @@ class _PortfolioCardState extends State<PortfolioCard>
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
-    return FadeTransition(
-      opacity: _opacityAnimation,
-      child: Container(
-        width: widget.width,
-        height: widget.height,
-        child: MouseRegion(
-          onEnter: (e) => _mouseEnter(true),
-          onExit: (e) => _mouseEnter(false),
-          child: Stack(
-            children: [
-              Image.asset(
-                widget.imageUrl,
-                width: widget.width,
-                height: widget.height,
-                fit: BoxFit.cover,
-              ),
-              _hovering
-                  ? FadeTransition(
-                      opacity: _opacityAnimation2,
-                      child: Container(
-                        width: widget.width,
-                        height: widget.height,
-                        color: AppColors.deepBlue300,
-                        child: Column(
-                          children: [
-                            Spacer(flex: 1),
-                            Text(
-                              widget.title,
-                              style: widget.titleTextStyle ??
-                                  theme.textTheme.headline4.copyWith(
-                                    color: AppColors.grey200,
-                                    letterSpacing: 4,
-                                  ),
+    return Container(
+      width: widget.width,
+      height: widget.height,
+      child: MouseRegion(
+        onEnter: (e) => _mouseEnter(true),
+        onExit: (e) => _mouseEnter(false),
+        child: Stack(
+          children: [
+            Image.asset(
+              widget.imageUrl,
+              width: widget.width,
+              height: widget.height,
+              fit: BoxFit.cover,
+            ),
+            _hovering
+                ? FadeTransition(
+                    opacity: _opacityAnimation2,
+                    child: Container(
+                      width: widget.width,
+                      height: widget.height,
+                      color: AppColors.deepBlue300,
+                      child: Column(
+                        children: [
+                          Spacer(flex: 1),
+                          Text(
+                            widget.title,
+                            style: widget.titleTextStyle ??
+                                theme.textTheme.headline4.copyWith(
+                                  color: AppColors.grey200,
+                                  letterSpacing: 4,
+                                ),
+                          ),
+                          SpaceH4(),
+                          Text(
+                            widget.subtitle,
+                            style: widget.subtitleTextStyle ??
+                                Styles.customTextStyle3(
+                                  color: AppColors.grey300,
+                                  fontSize: Sizes.TEXT_SIZE_14,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                          ),
+                          SpaceH16(),
+                          Text(
+                            widget.actionTitleTextStyle ?? widget.actionTitle,
+                            style: Styles.customTextStyle4(
+                              color: Color(0xFFAEB3B7),
                             ),
-                            SpaceH4(),
-                            Text(
-                              widget.subtitle,
-                              style: widget.subtitleTextStyle ??
-                                  Styles.customTextStyle3(
-                                    color: AppColors.grey300,
-                                    fontSize: Sizes.TEXT_SIZE_14,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                            ),
-                            SpaceH16(),
-                            Text(
-                              widget.actionTitleTextStyle ?? widget.actionTitle,
-                              style: Styles.customTextStyle4(
-                                color: Color(0xFFAEB3B7),
-                              ),
-                            ),
-                            SpaceH4(),
-                            HorizontalBar(),
-                            Spacer(flex: 1),
-                          ],
-                        ),
+                          ),
+                          SpaceH4(),
+                          HorizontalBar(),
+                          Spacer(flex: 1),
+                        ],
                       ),
-                    )
-                  : Container(),
-            ],
-          ).showCursorOnHover,
-        ),
+                    ),
+                  )
+                : Container(),
+          ],
+        ).showCursorOnHover,
       ),
     );
   }
@@ -191,8 +188,11 @@ class _PortfolioCardState extends State<PortfolioCard>
     setState(() {
       _hovering = hovering;
     });
-    WidgetsBinding.instance.addPersistentFrameCallback((_) {
+
+    if (_hovering == true) {
       _playPortfolioCoverAnimation();
-    });
+    } else if (_hovering == false) {
+      _portfolioCoverController.reverse().orCancel;
+    }
   }
 }

@@ -32,9 +32,10 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
       vsync: this,
     );
     _portfolioController = AnimationController(
-      duration: const Duration(milliseconds: 1000),
+      duration: const Duration(milliseconds: 1500),
       vsync: this,
     );
+
     initTweens();
     _playAnimation();
     _controller.addStatusListener((status) {
@@ -122,7 +123,7 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
 
   Future<void> _playPortfolioAnimation() async {
     try {
-      await _controller.forward().orCancel;
+      await _portfolioController.forward().orCancel;
     } on TickerCanceled {
       // the animation got canceled, probably because it was disposed of
     }
@@ -175,7 +176,8 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
                                 assignHeight(context: context, fraction: 0.04),
                           ),
                           child: _isPortfolioVisible
-                              ? _buildPortfolioGallery() : Container(),
+                              ? _buildPortfolioGallery()
+                              : Container(),
                         ),
                         SizedBox(
                           width: assignWidth(
@@ -238,20 +240,45 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
     );
   }
 
+
   List<Widget> hu(List portfolios) {
     List<Widget> widgets = [];
+    double duration =  _portfolioController.duration.inMilliseconds.roundToDouble();
+    double durationForEachPortfolio =
+        _portfolioController.duration.inMilliseconds.roundToDouble() /
+            portfolios.length;
     var counter = 0;
     for (var i = 0; i < portfolios.length; i++) {
+      print("duration $duration");
+      print(
+          "duration starts from ${durationForEachPortfolio * i} and ends at ${durationForEachPortfolio * (i + 1)} ");
+      double start = durationForEachPortfolio * i;
+      double end = durationForEachPortfolio * (i + 1);
       widgets.add(
-        PortfolioCard(
-          imageUrl: Data.portfolioImages[i],
-          title: "FoodyBite",
-          subtitle: "FoodyBite",
-          actionTitle: "FoodyBite",
-          height: assignHeight(context: context, fraction: 0.45),
-          width: assignWidth(
-            context: context,
-            fraction: Data.imageSizesForPortfolioGallery[counter],
+        FadeTransition(
+          opacity: Tween<double>(
+            begin: 0,
+            end: 1,
+          ).animate(
+            CurvedAnimation(
+              parent: _portfolioController,
+              curve: Interval(
+                start > 0.0 ? start / duration : 0.0,
+                end > 0.0 ? end / duration : 1.0,
+                curve: Curves.easeIn,
+              ),
+            ),
+          ),
+          child: PortfolioCard(
+            imageUrl: Data.portfolioImages[i],
+            title: "FoodyBite",
+            subtitle: "FoodyBite",
+            actionTitle: "FoodyBite",
+            height: assignHeight(context: context, fraction: 0.45),
+            width: assignWidth(
+              context: context,
+              fraction: Data.imageSizesForPortfolioGallery[counter],
+            ),
           ),
         ),
       );

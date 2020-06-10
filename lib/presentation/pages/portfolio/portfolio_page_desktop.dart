@@ -3,11 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
 import 'package:portfoliosite/presentation/routes/router.gr.dart';
-import 'package:portfoliosite/presentation/widgets/circular_container.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/menu_list.dart';
 import 'package:portfoliosite/presentation/widgets/portfolio_card.dart';
-import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/presentation/widgets/trailing_info.dart';
 import 'package:portfoliosite/values/values.dart';
 
@@ -17,89 +15,210 @@ class PortfolioPageDesktop extends StatefulWidget {
   _PortfolioPageDesktopState createState() => _PortfolioPageDesktopState();
 }
 
-class _PortfolioPageDesktopState extends State<PortfolioPageDesktop> {
-  int duration = 500;
+class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
+    with TickerProviderStateMixin {
+  AnimationController _controller;
+  AnimationController _portfolioController;
+  Animation<double> widthOfRightContentWrapperAnimation;
+  Animation<double> opacityAnimation;
+  Animation<double> widthOfLeftContentWrapperAnimation;
+  Animation<double> widthOfPortfolioAnimation;
+  bool _isPortfolioVisible = false;
+
+  @override
+  void initState() {
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 1000),
+      vsync: this,
+    );
+    _portfolioController = AnimationController(
+      duration: const Duration(milliseconds: 1000),
+      vsync: this,
+    );
+    initTweens();
+    _playAnimation();
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        setState(() {
+          _isPortfolioVisible = true;
+        });
+        WidgetsBinding.instance.addPersistentFrameCallback((_) {
+          _playPortfolioAnimation();
+        });
+      }
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _portfolioController.dispose();
+    super.dispose();
+  }
+
+  void initTweens() {
+    opacityAnimation = Tween<double>(
+      begin: 1.0,
+      end: 0.0,
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Interval(
+          0.0,
+          1.0,
+          curve: Curves.easeIn,
+        ),
+      ),
+    );
+    widthOfLeftContentWrapperAnimation = Tween<double>(
+      begin: 0.3,
+      end: 0.2,
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Interval(
+          0.0,
+          1.0,
+          curve: Curves.easeIn,
+        ),
+      ),
+    );
+    widthOfRightContentWrapperAnimation = Tween<double>(
+      begin: 0.7,
+      end: 0.8,
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Interval(
+          0.0,
+          1.0,
+          curve: Curves.easeIn,
+        ),
+      ),
+    );
+    widthOfPortfolioAnimation = Tween<double>(
+      begin: 0.6,
+      end: 0.7,
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Interval(
+          0.0,
+          1.0,
+          curve: Curves.easeIn,
+        ),
+      ),
+    );
+  }
+
+  Future<void> _playAnimation() async {
+    try {
+      await _controller.forward().orCancel;
+    } on TickerCanceled {
+      // the animation got canceled, probably because it was disposed of
+    }
+  }
+
+  Future<void> _playPortfolioAnimation() async {
+    try {
+      await _controller.forward().orCancel;
+    } on TickerCanceled {
+      // the animation got canceled, probably because it was disposed of
+    }
+  }
+
+  Widget _buildAnimation(BuildContext context, Widget child) {
+    double widthOfImage = assignWidth(context: context, fraction: 0.4);
+    double heightOfImage = assignHeight(context: context, fraction: 1);
+    return Stack(
+      children: <Widget>[
+        Container(
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  ContentWrapper(
+                    width: assignWidth(
+                      context: context,
+                      fraction: widthOfLeftContentWrapperAnimation.value,
+                    ),
+                    gradient: Gradients.primaryGradient,
+                    child: Container(
+                      margin: EdgeInsets.only(
+                        left: Sizes.MARGIN_20,
+                        top: Sizes.MARGIN_20,
+                        bottom: Sizes.MARGIN_20,
+                      ),
+                      child: MenuList(
+                        menuList: Data.menuList,
+                        selectedItemRouteName: Routes.portfolioPage,
+                      ),
+                    ),
+                  ),
+                  ContentWrapper(
+                    width: assignWidth(
+                      context: context,
+                      fraction: widthOfRightContentWrapperAnimation.value,
+                    ),
+                    color: AppColors.grey100,
+                    child: Row(
+                      children: [
+                        Container(
+                          width: assignWidth(
+                              context: context,
+                              fraction: widthOfPortfolioAnimation.value),
+                          padding: EdgeInsets.symmetric(
+                            horizontal:
+                                assignWidth(context: context, fraction: 0.04),
+                            vertical:
+                                assignHeight(context: context, fraction: 0.04),
+                          ),
+                          child: _isPortfolioVisible
+                              ? _buildPortfolioGallery() : Container(),
+                        ),
+                        SizedBox(
+                          width: assignWidth(
+                            context: context,
+                            fraction: 0.05,
+                          ),
+                        ),
+                        TrailingInfo(
+                          width: assignWidth(
+                            context: context,
+                            fraction: 0.05,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+        Positioned(
+          child: FadeTransition(
+            opacity: opacityAnimation,
+            child: Image.asset(
+              ImagePath.DEV,
+              width: widthOfImage,
+              height: heightOfImage,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: Stack(
-          children: <Widget>[
-            Container(
-              child: Column(
-                children: <Widget>[
-                  Row(
-                    children: <Widget>[
-                      TweenAnimationBuilder(
-                        tween: Tween<double>(begin: 0.3, end: 0.2),
-                        duration: Duration(milliseconds: duration),
-                        child: Container(
-                          margin: EdgeInsets.only(
-                            left: Sizes.MARGIN_20,
-                            top: Sizes.MARGIN_20,
-                            bottom: Sizes.MARGIN_20,
-                          ),
-                          child: MenuList(
-                            menuList: Data.menuList,
-                            selectedItemRouteName: Routes.portfolioPage,
-                          ),
-                        ),
-                        builder:
-                            (BuildContext context, double value, Widget child) {
-                          return ContentWrapper(
-                            width:
-                                assignWidth(context: context, fraction: value),
-                            gradient: Gradients.primaryGradient,
-                            child: child,
-                          );
-                        },
-                      ),
-                      TweenAnimationBuilder(
-                        tween: Tween<double>(begin: 0.7, end: 0.8),
-                        duration: Duration(milliseconds: duration),
-                        builder:
-                            (BuildContext context, double value, Widget child) {
-                          return ContentWrapper(
-                            width:
-                                assignWidth(context: context, fraction: value),
-                            color: AppColors.grey100,
-                            child: Row(
-                              children: [
-                                Container(
-                                  width: assignWidth(
-                                      context: context, fraction: 0.7),
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: assignWidth(
-                                        context: context, fraction: 0.04),
-                                    vertical: assignHeight(
-                                        context: context, fraction: 0.04),
-                                  ),
-                                  child: _buildPortfolioGallery(),
-                                ),
-                                SizedBox(
-                                  width: assignWidth(
-                                    context: context,
-                                    fraction: 0.05,
-                                  ),
-                                ),
-                                TrailingInfo(
-                                  width: assignWidth(
-                                    context: context,
-                                    fraction: 0.05,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ),
-          ],
+        child: AnimatedBuilder(
+          animation: _controller,
+          builder: _buildAnimation,
         ),
       ),
     );
@@ -118,7 +237,6 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop> {
       ],
     );
   }
-
 
   List<Widget> hu(List portfolios) {
     List<Widget> widgets = [];

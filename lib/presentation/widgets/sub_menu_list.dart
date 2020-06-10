@@ -50,6 +50,12 @@ class _SubMenuListState extends State<SubMenuList>
     super.initState();
   }
 
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   Future<void> _playAnimation() async {
     try {
       await _controller.forward().orCancel;

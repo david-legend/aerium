@@ -49,7 +49,8 @@ class StringConst {
 
   //Skills
   static const String FLUTTER = "Flutter";
-  static const String JAVA_ANDROID = "Java Android";
+  static const String JAVA = "Java";
+  static const String ANDROID = "Android";
   static const String KOTLIN = "Kotlin";
   static const String JAVASCRIPT = "Javascript";
   static const String PHP = "PHP";

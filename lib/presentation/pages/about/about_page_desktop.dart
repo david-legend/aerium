@@ -26,7 +26,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
   AnimationController _aboutDevAnimationController;
   Animation<double> widthOfLeftSide;
   Animation<double> widthOfRightSide;
-  Animation<double> widthOfTrailingInfo;
+  Animation<double> widthOfAboutContent;
   Animation<double> heightPositionOfImage;
   Animation<double> widthPositionOfImage;
   Animation<double> aboutDevAnimation;
@@ -100,6 +100,15 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
     super.initState();
   }
 
+  @override
+  void dispose() {
+    _controller.dispose();
+    _flickerAnimationController.dispose();
+    _flickerAnimationController2.dispose();
+    _aboutDevAnimationController.dispose();
+    super.dispose();
+  }
+
   initializeTweens() {
     widthOfLeftSide = Tween<double>(
       begin: 0.5,
@@ -127,7 +136,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
         ),
       ),
     );
-    widthOfTrailingInfo = Tween<double>(
+    widthOfAboutContent = Tween<double>(
       begin: 0.4,
       end: 0.6,
     ).animate(
@@ -264,7 +273,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
                         Container(
                           width: assignWidth(
                               context: context,
-                              fraction: widthOfTrailingInfo.value),
+                              fraction: widthOfAboutContent.value),
                           child: _isAboutContentVisible
                               ? aboutPageContent()
                               : Container(),
@@ -310,8 +319,6 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
 
   @override
   Widget build(BuildContext context) {
-    widthOfImage = assignWidth(context: context, fraction: 0.4);
-    double heightOfImage = assignHeight(context: context, fraction: 0.7);
     return Scaffold(
       body: Container(
         child: AnimatedBuilder(

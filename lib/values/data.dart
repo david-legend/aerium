@@ -45,7 +45,8 @@ class Data {
 
   static List<SkillData> skillData = [
     SkillData(skillLevel: 95, skillName: StringConst.FLUTTER),
-    SkillData(skillLevel: 70, skillName: StringConst.JAVA_ANDROID),
+    SkillData(skillLevel: 70, skillName: StringConst.JAVA),
+    SkillData(skillLevel: 78, skillName: StringConst.ANDROID),
     SkillData(skillLevel: 70, skillName: StringConst.KOTLIN),
     SkillData(skillLevel: 80, skillName: StringConst.JAVASCRIPT),
     SkillData(skillLevel: 80, skillName: StringConst.PHP),

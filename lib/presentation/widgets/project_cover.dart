@@ -7,7 +7,7 @@ class ProjectCover extends StatelessWidget {
     this.height,
     this.offset,
     this.projectCoverUrl,
-    this.projectCoverBackgroundColor,
+    this.projectCoverBackgroundColor = AppColors.deepBlue900,
   });
 
   final double width;
@@ -29,7 +29,7 @@ class ProjectCover extends StatelessWidget {
             child: Container(
               width: width - offset,
               height: height -offset,
-              color: AppColors.deepBlue300,
+              color: projectCoverBackgroundColor,
             ),
           ),
           Positioned(

@@ -21,6 +21,7 @@ class AppColors {
   static const Color deepBlue300 = Color(0xFF3E5067);
   static const Color deepBlue700 = Color(0xFF141A21);
   static const Color deepBlue800 = Color(0xFF242D36);
+  static const Color deepBlue900 = Color(0xFF020A13);
 
   static const Color bodyText1 = Color(0xFF8393A1);
 

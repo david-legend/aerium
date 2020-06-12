@@ -24,7 +24,11 @@ class MenuList extends StatelessWidget {
         Spacer(
           flex: 1,
         ),
-        Socials(isVertical: true, crossAxisAlignment: CrossAxisAlignment.start),
+        Socials(
+          isVertical: true,
+          alignment: Alignment.centerLeft,
+          crossAxisAlignment: CrossAxisAlignment.start,
+        ),
         Spacer(
           flex: 1,
         ),

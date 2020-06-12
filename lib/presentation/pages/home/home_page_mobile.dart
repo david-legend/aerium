@@ -184,6 +184,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
       bottom: 30,
       child: Socials(
         isVertical: true,
+        alignment: Alignment.centerRight,
         crossAxisAlignment: CrossAxisAlignment.end,
       ),
     );

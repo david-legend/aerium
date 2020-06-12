@@ -27,8 +27,6 @@ class StringConst {
 
   static const String PROJECT_NAME = "Project Name";
 
-
-
   static const String DEV_NAME = "DAVID COBBINA";
   static const String DEV_EMAIL = "davidcobbina47@gmail.com";
   static const String SPECIALITY = "FLUTTER DEV";
@@ -36,8 +34,8 @@ class StringConst {
 //  static const String CONTACT_NO = "+(233) 549-546-867 ";
   static const String CONTACT_NO = "0549546867";
 
-
-  static const String ABOUT_DEV_TEXT = "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.";
+  static const String ABOUT_DEV_TEXT =
+      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.";
 
   //Form Hint Texts
   static const String NAME_HINT_TEXT = "Name";
@@ -45,9 +43,7 @@ class StringConst {
   static const String EMAIL_HINT_TEXT = "Email";
   static const String MESSAGE_HINT_TEXT = "Message";
 
-
   static const String SEND_MESSAGE = "Send Message";
-
 
   //Skills
   static const String FLUTTER = "Flutter";
@@ -62,7 +58,6 @@ class StringConst {
   static const String BOOTSTRAP = "Bootstrap";
   static const String HTML_CSS = "HTML/CSS";
 
-
   //routes
   static const String HOME_PAGE = "/";
   static const String ABOUT_PAGE = "/about";
@@ -75,4 +70,10 @@ class StringConst {
   static const String EXPERIENCE_PAGE = "/experience";
   static const String RESUME_PAGE = "/resume";
   static const String CERTIFICATIONS_PAGE = "/certifications";
+
+  //Socials
+  static const String GITHUB_URL = "https://github.com/david-legend";
+  static const String LINKED_IN_URL =
+      "https://www.linkedin.com/in/david-cobbina-7b0226119";
+  static const String TWITTER_URL = "https://twitter.com/DavidLegend47";
 }

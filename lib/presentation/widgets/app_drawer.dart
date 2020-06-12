@@ -69,7 +69,10 @@ class AppDrawer extends StatelessWidget {
               ],
             ),
             Spacer(flex: 1),
-            Socials(isHorizontal: true),
+            Socials(
+              isHorizontal: true,
+              color: AppColors.deepBlue400,
+            ),
             SpaceH44(),
           ],
         ),

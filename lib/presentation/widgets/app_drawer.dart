@@ -72,6 +72,8 @@ class AppDrawer extends StatelessWidget {
             Socials(
               isHorizontal: true,
               color: AppColors.deepBlue400,
+              alignment: Alignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
             ),
             SpaceH44(),
           ],

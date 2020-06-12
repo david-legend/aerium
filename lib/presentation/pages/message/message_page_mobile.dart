@@ -89,24 +89,25 @@ class _MessagePageMobileState extends State<MessagePageMobile> {
           ),
           SpaceH40(),
           FlatButton(
-              onPressed: () {},
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    StringConst.SEND_MESSAGE,
-                    style: theme.textTheme.headline6
-                        .copyWith(color: AppColors.grey100),
+            onPressed: () {},
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  StringConst.SEND_MESSAGE,
+                  style: theme.textTheme.headline6
+                      .copyWith(color: AppColors.grey100),
+                ),
+                SpaceW12(),
+                CircularContainer(
+                  child: Icon(
+                    Icons.arrow_forward_ios,
+                    color: AppColors.deepBlue400,
                   ),
-                  SpaceW12(),
-                  CircularContainer(
-                    child: Icon(
-                      Icons.arrow_forward_ios,
-                      color: AppColors.deepBlue400,
-                    ),
-                  )
-                ],
-              ))
+                )
+              ],
+            ),
+          )
         ],
       ),
     );

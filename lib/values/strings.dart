@@ -13,10 +13,10 @@ class StringConst {
   static const String PHONE_NUMBER = "Phone Number";
   static const String RESUME = "Resume";
   static const String CERTIFICATIONS = "Certifications";
-  static const String EMAIL = "E-MAIL";
   static const String EMAIL_VALUE = "davidcobbina47@gmail.com";
 
   static const String MESSAGE_ME = "Message me";
+  static const String GET_IN_TOUCH = "Get in touch";
 
   static const String KEY_SKILLS = "KEY SKILLS";
   static const String EXPERIENCE_2 = "EXPERIENCE";
@@ -76,4 +76,14 @@ class StringConst {
   static const String LINKED_IN_URL =
       "https://www.linkedin.com/in/david-cobbina-7b0226119";
   static const String TWITTER_URL = "https://twitter.com/DavidLegend47";
+  static const String INSTAGRAM_URL =
+      "https://www.instagram.com/david_legend_47";
+  static const String TELEGRAM_URL = "https://t.me/DavidLegend";
+
+  //Contacts
+  static const String EMAIL = "E-MAIL";
+  static const String LINKED_IN = "LinkedIn";
+  static const String TWITTER = "TWITTER";
+  static const String INSTAGRAM = "INSTAGRAM";
+  static const String TELEGRAM = "TELEGRAM";
 }

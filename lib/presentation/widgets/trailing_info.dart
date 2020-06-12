@@ -13,6 +13,8 @@ class TrailingInfo extends StatelessWidget {
     this.width,
     this.onTrailingWidgetPressed,
     this.onLeadingWidgetPressed,
+    this.color,
+    this.crossAxisAlignment = CrossAxisAlignment.end,
   });
 
   final Widget leadingWidget;
@@ -21,8 +23,10 @@ class TrailingInfo extends StatelessWidget {
   final EdgeInsetsGeometry padding;
   final String info;
   final double width;
+  final Color color;
   final GestureTapCallback onTrailingWidgetPressed;
   final GestureTapCallback onLeadingWidgetPressed;
+  final CrossAxisAlignment crossAxisAlignment;
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +39,9 @@ class TrailingInfo extends StatelessWidget {
             right: Sizes.PADDING_30,
             bottom: Sizes.PADDING_20,
           ),
+      color: color,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: crossAxisAlignment,
         children: [
           InkWell(
             onTap: onLeadingWidgetPressed,

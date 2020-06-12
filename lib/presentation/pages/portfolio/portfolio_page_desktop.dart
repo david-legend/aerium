@@ -10,7 +10,6 @@ import 'package:portfoliosite/presentation/widgets/portfolio_card.dart';
 import 'package:portfoliosite/presentation/widgets/trailing_info.dart';
 import 'package:portfoliosite/values/values.dart';
 
-//TODO:: Add the proper trailing widget for the trailinginfo widget
 class PortfolioPageDesktop extends StatefulWidget {
   @override
   _PortfolioPageDesktopState createState() => _PortfolioPageDesktopState();

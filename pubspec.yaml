@@ -27,7 +27,7 @@ dependencies:
   google_fonts: ^1.1.0
   get_it: ^4.0.2
   responsive_builder: ^0.2.0+2
-  auto_route: ^0.5.0
+#  auto_route: ^0.5.0
   font_awesome_flutter: ^8.8.1
 
   # The following adds the Cupertino Icons font to your application.

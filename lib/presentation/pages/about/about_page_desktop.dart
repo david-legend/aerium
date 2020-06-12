@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
 import 'package:portfoliosite/presentation/pages/about/about_page.dart';
-import 'package:portfoliosite/presentation/routes/router.gr.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/flicker_text_animation.dart';
 import 'package:portfoliosite/presentation/widgets/menu_list.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
-import 'package:portfoliosite/presentation/widgets/sub_menu_item.dart';
 import 'package:portfoliosite/presentation/widgets/sub_menu_list.dart';
 import 'package:portfoliosite/presentation/widgets/trailing_info.dart';
 import 'package:portfoliosite/values/values.dart';

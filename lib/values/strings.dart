@@ -82,7 +82,7 @@ class StringConst {
 
   //Contacts
   static const String EMAIL = "E-MAIL";
-  static const String LINKED_IN = "LinkedIn";
+  static const String LINKED_IN = "LINKEDIN";
   static const String TWITTER = "TWITTER";
   static const String INSTAGRAM = "INSTAGRAM";
   static const String TELEGRAM = "TELEGRAM";

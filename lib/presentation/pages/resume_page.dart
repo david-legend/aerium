@@ -6,6 +6,7 @@ import 'package:portfoliosite/presentation/widgets/menu_list.dart';
 import 'package:portfoliosite/values/values.dart';
 
 class ResumePage extends StatelessWidget {
+  static const String resumePageRoute = StringConst.RESUME_PAGE;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,10 +26,10 @@ class ResumePage extends StatelessWidget {
                             top: Sizes.MARGIN_20,
                             bottom: Sizes.MARGIN_20,
                           ),
-                          child: MenuList(
-                            menuList: Data.menuList,
-                            selectedItemRouteName: Routes.resumePage,
-                          ),
+//                          child: MenuList(
+//                            menuList: Data.menuList,
+//                            selectedItemRouteName: Routes.resumePage,
+//                          ),
                         ),
                       ),
                       ContentWrapper(

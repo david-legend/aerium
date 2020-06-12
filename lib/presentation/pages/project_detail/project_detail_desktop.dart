@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
+import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
+import 'package:portfoliosite/presentation/pages/project_detail/project_detail.dart';
 import 'package:portfoliosite/presentation/routes/router.gr.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/flicker_text_animation.dart';
@@ -188,7 +190,7 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
                       ),
                       child: MenuList(
                         menuList: Data.menuList,
-                        selectedItemRouteName: Routes.portfolioPage,
+                        selectedItemRouteName: PortfolioPage.portfolioPageRoute,
                       ),
                     ),
                   ),

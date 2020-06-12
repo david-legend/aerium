@@ -1,7 +1,10 @@
 part of 'values.dart';
 
 class MenuData {
-  MenuData({@required this.title, @required this.routeName});
+  MenuData({
+    @required this.title,
+    @required this.routeName,
+  });
 
   final String title;
   final String routeName;
@@ -35,13 +38,26 @@ class SubMenuData {
 
 class Data {
   static List<MenuData> menuList = [
-    MenuData(title: StringConst.ABOUT_ME, routeName: Routes.aboutPage),
-    MenuData(title: StringConst.PORTFOLIO, routeName: Routes.portfolioPage),
-    MenuData(title: StringConst.EXPERIENCE, routeName: Routes.experiencePage),
-    MenuData(title: StringConst.CONTACT, routeName: Routes.contactPage),
-    MenuData(title: StringConst.RESUME, routeName: Routes.resumePage),
+    MenuData(title: StringConst.HOME, routeName: HomePage.homePageRoute),
+    MenuData(title: StringConst.ABOUT_ME, routeName: AboutPage.aboutPageRoute),
+    MenuData(
+      title: StringConst.PORTFOLIO,
+      routeName: PortfolioPage.portfolioPageRoute,
+    ),
+    MenuData(
+      title: StringConst.CONTACT,
+      routeName: ContactPage.contactPageRoute,
+    ),
+    MenuData(
+      title: StringConst.EXPERIENCE,
+      routeName: ExperiencePage.experiencePageRoute,
+    ),
+    MenuData(title: StringConst.RESUME, routeName: ResumePage.resumePageRoute),
+    MenuData(
+      title: StringConst.CERTIFICATIONS,
+      routeName: "CertificationPage.certficationPageRoute",
+    ),
   ];
-
 
   static List<SkillData> skillData = [
     SkillData(skillLevel: 95, skillName: StringConst.FLUTTER),
@@ -58,16 +74,22 @@ class Data {
   ];
 
   static List<SubMenuData> subMenuData = [
-    SubMenuData(title: StringConst.KEY_SKILLS,
+    SubMenuData(
+      title: StringConst.KEY_SKILLS,
       isSelected: true,
       isAnimation: true,
-      skillData: skillData,),
-    SubMenuData(title: StringConst.EDUCATION,
+      skillData: skillData,
+    ),
+    SubMenuData(
+      title: StringConst.EDUCATION,
       isSelected: false,
-      content: "super education",),
-    SubMenuData(title: StringConst.EXPERIENCE,
+      content: "super education",
+    ),
+    SubMenuData(
+      title: StringConst.EXPERIENCE,
       isSelected: false,
-      content: "super experience",),
+      content: "super experience",
+    ),
   ];
   static List<String> portfolioImages = [
     ImagePath.PORTFOLIO_2,

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfoliosite/core/extensions/hover_extensions.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
-import 'package:portfoliosite/presentation/routes/router.gr.dart';
+import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
 import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
 import 'package:portfoliosite/presentation/widgets/circular_container.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
-import 'package:portfoliosite/presentation/widgets/horizontal_bar.dart';
 import 'package:portfoliosite/presentation/widgets/socials.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
+
+import 'home_page.dart';
 
 class HomePageMobile extends StatefulWidget {
   @override
@@ -25,7 +26,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
       key: _scaffoldKey,
       drawer: AppDrawer(
         menuList: Data.menuList,
-        selectedItemRouteName: Routes.aboutPage,
+        selectedItemRouteName: HomePage.homePageRoute,
       ),
       body: Container(
         child: SafeArea(
@@ -64,39 +65,47 @@ class _HomePageMobileState extends State<HomePageMobile> {
                                       StringConst.SPECIALITY,
                                       style: theme.textTheme.headline6.copyWith(
                                         letterSpacing: 4,
-                                        color: AppColors.deepBlue300,
+                                        color: AppColors.deepBlue400,
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
                               Spacer(flex: 1),
-                              Container(
-                                padding: const EdgeInsets.only(left: 24.0),
-                                child: Column(
-                                  children: [
-                                    RotatedBox(
-                                      quarterTurns: 3,
-                                      child: Text(
-                                        StringConst.VIEW_PORTFOLIO,
-                                        textAlign: TextAlign.end,
-                                        style: TextStyle(
-                                          color: AppColors.grey400,
+                              InkWell(
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                    context,
+                                    PortfolioPage.portfolioPageRoute,
+                                  );
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.only(left: 24.0),
+                                  child: Column(
+                                    children: [
+                                      RotatedBox(
+                                        quarterTurns: 3,
+                                        child: Text(
+                                          StringConst.VIEW_PORTFOLIO,
+                                          textAlign: TextAlign.end,
+                                          style: TextStyle(
+                                            color: AppColors.grey400,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    SpaceH12(),
-                                    CircularContainer(
-                                      width: Sizes.WIDTH_24,
-                                      height: Sizes.HEIGHT_24,
-                                      child: Icon(
-                                        Icons.keyboard_arrow_down,
-                                        color: AppColors.deepBlue300,
+                                      SpaceH12(),
+                                      CircularContainer(
+                                        width: Sizes.WIDTH_24,
+                                        height: Sizes.HEIGHT_24,
+                                        child: Icon(
+                                          Icons.keyboard_arrow_down,
+                                          color: AppColors.deepBlue400,
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                              ),
+                              ).showCursorOnHover,
                               SizedBox(
                                 height: assignHeight(
                                   context: context,
@@ -149,7 +158,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
             color: AppColors.grey300,
             child: Icon(
               Icons.email,
-              color: AppColors.deepBlue300,
+              color: AppColors.deepBlue400,
             ),
           ),
         ],

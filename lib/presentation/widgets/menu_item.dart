@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:portfoliosite/core/extensions/hover_extensions.dart';
 import 'package:portfoliosite/presentation/widgets/horizontal_bar.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
-
-import 'package:portfoliosite/core/extensions/hover_extensions.dart';
 
 import 'flicker_text_animation.dart';
 
@@ -73,7 +72,7 @@ class _MenuItemState extends State<MenuItem> with TickerProviderStateMixin {
     );
 
     TextStyle selectedMenuTextStyle = theme.textTheme.bodyText1.copyWith(
-      color: widget.isMobile ? AppColors.deepBlue300 : Colors.red,
+      color: widget.isMobile ? AppColors.deepBlue400 : AppColors.cream500,
       fontSize: Sizes.TEXT_SIZE_18,
     );
 
@@ -83,10 +82,13 @@ class _MenuItemState extends State<MenuItem> with TickerProviderStateMixin {
       child: InkWell(
         onTap: widget.onTap,
         child: Container(
+          padding: EdgeInsets.all(
+            widget.isMobile ? Sizes.PADDING_8 : Sizes.PADDING_2,
+          ),
           child: !widget.isMobile
               ? Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-
                     widget.selected
                         ? Container(
                             width: 2,
@@ -97,34 +99,31 @@ class _MenuItemState extends State<MenuItem> with TickerProviderStateMixin {
                     widget.selected ? SpaceW12() : Container(),
                     FlickerTextAnimation(
                       text: widget.title,
-                      textColor: AppColors.grey200,
+                      textColor: AppColors.cream500,
                       fadeInColor: AppColors.fadedGrey,
                       controller: _controller.view,
-//                      textStyle:  widget.selected
-//                              ? (widget.selectedStyle ?? menuTextStyle)
-//                              : (widget.titleStyle ?? menuTextStyle),
                     ),
-//                        Text(widget.title,
-//                            style:
-//                          widget.selected
-//                              ? (widget.selectedStyle ?? menuTextStyle)
-//                              : (widget.titleStyle ?? menuTextStyle),
-//                            ),
                   ],
                 )
               : //This menuList shows only on mobile
               Column(
                   children: [
-                    Text(
-                      widget.title,
-                      style: widget.selected
-                          ? (widget.selectedStyle ?? selectedMenuTextStyle)
-                          : (widget.titleStyle ?? menuTextStyle),
+                    FlickerTextAnimation(
+                      text: widget.title,
+                      textColor: widget.selected
+                          ? AppColors.deepBlue400
+                          : AppColors.grey200,
+                      fadeInColor: AppColors.fadedGrey,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      controller: _controller.view,
+                      fontSize: widget.selected
+                          ? Sizes.TEXT_SIZE_18
+                          : Sizes.TEXT_SIZE_16,
                     ),
                     widget.selected ? SpaceH8() : Container(),
                     widget.selected
                         ? HorizontalBar(
-                            color: AppColors.deepBlue300,
+                            color: AppColors.deepBlue400,
                           )
                         : Container(),
                   ],
@@ -140,22 +139,4 @@ class _MenuItemState extends State<MenuItem> with TickerProviderStateMixin {
     });
     _showAnimationOnHover();
   }
-
-//  List<Widget> rotatedText(String title, int quarterTurns) {
-//    List<Widget> text = [];
-//    for (var i = 0; i < title.length; i++) {
-//      text.add(
-//        RotatedBox(
-//          quarterTurns: quarterTurns,
-//          child: Text(
-//            title[i],
-//            style: TextStyle(
-//              color: AppColors.grey100,
-//            ),
-//          ),
-//        ),
-//      );
-//    }
-//    return text;
-//  }
 }

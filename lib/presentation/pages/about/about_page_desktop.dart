@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
+import 'package:portfoliosite/presentation/pages/about/about_page.dart';
 import 'package:portfoliosite/presentation/routes/router.gr.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/flicker_text_animation.dart';
@@ -239,6 +240,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
 
   Widget _buildAnimation(BuildContext context, Widget child) {
     double heightOfImage = assignHeight(context: context, fraction: 1);
+    widthOfImage = assignWidth(context: context, fraction: 0.4);
     return Stack(
       children: <Widget>[
         Container(
@@ -260,7 +262,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
                       ),
                       child: MenuList(
                         menuList: Data.menuList,
-                        selectedItemRouteName: Routes.aboutPage,
+                        selectedItemRouteName: AboutPage.aboutPageRoute,
                       ),
                     ),
                   ),

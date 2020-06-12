@@ -1,8 +1,6 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfoliosite/core/extensions/hover_extensions.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
-import 'package:portfoliosite/presentation/routes/router.gr.dart';
 import 'package:portfoliosite/presentation/widgets/circular_container.dart';
 import 'package:portfoliosite/presentation/widgets/socials.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
@@ -18,18 +16,20 @@ class AppDrawer extends StatelessWidget {
     this.color = AppColors.grey100,
     this.width,
     this.selectedItemRouteName,
+    this.onClose,
   });
 
   final Color color;
   final double width;
   final String selectedItemRouteName;
   final List<MenuData> menuList;
+  final GestureTapCallback onClose;
 
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     TextStyle selectedStyle = theme.textTheme.headline4.copyWith(
-      color: AppColors.deepBlue300,
+      color: AppColors.deepBlue400,
     );
     TextStyle unSelectedStyle = theme.textTheme.headline5.copyWith(
       color: AppColors.grey200,
@@ -45,16 +45,19 @@ class AppDrawer extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  CircularContainer(
-                    color: AppColors.grey300,
-                    width: Sizes.WIDTH_30,
-                    height: Sizes.HEIGHT_30,
-                    child: Icon(
-                      Icons.close,
-                      size: Sizes.ICON_SIZE_20,
-                      color: AppColors.deepBlue300,
+                  InkWell(
+                    onTap: onClose ?? () {},
+                    child: CircularContainer(
+                      color: AppColors.grey300,
+                      width: Sizes.WIDTH_30,
+                      height: Sizes.HEIGHT_30,
+                      child: Icon(
+                        Icons.close,
+                        size: Sizes.ICON_SIZE_20,
+                        color: AppColors.deepBlue400,
+                      ),
                     ),
-                  ),
+                  ).showCursorOnHover,
                 ],
               ),
             ),
@@ -62,7 +65,7 @@ class AppDrawer extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                ..._buildMenuList(menuList),
+                ..._buildMenuList(menuList: menuList, context: context),
               ],
             ),
             Spacer(flex: 1),
@@ -74,17 +77,19 @@ class AppDrawer extends StatelessWidget {
     );
   }
 
-
-  List<Widget> _buildMenuList(List<MenuData> menuList) {
+  List<Widget> _buildMenuList({
+    @required BuildContext context,
+    @required List<MenuData> menuList,
+  }) {
     List<Widget> menuItems = [];
     for (var i = 0; i < menuList.length; i++) {
       menuItems.add(
         MenuItem(
-          onTap: () => ExtendedNavigator.ofRouter<Router>()
-              .pushNamed(menuList[i].routeName),
+          onTap: () => Navigator.of(context).pushNamed(menuList[i].routeName),
           title: menuList[i].title,
           isMobile: true,
-          selected: selectedItemRouteName == menuList[i].routeName ? true : false,
+          selected:
+              selectedItemRouteName == menuList[i].routeName ? true : false,
         ),
       );
       menuItems.add(SpaceH16());

@@ -3,6 +3,12 @@ library values;
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfoliosite/presentation/pages/about/about_page.dart';
+import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
+import 'package:portfoliosite/presentation/pages/experience_page.dart';
+import 'package:portfoliosite/presentation/pages/home/home_page.dart';
+import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
+import 'package:portfoliosite/presentation/pages/resume_page.dart';
 import 'package:portfoliosite/presentation/routes/router.gr.dart';
 
 part 'colors.dart';

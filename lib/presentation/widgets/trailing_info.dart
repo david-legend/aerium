@@ -59,9 +59,8 @@ class TrailingInfo extends StatelessWidget {
                 child: Text(
                   info,
                   textAlign: TextAlign.end,
-                  style: TextStyle(
-                    color: AppColors.grey400,
-                  ),
+                  style: theme.textTheme.bodyText1
+                      .copyWith(color: AppColors.grey450),
                 ),
               ),
           Spacer(flex: 1),

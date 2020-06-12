@@ -1,6 +1,4 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:portfoliosite/presentation/routes/router.gr.dart';
 import 'package:portfoliosite/presentation/widgets/menu_item.dart';
 import 'package:portfoliosite/presentation/widgets/socials.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
@@ -22,8 +20,7 @@ class MenuList extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        ..._buildMenuList(menuList),
-
+        ..._buildMenuList(menuList: menuList, context: context),
         Spacer(
           flex: 1,
         ),
@@ -42,22 +39,25 @@ class MenuList extends StatelessWidget {
           StringConst.SPECIALITY,
           style: theme.textTheme.headline6.copyWith(
             letterSpacing: 4,
-            color: AppColors.deepBlue300,
+            color: AppColors.deepBlue400,
           ),
         ),
       ],
     );
   }
 
-  List<Widget> _buildMenuList(List<MenuData> menuList) {
+  List<Widget> _buildMenuList({
+    @required BuildContext context,
+    @required List<MenuData> menuList,
+  }) {
     List<Widget> menuItems = [];
     for (var i = 0; i < menuList.length; i++) {
       menuItems.add(
         MenuItem(
-          onTap: () => ExtendedNavigator.ofRouter<Router>()
-              .pushNamed(menuList[i].routeName),
+          onTap: () => Navigator.of(context).pushNamed(menuList[i].routeName),
           title: menuList[i].title,
-          selected: selectedItemRouteName == menuList[i].routeName ? true : false,
+          selected:
+              selectedItemRouteName == menuList[i].routeName ? true : false,
         ),
       );
       menuItems.add(SpaceH8());

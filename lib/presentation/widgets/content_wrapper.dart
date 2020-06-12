@@ -19,14 +19,10 @@ class ContentWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
       width: width ?? widthOfScreen(context),
       height: height ?? heightOfScreen(context),
-      decoration: BoxDecoration(
-        color: color,
-        gradient: gradient
-      ),
+      decoration: BoxDecoration(color: color, gradient: gradient),
       child: child,
     );
   }

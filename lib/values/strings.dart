@@ -4,6 +4,7 @@ class StringConst {
   //strings
   static const String APP_NAME = "Portfolio Site";
 
+  static const String HOME = "Home";
   static const String ABOUT_ME = "About Me";
   static const String PORTFOLIO = "Portfolio";
   static const String EXPERIENCE = "Experience";
@@ -11,6 +12,7 @@ class StringConst {
   static const String CONTACT = "Contact";
   static const String PHONE_NUMBER = "Phone Number";
   static const String RESUME = "Resume";
+  static const String CERTIFICATIONS = "Certifications";
   static const String EMAIL = "E-MAIL";
   static const String EMAIL_VALUE = "davidcobbina47@gmail.com";
 
@@ -61,4 +63,16 @@ class StringConst {
   static const String HTML_CSS = "HTML/CSS";
 
 
+  //routes
+  static const String HOME_PAGE = "/";
+  static const String ABOUT_PAGE = "/about";
+  static const String PORTFOLIO_PAGE = "/portfolio";
+  static const String CONTACT_PAGE = "/contact";
+  static const String PROJECT_PAGE = "/project";
+  static const String PROJECT_DETAIL_PAGE = "/project-detail";
+  static const String SERVICES_PAGE = "/services";
+  static const String MESSAGE_PAGE = "/message-me";
+  static const String EXPERIENCE_PAGE = "/experience";
+  static const String RESUME_PAGE = "/resume";
+  static const String CERTIFICATIONS_PAGE = "/certifications";
 }

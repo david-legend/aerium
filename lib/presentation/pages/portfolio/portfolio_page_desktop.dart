@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
+import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
 import 'package:portfoliosite/presentation/routes/router.gr.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/menu_list.dart';
@@ -153,7 +154,7 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
                       ),
                       child: MenuList(
                         menuList: Data.menuList,
-                        selectedItemRouteName: Routes.portfolioPage,
+                        selectedItemRouteName: PortfolioPage.portfolioPageRoute,
                       ),
                     ),
                   ),
@@ -199,17 +200,17 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
             ],
           ),
         ),
-        Positioned(
-          child: FadeTransition(
-            opacity: opacityAnimation,
-            child: Image.asset(
-              ImagePath.DEV,
-              width: widthOfImage,
-              height: heightOfImage,
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
+//        Positioned(
+//          child: FadeTransition(
+//            opacity: opacityAnimation,
+//            child: Image.asset(
+//              ImagePath.DEV,
+//              width: widthOfImage,
+//              height: heightOfImage,
+//              fit: BoxFit.cover,
+//            ),
+//          ),
+//        ),
       ],
     );
   }
@@ -240,10 +241,10 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
     );
   }
 
-
   List<Widget> hu(List portfolios) {
     List<Widget> widgets = [];
-    double duration =  _portfolioController.duration.inMilliseconds.roundToDouble();
+    double duration =
+        _portfolioController.duration.inMilliseconds.roundToDouble();
     double durationForEachPortfolio =
         _portfolioController.duration.inMilliseconds.roundToDouble() /
             portfolios.length;

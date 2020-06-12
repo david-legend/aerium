@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portfoliosite/presentation/pages/message/message_page.dart';
+import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
 import 'package:portfoliosite/presentation/widgets/circular_container.dart';
 import 'package:portfoliosite/presentation/widgets/custom_text_form_field.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
@@ -16,6 +18,10 @@ class _MessagePageMobileState extends State<MessagePageMobile> {
 
     return Scaffold(
       backgroundColor: AppColors.deepBlue700,
+      drawer: AppDrawer(
+        menuList: Data.menuList,
+        selectedItemRouteName: MessagePage.messagePageRoute,
+      ),
       body: ListView(
         children: [
           Container(
@@ -35,7 +41,7 @@ class _MessagePageMobileState extends State<MessagePageMobile> {
                 CircularContainer(
                   child: Icon(
                     Icons.close,
-                    color: AppColors.deepBlue300,
+                    color: AppColors.deepBlue400,
                   ),
                 )
               ],
@@ -96,7 +102,7 @@ class _MessagePageMobileState extends State<MessagePageMobile> {
                   CircularContainer(
                     child: Icon(
                       Icons.arrow_forward_ios,
-                      color: AppColors.deepBlue300,
+                      color: AppColors.deepBlue400,
                     ),
                   )
                 ],

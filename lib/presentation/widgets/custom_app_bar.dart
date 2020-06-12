@@ -50,7 +50,7 @@ class CustomAppBar extends StatelessWidget {
                   icon: actionIcon ??
                       Icon(
                         Icons.email,
-                        color: AppColors.deepBlue300,
+                        color: AppColors.deepBlue400,
                       ),
                   onPressed: onActionsPressed,
                 ),

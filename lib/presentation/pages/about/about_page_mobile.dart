@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
+import 'package:portfoliosite/presentation/pages/about/about_page.dart';
+import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/custom_app_bar.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
@@ -22,6 +24,10 @@ class _AboutPageMobileState extends State<AboutPageMobile> {
           onLeadingPressed: () {},
           onActionsPressed: () {},
         ),
+      ),
+      drawer: AppDrawer(
+        menuList: Data.menuList,
+        selectedItemRouteName: AboutPage.aboutPageRoute,
       ),
       body: Stack(
         children: [

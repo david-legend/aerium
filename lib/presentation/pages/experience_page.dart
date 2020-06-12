@@ -6,6 +6,7 @@ import 'package:portfoliosite/presentation/widgets/menu_list.dart';
 import 'package:portfoliosite/values/values.dart';
 
 class ExperiencePage extends StatelessWidget {
+  static const String experiencePageRoute = StringConst.EXPERIENCE_PAGE;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,10 +26,10 @@ class ExperiencePage extends StatelessWidget {
                             top: Sizes.MARGIN_20,
                             bottom: Sizes.MARGIN_20,
                           ),
-                          child: MenuList(
-                            menuList: Data.menuList,
-                            selectedItemRouteName: Routes.experiencePage,
-                          ),
+//                          child: MenuList(
+//                            menuList: Data.menuList,
+//                            selectedItemRouteName: ExperiencePage.experiencePageRoute,
+//                          ),
                         ),
                       ),
                       ContentWrapper(

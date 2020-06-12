@@ -51,76 +51,78 @@ class AppTheme {
   static const _regular = FontWeight.w400;
   static const _light = FontWeight.w300;
 
+//  bebasNeue
+// sedgwickAve
   static final TextTheme _textTheme = TextTheme(
-    headline1: GoogleFonts.bebasNeue(
+    headline1: GoogleFonts.firaSans(
       fontSize: Sizes.TEXT_SIZE_96,
       color: AppColors.primaryColor,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    headline2: GoogleFonts.bebasNeue(
+    headline2: GoogleFonts.firaSans(
       fontSize: Sizes.TEXT_SIZE_60,
       color: AppColors.primaryColor,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    headline3: GoogleFonts.bebasNeue(
+    headline3: GoogleFonts.firaSans(
       fontSize: Sizes.TEXT_SIZE_48,
       color: AppColors.primaryColor,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    headline4: GoogleFonts.bebasNeue(
+    headline4: GoogleFonts.firaSans(
       fontSize: Sizes.TEXT_SIZE_34,
       color: AppColors.primaryColor,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    headline5: GoogleFonts.bebasNeue(
+    headline5: GoogleFonts.firaSans(
       fontSize: Sizes.TEXT_SIZE_24,
       color: AppColors.primaryColor,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    headline6: GoogleFonts.bebasNeue(
+    headline6: GoogleFonts.firaSans(
       fontSize: Sizes.TEXT_SIZE_20,
       color: AppColors.primaryColor,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    subtitle1: GoogleFonts.bebasNeue(
+    subtitle1: GoogleFonts.firaSans(
       fontSize: Sizes.TEXT_SIZE_16,
       color: AppColors.secondaryColor,
       fontWeight: _semiBold,
       fontStyle: FontStyle.normal,
     ),
-    subtitle2: GoogleFonts.bebasNeue(
+    subtitle2: GoogleFonts.firaSans(
       fontSize: Sizes.TEXT_SIZE_14,
       color: AppColors.secondaryColor,
       fontWeight: _semiBold,
       fontStyle: FontStyle.normal,
     ),
-    bodyText1: GoogleFonts.bebasNeue(
+    bodyText1: GoogleFonts.firaSans(
       fontSize: Sizes.TEXT_SIZE_16,
       color: AppColors.secondaryColor,
       fontWeight: _light,
       fontStyle: FontStyle.normal,
       letterSpacing: 3,
     ),
-    bodyText2: GoogleFonts.bebasNeue(
+    bodyText2: GoogleFonts.firaSans(
       fontSize: Sizes.TEXT_SIZE_14,
       color: AppColors.secondaryColor,
       fontWeight: _light,
       fontStyle: FontStyle.normal,
       letterSpacing: 3,
     ),
-    button: GoogleFonts.bebasNeue(
+    button: GoogleFonts.firaSans(
       fontSize: Sizes.TEXT_SIZE_14,
       color: AppColors.secondaryColor,
       fontStyle: FontStyle.normal,
       fontWeight: _medium,
     ),
-    caption: GoogleFonts.bebasNeue(
+    caption: GoogleFonts.firaSans(
       fontSize: Sizes.TEXT_SIZE_12,
       color: AppColors.white,
       fontWeight: _regular,

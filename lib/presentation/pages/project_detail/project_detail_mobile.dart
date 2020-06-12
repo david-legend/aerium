@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
-import 'package:portfoliosite/presentation/widgets/custom_app_bar.dart';
+import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
+import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
+import 'package:portfoliosite/presentation/widgets/custom_app_bar.dart';
 import 'package:portfoliosite/presentation/widgets/project_cover.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
@@ -16,11 +18,15 @@ class ProjectDetailMobile extends StatelessWidget {
           title: StringConst.PROJECT_NAME,
           actionIcon: Icon(
             Icons.arrow_back_ios,
-            color: AppColors.deepBlue300,
+            color: AppColors.deepBlue400,
           ),
           onLeadingPressed: () {},
           onActionsPressed: () {},
         ),
+      ),
+      drawer: AppDrawer(
+        menuList: Data.menuList,
+        selectedItemRouteName: PortfolioPage.portfolioPageRoute,
       ),
       body: ContentWrapper(
         child: ListView(

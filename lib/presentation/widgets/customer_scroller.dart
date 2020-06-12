@@ -5,9 +5,12 @@ import 'package:portfoliosite/values/values.dart';
 class CustomScroller extends StatelessWidget {
   CustomScroller({
     this.width = Sizes.WIDTH_24,
+    this.height = Sizes.HEIGHT_70,
     this.padding = const EdgeInsets.all(Sizes.PADDING_0),
     this.scrollColor = AppColors.deepBlue500,
     this.scrollCenterColor = AppColors.grey200,
+    this.duration = 800,
+    this.borderRadius = Sizes.RADIUS_20,
     this.onUpTap,
     this.onDownTap,
     this.topController,
@@ -17,6 +20,9 @@ class CustomScroller extends StatelessWidget {
 
   final EdgeInsetsGeometry padding;
   final double width;
+  final int duration;
+  final double height;
+  final double borderRadius;
   final Color scrollColor;
   final Color scrollCenterColor;
   final GestureTapCallback onUpTap;
@@ -28,10 +34,10 @@ class CustomScroller extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(20),
-      child: Container(
-        width: width,
-        color: scrollColor,
+      borderRadius: BorderRadius.circular(borderRadius),
+      child: TweenAnimationBuilder(
+        tween: Tween<double>(begin: 0, end: height),
+        duration: Duration(milliseconds: duration),
         child: Column(
           children: [
             InkWell(
@@ -57,6 +63,14 @@ class CustomScroller extends StatelessWidget {
             )
           ],
         ),
+        builder: (BuildContext context, double value, Widget child) {
+          return Container(
+            width: width,
+            height: value,
+            color: scrollColor,
+            child: child,
+          );
+        },
       ),
     );
   }

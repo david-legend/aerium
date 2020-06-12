@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
 import 'package:portfoliosite/presentation/pages/home/home_page.dart';
+import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
 import 'package:portfoliosite/presentation/widgets/circular_container.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/menu_list.dart';
@@ -45,6 +46,7 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                       width: assignWidth(context: context, fraction: 0.5),
                       color: AppColors.grey100,
                       child: TrailingInfo(
+                        onLeadingWidgetPressed: () {},
                         leadingWidget: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
@@ -67,6 +69,12 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                             )
                           ],
                         ),
+                        onTrailingWidgetPressed: () {
+                          Navigator.pushNamed(
+                            context,
+                            PortfolioPage.portfolioPageRoute,
+                          );
+                        },
                         trailingWidget: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [

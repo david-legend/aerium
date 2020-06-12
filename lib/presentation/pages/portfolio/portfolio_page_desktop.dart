@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
 import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
+import 'package:portfoliosite/presentation/widgets/customer_scroller.dart';
 import 'package:portfoliosite/presentation/widgets/menu_list.dart';
 import 'package:portfoliosite/presentation/widgets/portfolio_card.dart';
 import 'package:portfoliosite/presentation/widgets/trailing_info.dart';
@@ -17,6 +18,7 @@ class PortfolioPageDesktop extends StatefulWidget {
 
 class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
     with TickerProviderStateMixin {
+  ScrollController _scrollController = ScrollController();
   AnimationController _controller;
   AnimationController _portfolioController;
   Animation<double> widthOfRightContentWrapperAnimation;
@@ -190,6 +192,16 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
                             context: context,
                             fraction: 0.05,
                           ),
+                          trailingWidget: CustomScroller(
+                            onUpTap: () {
+                              _scroll(
+                                  _scrollController.position.minScrollExtent);
+                            },
+                            onDownTap: () {
+                              _scroll(
+                                  _scrollController.position.maxScrollExtent);
+                            },
+                          ),
                         ),
                       ],
                     ),
@@ -229,6 +241,7 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
   Widget _buildPortfolioGallery() {
     List<int> fixedLengthList = List(8);
     return ListView(
+      controller: _scrollController,
       children: [
         Wrap(
           direction: Axis.horizontal,
@@ -249,9 +262,9 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
             portfolios.length;
     var counter = 0;
     for (var i = 0; i < portfolios.length; i++) {
-      print("duration $duration");
-      print(
-          "duration starts from ${durationForEachPortfolio * i} and ends at ${durationForEachPortfolio * (i + 1)} ");
+//      print("duration $duration");
+//      print(
+//          "duration starts from ${durationForEachPortfolio * i} and ends at ${durationForEachPortfolio * (i + 1)} ");
       double start = durationForEachPortfolio * i;
       double end = durationForEachPortfolio * (i + 1);
       widgets.add(
@@ -289,5 +302,13 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
       }
     }
     return widgets;
+  }
+
+  _scroll(double offset) {
+    _scrollController.animateTo(
+      offset,
+      duration: Duration(milliseconds: 500),
+      curve: Curves.easeIn,
+    );
   }
 }

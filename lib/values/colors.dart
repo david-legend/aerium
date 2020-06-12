@@ -13,7 +13,6 @@ class AppColors {
   static const Color grey400 = Color(0xFFBEBEBE);
   static const Color grey450 = Color(0xFFB7B8BD);
 
-
   static const Color cream = Color(0xFFEBEBEC);
   static const Color cream500 = Color(0xFFC7C9CA);
   static const Color fadedGrey = Color(0xFF7B8186);
@@ -22,13 +21,10 @@ class AppColors {
   static const Color deepBlue200 = Color(0xFF546478);
   static const Color deepBlue250 = Color(0xFF566C7F);
   static const Color deepBlue400 = Color(0xFF3E5067);
+  static const Color deepBlue500 = Color(0xFF000B2D);
   static const Color deepBlue700 = Color(0xFF141A21);
   static const Color deepBlue800 = Color(0xFF242D36);
   static const Color deepBlue900 = Color(0xFF020A13);
 
   static const Color bodyText1 = Color(0xFF8393A1);
-
-
-
- 
 }

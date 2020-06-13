@@ -164,7 +164,7 @@ class Data {
     0.15,
     0.15,
   ];
-  static List<CertificationData> certificateData = [
+  static List<CertificationData> certificationData = [
     CertificationData(
       title: StringConst.ASSOCIATE_ANDROID_DEV,
       url: StringConst.ASSOCIATE_ANDROID_DEV_URL,

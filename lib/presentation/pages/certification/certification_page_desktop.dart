@@ -128,7 +128,7 @@ class _CertificationPageDesktopState extends State<CertificationPageDesktop>
           direction: Axis.horizontal,
           spacing: assignWidth(context: context, fraction: 0.0099),
           runSpacing: assignHeight(context: context, fraction: 0.02),
-          children: _certificateList(Data.certificateData),
+          children: _certificateList(Data.certificationData),
         ),
       ],
     );

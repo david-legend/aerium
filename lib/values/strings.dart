@@ -17,6 +17,7 @@ class StringConst {
 
   static const String MESSAGE_ME = "Message me";
   static const String GET_IN_TOUCH = "Get in touch";
+  static const String VIEW = "View";
 
   static const String KEY_SKILLS = "KEY SKILLS";
   static const String EXPERIENCE_2 = "EXPERIENCE";
@@ -69,7 +70,7 @@ class StringConst {
   static const String MESSAGE_PAGE = "/message-me";
   static const String EXPERIENCE_PAGE = "/experience";
   static const String RESUME_PAGE = "/resume";
-  static const String CERTIFICATIONS_PAGE = "/certifications";
+  static const String CERTIFICATION_PAGE = "/certifications";
 
   //Socials
   static const String GITHUB_URL = "https://github.com/david-legend";
@@ -86,4 +87,21 @@ class StringConst {
   static const String TWITTER = "TWITTER";
   static const String INSTAGRAM = "INSTAGRAM";
   static const String TELEGRAM = "TELEGRAM";
+
+  //Certificate Urls
+  static const String ASSOCIATE_ANDROID_DEV_URL =
+      "https://www.credential.net/b296da88-d6be-4bb5-9756-b13efea3a421";
+  static const String DATA_SCIENCE_CERT_URL =
+      "https://graduation.udacity.com/confirm/7CGEJAFR";
+  static const String ANDROID_BASICS_CERT_URL =
+      "https://graduation.udacity.com/confirm/9VTDRN5K";
+
+  //AwardedBy
+  static const String GOOGLE = "Google";
+  static const String UDACITY = "Udacity";
+
+  //CertificationType
+  static const String ASSOCIATE_ANDROID_DEV = "Associate Android Developer";
+  static const String DATA_SCIENCE = "Data Science";
+  static const String ANDROID_BASICS = "Android Basics";
 }

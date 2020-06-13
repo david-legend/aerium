@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/presentation/pages/about/about_page.dart';
+import 'package:portfoliosite/presentation/pages/certification/certification_page.dart';
 import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/presentation/pages/home/home_page.dart';
 import 'package:portfoliosite/presentation/pages/message/message_page.dart';
@@ -65,6 +66,10 @@ class RouteConfiguration {
     Path(
       r'^' + ServicesPage.servicesPageRoute,
       (context, matches) => const ServicesPage(),
+    ),
+    Path(
+      r'^' + CertificationPage.certificationPageRoute,
+      (context, matches) => const CertificationPage(),
     ),
     Path(
       r'^' + HomePage.homePageRoute,

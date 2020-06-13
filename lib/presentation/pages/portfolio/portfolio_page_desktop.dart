@@ -238,21 +238,20 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
   }
 
   Widget _buildPortfolioGallery() {
-    List<int> fixedLengthList = List(8);
     return ListView(
       controller: _scrollController,
       children: [
         Wrap(
           direction: Axis.horizontal,
-          spacing: assignWidth(context: context, fraction: 0.009),
+          spacing: assignWidth(context: context, fraction: 0.0099),
           runSpacing: assignHeight(context: context, fraction: 0.02),
-          children: hu(fixedLengthList),
+          children: _portfolioItem(Data.portfolioImages),
         ),
       ],
     );
   }
 
-  List<Widget> hu(List portfolios) {
+  List<Widget> _portfolioItem(List<String> portfolios) {
     List<Widget> widgets = [];
     double duration =
         _portfolioController.duration.inMilliseconds.roundToDouble();

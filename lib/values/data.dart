@@ -10,6 +10,22 @@ class MenuData {
   final String routeName;
 }
 
+class CertificationData {
+  CertificationData({
+    @required this.title,
+    @required this.image,
+    @required this.imageSize,
+    @required this.url,
+    @required this.awardedBy,
+  });
+
+  final String image;
+  final double imageSize;
+  final String url;
+  final String title;
+  final String awardedBy;
+}
+
 class SkillData {
   SkillData({
     @required this.skillName,
@@ -55,7 +71,7 @@ class Data {
     MenuData(title: StringConst.RESUME, routeName: StringConst.RESUME),
     MenuData(
       title: StringConst.CERTIFICATIONS,
-      routeName: "CertificationPage.certficationPageRoute",
+      routeName: CertificationPage.certificationPageRoute,
     ),
   ];
 
@@ -101,6 +117,7 @@ class Data {
     ImagePath.PORTFOLIO_3,
     ImagePath.PORTFOLIO_4,
   ];
+
   static List<double> imageSizesForPortfolioGallery = [
     0.15,
     0.15,
@@ -110,5 +127,28 @@ class Data {
     0.3,
     0.15,
     0.15,
+  ];
+  static List<CertificationData> certificateData = [
+    CertificationData(
+      title: StringConst.ASSOCIATE_ANDROID_DEV,
+      url: StringConst.ASSOCIATE_ANDROID_DEV_URL,
+      image: ImagePath.ASSOCIATE_ANDROID_DEV,
+      imageSize: 0.30,
+      awardedBy: StringConst.GOOGLE,
+    ),
+    CertificationData(
+      title: StringConst.DATA_SCIENCE,
+      url: StringConst.DATA_SCIENCE_CERT_URL,
+      image: ImagePath.DATA_SCIENCE_CERT,
+      imageSize: 0.30,
+      awardedBy: StringConst.UDACITY,
+    ),
+    CertificationData(
+      title: StringConst.ANDROID_BASICS,
+      url: StringConst.ANDROID_BASICS_CERT_URL,
+      image: ImagePath.ANDROID_BASICS_CERT,
+      imageSize: 0.30,
+      awardedBy: StringConst.UDACITY,
+    ),
   ];
 }

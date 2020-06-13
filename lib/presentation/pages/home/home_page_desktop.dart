@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
+import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/presentation/pages/home/home_page.dart';
 import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
 import 'package:portfoliosite/presentation/widgets/circular_container.dart';
@@ -46,7 +47,12 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                       width: assignWidth(context: context, fraction: 0.5),
                       color: AppColors.grey100,
                       child: TrailingInfo(
-                        onLeadingWidgetPressed: () {},
+                        onLeadingWidgetPressed: () {
+                          Navigator.pushNamed(
+                            context,
+                            ContactPage.contactPageRoute,
+                          );
+                        },
                         leadingWidget: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfoliosite/core/utils/functions.dart';
 import 'package:portfoliosite/presentation/widgets/horizontal_bar.dart';
 import 'package:portfoliosite/values/values.dart';
 import 'package:portfoliosite/core/extensions/hover_extensions.dart';
-import 'dart:js' as js;
 
 class Socials extends StatelessWidget {
   Socials({
@@ -32,7 +32,7 @@ class Socials extends StatelessWidget {
                   icon: FontAwesomeIcons.github,
                   alignment: alignment,
                   onPressed: () {
-                    _launchUrl(StringConst.GITHUB_URL);
+                    Functions.launchUrl(StringConst.GITHUB_URL);
                   },
                   color: color,
                 ),
@@ -44,7 +44,7 @@ class Socials extends StatelessWidget {
                   icon: FontAwesomeIcons.linkedin,
                   alignment: alignment,
                   onPressed: () {
-                    _launchUrl(StringConst.LINKED_IN_URL);
+                    Functions.launchUrl(StringConst.LINKED_IN_URL);
                   },
                   color: color,
                 ),
@@ -56,7 +56,7 @@ class Socials extends StatelessWidget {
                   icon: FontAwesomeIcons.twitter,
                   alignment: alignment,
                   onPressed: () {
-                    _launchUrl(StringConst.TWITTER_URL);
+                    Functions.launchUrl(StringConst.TWITTER_URL);
                   },
                   color: color,
                 ),
@@ -71,7 +71,7 @@ class Socials extends StatelessWidget {
                   icon: FontAwesomeIcons.github,
                   alignment: alignment,
                   onPressed: () {
-                    _launchUrl(StringConst.GITHUB_URL);
+                    Functions.launchUrl(StringConst.GITHUB_URL);
                   },
                   color: color,
                 ),
@@ -83,7 +83,7 @@ class Socials extends StatelessWidget {
                   icon: FontAwesomeIcons.linkedin,
                   alignment: alignment,
                   onPressed: () {
-                    _launchUrl(StringConst.LINKED_IN_URL);
+                    Functions.launchUrl(StringConst.LINKED_IN_URL);
                   },
                   color: color,
                 ),
@@ -95,17 +95,13 @@ class Socials extends StatelessWidget {
                   icon: FontAwesomeIcons.twitter,
                   alignment: alignment,
                   onPressed: () {
-                    _launchUrl(StringConst.TWITTER_URL);
+                    Functions.launchUrl(StringConst.TWITTER_URL);
                   },
                   color: color,
                 ),
               ],
             ),
           ).showCursorOnHover;
-  }
-
-  void _launchUrl(String url) {
-    js.context.callMethod('openLink', [url, '_blank']);
   }
 }
 

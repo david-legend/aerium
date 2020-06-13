@@ -8,7 +8,6 @@ import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/presentation/pages/experience_page.dart';
 import 'package:portfoliosite/presentation/pages/home/home_page.dart';
 import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
-import 'package:portfoliosite/presentation/pages/resume_page.dart';
 
 part 'colors.dart';
 part 'borders.dart';
@@ -19,3 +18,4 @@ part 'styles.dart';
 part 'gradients.dart';
 part 'decoration.dart';
 part 'data.dart';
+part 'docs.dart';

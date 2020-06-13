@@ -52,7 +52,7 @@ class Data {
       title: StringConst.EXPERIENCE,
       routeName: ExperiencePage.experiencePageRoute,
     ),
-    MenuData(title: StringConst.RESUME, routeName: ResumePage.resumePageRoute),
+    MenuData(title: StringConst.RESUME, routeName: StringConst.RESUME),
     MenuData(
       title: StringConst.CERTIFICATIONS,
       routeName: "CertificationPage.certficationPageRoute",

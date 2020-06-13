@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfoliosite/core/utils/functions.dart';
 import 'package:portfoliosite/presentation/widgets/menu_item.dart';
 import 'package:portfoliosite/presentation/widgets/socials.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
@@ -58,7 +59,14 @@ class MenuList extends StatelessWidget {
     for (var i = 0; i < menuList.length; i++) {
       menuItems.add(
         MenuItem(
-          onTap: () => Navigator.of(context).pushNamed(menuList[i].routeName),
+          onTap: () {
+            if (menuList[i].title == StringConst.RESUME) {
+              Functions.launchUrl(DocumentPath.CV);
+            } else {
+              print(menuList[i].routeName);
+              Navigator.of(context).pushNamed(menuList[i].routeName);
+            }
+          },
           title: menuList[i].title,
           selected:
               selectedItemRouteName == menuList[i].routeName ? true : false,

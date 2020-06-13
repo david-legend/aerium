@@ -245,21 +245,21 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
           direction: Axis.horizontal,
           spacing: assignWidth(context: context, fraction: 0.0099),
           runSpacing: assignHeight(context: context, fraction: 0.02),
-          children: _portfolioItem(Data.portfolioImages),
+          children: _portfolioItem(Data.portfolioData),
         ),
       ],
     );
   }
 
-  List<Widget> _portfolioItem(List<String> portfolios) {
+  List<Widget> _portfolioItem(List<PortfolioData> portfolioData) {
     List<Widget> widgets = [];
     double duration =
         _portfolioController.duration.inMilliseconds.roundToDouble();
     double durationForEachPortfolio =
         _portfolioController.duration.inMilliseconds.roundToDouble() /
-            portfolios.length;
+            portfolioData.length;
     var counter = 0;
-    for (var i = 0; i < portfolios.length; i++) {
+    for (var i = 0; i < portfolioData.length; i++) {
 //      print("duration $duration");
 //      print(
 //          "duration starts from ${durationForEachPortfolio * i} and ends at ${durationForEachPortfolio * (i + 1)} ");
@@ -281,14 +281,14 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
             ),
           ),
           child: PortfolioCard(
-            imageUrl: Data.portfolioImages[i],
-            title: "FoodyBite",
-            subtitle: "FoodyBite",
-            actionTitle: "FoodyBite",
+            imageUrl: portfolioData[i].image,
+            title: portfolioData[i].title,
+            subtitle: portfolioData[i].subtitle,
+            actionTitle: StringConst.VIEW,
             height: assignHeight(context: context, fraction: 0.45),
             width: assignWidth(
               context: context,
-              fraction: Data.imageSizesForPortfolioGallery[counter],
+              fraction: portfolioData[i].imageSize,
             ),
           ),
         ),

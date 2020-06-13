@@ -26,6 +26,20 @@ class CertificationData {
   final String awardedBy;
 }
 
+class PortfolioData {
+  PortfolioData({
+    @required this.title,
+    @required this.image,
+    @required this.imageSize,
+    @required this.subtitle,
+  });
+
+  final String image;
+  final double imageSize;
+  final String title;
+  final String subtitle;
+}
+
 class SkillData {
   SkillData({
     @required this.skillName,
@@ -107,15 +121,37 @@ class Data {
       content: "super experience",
     ),
   ];
-  static List<String> portfolioImages = [
-    ImagePath.PORTFOLIO_2,
-    ImagePath.PORTFOLIO_3,
-    ImagePath.PORTFOLIO_4,
-    ImagePath.PORTFOLIO_5,
-    ImagePath.PORTFOLIO_6,
-    ImagePath.PORTFOLIO_2,
-    ImagePath.PORTFOLIO_3,
-    ImagePath.PORTFOLIO_4,
+  static List<PortfolioData> portfolioData = [
+    PortfolioData(
+      title: "FoodyBite",
+      subtitle: "FoodyBit",
+      image: ImagePath.PORTFOLIO_2,
+      imageSize: 0.15,
+    ),
+    PortfolioData(
+      title: "FoodyBite",
+      subtitle: "FoodyBit",
+      image: ImagePath.PORTFOLIO_3,
+      imageSize: 0.15,
+    ),
+    PortfolioData(
+      title: "FoodyBitw",
+      subtitle: "FoodyBit",
+      image: ImagePath.PORTFOLIO_4,
+      imageSize: 0.3,
+    ),
+    PortfolioData(
+      title: "FoodyBite",
+      subtitle: "FoodyBit",
+      image: ImagePath.PORTFOLIO_5,
+      imageSize: 0.45,
+    ),
+    PortfolioData(
+      title: "FoodyBitw",
+      subtitle: "FoodyBit",
+      image: ImagePath.PORTFOLIO_6,
+      imageSize: 0.15,
+    ),
   ];
 
   static List<double> imageSizesForPortfolioGallery = [

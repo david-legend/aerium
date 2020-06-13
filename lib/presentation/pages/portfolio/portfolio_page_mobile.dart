@@ -35,16 +35,16 @@ class _PortfolioPageMobileState extends State<PortfolioPageMobile> {
             horizontal: Sizes.PADDING_24,
             vertical: Sizes.PADDING_16,
           ),
-          itemCount: 8,
+          itemCount: Data.portfolioData.length,
           separatorBuilder: (BuildContext context, index) {
             return SpaceH20();
           },
           itemBuilder: (BuildContext context, index) {
             return PortfolioCard(
-              imageUrl: Data.portfolioImages[index],
-              title: "FoodyBite",
-              subtitle: "FoodyBite",
-              actionTitle: "FoodyBite",
+              imageUrl: Data.portfolioData[index].image,
+              title: Data.portfolioData[index].title,
+              subtitle: Data.portfolioData[index].subtitle,
+              actionTitle: StringConst.VIEW,
               height: assignHeight(context: context, fraction: 0.3),
               width: widthOfScreen(context),
             );
@@ -54,15 +54,15 @@ class _PortfolioPageMobileState extends State<PortfolioPageMobile> {
     );
   }
 
-  List<Widget> hu(List portfolios) {
+  List<Widget> hu(List<PortfolioData> portfolioData) {
     List<Widget> widgets = [];
-    for (var i = 0; i < portfolios.length; i++) {
+    for (var i = 0; i < portfolioData.length; i++) {
       widgets.add(
         PortfolioCard(
-          imageUrl: Data.portfolioImages[i],
-          title: "FoodyBite",
-          subtitle: "FoodyBite",
-          actionTitle: "FoodyBite",
+          imageUrl: portfolioData[i].image,
+          title: portfolioData[i].title,
+          subtitle: portfolioData[i].subtitle,
+          actionTitle: StringConst.VIEW,
           height: assignHeight(context: context, fraction: 0.3),
           width: widthOfScreen(context),
         ),

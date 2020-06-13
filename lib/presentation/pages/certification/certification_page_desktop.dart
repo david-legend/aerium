@@ -147,7 +147,7 @@ class _CertificationPageDesktopState extends State<CertificationPageDesktop>
     double durationForEachPortfolio =
         _controller.duration.inMilliseconds.roundToDouble() /
             certificationData.length;
-    var counter = 0;
+
     for (var i = 0; i < certificationData.length; i++) {
       double start = durationForEachPortfolio * i;
       double end = durationForEachPortfolio * (i + 1);
@@ -180,11 +180,6 @@ class _CertificationPageDesktopState extends State<CertificationPageDesktop>
           ),
         ),
       );
-      if ((i + 1) % 8 == 0) {
-        counter = 0;
-      } else {
-        counter++;
-      }
     }
     return widgets;
   }

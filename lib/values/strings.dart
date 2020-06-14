@@ -106,7 +106,7 @@ class StringConst {
   static const String ANDROID_BASICS = "Android Basics";
 
   //Experience
-  static const String CURRENT_MONTH_YEAR = "June 2020";
+  static const String CURRENT_MONTH_YEAR = "May 2020 - Current";
   static const String STARTED_MONTH_YEAR = "May 2017";
   static const String COMPANY_1 = "Makedu Consult";
   static const String POSITION_1 = "Software Engineer Intern";

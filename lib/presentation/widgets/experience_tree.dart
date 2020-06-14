@@ -45,7 +45,7 @@ class ExperienceTree extends StatelessWidget {
               padding: EdgeInsets.all(Sizes.PADDING_8),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Sizes.RADIUS_16),
-                color: Color(0xFFDDDAE5), //headBackgroundColor,
+                color: headBackgroundColor,
               ),
               child: Text(
                 headTitle,
@@ -61,7 +61,7 @@ class ExperienceTree extends StatelessWidget {
               padding: EdgeInsets.all(Sizes.PADDING_8),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Sizes.RADIUS_16),
-                color: Color(0xFFDDDAE5), // tailBackgroundColor,
+                color: tailBackgroundColor,
               ),
               child: Text(
                 tailTitle,
@@ -127,9 +127,9 @@ class ExperienceBranch extends StatelessWidget {
       foregroundPainter: customPainter ??
           TreePainter(
             stalk: 0.1,
-            veinsColor: Color(0xFFDDDAE5),
-            outerJointColor: Color(0xFFDDDAE5),
-            innerJointColor: Color(0xFF5325A8),
+//            veinsColor: Color(0xFFDDDAE5),
+//            outerJointColor: Color(0xFFDDDAE5),
+//            innerJointColor: Color(0xFF5325A8),
           ),
       child: Container(
         width: width,

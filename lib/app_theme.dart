@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfoliosite/values/values.dart';
 
-
 class AppTheme {
   static const _lightFillColor = Colors.black;
 
   static final Color _lightFocusColor = Colors.black.withOpacity(0.12);
 
   static ThemeData lightThemeData =
-  themeData(lightColorScheme, _lightFocusColor);
+      themeData(lightColorScheme, _lightFocusColor);
 
   static ThemeData themeData(ColorScheme colorScheme, Color focusColor) {
     return ThemeData(
@@ -54,75 +53,75 @@ class AppTheme {
 //  bebasNeue
 // sedgwickAve
   static final TextTheme _textTheme = TextTheme(
-    headline1: GoogleFonts.firaSans(
+    headline1: GoogleFonts.raleway(
       fontSize: Sizes.TEXT_SIZE_96,
       color: AppColors.primaryColor,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    headline2: GoogleFonts.firaSans(
+    headline2: GoogleFonts.raleway(
       fontSize: Sizes.TEXT_SIZE_60,
       color: AppColors.primaryColor,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    headline3: GoogleFonts.firaSans(
+    headline3: GoogleFonts.raleway(
       fontSize: Sizes.TEXT_SIZE_48,
       color: AppColors.primaryColor,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    headline4: GoogleFonts.firaSans(
+    headline4: GoogleFonts.raleway(
       fontSize: Sizes.TEXT_SIZE_34,
       color: AppColors.primaryColor,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    headline5: GoogleFonts.firaSans(
+    headline5: GoogleFonts.raleway(
       fontSize: Sizes.TEXT_SIZE_24,
       color: AppColors.primaryColor,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    headline6: GoogleFonts.firaSans(
+    headline6: GoogleFonts.raleway(
       fontSize: Sizes.TEXT_SIZE_20,
       color: AppColors.primaryColor,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    subtitle1: GoogleFonts.firaSans(
+    subtitle1: GoogleFonts.raleway(
       fontSize: Sizes.TEXT_SIZE_16,
       color: AppColors.secondaryColor,
       fontWeight: _semiBold,
       fontStyle: FontStyle.normal,
     ),
-    subtitle2: GoogleFonts.firaSans(
+    subtitle2: GoogleFonts.raleway(
       fontSize: Sizes.TEXT_SIZE_14,
       color: AppColors.secondaryColor,
       fontWeight: _semiBold,
       fontStyle: FontStyle.normal,
     ),
-    bodyText1: GoogleFonts.firaSans(
+    bodyText1: GoogleFonts.raleway(
       fontSize: Sizes.TEXT_SIZE_16,
       color: AppColors.secondaryColor,
       fontWeight: _light,
       fontStyle: FontStyle.normal,
       letterSpacing: 3,
     ),
-    bodyText2: GoogleFonts.firaSans(
+    bodyText2: GoogleFonts.raleway(
       fontSize: Sizes.TEXT_SIZE_14,
       color: AppColors.secondaryColor,
       fontWeight: _light,
       fontStyle: FontStyle.normal,
       letterSpacing: 3,
     ),
-    button: GoogleFonts.firaSans(
+    button: GoogleFonts.raleway(
       fontSize: Sizes.TEXT_SIZE_14,
       color: AppColors.secondaryColor,
       fontStyle: FontStyle.normal,
       fontWeight: _medium,
     ),
-    caption: GoogleFonts.firaSans(
+    caption: GoogleFonts.raleway(
       fontSize: Sizes.TEXT_SIZE_12,
       color: AppColors.white,
       fontWeight: _regular,

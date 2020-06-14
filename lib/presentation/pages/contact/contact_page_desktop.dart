@@ -115,52 +115,63 @@ class _ContactPageDesktopState extends State<ContactPageDesktop> {
         bottom: Sizes.PADDING_20,
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             StringConst.GET_IN_TOUCH,
-            style: theme.textTheme.headline4.copyWith(),
+            style: theme.textTheme.headline3.copyWith(),
           ),
           SpaceH20(),
           ContactInfo(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            iconsMainAxisAlignment: MainAxisAlignment.center,
+            iconSize: Sizes.ICON_SIZE_30,
             onTap: () {},
           ),
-          SpaceH16(),
+          SpaceH20(),
           Text(
-            StringConst.SOCIALS,
-            style: theme.textTheme.headline6,
+            StringConst.CONNECT,
+            style: theme.textTheme.headline5,
           ),
-          SpaceH4(),
+          SpaceH12(),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SocialButton(
                 alignment: Alignment.centerLeft,
                 icon: FontAwesomeIcons.linkedin,
                 color: AppColors.deepBlue800,
+                iconSize: Sizes.ICON_SIZE_36,
                 onPressed: () {
                   Functions.launchUrl(StringConst.LINKED_IN_URL);
                 },
               ),
+              SpaceW12(),
               SocialButton(
                 alignment: Alignment.centerLeft,
                 icon: FontAwesomeIcons.twitter,
                 color: AppColors.deepBlue800,
+                iconSize: Sizes.ICON_SIZE_36,
                 onPressed: () {
                   Functions.launchUrl(StringConst.TWITTER_URL);
                 },
               ),
+              SpaceW12(),
               SocialButton(
                 alignment: Alignment.centerLeft,
                 icon: FontAwesomeIcons.instagram,
                 color: AppColors.deepBlue800,
+                iconSize: Sizes.ICON_SIZE_36,
                 onPressed: () {
                   Functions.launchUrl(StringConst.INSTAGRAM_URL);
                 },
               ),
+              SpaceW12(),
               SocialButton(
                 alignment: Alignment.centerLeft,
                 icon: FontAwesomeIcons.telegram,
                 color: AppColors.deepBlue800,
+                iconSize: Sizes.ICON_SIZE_36,
                 onPressed: () {
                   Functions.launchUrl(StringConst.TELEGRAM_URL);
                 },

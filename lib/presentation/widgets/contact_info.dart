@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
-import 'dart:js' as js;
 
 class ContactInfo extends StatelessWidget {
   ContactInfo({
@@ -13,6 +12,8 @@ class ContactInfo extends StatelessWidget {
     this.iconSize,
     this.iconColor = AppColors.deepBlue800,
     this.onTap,
+    this.crossAxisAlignment = CrossAxisAlignment.start,
+    this.iconsMainAxisAlignment = MainAxisAlignment.start,
   });
 
   final String contactType;
@@ -23,35 +24,38 @@ class ContactInfo extends StatelessWidget {
   final Color iconColor;
   final double iconSize;
   final GestureTapCallback onTap;
+  final CrossAxisAlignment crossAxisAlignment;
+  final MainAxisAlignment iconsMainAxisAlignment;
 
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return Container(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: crossAxisAlignment,
         children: [
           Text(
             contactType,
-            style: contactTypeTextStyle ?? theme.textTheme.headline6.copyWith(),
+            style: contactTypeTextStyle ?? theme.textTheme.headline5,
           ),
           SpaceH4(),
           InkWell(
-            onTap: onTap ??
-                () {
-                  _launchUrl(contact);
-                },
+            onTap: onTap,
             child: Row(
+              mainAxisAlignment: iconsMainAxisAlignment,
               children: [
                 Icon(
                   iconData,
                   color: iconColor,
+                  size: iconSize,
                 ),
                 SpaceW4(),
                 Text(
                   contact,
-                  style:
-                      contactTextStyle ?? theme.textTheme.bodyText1.copyWith(),
+                  style: contactTextStyle ??
+                      theme.textTheme.bodyText1.copyWith(
+                        fontSize: Sizes.TEXT_SIZE_18,
+                      ),
                 ),
               ],
             ),
@@ -59,9 +63,5 @@ class ContactInfo extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  void _launchUrl(String url) {
-    js.context.callMethod('openLink', [url, '_blank']);
   }
 }

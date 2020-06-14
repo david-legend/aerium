@@ -40,6 +40,24 @@ class PortfolioData {
   final String subtitle;
 }
 
+class ExperienceData {
+  ExperienceData({
+    @required this.position,
+    @required this.role,
+    @required this.location,
+    @required this.duration,
+    this.company,
+    this.companyUrl,
+  });
+
+  final String company;
+  final String companyUrl;
+  final String location;
+  final String duration;
+  final String position;
+  final String role;
+}
+
 class SkillData {
   SkillData({
     @required this.skillName,
@@ -185,6 +203,37 @@ class Data {
       image: ImagePath.ANDROID_BASICS_CERT,
       imageSize: 0.30,
       awardedBy: StringConst.UDACITY,
+    ),
+  ];
+
+  static List<ExperienceData> experienceData = [
+    ExperienceData(
+      company: StringConst.COMPANY_4,
+      position: StringConst.POSITION_4,
+      role: StringConst.ROLE_4,
+      location: StringConst.LOCATION_4,
+      duration: StringConst.DURATION_4,
+    ),
+    ExperienceData(
+      company: StringConst.COMPANY_3,
+      position: StringConst.POSITION_3,
+      role: StringConst.ROLE_3,
+      location: StringConst.LOCATION_3,
+      duration: StringConst.DURATION_3,
+    ),
+    ExperienceData(
+      company: StringConst.COMPANY_2,
+      position: StringConst.POSITION_2,
+      role: StringConst.ROLE_2,
+      location: StringConst.LOCATION_2,
+      duration: StringConst.DURATION_2,
+    ),
+    ExperienceData(
+      company: StringConst.COMPANY_1,
+      position: StringConst.POSITION_1,
+      role: StringConst.ROLE_1,
+      location: StringConst.LOCATION_1,
+      duration: StringConst.DURATION_1,
     ),
   ];
 }

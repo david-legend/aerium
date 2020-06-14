@@ -6,6 +6,8 @@ import 'package:portfoliosite/presentation/widgets/sub_menu_item.dart';
 import 'package:portfoliosite/values/values.dart';
 import 'package:portfoliosite/core/extensions/hover_extensions.dart';
 
+import 'experience_tree.dart';
+
 class SubMenuList extends StatefulWidget {
   SubMenuList({
     @required this.subMenuData,
@@ -149,6 +151,7 @@ class _SubMenuListState extends State<SubMenuList>
         if (menuData[index].isAnimation) {
           return _buildSkillsSection(skills: menuData[index].skillData);
         } else {
+//          return contentData();
           return Text(menuData[index].content);
         }
       }
@@ -162,6 +165,41 @@ class _SubMenuListState extends State<SubMenuList>
       widget.subMenuData[index].isSelected = true;
     });
   }
+
+//  Widget contentData() {
+//    return Container(
+//      height: 380,
+//      child: ListView(
+//        shrinkWrap: true,
+//        scrollDirection: Axis.horizontal,
+//        children: [
+//          Card(
+//            child: Container(
+//              padding: EdgeInsets.all(16.0),
+//              child: Column(
+//                children: [
+//                  ExperienceTree(
+//                    company: "Shrinq",
+//                    companyAbbrev: "@Shrinq",
+//                    position: "Software Engineer",
+//                    duration: "May 2018 - June 2019",
+//                    roles: [
+//                      "Work on various web services & applications including front and back-end development",
+//                      "Contribute exciting ideas and opinions in applying new and emerging technologies",
+//                      "Work in the development and evolution of the current web-based systems",
+//                      "Identify, triage and fix bugs based on user feedback and internal testing",
+//                      "Ensure code is valid, properly structured, meets industry standards and is compatible with browsers, devices and/or operating systems",
+//                    ],
+//                  )
+//                ],
+//              ),
+//            ),
+//          ),
+////
+//        ],
+//      ),
+//    );
+//  }
 
   Widget _buildSkillsSection({@required List<SkillData> skills}) {
     List<Widget> skillWidgets = [];

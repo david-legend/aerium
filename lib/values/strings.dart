@@ -36,7 +36,7 @@ class StringConst {
   static const String CONTACT_NO = "0549546867";
 
   static const String ABOUT_DEV_TEXT =
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.";
+      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.";
 
   //Form Hint Texts
   static const String NAME_HINT_TEXT = "Name";
@@ -104,4 +104,35 @@ class StringConst {
   static const String ASSOCIATE_ANDROID_DEV = "Associate Android Developer";
   static const String DATA_SCIENCE = "Data Science";
   static const String ANDROID_BASICS = "Android Basics";
+
+  //Experience
+  static const String CURRENT_MONTH_YEAR = "June 2020";
+  static const String STARTED_MONTH_YEAR = "May 2017";
+  static const String COMPANY_1 = "Makedu Consult";
+  static const String POSITION_1 = "Software Engineer Intern";
+  static const String ROLE_1 =
+      "Collaborated with team members to create application system analysis based on customer specifications";
+  static const String LOCATION_1 = "Aprade - Kumasi";
+  static const String DURATION_1 = "May 2017 - July 2017";
+
+  static const String COMPANY_2 = "Shrinq Ltd.";
+  static const String POSITION_2 = "Software Engineer";
+  static const String ROLE_2 =
+      "Collaborated with team members to create application system analysis based on customer specifications";
+  static const String LOCATION_2 = "Asylum Down - Accra";
+  static const String DURATION_2 = "April 2018 - June 2019";
+
+  static const String COMPANY_3 = "Bewsys Ltd.";
+  static const String POSITION_3 = "Software Engineer";
+  static const String ROLE_3 =
+      "Collaborated with team members to create application system analysis based on customer specifications";
+  static const String LOCATION_3 = "East Legon - Accra";
+  static const String DURATION_3 = "August 2019 - April 2020";
+
+  static const String COMPANY_4 = "Bewsys Ltd.";
+  static const String POSITION_4 = "Software Engineer, FreeLancer";
+  static const String ROLE_4 =
+      "Collaborated with team members to create application system analysis based on customer specifications";
+  static const String LOCATION_4 = "East Legon - Accra";
+  static const String DURATION_4 = "August 2019 - April 2020";
 }

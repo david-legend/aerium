@@ -179,6 +179,7 @@ class Sizes {
   static const double RADIUS_14 = 14.0;
   static const double RADIUS_12 = 12.0;
   static const double RADIUS_10 = 10.0;
+  static const double RADIUS_7 = 7.0;
   static const double RADIUS_8 = 8.0;
   static const double RADIUS_6 = 6.0;
   static const double RADIUS_4 = 4.0;

@@ -33,7 +33,7 @@ class ContactInfo extends StatelessWidget {
         children: [
           Text(
             contactType,
-            style: contactTypeTextStyle ?? theme.textTheme.headline4.copyWith(),
+            style: contactTypeTextStyle ?? theme.textTheme.headline6.copyWith(),
           ),
           SpaceH4(),
           InkWell(

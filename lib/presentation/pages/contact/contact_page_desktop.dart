@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
+import 'package:portfoliosite/core/utils/functions.dart';
 import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/presentation/widgets/contact_form.dart';
 import 'package:portfoliosite/presentation/widgets/contact_info.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/menu_list.dart';
+import 'package:portfoliosite/presentation/widgets/socials.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/presentation/widgets/trailing_info.dart';
 import 'package:portfoliosite/values/values.dart';
@@ -56,7 +58,7 @@ class _ContactPageDesktopState extends State<ContactPageDesktop> {
                             ),
                             Container(
                               width:
-                                  assignWidth(context: context, fraction: 0.5),
+                                  assignWidth(context: context, fraction: 0.4),
                               child: contactInfo(),
                             ),
                             SizedBox(
@@ -68,12 +70,12 @@ class _ContactPageDesktopState extends State<ContactPageDesktop> {
                             TrailingInfo(
                               width: assignWidth(
                                 context: context,
-                                fraction: 0.25,
+                                fraction: 0.35,
                               ),
                               crossAxisAlignment: CrossAxisAlignment.center,
                               color: AppColors.deepBlue700,
                               leadingWidget: Text(
-                                StringConst.GET_IN_TOUCH,
+                                StringConst.MESSAGE_ME,
                                 style: theme.textTheme.headline4.copyWith(
                                   color: AppColors.grey100,
                                 ),
@@ -115,33 +117,56 @@ class _ContactPageDesktopState extends State<ContactPageDesktop> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Text(
+            StringConst.GET_IN_TOUCH,
+            style: theme.textTheme.headline4.copyWith(),
+          ),
+          SpaceH20(),
           ContactInfo(
             onTap: () {},
           ),
-          SpaceH20(),
-          ContactInfo(
-            contactType: StringConst.LINKED_IN,
-            contact: StringConst.LINKED_IN_URL,
-            iconData: FontAwesomeIcons.linkedin,
+          SpaceH16(),
+          Text(
+            StringConst.SOCIALS,
+            style: theme.textTheme.headline6,
           ),
-          SpaceH20(),
-          ContactInfo(
-            contactType: StringConst.TWITTER,
-            contact: StringConst.TWITTER_URL,
-            iconData: FontAwesomeIcons.twitter,
-          ),
-          SpaceH20(),
-          ContactInfo(
-            contactType: StringConst.INSTAGRAM,
-            contact: StringConst.INSTAGRAM_URL,
-            iconData: FontAwesomeIcons.instagram,
-          ),
-          SpaceH20(),
-          ContactInfo(
-            contactType: StringConst.TELEGRAM,
-            contact: StringConst.TELEGRAM_URL,
-            iconData: FontAwesomeIcons.telegram,
-          ),
+          SpaceH4(),
+          Row(
+            children: [
+              SocialButton(
+                alignment: Alignment.centerLeft,
+                icon: FontAwesomeIcons.linkedin,
+                color: AppColors.deepBlue800,
+                onPressed: () {
+                  Functions.launchUrl(StringConst.LINKED_IN_URL);
+                },
+              ),
+              SocialButton(
+                alignment: Alignment.centerLeft,
+                icon: FontAwesomeIcons.twitter,
+                color: AppColors.deepBlue800,
+                onPressed: () {
+                  Functions.launchUrl(StringConst.TWITTER_URL);
+                },
+              ),
+              SocialButton(
+                alignment: Alignment.centerLeft,
+                icon: FontAwesomeIcons.instagram,
+                color: AppColors.deepBlue800,
+                onPressed: () {
+                  Functions.launchUrl(StringConst.INSTAGRAM_URL);
+                },
+              ),
+              SocialButton(
+                alignment: Alignment.centerLeft,
+                icon: FontAwesomeIcons.telegram,
+                color: AppColors.deepBlue800,
+                onPressed: () {
+                  Functions.launchUrl(StringConst.TELEGRAM_URL);
+                },
+              ),
+            ],
+          )
         ],
       ),
     );

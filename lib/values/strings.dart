@@ -82,7 +82,8 @@ class StringConst {
   static const String TELEGRAM_URL = "https://t.me/DavidLegend";
 
   //Contacts
-  static const String EMAIL = "E-MAIL";
+  static const String SOCIALS = "Socials";
+  static const String EMAIL = "Email";
   static const String LINKED_IN = "LINKEDIN";
   static const String TWITTER = "TWITTER";
   static const String INSTAGRAM = "INSTAGRAM";

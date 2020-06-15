@@ -15,7 +15,7 @@ class PortfolioCard extends StatefulWidget {
     this.title,
     this.subtitle,
     this.actionTitle,
-    this.hoverColor,
+    this.hoverColor = AppColors.primaryColor,
     this.titleTextStyle,
     this.subtitleTextStyle,
     this.actionTitleTextStyle,
@@ -115,7 +115,7 @@ class _PortfolioCardState extends State<PortfolioCard>
                       child: Container(
                         width: widget.width,
                         height: widget.height,
-                        color: AppColors.deepBlue400,
+                        color: widget.hoverColor,
                         child: Column(
                           children: [
                             Spacer(flex: 1),
@@ -124,26 +124,24 @@ class _PortfolioCardState extends State<PortfolioCard>
                               textAlign: TextAlign.center,
                               style: widget.titleTextStyle ??
                                   theme.textTheme.headline4.copyWith(
-                                    color: AppColors.grey200,
-                                    letterSpacing: 4,
+                                    color: AppColors.secondaryColor,
                                   ),
                             ),
                             SpaceH4(),
                             Text(
                               widget.subtitle,
                               style: widget.subtitleTextStyle ??
-                                  Styles.customTextStyle3(
-                                    color: AppColors.grey300,
-                                    fontSize: Sizes.TEXT_SIZE_14,
-                                    fontWeight: FontWeight.w400,
+                                  theme.textTheme.subtitle1.copyWith(
+                                    color: AppColors.secondaryColor,
+//                                    fontSize: Sizes.TEXT_SIZE_14,
+//                                    fontWeight: FontWeight.w400,
                                   ),
                             ),
                             SpaceH16(),
                             Text(
                               widget.actionTitleTextStyle ?? widget.actionTitle,
-                              style: Styles.customTextStyle4(
-                                color: Color(0xFFAEB3B7),
-                              ),
+                              style: theme.textTheme.headline6
+                                  .copyWith(color: AppColors.secondaryColor),
                             ),
                             SpaceH4(),
                             HorizontalBar(),

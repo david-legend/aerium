@@ -145,7 +145,8 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
                       context: context,
                       fraction: widthOfLeftContentWrapperAnimation.value,
                     ),
-                    gradient: Gradients.primaryGradient,
+                    color: AppColors.primaryColor,
+//                    gradient: Gradients.primaryGradient,
                     child: Container(
                       margin: EdgeInsets.only(
                         left: Sizes.MARGIN_20,
@@ -163,7 +164,7 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
                       context: context,
                       fraction: widthOfRightContentWrapperAnimation.value,
                     ),
-                    color: AppColors.grey100,
+                    color: AppColors.secondaryColor,
                     child: Row(
                       children: [
                         Container(

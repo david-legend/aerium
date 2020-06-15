@@ -7,8 +7,8 @@ class CustomScroller extends StatelessWidget {
     this.width = Sizes.WIDTH_24,
     this.height = Sizes.HEIGHT_70,
     this.padding = const EdgeInsets.all(Sizes.PADDING_0),
-    this.scrollColor = AppColors.deepBlue500,
-    this.scrollCenterColor = AppColors.grey200,
+    this.scrollColor = AppColors.primaryColor,
+    this.scrollCenterColor = AppColors.secondaryColor,
     this.duration = 800,
     this.borderRadius = Sizes.RADIUS_20,
     this.onUpTap,
@@ -43,7 +43,8 @@ class CustomScroller extends StatelessWidget {
             InkWell(
               onTap: onUpTap,
               child: topController ??
-                  Icon(Icons.keyboard_arrow_up, color: AppColors.grey250),
+                  Icon(Icons.keyboard_arrow_up,
+                      color: AppColors.secondaryColor),
             ),
             SpaceH8(),
             centerChild ??
@@ -59,7 +60,10 @@ class CustomScroller extends StatelessWidget {
             InkWell(
               onTap: onDownTap,
               child: bottomController ??
-                  Icon(Icons.keyboard_arrow_down, color: AppColors.grey250),
+                  Icon(
+                    Icons.keyboard_arrow_down,
+                    color: AppColors.secondaryColor,
+                  ),
             )
           ],
         ),

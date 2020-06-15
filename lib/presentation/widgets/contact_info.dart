@@ -10,7 +10,7 @@ class ContactInfo extends StatelessWidget {
     this.contactTextStyle,
     this.iconData = Icons.mail_outline,
     this.iconSize,
-    this.iconColor = AppColors.deepBlue800,
+    this.iconColor = AppColors.black,
     this.onTap,
     this.crossAxisAlignment = CrossAxisAlignment.start,
     this.iconsMainAxisAlignment = MainAxisAlignment.start,
@@ -36,7 +36,10 @@ class ContactInfo extends StatelessWidget {
         children: [
           Text(
             contactType,
-            style: contactTypeTextStyle ?? theme.textTheme.headline5,
+            style: contactTypeTextStyle ??
+                theme.textTheme.headline5.copyWith(
+                  color: AppColors.accentColor2,
+                ),
           ),
           SpaceH4(),
           InkWell(
@@ -55,6 +58,7 @@ class ContactInfo extends StatelessWidget {
                   style: contactTextStyle ??
                       theme.textTheme.bodyText1.copyWith(
                         fontSize: Sizes.TEXT_SIZE_18,
+                        color: AppColors.black,
                       ),
                 ),
               ],

@@ -30,7 +30,8 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                   children: <Widget>[
                     ContentWrapper(
                       width: assignWidth(context: context, fraction: 0.5),
-                      gradient: Gradients.primaryGradient,
+                      color: AppColors.primaryColor,
+//                      gradient: Gradients.primaryGradient,
                       child: Container(
                         margin: EdgeInsets.only(
                           left: Sizes.MARGIN_20,
@@ -45,7 +46,8 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                     ),
                     ContentWrapper(
                       width: assignWidth(context: context, fraction: 0.5),
-                      color: AppColors.grey100,
+                      color: AppColors.secondaryColor,
+//                      color: AppColors.grey100,
                       child: TrailingInfo(
                         onLeadingWidgetPressed: () {
                           Navigator.pushNamed(
@@ -59,17 +61,17 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                             Text(
                               StringConst.SEND_ME_A_MESSAGE,
                               style: theme.textTheme.bodyText1.copyWith(
-                                color: AppColors.deepBlue250,
+                                color: AppColors.primaryColor,
                               ),
                             ),
                             SpaceW8(),
                             CircularContainer(
                               width: Sizes.WIDTH_24,
                               height: Sizes.HEIGHT_24,
-                              color: AppColors.grey450,
+                              color: AppColors.primaryColor,
                               child: Icon(
                                 Icons.add,
-                                color: AppColors.deepBlue200,
+                                color: AppColors.secondaryColor,
                                 size: Sizes.ICON_SIZE_20,
                               ),
                             )
@@ -87,17 +89,17 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                             Text(
                               StringConst.VIEW_PORTFOLIO,
                               style: theme.textTheme.bodyText1.copyWith(
-                                color: AppColors.deepBlue250,
+                                color: AppColors.primaryColor,
                               ),
                             ),
                             SpaceW8(),
                             CircularContainer(
-                              color: AppColors.deepBlue800,
+                              color: AppColors.primaryColor,
                               width: Sizes.WIDTH_24,
                               height: Sizes.HEIGHT_24,
                               child: Icon(
                                 Icons.chevron_right,
-                                color: AppColors.grey250,
+                                color: AppColors.secondaryColor,
                               ),
                             )
                           ],

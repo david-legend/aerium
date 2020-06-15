@@ -75,7 +75,7 @@ class SendMessageButton extends StatelessWidget {
           CircularContainer(
             child: Icon(
               Icons.send,
-              color: AppColors.deepBlue400,
+              color: AppColors.accentColor2,
             ),
           )
         ],

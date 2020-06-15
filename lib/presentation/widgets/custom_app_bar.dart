@@ -24,7 +24,6 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(title),
-
       leading: leading ??
           IconButton(
             padding: const EdgeInsets.only(
@@ -50,7 +49,7 @@ class CustomAppBar extends StatelessWidget {
                   icon: actionIcon ??
                       Icon(
                         Icons.email,
-                        color: AppColors.deepBlue400,
+                        color: AppColors.accentColor2,
                       ),
                   onPressed: onActionsPressed,
                 ),

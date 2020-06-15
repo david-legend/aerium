@@ -41,7 +41,7 @@ class _MessagePageMobileState extends State<MessagePageMobile> {
                 CircularContainer(
                   child: Icon(
                     Icons.close,
-                    color: AppColors.deepBlue400,
+                    color: AppColors.accentColor2,
                   ),
                 )
               ],
@@ -102,7 +102,7 @@ class _MessagePageMobileState extends State<MessagePageMobile> {
                 CircularContainer(
                   child: Icon(
                     Icons.arrow_forward_ios,
-                    color: AppColors.deepBlue400,
+                    color: AppColors.accentColor2,
                   ),
                 )
               ],

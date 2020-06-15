@@ -32,7 +32,7 @@ class _ContactPageDesktopState extends State<ContactPageDesktop> {
                     children: <Widget>[
                       ContentWrapper(
                         width: assignWidth(context: context, fraction: 0.20),
-                        gradient: Gradients.primaryGradient,
+                        color: AppColors.primaryColor,
                         child: Container(
                           margin: EdgeInsets.only(
                             left: Sizes.MARGIN_20,
@@ -47,7 +47,7 @@ class _ContactPageDesktopState extends State<ContactPageDesktop> {
                       ),
                       ContentWrapper(
                         width: assignWidth(context: context, fraction: 0.8),
-                        color: AppColors.grey100,
+                        color: AppColors.secondaryColor,
                         child: Row(
                           children: [
                             SizedBox(
@@ -73,7 +73,7 @@ class _ContactPageDesktopState extends State<ContactPageDesktop> {
                                 fraction: 0.35,
                               ),
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              color: AppColors.deepBlue700,
+                              color: AppColors.primaryColor,
                               leadingWidget: Text(
                                 StringConst.MESSAGE_ME,
                                 style: theme.textTheme.headline4.copyWith(
@@ -119,7 +119,9 @@ class _ContactPageDesktopState extends State<ContactPageDesktop> {
         children: [
           Text(
             StringConst.GET_IN_TOUCH,
-            style: theme.textTheme.headline3.copyWith(),
+            style: theme.textTheme.headline3.copyWith(
+              color: AppColors.accentColor2,
+            ),
           ),
           SpaceH20(),
           ContactInfo(
@@ -131,7 +133,9 @@ class _ContactPageDesktopState extends State<ContactPageDesktop> {
           SpaceH20(),
           Text(
             StringConst.CONNECT,
-            style: theme.textTheme.headline5,
+            style: theme.textTheme.headline5.copyWith(
+              color: AppColors.accentColor2,
+            ),
           ),
           SpaceH12(),
           Row(
@@ -140,7 +144,7 @@ class _ContactPageDesktopState extends State<ContactPageDesktop> {
               SocialButton(
                 alignment: Alignment.centerLeft,
                 icon: FontAwesomeIcons.linkedin,
-                color: AppColors.deepBlue800,
+                color: AppColors.black,
                 iconSize: Sizes.ICON_SIZE_36,
                 onPressed: () {
                   Functions.launchUrl(StringConst.LINKED_IN_URL);
@@ -150,7 +154,7 @@ class _ContactPageDesktopState extends State<ContactPageDesktop> {
               SocialButton(
                 alignment: Alignment.centerLeft,
                 icon: FontAwesomeIcons.twitter,
-                color: AppColors.deepBlue800,
+                color: AppColors.black,
                 iconSize: Sizes.ICON_SIZE_36,
                 onPressed: () {
                   Functions.launchUrl(StringConst.TWITTER_URL);
@@ -160,7 +164,7 @@ class _ContactPageDesktopState extends State<ContactPageDesktop> {
               SocialButton(
                 alignment: Alignment.centerLeft,
                 icon: FontAwesomeIcons.instagram,
-                color: AppColors.deepBlue800,
+                color: AppColors.black,
                 iconSize: Sizes.ICON_SIZE_36,
                 onPressed: () {
                   Functions.launchUrl(StringConst.INSTAGRAM_URL);
@@ -170,7 +174,7 @@ class _ContactPageDesktopState extends State<ContactPageDesktop> {
               SocialButton(
                 alignment: Alignment.centerLeft,
                 icon: FontAwesomeIcons.telegram,
-                color: AppColors.deepBlue800,
+                color: AppColors.black,
                 iconSize: Sizes.ICON_SIZE_36,
                 onPressed: () {
                   Functions.launchUrl(StringConst.TELEGRAM_URL);

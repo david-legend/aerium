@@ -49,10 +49,10 @@ class TrailingInfo extends StatelessWidget {
                 CircularContainer(
                   width: Sizes.WIDTH_30,
                   height: Sizes.HEIGHT_30,
-                  color: AppColors.grey300,
+                  color: AppColors.primaryColor,
                   child: Icon(
                     Icons.email,
-                    color: AppColors.deepBlue200,
+                    color: AppColors.secondaryColor,
                     size: Sizes.ICON_SIZE_20,
                   ),
                 ),
@@ -64,8 +64,10 @@ class TrailingInfo extends StatelessWidget {
                 child: Text(
                   info,
                   textAlign: TextAlign.end,
-                  style: theme.textTheme.bodyText1
-                      .copyWith(color: AppColors.grey450),
+                  style: theme.textTheme.bodyText1.copyWith(
+                    color: AppColors.black,
+                    fontWeight: FontWeight.w200,
+                  ),
                 ),
               ),
           Spacer(flex: 1),
@@ -73,10 +75,13 @@ class TrailingInfo extends StatelessWidget {
             onTap: onTrailingWidgetPressed,
             child: trailingWidget ??
                 CircularContainer(
-                  color: AppColors.deepBlue800,
+                  color: AppColors.primaryColor,
                   width: Sizes.WIDTH_30,
                   height: Sizes.HEIGHT_30,
-                  child: Icon(Icons.chevron_right),
+                  child: Icon(
+                    Icons.chevron_right,
+                    color: AppColors.secondaryColor,
+                  ),
                 ),
           ).showCursorOnHover,
         ],

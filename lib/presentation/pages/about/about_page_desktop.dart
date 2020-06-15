@@ -251,7 +251,8 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
                       context: context,
                       fraction: widthOfLeftSide.value,
                     ),
-                    gradient: Gradients.primaryGradient,
+                    color: AppColors.primaryColor,
+//                    gradient: Gradients.primaryGradient,
                     child: Container(
                       margin: EdgeInsets.only(
                         left: Sizes.MARGIN_20,
@@ -267,7 +268,8 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
                   ContentWrapper(
                     width: assignWidth(
                         context: context, fraction: widthOfRightSide.value),
-                    color: AppColors.grey100,
+//                    color: Colors.pinkAccent,
+                    color: AppColors.secondaryColor,
                     child: Row(
                       children: [
                         Container(
@@ -341,21 +343,35 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           FlickerTextAnimation(
-            text: 'Heading',
+            text: StringConst.INTRO,
+            textColor: AppColors.primaryColor,
+            fadeInColor: AppColors.primaryColor,
+            controller: _flickerAnimationController.view,
+            textStyle: theme.textTheme.bodyText1.copyWith(
+              fontSize: Sizes.TEXT_SIZE_18,
+              fontWeight: FontWeight.w400,
+              color: AppColors.accentColor2,
+            ),
+          ),
+//          SpaceH2(),
+          FlickerTextAnimation(
+            text: StringConst.DEV_NAME,
             textColor: AppColors.primaryColor,
             fadeInColor: AppColors.primaryColor,
             fontSize: Sizes.TEXT_SIZE_34,
             controller: _flickerAnimationController.view,
           ),
-          SpaceH4(),
+//          SpaceH2(),
           _isSubtitleVisible
               ? FlickerTextAnimation(
-                  text: 'Subtitle',
+                  text: StringConst.PUNCH_LINE,
                   textColor: AppColors.primaryColor,
                   fadeInColor: AppColors.primaryColor,
                   controller: _flickerAnimationController2.view,
-                  textStyle: theme.textTheme.bodyText1
-                      .copyWith(color: AppColors.bodyText1),
+                  textStyle: theme.textTheme.subtitle1.copyWith(
+                    fontSize: Sizes.TEXT_SIZE_34,
+                    color: AppColors.accentColor2,
+                  ),
                 )
               : Container(),
           SpaceH16(),
@@ -364,8 +380,10 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
             duration: _aboutDevAnimationController.duration,
             child: Text(
               StringConst.ABOUT_DEV_TEXT,
-              style: theme.textTheme.bodyText1
-                  .copyWith(color: AppColors.bodyText1),
+              style: theme.textTheme.bodyText2.copyWith(
+                color: AppColors.black,
+                fontSize: Sizes.TEXT_SIZE_16,
+              ),
             ),
           ),
           SpaceH40(),

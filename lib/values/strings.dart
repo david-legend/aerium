@@ -28,15 +28,14 @@ class StringConst {
 
   static const String PROJECT_NAME = "Project Name";
 
-  static const String DEV_NAME = "DAVID COBBINA";
+  static const String INTRO = "Hi, my name is";
+  static const String DEV_NAME = "David Cobbina";
+  static const String PUNCH_LINE = "I build things with flutter";
   static const String DEV_EMAIL = "davidcobbina47@gmail.com";
   static const String SPECIALITY = "FLUTTER DEV";
 
-//  static const String CONTACT_NO = "+(233) 549-546-867 ";
-  static const String CONTACT_NO = "0549546867";
-
   static const String ABOUT_DEV_TEXT =
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.";
+      "I'm a software engineer based in Ghana, specializing in building high quality mobile and web applications with a strong passion for opensource work.";
 
   //Form Hint Texts
   static const String NAME_HINT_TEXT = "Name";
@@ -136,4 +135,7 @@ class StringConst {
       "Collaborated with team members to create application system analysis based on customer specifications";
   static const String LOCATION_4 = "East Legon - Accra";
   static const String DURATION_4 = "August 2019 - April 2020";
+
+  static const String CIRCE = "Circe";
+  static const String PROXIMA_NOVA = "ProximaNova";
 }

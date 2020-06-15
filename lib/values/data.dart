@@ -133,11 +133,6 @@ class Data {
       isSelected: false,
       content: "super education",
     ),
-    SubMenuData(
-      title: StringConst.EXPERIENCE,
-      isSelected: false,
-      content: "super experience",
-    ),
   ];
   static List<PortfolioData> portfolioData = [
     PortfolioData(

@@ -30,7 +30,8 @@ class _ExperiencePageDesktopState extends State<ExperiencePageDesktop> {
                   context: context,
                   fraction: 0.2,
                 ),
-                gradient: Gradients.primaryGradient,
+                color: AppColors.primaryColor,
+//                gradient: Gradients.primaryGradient,
                 child: Container(
                   margin: EdgeInsets.only(
                     left: Sizes.MARGIN_20,
@@ -48,7 +49,7 @@ class _ExperiencePageDesktopState extends State<ExperiencePageDesktop> {
                   context: context,
                   fraction: 0.8,
                 ),
-                color: AppColors.grey100,
+                color: AppColors.secondaryColor,
                 child: Row(
                   children: [
                     Container(

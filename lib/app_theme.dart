@@ -1,3 +1,27 @@
+import 'dart:ui';
+
+import 'dart:ui';
+
+import 'dart:ui';
+
+import 'dart:ui';
+
+import 'dart:ui';
+
+import 'dart:ui';
+
+import 'dart:ui';
+
+import 'dart:ui';
+
+import 'dart:ui';
+
+import 'dart:ui';
+
+import 'dart:ui';
+
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfoliosite/values/values.dart';
@@ -52,76 +76,162 @@ class AppTheme {
 
 //  bebasNeue
 // sedgwickAve
+//  static final TextTheme _textTheme = TextTheme(
+//    headline1: GoogleFonts.raleway(
+//      fontSize: Sizes.TEXT_SIZE_96,
+//      color: AppColors.primaryColor,
+//      fontWeight: _bold,
+//      fontStyle: FontStyle.normal,
+//    ),
+//    headline2: GoogleFonts.raleway(
+//      fontSize: Sizes.TEXT_SIZE_60,
+//      color: AppColors.primaryColor,
+//      fontWeight: _bold,
+//      fontStyle: FontStyle.normal,
+//    ),
+//    headline3: GoogleFonts.raleway(
+//      fontSize: Sizes.TEXT_SIZE_48,
+//      color: AppColors.primaryColor,
+//      fontWeight: _bold,
+//      fontStyle: FontStyle.normal,
+//    ),
+//    headline4: GoogleFonts.raleway(
+//      fontSize: Sizes.TEXT_SIZE_34,
+//      color: AppColors.primaryColor,
+//      fontWeight: _bold,
+//      fontStyle: FontStyle.normal,
+//    ),
+//    headline5: GoogleFonts.raleway(
+//      fontSize: Sizes.TEXT_SIZE_24,
+//      color: AppColors.primaryColor,
+//      fontWeight: _bold,
+//      fontStyle: FontStyle.normal,
+//    ),
+//    headline6: GoogleFonts.raleway(
+//      fontSize: Sizes.TEXT_SIZE_20,
+//      color: AppColors.primaryColor,
+//      fontWeight: _bold,
+//      fontStyle: FontStyle.normal,
+//    ),
+//    subtitle1: GoogleFonts.raleway(
+//      fontSize: Sizes.TEXT_SIZE_16,
+//      color: AppColors.secondaryColor,
+//      fontWeight: _semiBold,
+//      fontStyle: FontStyle.normal,
+//    ),
+//    subtitle2: GoogleFonts.raleway(
+//      fontSize: Sizes.TEXT_SIZE_14,
+//      color: AppColors.secondaryColor,
+//      fontWeight: _semiBold,
+//      fontStyle: FontStyle.normal,
+//    ),
+//    bodyText1: GoogleFonts.raleway(
+//      fontSize: Sizes.TEXT_SIZE_16,
+//      color: AppColors.secondaryColor,
+//      fontWeight: _light,
+//      fontStyle: FontStyle.normal,
+//      letterSpacing: 3,
+//    ),
+//    bodyText2: GoogleFonts.raleway(
+//      fontSize: Sizes.TEXT_SIZE_14,
+//      color: AppColors.secondaryColor,
+//      fontWeight: _light,
+//      fontStyle: FontStyle.normal,
+//      letterSpacing: 3,
+//    ),
+//    button: GoogleFonts.raleway(
+//      fontSize: Sizes.TEXT_SIZE_14,
+//      color: AppColors.secondaryColor,
+//      fontStyle: FontStyle.normal,
+//      fontWeight: _medium,
+//    ),
+//    caption: GoogleFonts.raleway(
+//      fontSize: Sizes.TEXT_SIZE_12,
+//      color: AppColors.white,
+//      fontWeight: _regular,
+//      fontStyle: FontStyle.normal,
+//    ),
+//  );
   static final TextTheme _textTheme = TextTheme(
-    headline1: GoogleFonts.raleway(
+    headline1: TextStyle(
+      fontFamily: StringConst.CIRCE,
       fontSize: Sizes.TEXT_SIZE_96,
       color: AppColors.primaryColor,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    headline2: GoogleFonts.raleway(
+    headline2: TextStyle(
+      fontFamily: StringConst.CIRCE,
       fontSize: Sizes.TEXT_SIZE_60,
       color: AppColors.primaryColor,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    headline3: GoogleFonts.raleway(
+    headline3: TextStyle(
+      fontFamily: StringConst.PROXIMA_NOVA,
       fontSize: Sizes.TEXT_SIZE_48,
       color: AppColors.primaryColor,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    headline4: GoogleFonts.raleway(
+    headline4: TextStyle(
+      fontFamily: StringConst.CIRCE,
       fontSize: Sizes.TEXT_SIZE_34,
       color: AppColors.primaryColor,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    headline5: GoogleFonts.raleway(
+    headline5: TextStyle(
+      fontFamily: StringConst.PROXIMA_NOVA,
       fontSize: Sizes.TEXT_SIZE_24,
       color: AppColors.primaryColor,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    headline6: GoogleFonts.raleway(
+    headline6: TextStyle(
+      fontFamily: StringConst.CIRCE,
       fontSize: Sizes.TEXT_SIZE_20,
       color: AppColors.primaryColor,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    subtitle1: GoogleFonts.raleway(
+    subtitle1: TextStyle(
+      fontFamily: StringConst.CIRCE,
       fontSize: Sizes.TEXT_SIZE_16,
       color: AppColors.secondaryColor,
       fontWeight: _semiBold,
       fontStyle: FontStyle.normal,
     ),
-    subtitle2: GoogleFonts.raleway(
+    subtitle2: TextStyle(
+      fontFamily: StringConst.PROXIMA_NOVA,
       fontSize: Sizes.TEXT_SIZE_14,
       color: AppColors.secondaryColor,
       fontWeight: _semiBold,
       fontStyle: FontStyle.normal,
     ),
-    bodyText1: GoogleFonts.raleway(
+    bodyText1: TextStyle(
+      fontFamily: StringConst.CIRCE,
       fontSize: Sizes.TEXT_SIZE_16,
       color: AppColors.secondaryColor,
       fontWeight: _light,
       fontStyle: FontStyle.normal,
-      letterSpacing: 3,
     ),
-    bodyText2: GoogleFonts.raleway(
+    bodyText2: TextStyle(
+      fontFamily: StringConst.PROXIMA_NOVA,
       fontSize: Sizes.TEXT_SIZE_14,
       color: AppColors.secondaryColor,
       fontWeight: _light,
       fontStyle: FontStyle.normal,
-      letterSpacing: 3,
     ),
-    button: GoogleFonts.raleway(
+    button: TextStyle(
+      fontFamily: StringConst.PROXIMA_NOVA,
       fontSize: Sizes.TEXT_SIZE_14,
       color: AppColors.secondaryColor,
       fontStyle: FontStyle.normal,
       fontWeight: _medium,
     ),
-    caption: GoogleFonts.raleway(
+    caption: TextStyle(
+      fontFamily: StringConst.CIRCE,
       fontSize: Sizes.TEXT_SIZE_12,
       color: AppColors.white,
       fontWeight: _regular,

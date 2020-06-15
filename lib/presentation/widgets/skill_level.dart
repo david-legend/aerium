@@ -30,7 +30,7 @@ class SkillLevel extends StatelessWidget {
     var actualSkillLevel = skillLevel / 10;
     ThemeData theme = Theme.of(context);
     return Container(
-       width: width,
+      width: width,
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -43,8 +43,9 @@ class SkillLevel extends StatelessWidget {
               child: Center(
                 child: Text(
                   actualSkillLevel.toString(),
-                  style: theme.textTheme.headline6
-                          .copyWith(color: AppColors.deepBlue800) ??
+                  style: theme.textTheme.subtitle1.copyWith(
+                        color: AppColors.accentColor2,
+                      ) ??
                       textStyle,
                 ),
               ),
@@ -54,24 +55,15 @@ class SkillLevel extends StatelessWidget {
               double value,
               Widget child,
             ) {
-
               return CustomPaint(
-                foregroundPainter: SkillProgressPainter(currentProgress: value),
+                foregroundPainter: SkillProgressPainter(
+                  currentProgress: value,
+                  circleColor: AppColors.accentColor,
+                ),
                 child: AnimatedOpacity(
-                  opacity: value/100,
+                  opacity: value / 100,
                   duration: duration,
-                  child: Container(
-                    width: circleWidth,
-                    height: circleHeight,
-                    child: Center(
-                      child: Text(
-                        actualSkillLevel.toString(),
-                        style: theme.textTheme.headline6
-                            .copyWith(color: AppColors.deepBlue800) ??
-                            textStyle,
-                      ),
-                    ),
-                  ),
+                  child: child,
                 ),
               );
             },
@@ -79,8 +71,8 @@ class SkillLevel extends StatelessWidget {
           SpaceW8(),
           Text(
             skillName,
-            style: theme.textTheme.headline6.copyWith(
-                  color: AppColors.bodyText1,
+            style: theme.textTheme.subtitle1.copyWith(
+                  color: AppColors.accentColor2,
                 ) ??
                 skillNameTextStyle,
           ),

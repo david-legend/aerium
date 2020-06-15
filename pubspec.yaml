@@ -27,7 +27,7 @@ dependencies:
   google_fonts: ^1.1.0
   get_it: ^4.0.2
   responsive_builder: ^0.2.0+2
-#  auto_route: ^0.5.0
+  #  auto_route: ^0.5.0
   font_awesome_flutter: ^8.8.1
   url_launcher: ^5.4.10
   universal_html: ^1.2.3
@@ -57,7 +57,7 @@ flutter:
   assets:
     - assets/images/
     - assets/screenshots/
-#    - assets/screenshots/
+  #    - assets/screenshots/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -70,17 +70,23 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: Circe
+      fonts:
+        - asset: assets/fonts/circe/Circe-Thin.ttf
+          weight: 200
+        - asset: assets/fonts/circe/Circe-Light.ttf
+          weight: 300
+        - asset: assets/fonts/circe/Circe-Bold.ttf
+          weight: 600
+    - family: ProximaNova
+      fonts:
+        - asset: assets/fonts/proxima_nova/ProximaNova-Thin.otf
+          weight: 200
+        - asset: assets/fonts/proxima_nova/ProximaNova-Regular.otf
+          weight: 400
+        - asset: assets/fonts/proxima_nova/ProximaNova-Bold.otf
+          weight: 600
+    #
+    # For details regarding fonts from package dependencies,
+    # see https://flutter.dev/custom-fonts/#from-packages

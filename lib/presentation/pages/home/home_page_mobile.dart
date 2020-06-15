@@ -65,7 +65,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                                       StringConst.SPECIALITY,
                                       style: theme.textTheme.headline6.copyWith(
                                         letterSpacing: 4,
-                                        color: AppColors.deepBlue400,
+                                        color: AppColors.accentColor2,
                                       ),
                                     ),
                                   ],
@@ -99,7 +99,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                                         height: Sizes.HEIGHT_24,
                                         child: Icon(
                                           Icons.keyboard_arrow_down,
-                                          color: AppColors.deepBlue400,
+                                          color: AppColors.accentColor2,
                                         ),
                                       ),
                                     ],
@@ -158,7 +158,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
             color: AppColors.grey300,
             child: Icon(
               Icons.email,
-              color: AppColors.deepBlue400,
+              color: AppColors.accentColor2,
             ),
           ),
         ],

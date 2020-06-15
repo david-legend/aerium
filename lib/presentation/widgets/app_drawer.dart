@@ -30,7 +30,7 @@ class AppDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     TextStyle selectedStyle = theme.textTheme.headline4.copyWith(
-      color: AppColors.deepBlue400,
+      color: AppColors.accentColor2,
     );
     TextStyle unSelectedStyle = theme.textTheme.headline5.copyWith(
       color: AppColors.grey200,
@@ -55,7 +55,7 @@ class AppDrawer extends StatelessWidget {
                       child: Icon(
                         Icons.close,
                         size: Sizes.ICON_SIZE_20,
-                        color: AppColors.deepBlue400,
+                        color: AppColors.accentColor2,
                       ),
                     ),
                   ).showCursorOnHover,
@@ -72,7 +72,7 @@ class AppDrawer extends StatelessWidget {
             Spacer(flex: 1),
             Socials(
               isHorizontal: true,
-              color: AppColors.deepBlue400,
+              color: AppColors.accentColor2,
               alignment: Alignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
             ),

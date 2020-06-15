@@ -16,8 +16,8 @@ class ExperienceTree extends StatelessWidget {
     this.tailTitleStyle,
     this.tail,
     this.tailTitle,
-    this.headBackgroundColor = AppColors.cream700,
-    this.tailBackgroundColor = AppColors.cream700,
+    this.headBackgroundColor,
+    this.tailBackgroundColor,
     this.scrollController,
   });
 
@@ -44,12 +44,16 @@ class ExperienceTree extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(Sizes.PADDING_8),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Sizes.RADIUS_16),
-                color: headBackgroundColor,
+                borderRadius: BorderRadius.circular(Sizes.RADIUS_20),
+                color: headBackgroundColor ??
+                    AppColors.primaryColor
+                        .withOpacity(AppColors.primaryColorOpacity),
               ),
               child: Text(
                 headTitle,
-                style: headTitleStyle ?? theme.textTheme.subtitle1.copyWith(),
+                style: headTitleStyle ??
+                    theme.textTheme.subtitle1
+                        .copyWith(color: AppColors.secondaryColor),
               ),
             ),
           ),
@@ -61,11 +65,15 @@ class ExperienceTree extends StatelessWidget {
               padding: EdgeInsets.all(Sizes.PADDING_8),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Sizes.RADIUS_16),
-                color: tailBackgroundColor,
+                color: tailBackgroundColor ??
+                    AppColors.primaryColor
+                        .withOpacity(AppColors.primaryColorOpacity),
               ),
               child: Text(
                 tailTitle,
-                style: tailTitleStyle ?? theme.textTheme.subtitle1.copyWith(),
+                style: tailTitleStyle ??
+                    theme.textTheme.subtitle1
+                        .copyWith(color: AppColors.secondaryColor),
               ),
             ),
           ),
@@ -127,9 +135,11 @@ class ExperienceBranch extends StatelessWidget {
       foregroundPainter: customPainter ??
           TreePainter(
             stalk: 0.1,
-//            veinsColor: Color(0xFFDDDAE5),
-//            outerJointColor: Color(0xFFDDDAE5),
-//            innerJointColor: Color(0xFF5325A8),
+            veinsColor: AppColors.primaryColor
+                .withOpacity(AppColors.primaryColorOpacity),
+            outerJointColor: AppColors.primaryColor
+                .withOpacity(AppColors.primaryColorOpacity),
+            innerJointColor: AppColors.primaryColor,
           ),
       child: Container(
         width: width,
@@ -178,8 +188,8 @@ class LocationDateLeaf extends StatelessWidget {
   LocationDateLeaf({
     @required this.duration,
     @required this.location,
-    @required this.durationIcon,
-    @required this.locationIcon,
+    this.durationIcon,
+    this.locationIcon,
     this.locationTextStyle,
     this.durationTextStyle,
   });
@@ -202,15 +212,16 @@ class LocationDateLeaf extends StatelessWidget {
             children: [
               Text(
                 duration,
-                style:
-                    durationTextStyle ?? theme.textTheme.bodyText2.copyWith(),
+                style: durationTextStyle ??
+                    theme.textTheme.bodyText2.copyWith(color: AppColors.black),
               ),
               SpaceW4(),
               Icon(
-                Icons.access_time,
-                color: AppColors.deepBlue800,
-                size: 18,
-              ),
+                    Icons.access_time,
+                    color: AppColors.accentColor2,
+                    size: 18,
+                  ) ??
+                  durationIcon,
             ],
           ),
           SpaceH8(),
@@ -219,15 +230,16 @@ class LocationDateLeaf extends StatelessWidget {
             children: [
               Text(
                 location,
-                style:
-                    locationTextStyle ?? theme.textTheme.bodyText2.copyWith(),
+                style: locationTextStyle ??
+                    theme.textTheme.bodyText2.copyWith(color: AppColors.black),
               ),
               SpaceW4(),
               Icon(
-                Icons.location_on,
-                color: AppColors.deepBlue800,
-                size: 18,
-              ),
+                    Icons.location_on,
+                    color: AppColors.accentColor2,
+                    size: 18,
+                  ) ??
+                  locationIcon,
             ],
           )
         ],
@@ -268,21 +280,21 @@ class RoleLeaf extends StatelessWidget {
               company,
               style: companyTextStyle ??
                   theme.textTheme.subtitle1.copyWith(
-                    fontSize: Sizes.TEXT_SIZE_18,
-                  ),
+                      fontSize: Sizes.TEXT_SIZE_18,
+                      color: AppColors.accentColor2),
             ),
           ),
           Text(
             position,
             style: positionTextStyle ??
                 theme.textTheme.subtitle2.copyWith(
-                  fontStyle: FontStyle.italic,
-                ),
+                    fontStyle: FontStyle.italic, color: AppColors.accentColor2),
           ),
           SpaceH8(),
           Text(
             role,
-            style: positionTextStyle ?? theme.textTheme.bodyText2,
+            style: positionTextStyle ??
+                theme.textTheme.bodyText2.copyWith(color: AppColors.black),
           ),
         ],
       ),

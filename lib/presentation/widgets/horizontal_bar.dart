@@ -5,8 +5,8 @@ class HorizontalBar extends StatelessWidget {
   HorizontalBar({
     this.width = Sizes.WIDTH_20,
     this.height = Sizes.HEIGHT_2,
-    this.color = AppColors.grey300,
-    this.margin
+    this.color = AppColors.accentColor2, //AppColors.secondaryColor
+    this.margin,
   });
 
   final double width;

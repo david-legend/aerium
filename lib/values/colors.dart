@@ -1,8 +1,24 @@
 part of values;
 
 class AppColors {
+  static const double primaryColorOpacity = 0.5;
+
   static const Color primaryColor = Color(0xFF0E1319);
-  static const Color secondaryColor = Color(0xFF2C3541);
+  static const Color secondaryColor = Color(0xFFEBEBEB);
+  static const Color accentColor = Color(0xFF5F6E80);
+  static const Color accentColor2 = Color(0xFF000000);
+
+//  static const Color primaryColor = Color(0xFFE19269);
+//  static const Color secondaryColor = Color(0xFFFFFFFF);
+//  static const Color accentColor = Color(0xFFF8F4F0);
+//  static const Color accentColor2 = Color(0xFF000000);
+
+//  static const Color primaryColor = Color(0xFF805b5f);
+//  static const Color secondaryColor = Color(0xFFFee9e9);
+//  static const Color accentColor = Color(0xFFF8F4F0);
+//  static const Color accentColor2 = Color(0xFF000000);
+
+  static const Color black = Color(0xFF000000);
   static const Color white = Color(0xFFFFFFFF);
   static const Color grey = Color(0xFFD8D9DA);
   static const Color grey100 = Color(0xFFEBEBEB);
@@ -21,7 +37,7 @@ class AppColors {
   static const Color deepBlue100 = Color(0xFF5F6E80);
   static const Color deepBlue200 = Color(0xFF546478);
   static const Color deepBlue250 = Color(0xFF566C7F);
-  static const Color deepBlue400 = Color(0xFF3E5067);
+
   static const Color deepBlue450 = Color(0xFF303E48);
   static const Color deepBlue500 = Color(0xFF000B2D);
   static const Color deepBlue700 = Color(0xFF141A21);
@@ -29,4 +45,17 @@ class AppColors {
   static const Color deepBlue900 = Color(0xFF020A13);
 
   static const Color bodyText1 = Color(0xFF8393A1);
+
+  static Color colorWithOpacity({
+    Color color = AppColors.primaryColor,
+    double opacity = 0.5,
+  }) {
+    return color.withOpacity(opacity);
+  }
+//  static const Color one = Color(0xFFf5f5f5);
+//  static const Color two = Color(0xFFFEE9E9);
+
+//  static const Color one = Color(0xFFE19269);
+//  static const Color two = Color(0xFFFFFFFF);
+//  static const Color two = Color(0xFFF8F4F0);
 }

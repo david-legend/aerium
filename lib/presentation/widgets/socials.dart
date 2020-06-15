@@ -10,7 +10,7 @@ class Socials extends StatelessWidget {
     this.isHorizontal = false,
     this.isVertical = false,
     this.alignment,
-    this.color,
+    this.color = AppColors.accentColor2,
     this.crossAxisAlignment,
   }) : assert(isHorizontal == false || isVertical == false,
             'Both isHorizontal and isVertical cannot be true');
@@ -109,7 +109,7 @@ class SocialButton extends StatelessWidget {
   SocialButton({
     this.padding = const EdgeInsets.all(Sizes.PADDING_0),
     this.onPressed,
-    this.color = AppColors.deepBlue400,
+    this.color = AppColors.accentColor2,
     this.icon = FontAwesomeIcons.twitter,
     this.iconSize = Sizes.ICON_SIZE_24,
     this.alignment = Alignment.center,

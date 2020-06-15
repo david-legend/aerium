@@ -14,7 +14,7 @@ class FlickerTextAnimation extends StatefulWidget {
     this.start,
     this.end,
     this.mainAxisAlignment = MainAxisAlignment.start,
-    this.fontSize = Sizes.TEXT_SIZE_16,
+    this.fontSize = Sizes.TEXT_SIZE_18,
   })  : color = ColorTween(
           begin: textColor,
           end: fadeInColor,
@@ -90,7 +90,7 @@ class _FlickerTextAnimationState extends State<FlickerTextAnimation> {
           Text(
             isAnimating ? widget.title.value.toString() : widget.text,
             style: widget.textStyle ??
-                theme.textTheme.bodyText1.copyWith(
+                theme.textTheme.headline6.copyWith(
                   color: widget.color.value,
                   fontSize: widget.fontSize,
 //                  fontWeight:

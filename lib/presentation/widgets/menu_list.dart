@@ -36,15 +36,13 @@ class MenuList extends StatelessWidget {
         Text(
           StringConst.DEV_NAME,
           style: theme.textTheme.headline4.copyWith(
-            color: AppColors.grey200,
-            letterSpacing: 4,
+            color: AppColors.secondaryColor,
           ),
         ),
         Text(
           StringConst.SPECIALITY,
           style: theme.textTheme.headline6.copyWith(
-            letterSpacing: 4,
-            color: AppColors.deepBlue400,
+            color: AppColors.accentColor2,
           ),
         ),
       ],
@@ -72,7 +70,7 @@ class MenuList extends StatelessWidget {
               selectedItemRouteName == menuList[i].routeName ? true : false,
         ),
       );
-      menuItems.add(SpaceH8());
+      menuItems.add(SpaceH4());
     }
     return menuItems;
   }

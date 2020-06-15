@@ -45,7 +45,7 @@ class _CertificationPageDesktopState extends State<CertificationPageDesktop>
                       context: context,
                       fraction: 0.2,
                     ),
-                    gradient: Gradients.primaryGradient,
+                    color: AppColors.primaryColor,
                     child: Container(
                       margin: EdgeInsets.only(
                         left: Sizes.MARGIN_20,

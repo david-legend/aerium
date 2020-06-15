@@ -11,6 +11,7 @@ class Socials extends StatelessWidget {
     this.isVertical = false,
     this.alignment,
     this.color = AppColors.accentColor2,
+    this.barColor = AppColors.accentColor2,
     this.crossAxisAlignment,
   }) : assert(isHorizontal == false || isVertical == false,
             'Both isHorizontal and isVertical cannot be true');
@@ -18,6 +19,7 @@ class Socials extends StatelessWidget {
   final bool isVertical;
   final bool isHorizontal;
   final Color color;
+  final Color barColor;
   final Alignment alignment;
   final CrossAxisAlignment crossAxisAlignment;
 
@@ -38,6 +40,7 @@ class Socials extends StatelessWidget {
                 ),
                 HorizontalBar(
                   width: Sizes.WIDTH_32,
+                  color: barColor,
                   margin: EdgeInsets.symmetric(vertical: Sizes.MARGIN_4),
                 ),
                 SocialButton(
@@ -50,6 +53,7 @@ class Socials extends StatelessWidget {
                 ),
                 HorizontalBar(
                   width: Sizes.WIDTH_32,
+                  color: barColor,
                   margin: EdgeInsets.symmetric(vertical: Sizes.MARGIN_4),
                 ),
                 SocialButton(
@@ -78,6 +82,7 @@ class Socials extends StatelessWidget {
                 VerticalDivider(
                   width: Sizes.WIDTH_8,
                   thickness: 2,
+                  color: barColor,
                 ),
                 SocialButton(
                   icon: FontAwesomeIcons.linkedin,
@@ -90,6 +95,7 @@ class Socials extends StatelessWidget {
                 VerticalDivider(
                   width: Sizes.WIDTH_8,
                   thickness: 2,
+                  color: barColor,
                 ),
                 SocialButton(
                   icon: FontAwesomeIcons.twitter,

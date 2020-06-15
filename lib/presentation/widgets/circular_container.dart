@@ -8,7 +8,7 @@ class CircularContainer extends StatelessWidget {
     this.child,
     this.width = Sizes.WIDTH_40,
     this.height = Sizes.HEIGHT_40,
-    this.color = AppColors.cream,
+    this.color = AppColors.primaryColor,
     this.borderRadius,
   });
 
@@ -24,9 +24,8 @@ class CircularContainer extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        color: color,
-        borderRadius: borderRadius ?? BorderRadius.circular(Sizes.RADIUS_60)
-      ),
+          color: color,
+          borderRadius: borderRadius ?? BorderRadius.circular(Sizes.RADIUS_60)),
       child: child,
     ).showCursorOnHover;
   }

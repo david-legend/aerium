@@ -38,7 +38,8 @@ class _HomePageMobileState extends State<HomePageMobile> {
                     children: [
                       ContentWrapper(
                         width: assignWidth(context: context, fraction: 0.8),
-                        gradient: Gradients.primaryGradient,
+                        color: AppColors.primaryColor,
+//                        gradient: Gradients.primaryGradient,
                         child: Container(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,15 +57,13 @@ class _HomePageMobileState extends State<HomePageMobile> {
                                     Text(
                                       StringConst.DEV_NAME,
                                       style: theme.textTheme.headline4.copyWith(
-                                        color: AppColors.grey200,
-                                        letterSpacing: 4,
+                                        color: AppColors.secondaryColor,
                                       ),
                                     ),
                                     SpaceH8(),
                                     Text(
                                       StringConst.SPECIALITY,
                                       style: theme.textTheme.headline6.copyWith(
-                                        letterSpacing: 4,
                                         color: AppColors.accentColor2,
                                       ),
                                     ),
@@ -88,8 +87,10 @@ class _HomePageMobileState extends State<HomePageMobile> {
                                         child: Text(
                                           StringConst.VIEW_PORTFOLIO,
                                           textAlign: TextAlign.end,
-                                          style: TextStyle(
-                                            color: AppColors.grey400,
+                                          style: theme.textTheme.bodyText1
+                                              .copyWith(
+                                            color: AppColors.secondaryColor,
+                                            fontSize: Sizes.TEXT_SIZE_18,
                                           ),
                                         ),
                                       ),
@@ -97,9 +98,10 @@ class _HomePageMobileState extends State<HomePageMobile> {
                                       CircularContainer(
                                         width: Sizes.WIDTH_24,
                                         height: Sizes.HEIGHT_24,
+                                        color: AppColors.secondaryColor,
                                         child: Icon(
                                           Icons.keyboard_arrow_down,
-                                          color: AppColors.accentColor2,
+                                          color: AppColors.primaryColor,
                                         ),
                                       ),
                                     ],
@@ -118,7 +120,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                       ),
                       ContentWrapper(
                         width: assignWidth(context: context, fraction: 0.2),
-                        color: AppColors.grey100,
+                        color: AppColors.secondaryColor,
                         child: Container(),
                       ),
                     ],
@@ -155,10 +157,10 @@ class _HomePageMobileState extends State<HomePageMobile> {
             icon: Icon(Icons.menu),
           ),
           CircularContainer(
-            color: AppColors.grey300,
+            color: AppColors.primaryColor,
             child: Icon(
               Icons.email,
-              color: AppColors.accentColor2,
+              color: AppColors.secondaryColor,
             ),
           ),
         ],
@@ -185,6 +187,8 @@ class _HomePageMobileState extends State<HomePageMobile> {
       child: Socials(
         isVertical: true,
         alignment: Alignment.centerRight,
+        color: AppColors.primaryColor,
+        barColor: AppColors.secondaryColor,
         crossAxisAlignment: CrossAxisAlignment.end,
       ),
     );

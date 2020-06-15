@@ -9,12 +9,10 @@ import 'package:portfoliosite/values/values.dart';
 
 import 'menu_item.dart';
 
-//TODO:: Add selected menu underline styles
-//TODO:: Add VK, INST to bottom of app drawer
 class AppDrawer extends StatelessWidget {
   AppDrawer({
     @required this.menuList,
-    this.color = AppColors.grey100,
+    this.color = AppColors.secondaryColor,
     this.width,
     this.selectedItemRouteName,
     this.onClose,
@@ -29,12 +27,7 @@ class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
-    TextStyle selectedStyle = theme.textTheme.headline4.copyWith(
-      color: AppColors.accentColor2,
-    );
-    TextStyle unSelectedStyle = theme.textTheme.headline5.copyWith(
-      color: AppColors.grey200,
-    );
+
     return Container(
       color: color,
       width: width ?? widthOfScreen(context),
@@ -49,13 +42,13 @@ class AppDrawer extends StatelessWidget {
                   InkWell(
                     onTap: onClose ?? () {},
                     child: CircularContainer(
-                      color: AppColors.grey300,
+                      color: AppColors.accentColor2,
                       width: Sizes.WIDTH_30,
                       height: Sizes.HEIGHT_30,
                       child: Icon(
                         Icons.close,
                         size: Sizes.ICON_SIZE_20,
-                        color: AppColors.accentColor2,
+                        color: AppColors.secondaryColor,
                       ),
                     ),
                   ).showCursorOnHover,
@@ -74,6 +67,7 @@ class AppDrawer extends StatelessWidget {
               isHorizontal: true,
               color: AppColors.accentColor2,
               alignment: Alignment.center,
+              barColor: AppColors.accentColor2,
               crossAxisAlignment: CrossAxisAlignment.center,
             ),
             SpaceH44(),

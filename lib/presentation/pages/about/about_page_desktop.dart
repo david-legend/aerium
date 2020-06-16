@@ -16,8 +16,6 @@ class AboutPageDesktop extends StatefulWidget {
 
 class _AboutPageDesktopState extends State<AboutPageDesktop>
     with TickerProviderStateMixin {
-  bool animate = false;
-  int duration = 800;
   double widthOfImage;
   AnimationController _controller;
   AnimationController _flickerAnimationController;
@@ -61,7 +59,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
         setState(() {
           _isAboutContentVisible = true;
         });
-        WidgetsBinding.instance.addPersistentFrameCallback((_) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
           _playFlickerAnimation();
         });
       }
@@ -72,7 +70,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
         setState(() {
           _isSubtitleVisible = true;
         });
-        WidgetsBinding.instance.addPersistentFrameCallback((_) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
           _playFlickerAnimation2();
         });
       }
@@ -83,7 +81,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
         setState(() {
           _visible = true;
         });
-        WidgetsBinding.instance.addPersistentFrameCallback((_) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
           _playAboutDevAnimation();
         });
       }
@@ -118,7 +116,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
         curve: Interval(
           0.4,
           1.0,
-          curve: Curves.easeIn,
+          curve: Curves.easeInOutCubic,
         ),
       ),
     );
@@ -131,7 +129,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
         curve: Interval(
           0.4,
           1.0,
-          curve: Curves.easeIn,
+          curve: Curves.easeInOutCubic,
         ),
       ),
     );
@@ -144,7 +142,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
         curve: Interval(
           0.4,
           1.0,
-          curve: Curves.easeIn,
+          curve: Curves.easeInOutCubic,
         ),
       ),
     );
@@ -157,7 +155,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
         curve: Interval(
           0.4,
           1.0,
-          curve: Curves.easeIn,
+          curve: Curves.easeInOutCubic,
         ),
       ),
     );
@@ -170,7 +168,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
         curve: Interval(
           0.4,
           1.0,
-          curve: Curves.easeIn,
+          curve: Curves.easeInOutCubic,
         ),
       ),
     );
@@ -183,10 +181,11 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
         curve: Interval(
           0.4,
           1.0,
-          curve: Curves.easeIn,
+          curve: Curves.easeInOutCubic,
         ),
       ),
     );
+
     aboutDevAnimation = Tween<double>(
       begin: 0.0,
       end: 1.0,
@@ -361,7 +360,6 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
             fontSize: Sizes.TEXT_SIZE_34,
             controller: _flickerAnimationController.view,
           ),
-//          SpaceH2(),
           _isSubtitleVisible
               ? FlickerTextAnimation(
                   text: StringConst.PUNCH_LINE,

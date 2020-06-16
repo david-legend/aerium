@@ -51,7 +51,7 @@ class FlickerTextAnimation extends StatefulWidget {
   final String text;
   final double fontSize;
   final TextStyle textStyle;
-//  final TextStyle textStyle;
+
   final double start;
   final double end;
   final MainAxisAlignment mainAxisAlignment;
@@ -67,13 +67,17 @@ class _FlickerTextAnimationState extends State<FlickerTextAnimation> {
   void initState() {
     widget.controller.addStatusListener((status) {
       if (status == AnimationStatus.forward) {
-        setState(() {
-          isAnimating = true;
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          setState(() {
+            isAnimating = true;
+          });
         });
       }
       if (status == AnimationStatus.completed) {
-        setState(() {
-          isAnimating = false;
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          setState(() {
+            isAnimating = false;
+          });
         });
       }
     });

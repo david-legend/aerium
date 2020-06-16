@@ -19,6 +19,11 @@ class ContactPageDesktop extends StatefulWidget {
 
 class _ContactPageDesktopState extends State<ContactPageDesktop> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return Scaffold(
@@ -131,12 +136,6 @@ class _ContactPageDesktopState extends State<ContactPageDesktop> {
             onTap: () {},
           ),
           SpaceH20(),
-          Text(
-            StringConst.CONNECT,
-            style: theme.textTheme.headline5.copyWith(
-              color: AppColors.accentColor2,
-            ),
-          ),
           SpaceH12(),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

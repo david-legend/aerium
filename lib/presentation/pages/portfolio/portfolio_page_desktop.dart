@@ -29,7 +29,7 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
   @override
   void initState() {
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 1000),
+      duration: const Duration(milliseconds: 700),
       vsync: this,
     );
     _portfolioController = AnimationController(

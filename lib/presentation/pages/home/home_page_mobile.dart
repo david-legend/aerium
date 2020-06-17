@@ -150,9 +150,9 @@ class _HomePageMobileState extends State<HomePageMobile> {
           IconButton(
             onPressed: () {
               if (_scaffoldKey.currentState.isEndDrawerOpen) {
-                _scaffoldKey.currentState.openDrawer();
-              } else {
                 _scaffoldKey.currentState.openEndDrawer();
+              } else {
+                _scaffoldKey.currentState.openDrawer();
               }
             },
             icon: Icon(Icons.menu),

@@ -31,7 +31,9 @@ class AppDrawer extends StatelessWidget {
 
     return Container(
       color: color,
-      width: width ?? widthOfScreen(context),
+      width: width ??
+          assignWidth(
+              context: context, fraction: 0.5), //widthOfScreen(context),
       child: Drawer(
         child: Column(
           children: [
@@ -41,7 +43,10 @@ class AppDrawer extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   InkWell(
-                    onTap: onClose ?? () {},
+                    onTap: onClose ??
+                        () {
+                          Navigator.pop(context);
+                        },
                     child: CircularContainer(
                       color: AppColors.accentColor2,
                       width: Sizes.WIDTH_30,

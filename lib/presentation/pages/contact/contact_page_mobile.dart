@@ -18,18 +18,26 @@ class ContactPageMobile extends StatefulWidget {
 }
 
 class _ContactPageMobileState extends State<ContactPageMobile> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
 
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: AppColors.deepBlue700,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(56.0),
         child: CustomAppBar(
           title: StringConst.CONTACT,
           actions: [],
-          onLeadingPressed: () {},
+          onLeadingPressed: () {
+            if (_scaffoldKey.currentState.isEndDrawerOpen) {
+              _scaffoldKey.currentState.openEndDrawer();
+            } else {
+              _scaffoldKey.currentState.openDrawer();
+            }
+          },
           onActionsPressed: null,
         ),
       ),

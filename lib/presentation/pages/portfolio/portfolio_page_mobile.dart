@@ -17,14 +17,23 @@ class PortfolioPageMobile extends StatefulWidget {
 }
 
 class _PortfolioPageMobileState extends State<PortfolioPageMobile> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(56.0),
         child: CustomAppBar(
           title: StringConst.PORTFOLIO,
-          onLeadingPressed: () {},
+          onLeadingPressed: () {
+            if (_scaffoldKey.currentState.isEndDrawerOpen) {
+              _scaffoldKey.currentState.openEndDrawer();
+            } else {
+              _scaffoldKey.currentState.openDrawer();
+            }
+          },
           onActionsPressed: () {
             Navigator.pushNamed(
               context,

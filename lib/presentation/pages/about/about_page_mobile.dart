@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
 import 'package:portfoliosite/presentation/pages/about/about_page.dart';
+import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/custom_app_bar.dart';
@@ -22,7 +23,12 @@ class _AboutPageMobileState extends State<AboutPageMobile> {
         child: CustomAppBar(
           title: StringConst.ABOUT_ME,
           onLeadingPressed: () {},
-          onActionsPressed: () {},
+          onActionsPressed: () {
+            Navigator.pushNamed(
+              context,
+              ContactPage.contactPageRoute,
+            );
+          },
         ),
       ),
       drawer: AppDrawer(
@@ -39,14 +45,26 @@ class _AboutPageMobileState extends State<AboutPageMobile> {
               ),
               children: [
                 Text(
-                  'Heading goes Here',
-                  style: theme.textTheme.headline4,
+                  StringConst.INTRO,
+                  style: theme.textTheme.bodyText1.copyWith(
+                    fontSize: Sizes.TEXT_SIZE_18,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.accentColor2,
+                  ),
                 ),
-                SpaceH4(),
                 Text(
-                  'subtitle goes here ',
-                  style: theme.textTheme.bodyText1
-                      .copyWith(color: AppColors.bodyText1),
+                  StringConst.DEV_NAME,
+                  style: theme.textTheme.headline6.copyWith(
+                    color: AppColors.primaryColor,
+                    fontSize: Sizes.TEXT_SIZE_24,
+                  ),
+                ),
+                Text(
+                  StringConst.PUNCH_LINE,
+                  style: theme.textTheme.headline6.copyWith(
+                    color: AppColors.primaryColor,
+                    fontSize: Sizes.TEXT_SIZE_24,
+                  ),
                 ),
                 SpaceH16(),
                 Container(
@@ -67,7 +85,7 @@ class _AboutPageMobileState extends State<AboutPageMobile> {
             ),
           ),
           Positioned(
-            right: -assignWidth(context: context, fraction: 0.35),
+            right: -assignWidth(context: context, fraction: 0.45),
             child: Image.asset(
               ImagePath.DEV,
               height: heightOfScreen(context),

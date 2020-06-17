@@ -1,15 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
+import 'package:portfoliosite/core/utils/functions.dart';
 import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/flicker_text_animation.dart';
 import 'package:portfoliosite/presentation/widgets/menu_list.dart';
 import 'package:portfoliosite/presentation/widgets/project_cover_2.dart';
+import 'package:portfoliosite/presentation/widgets/socials.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/presentation/widgets/trailing_info.dart';
 import 'package:portfoliosite/values/values.dart';
 
 class ProjectDetailDesktop extends StatefulWidget {
+  ProjectDetailDesktop({
+    @required this.projectDetails,
+  });
+
+  final ProjectDetails projectDetails;
+
   @override
   _ProjectDetailDesktopState createState() => _ProjectDetailDesktopState();
 }
@@ -59,17 +69,15 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
       }
     });
     _flickerAnimationController.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        setState(() {
-          _isSubtitleVisible = true;
-        });
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          _playFlickerAnimation2();
-        });
-      }
-    });
+//      if (status == AnimationStatus.completed) {
+//        setState(() {
+//          _isSubtitleVisible = true;
+//        });
+//        WidgetsBinding.instance.addPostFrameCallback((_) {
+//          _playFlickerAnimation2();
+//        });
+//      }
 
-    _flickerAnimationController2.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         setState(() {
           _isContentVisible = true;
@@ -79,6 +87,17 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
         });
       }
     });
+
+//    _flickerAnimationController2.addStatusListener((status) {
+//      if (status == AnimationStatus.completed) {
+//        setState(() {
+//          _isContentVisible = true;
+//        });
+//        WidgetsBinding.instance.addPostFrameCallback((_) {
+//          _playProjectContentAnimation();
+//        });
+//      }
+//    });
     super.initState();
   }
 
@@ -258,7 +277,7 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
           projectCoverScale: _projectCoverScaleAnimation.value,
           backgroundScale: _projectBackgroundScaleAnimation.value,
           projectCoverBackgroundColor: AppColors.deepBlue900,
-          projectCoverUrl: ImagePath.PORTFOLIO_4,
+          projectCoverUrl: widget.projectDetails.projectImage,
         ),
         SizedBox(
           width: assignWidth(context: context, fraction: 0.03),
@@ -271,35 +290,76 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
             children: [
               _isHeadingVisible
                   ? FlickerTextAnimation(
-                      text: 'Heading',
+                      text: widget.projectDetails.projectName,
                       textColor: AppColors.primaryColor,
                       fadeInColor: AppColors.primaryColor,
                       fontSize: Sizes.TEXT_SIZE_34,
                       controller: _flickerAnimationController.view,
                     )
                   : Container(),
-              SpaceH4(),
-              _isSubtitleVisible
-                  ? FlickerTextAnimation(
-                      text: 'Subtitle',
-                      textColor: AppColors.primaryColor,
-                      fadeInColor: AppColors.primaryColor,
-                      controller: _flickerAnimationController2.view,
-                      textStyle: theme.textTheme.bodyText1
-                          .copyWith(color: AppColors.bodyText1),
-                    )
-                  : Container(),
+//              _isSubtitleVisible
+//                  ? FlickerTextAnimation(
+//                      text: 'Subtitle',
+//                      textColor: AppColors.primaryColor,
+//                      fadeInColor: AppColors.primaryColor,
+//                      controller: _flickerAnimationController2.view,
+//                      textStyle: theme.textTheme.bodyText1
+//                          .copyWith(color: AppColors.bodyText1),
+//                    )
+//                  : Container(),
               SpaceH16(),
-              AnimatedOpacity(
-                opacity:
-                    _isContentVisible ? _projectContentAnimation.value : 0.0,
-                duration: _contentAnimationController.duration,
-                child: Text(
-                  StringConst.ABOUT_DEV_TEXT,
-                  style: theme.textTheme.bodyText1.copyWith(
-                    color: AppColors.black,
-                    fontSize: Sizes.TEXT_SIZE_16,
-                  ),
+              FadeTransition(
+                opacity: _projectContentAnimation,
+//                    _isContentVisible ? _projectContentAnimation.value : 0.0,
+//                duration: _contentAnimationController.duration,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      widget.projectDetails.projectDescription,
+                      style: theme.textTheme.bodyText1.copyWith(
+//                    color: AppColors.black,
+                        color: AppColors.primaryColor,
+                        fontSize: Sizes.TEXT_SIZE_16,
+                      ),
+                    ),
+                    SpaceH8(),
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: [
+                        widget.projectDetails.isPublic
+                            ? SocialButton(
+                                icon: FontAwesomeIcons.github,
+                                onPressed: () {
+                                  Functions.launchUrl(
+                                      widget.projectDetails.gitHubUrl);
+                                },
+                              )
+                            : Container(),
+                        widget.projectDetails.isLive
+                            ? SocialButton(
+                                //web
+                                icon: FontAwesomeIcons.internetExplorer,
+                                onPressed: () {
+                                  Functions.launchUrl(
+                                      widget.projectDetails.webUrl);
+                                },
+                              )
+                            : Container(),
+                        widget.projectDetails.isOnPlayStore
+                            ? SocialButton(
+                                //playstore
+                                icon: FontAwesomeIcons.github,
+                                onPressed: () {
+                                  Functions.launchUrl(
+                                      widget.projectDetails.playStoreUrl);
+                                },
+                              )
+                            : Container(),
+                      ],
+                    )
+                  ],
                 ),
               ),
             ],

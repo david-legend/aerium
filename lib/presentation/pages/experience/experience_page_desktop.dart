@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
+import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/presentation/pages/experience/experience_page.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/customer_scroller.dart';
@@ -75,6 +76,10 @@ class _ExperiencePageDesktopState extends State<ExperiencePageDesktop> {
                       width: assignWidth(
                         context: context,
                         fraction: 0.05,
+                      ),
+                      onLeadingWidgetPressed: () => Navigator.pushNamed(
+                        context,
+                        ContactPage.contactPageRoute,
                       ),
                       trailingWidget: CustomScroller(
                         onUpTap: () {

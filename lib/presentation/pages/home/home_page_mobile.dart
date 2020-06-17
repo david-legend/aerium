@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/extensions/hover_extensions.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
+import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
 import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
 import 'package:portfoliosite/presentation/widgets/circular_container.dart';
@@ -64,7 +65,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                                     Text(
                                       StringConst.SPECIALITY,
                                       style: theme.textTheme.headline6.copyWith(
-                                        color: AppColors.accentColor2,
+                                        color: AppColors.secondaryColor,
                                       ),
                                     ),
                                   ],
@@ -158,9 +159,15 @@ class _HomePageMobileState extends State<HomePageMobile> {
           ),
           CircularContainer(
             color: AppColors.primaryColor,
-            child: Icon(
-              Icons.email,
-              color: AppColors.secondaryColor,
+            child: InkWell(
+              onTap: () => Navigator.pushNamed(
+                context,
+                ContactPage.contactPageRoute,
+              ),
+              child: Icon(
+                Icons.email,
+                color: AppColors.secondaryColor,
+              ),
             ),
           ),
         ],
@@ -170,6 +177,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
 
   Widget _buildDevImage() {
     return Positioned(
+      top: 56,
       left: assignWidth(context: context, fraction: 0.2),
       child: Image.asset(
         ImagePath.DEV,
@@ -187,7 +195,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
       child: Socials(
         isVertical: true,
         alignment: Alignment.centerRight,
-        color: AppColors.primaryColor,
+        color: AppColors.secondaryColor,
         barColor: AppColors.secondaryColor,
         crossAxisAlignment: CrossAxisAlignment.end,
       ),

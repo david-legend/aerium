@@ -53,7 +53,7 @@ class ExperienceTree extends StatelessWidget {
                 headTitle,
                 style: headTitleStyle ??
                     theme.textTheme.subtitle1
-                        .copyWith(color: AppColors.secondaryColor),
+                        .copyWith(color: AppColors.accentColor2),
               ),
             ),
           ),
@@ -64,7 +64,7 @@ class ExperienceTree extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(Sizes.PADDING_8),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Sizes.RADIUS_16),
+                borderRadius: BorderRadius.circular(Sizes.RADIUS_20),
                 color: tailBackgroundColor ??
                     AppColors.primaryColor
                         .withOpacity(AppColors.primaryColorOpacity),
@@ -73,7 +73,7 @@ class ExperienceTree extends StatelessWidget {
                 tailTitle,
                 style: tailTitleStyle ??
                     theme.textTheme.subtitle1
-                        .copyWith(color: AppColors.secondaryColor),
+                        .copyWith(color: AppColors.accentColor2),
               ),
             ),
           ),
@@ -85,15 +85,17 @@ class ExperienceTree extends StatelessWidget {
   List<Widget> _buildExperienceBranches(List<ExperienceData> experienceData) {
     List<Widget> branchWidgets = [];
     for (var index = 0; index < experienceData.length; index++) {
-      branchWidgets.add(ExperienceBranch(
-        company: experienceData[index].company,
-        companyUrl: experienceData[index].companyUrl,
-        position: experienceData[index].position,
-        role: experienceData[index].role,
-        location: experienceData[index].location,
-        duration: experienceData[index].duration,
-        width: widthOfTree,
-      ));
+      branchWidgets.add(
+        ExperienceBranch(
+          company: experienceData[index].company,
+          companyUrl: experienceData[index].companyUrl,
+          position: experienceData[index].position,
+          role: experienceData[index].role,
+          location: experienceData[index].location,
+          duration: experienceData[index].duration,
+          width: widthOfTree,
+        ),
+      );
     }
 
     return branchWidgets;

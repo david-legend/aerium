@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
 import 'package:portfoliosite/core/utils/functions.dart';
 import 'package:portfoliosite/presentation/pages/certification/certification_page.dart';
+import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/custom_app_bar.dart';
@@ -18,7 +19,12 @@ class CertificationPageMobile extends StatelessWidget {
         child: CustomAppBar(
           title: StringConst.CERTIFICATIONS,
           onLeadingPressed: () {},
-          onActionsPressed: () {},
+          onActionsPressed: () {
+            Navigator.pushNamed(
+              context,
+              ContactPage.contactPageRoute,
+            );
+          },
         ),
       ),
       drawer: AppDrawer(

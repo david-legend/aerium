@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
+import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
 import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
@@ -9,6 +10,12 @@ import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
 
 class ProjectDetailMobile extends StatelessWidget {
+  ProjectDetailMobile({
+    @required this.projectDetails,
+  });
+
+  final ProjectDetails projectDetails;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +28,9 @@ class ProjectDetailMobile extends StatelessWidget {
             color: AppColors.accentColor2,
           ),
           onLeadingPressed: () {},
-          onActionsPressed: () {},
+          onActionsPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       drawer: AppDrawer(

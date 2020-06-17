@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfoliosite/core/utils/functions.dart';
 import 'package:portfoliosite/presentation/widgets/menu_item.dart';
 import 'package:portfoliosite/presentation/widgets/socials.dart';
@@ -42,8 +43,25 @@ class MenuList extends StatelessWidget {
         Text(
           StringConst.SPECIALITY,
           style: theme.textTheme.headline6.copyWith(
-            color: AppColors.accentColor2,
+            color: AppColors.secondaryColor,
           ),
+        ),
+        SpaceH8(),
+        Row(
+          children: [
+            Text(
+              StringConst.DESIGNED_IN,
+              style: theme.textTheme.bodyText1.copyWith(
+                  color: AppColors.secondaryColor,
+                  fontSize: Sizes.TEXT_SIZE_12),
+            ),
+            SpaceW4(),
+            Icon(
+              FontAwesomeIcons.solidHeart,
+              color: Colors.red,
+              size: Sizes.ICON_SIZE_12,
+            )
+          ],
         ),
       ],
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/utils/functions.dart';
+import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/presentation/pages/experience/experience_page.dart';
 import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
 import 'package:portfoliosite/presentation/widgets/custom_app_bar.dart';
@@ -16,7 +17,12 @@ class ExperiencePageMobile extends StatelessWidget {
         child: CustomAppBar(
           title: StringConst.EXPERIENCE,
           onLeadingPressed: () {},
-          onActionsPressed: () {},
+          onActionsPressed: () {
+            Navigator.pushNamed(
+              context,
+              ContactPage.contactPageRoute,
+            );
+          },
         ),
       ),
       drawer: AppDrawer(

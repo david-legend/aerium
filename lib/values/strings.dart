@@ -33,6 +33,7 @@ class StringConst {
   static const String PUNCH_LINE = "I build things with flutter";
   static const String DEV_EMAIL = "davidcobbina47@gmail.com";
   static const String SPECIALITY = "FLUTTER DEV";
+  static const String DESIGNED_IN = "Made in Ghana with ";
 
   static const String ABOUT_DEV_TEXT =
       "I'm a software engineer based in Ghana, specializing in building high quality mobile and web applications with a strong passion for opensource work. My goal is to always build pixel perfect high performant applications that provides users with a rich experience.";
@@ -144,56 +145,76 @@ class StringConst {
       "A beautiful catalog of login designs";
   static const String LOGIN_CATALOG_DETAIL =
       "A beautiful cataalog of login designs";
+  static const String LOGIN_CATALOG_GITHUB_URL =
+      "https://github.com/david-legend/login_catalog";
 
   static const String VYBZ = "Vybz";
   static const String VYBZ_SUBTITLE =
       "An app that enlist all tourist sites, restaurants etc.";
   static const String VYBZ_DETAIL = "A beautiful catalog of login designs";
+  static const String VYBZ_PLAYSTORE_URL = "";
 
   static const String COLOSSAL_TOONS = "Colossal Toons";
   static const String COLOSSAL_TOONS_SUBTITLE =
       "CT is an app for watching very creative and entertaining animations.";
   static const String COLOSSAL_TOONS_DETAIL =
       "A beautiful cataalog of login designs";
+  static const String COLOSSAL_TOONS_PLAYSTORE_URL = "";
 
   static const String FOODY_BITE = "FoodyBite";
   static const String FOODY_BITE_SUBTITLE =
       "A useful free ui kit design for food related apps";
   static const String FOODY_BITE_DETAIL =
       "A beautiful cataalog of login designs";
+  static const String FOODY_BITE_GITHUB_URL =
+      "https://github.com/david-legend/foodybite";
 
   static const String ONBOARDING_APP = "Onboarding App";
   static const String ONBOARDING_APP_SUBTITLE = "An onboarding experience app";
   static const String ONBOARDING_APP_DETAIL =
       "A beautiful cataalog of login designs";
+  static const String ONBOARDING_APP_GITHUB_URL =
+      "https://github.com/david-legend/onboarding-app";
 
   static const String OTP_TEXT_FIELD = "Otp Textfield";
   static const String OTP_TEXT_FIELD_SUBTITLE =
       "A useful flutter package for helping with otp";
   static const String OTP_TEXT_FIELD_DETAIL =
       "A beautiful cataalog of login designs";
+  static const String OTP_TEXT_FIELD_GITHUB_URL =
+      "https://github.com/david-legend/otp_textfield";
+  static const String OTP_TEXT_FIELD_WEB_URL =
+      "https://pub.dev/packages/flutter_otp_text_field";
 
   static const String FINOPP = "Finopp";
   static const String FINOPP_SUBTITLE =
       "A conceptual app that helps investors find viable businesses to invest in.";
   static const String FINOPP_DETAIL = "A beautiful catalog of login designs";
+  static const String FINOPP_GITHUB_URL =
+      "https://github.com/david-legend/finopp";
 
   static const String FLUTTER_CATALOG = "Login Catalog";
   static const String FLUTTER_CATALOG_SUBTITLE =
       "A beautiful cataalog of login designs";
   static const String FLUTTER_CATALOG_DETAIL =
       "A beautiful cataalog of login designs";
+  static const String FLUTTER_CATALOG_GITHUB_URL = "";
 
   static const String BEQUIP_LOGISTICS = "B-equip Logistics";
   static const String BEQUIP_LOGISTICS_SUBTITLE =
       "Beautifully designed website that expresses the services provided by the company.";
   static const String BEQUIP_LOGISTICS_DETAIL =
       "A beautiful cataalog of login designs";
+  static const String BEQUIP_LOGISTICS_WEB_URL = "http://bequiplogisticsgh.com";
 
   static const String AERIUM = "Aerium";
   static const String AERIUM_SUBTITLE =
       "A progressive web app for showcasing your portfolio.";
   static const String AERIUM_DETAIL = "A beautiful cataalog of login designs";
+  static const String AERIUM_GITHUB_URL =
+      "https://github.com/david-legend/aerium";
+  static const String AERIUM_WEB_URL = "https://davidcobbina.dev";
+
   static const String CIRCE = "Circe";
   static const String PROXIMA_NOVA = "ProximaNova";
 }

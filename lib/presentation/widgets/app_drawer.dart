@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfoliosite/core/extensions/hover_extensions.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
 import 'package:portfoliosite/core/utils/functions.dart';
@@ -70,7 +71,25 @@ class AppDrawer extends StatelessWidget {
               barColor: AppColors.accentColor2,
               crossAxisAlignment: CrossAxisAlignment.center,
             ),
-            SpaceH44(),
+            SpaceH8(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  StringConst.DESIGNED_IN,
+                  style: theme.textTheme.bodyText1.copyWith(
+                      color: AppColors.accentColor2,
+                      fontSize: Sizes.TEXT_SIZE_12),
+                ),
+                SpaceW4(),
+                Icon(
+                  FontAwesomeIcons.solidHeart,
+                  color: Colors.red,
+                  size: Sizes.ICON_SIZE_12,
+                )
+              ],
+            ),
+            SpaceH16(),
           ],
         ),
       ),

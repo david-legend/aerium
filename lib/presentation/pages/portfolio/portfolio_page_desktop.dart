@@ -2,8 +2,10 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
+import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
 import 'package:portfoliosite/presentation/pages/project_detail/project_detail.dart';
+import 'package:portfoliosite/presentation/routes/routes.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/customer_scroller.dart';
 import 'package:portfoliosite/presentation/widgets/menu_list.dart';
@@ -193,6 +195,10 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
                             context: context,
                             fraction: 0.05,
                           ),
+                          onLeadingWidgetPressed: () => Navigator.pushNamed(
+                            context,
+                            ContactPage.contactPageRoute,
+                          ),
                           trailingWidget: CustomScroller(
                             onUpTap: () {
                               _scroll(
@@ -260,7 +266,6 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
     double durationForEachPortfolio =
         _portfolioController.duration.inMilliseconds.roundToDouble() /
             portfolioData.length;
-    var counter = 0;
     for (var i = 0; i < portfolioData.length; i++) {
 //      print("duration $duration");
 //      print(
@@ -287,7 +292,21 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
             title: portfolioData[i].title,
             subtitle: portfolioData[i].subtitle,
             actionTitle: StringConst.VIEW,
-            onTap: _navigateToProjectDetail,
+            onTap: () {
+              _navigateToProjectDetail(
+                projectDetails: ProjectDetails(
+                  projectImage: portfolioData[i].image,
+                  projectName: portfolioData[i].title,
+                  projectDescription: portfolioData[i].portfolioDescription,
+                  isPublic: portfolioData[i].isPublic,
+                  isLive: portfolioData[i].isLive,
+                  isOnPlayStore: portfolioData[i].isOnPlayStore,
+                  gitHubUrl: portfolioData[i].gitHubUrl,
+                  playStoreUrl: portfolioData[i].playStoreUrl,
+                  webUrl: portfolioData[i].webUrl,
+                ),
+              );
+            },
             height: assignHeight(context: context, fraction: 0.45),
             width: assignWidth(
               context: context,
@@ -296,11 +315,6 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
           ),
         ),
       );
-      if ((i + 1) % 8 == 0) {
-        counter = 0;
-      } else {
-        counter++;
-      }
     }
     return widgets;
   }
@@ -313,7 +327,16 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
     );
   }
 
-  void _navigateToProjectDetail() {
-    Navigator.pushNamed(context, ProjectDetailPage.projectDetailPageRoute);
+  void _navigateToProjectDetail({
+    @required ProjectDetails projectDetails,
+  }) {
+    Navigator.push(
+      context,
+      NoAnimationMaterialPageRoute(
+        builder: (context) => ProjectDetailPage(
+          projectDetails: projectDetails,
+        ),
+      ),
+    );
   }
 }

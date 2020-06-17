@@ -14,11 +14,14 @@ class PortfolioPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ScreenTypeLayout(
-        mobile: PortfolioPageMobile(),
-        tablet: PortfolioPageDesktop(),
-        desktop: PortfolioPageDesktop(),
+    return WillPopScope(
+      onWillPop: () async => true,
+      child: Scaffold(
+        body: ScreenTypeLayout(
+          mobile: PortfolioPageMobile(),
+          tablet: PortfolioPageDesktop(),
+          desktop: PortfolioPageDesktop(),
+        ),
       ),
     );
   }

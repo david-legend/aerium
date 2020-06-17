@@ -5,10 +5,8 @@ import 'package:portfoliosite/presentation/pages/certification/certification_pag
 import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/presentation/pages/experience/experience_page.dart';
 import 'package:portfoliosite/presentation/pages/home/home_page.dart';
-import 'package:portfoliosite/presentation/pages/message/message_page.dart';
 import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
 import 'package:portfoliosite/presentation/pages/project_detail/project_detail.dart';
-import 'package:portfoliosite/presentation/pages/services/services_page.dart';
 
 typedef PathWidgetBuilder = Widget Function(
     BuildContext, String /*Map<String, String>*/);
@@ -53,20 +51,12 @@ class RouteConfiguration {
       (context, matches) => const ContactPage(),
     ),
     Path(
-      r'^' + MessagePage.messagePageRoute,
-      (context, matches) => const AboutPage(),
-    ),
-    Path(
       r'^' + PortfolioPage.portfolioPageRoute,
       (context, matches) => const PortfolioPage(),
     ),
     Path(
       r'^' + ProjectDetailPage.projectDetailPageRoute,
       (context, matches) => const ProjectDetailPage(),
-    ),
-    Path(
-      r'^' + ServicesPage.servicesPageRoute,
-      (context, matches) => const ServicesPage(),
     ),
     Path(
       r'^' + ExperiencePage.experiencePageRoute,

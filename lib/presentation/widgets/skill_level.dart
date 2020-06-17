@@ -58,7 +58,8 @@ class SkillLevel extends StatelessWidget {
               return CustomPaint(
                 foregroundPainter: SkillProgressPainter(
                   currentProgress: value,
-                  circleColor: AppColors.accentColor,
+//                  circleColor: AppColors.secondaryColor,
+                  progressArcColor: AppColors.primaryColor,
                 ),
                 child: AnimatedOpacity(
                   opacity: value / 100,

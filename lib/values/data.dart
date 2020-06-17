@@ -26,18 +26,56 @@ class CertificationData {
   final String awardedBy;
 }
 
+class ProjectDetails {
+  ProjectDetails({
+    @required this.projectImage,
+    @required this.projectName,
+    @required this.projectDescription,
+    this.isPublic,
+    this.isLive,
+    this.isOnPlayStore,
+    this.playStoreUrl,
+    this.webUrl,
+    this.gitHubUrl,
+  });
+
+  final String projectImage;
+  final String projectName;
+  final String projectDescription;
+  final bool isPublic;
+  final bool isOnPlayStore;
+  final bool isLive;
+  final String playStoreUrl;
+  final String gitHubUrl;
+  final String webUrl;
+}
+
 class PortfolioData {
   PortfolioData({
     @required this.title,
     @required this.image,
     @required this.imageSize,
     @required this.subtitle,
+    @required this.portfolioDescription,
+    this.isPublic = false,
+    this.isOnPlayStore = false,
+    this.isLive = false,
+    this.gitHubUrl = "",
+    this.playStoreUrl = "",
+    this.webUrl = "",
   });
 
   final String image;
+  final String portfolioDescription;
   final double imageSize;
   final String title;
   final String subtitle;
+  final bool isPublic;
+  final String gitHubUrl;
+  final bool isOnPlayStore;
+  final String playStoreUrl;
+  final bool isLive;
+  final String webUrl;
 }
 
 class ExperienceData {
@@ -139,55 +177,86 @@ class Data {
       title: StringConst.VYBZ,
       subtitle: StringConst.VYBZ_SUBTITLE,
       image: ImagePath.VYBZ,
+      portfolioDescription: StringConst.VYBZ_DETAIL,
       imageSize: 0.15,
+      isOnPlayStore: true,
+      playStoreUrl: StringConst.VYBZ_PLAYSTORE_URL,
     ),
     PortfolioData(
       title: StringConst.COLOSSAL_TOONS,
       subtitle: StringConst.COLOSSAL_TOONS_SUBTITLE,
       image: ImagePath.COLOSSAL_TOONS,
+      portfolioDescription: StringConst.COLOSSAL_TOONS_DETAIL,
       imageSize: 0.15,
+      isOnPlayStore: true,
+      playStoreUrl: StringConst.COLOSSAL_TOONS_PLAYSTORE_URL,
     ),
     PortfolioData(
       title: StringConst.LOGIN_CATALOG,
       subtitle: StringConst.LOGIN_CATALOG_SUBTITLE,
       image: ImagePath.LOGIN_CATALOG,
+      portfolioDescription: StringConst.LOGIN_CATALOG_DETAIL,
       imageSize: 0.3,
+      isPublic: true,
+      gitHubUrl: StringConst.LOGIN_CATALOG_GITHUB_URL,
     ),
     PortfolioData(
       title: StringConst.FOODY_BITE,
       subtitle: StringConst.FOODY_BITE_SUBTITLE,
       image: ImagePath.FOODY_BITE,
+      portfolioDescription: StringConst.FOODY_BITE_DETAIL,
       imageSize: 0.45,
+      isPublic: true,
+      gitHubUrl: StringConst.FOODY_BITE_GITHUB_URL,
     ),
     PortfolioData(
       title: StringConst.ONBOARDING_APP,
       subtitle: StringConst.ONBOARDING_APP_SUBTITLE,
       image: ImagePath.ONBOARDING_APP,
+      portfolioDescription: StringConst.ONBOARDING_APP_DETAIL,
       imageSize: 0.15,
+      isPublic: true,
+      gitHubUrl: StringConst.FOODY_BITE_GITHUB_URL,
     ),
     PortfolioData(
       title: StringConst.BEQUIP_LOGISTICS,
       subtitle: StringConst.BEQUIP_LOGISTICS_SUBTITLE,
       image: ImagePath.BEQUIP_LOGISTICS,
+      portfolioDescription: StringConst.BEQUIP_LOGISTICS_DETAIL,
       imageSize: 0.3,
+      isLive: true,
+      webUrl: StringConst.BEQUIP_LOGISTICS_WEB_URL,
     ),
     PortfolioData(
       title: StringConst.FINOPP,
       subtitle: StringConst.FINOPP_SUBTITLE,
       image: ImagePath.FINOPP,
+      portfolioDescription: StringConst.FINOPP_DETAIL,
       imageSize: 0.15,
+      isPublic: true,
+      gitHubUrl: StringConst.FINOPP_GITHUB_URL,
     ),
     PortfolioData(
       title: StringConst.OTP_TEXT_FIELD,
       subtitle: StringConst.OTP_TEXT_FIELD_SUBTITLE,
       image: ImagePath.OTP_TEXT_FIELD,
+      portfolioDescription: StringConst.OTP_TEXT_FIELD_DETAIL,
       imageSize: 0.15,
+      isPublic: true,
+      isLive: true,
+      gitHubUrl: StringConst.FINOPP_GITHUB_URL,
+      webUrl: StringConst.FINOPP_GITHUB_URL,
     ),
     PortfolioData(
       title: StringConst.AERIUM,
       subtitle: StringConst.AERIUM_SUBTITLE,
       image: ImagePath.AERIUM,
+      portfolioDescription: StringConst.AERIUM_DETAIL,
       imageSize: 0.3,
+      isPublic: true,
+      isLive: true,
+      gitHubUrl: StringConst.AERIUM_GITHUB_URL,
+      webUrl: StringConst.AERIUM_WEB_URL,
     ),
   ];
 

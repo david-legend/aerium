@@ -35,8 +35,10 @@ class StringConst {
   static const String SPECIALITY = "FLUTTER DEV";
 
   static const String ABOUT_DEV_TEXT =
-      "I'm a software engineer based in Ghana, specializing in building high quality mobile and web applications with a strong passion for opensource work.";
+      "I'm a software engineer based in Ghana, specializing in building high quality mobile and web applications with a strong passion for opensource work. My goal is to always build pixel perfect high performant applications that provides users with a rich experience.";
 
+  static const String EDUCATION_TEXT =
+      "I am self taught programmer who graduated from Kwame Nkrumah Univeristy of Science Technology with a degree in Agricultural Engineering. I love learning and writing computer programs.";
   //Form Hint Texts
   static const String NAME_HINT_TEXT = "Name";
   static const String PHONE_HINT_TEXT = "Phone (Optional)";
@@ -136,6 +138,62 @@ class StringConst {
   static const String LOCATION_4 = "East Legon - Accra";
   static const String DURATION_4 = "August 2019 - April 2020";
 
+  //Portfolio, Projects
+  static const String LOGIN_CATALOG = "Login Catalog";
+  static const String LOGIN_CATALOG_SUBTITLE =
+      "A beautiful catalog of login designs";
+  static const String LOGIN_CATALOG_DETAIL =
+      "A beautiful cataalog of login designs";
+
+  static const String VYBZ = "Vybz";
+  static const String VYBZ_SUBTITLE =
+      "An app that enlist all tourist sites, restaurants etc.";
+  static const String VYBZ_DETAIL = "A beautiful catalog of login designs";
+
+  static const String COLOSSAL_TOONS = "Colossal Toons";
+  static const String COLOSSAL_TOONS_SUBTITLE =
+      "CT is an app for watching very creative and entertaining animations.";
+  static const String COLOSSAL_TOONS_DETAIL =
+      "A beautiful cataalog of login designs";
+
+  static const String FOODY_BITE = "FoodyBite";
+  static const String FOODY_BITE_SUBTITLE =
+      "A useful free ui kit design for food related apps";
+  static const String FOODY_BITE_DETAIL =
+      "A beautiful cataalog of login designs";
+
+  static const String ONBOARDING_APP = "Onboarding App";
+  static const String ONBOARDING_APP_SUBTITLE = "An onboarding experience app";
+  static const String ONBOARDING_APP_DETAIL =
+      "A beautiful cataalog of login designs";
+
+  static const String OTP_TEXT_FIELD = "Otp Textfield";
+  static const String OTP_TEXT_FIELD_SUBTITLE =
+      "A useful flutter package for helping with otp";
+  static const String OTP_TEXT_FIELD_DETAIL =
+      "A beautiful cataalog of login designs";
+
+  static const String FINOPP = "Finopp";
+  static const String FINOPP_SUBTITLE =
+      "A conceptual app that helps investors find viable businesses to invest in.";
+  static const String FINOPP_DETAIL = "A beautiful catalog of login designs";
+
+  static const String FLUTTER_CATALOG = "Login Catalog";
+  static const String FLUTTER_CATALOG_SUBTITLE =
+      "A beautiful cataalog of login designs";
+  static const String FLUTTER_CATALOG_DETAIL =
+      "A beautiful cataalog of login designs";
+
+  static const String BEQUIP_LOGISTICS = "B-equip Logistics";
+  static const String BEQUIP_LOGISTICS_SUBTITLE =
+      "Beautifully designed website that expresses the services provided by the company.";
+  static const String BEQUIP_LOGISTICS_DETAIL =
+      "A beautiful cataalog of login designs";
+
+  static const String AERIUM = "Aerium";
+  static const String AERIUM_SUBTITLE =
+      "A progressive web app for showcasing your portfolio.";
+  static const String AERIUM_DETAIL = "A beautiful cataalog of login designs";
   static const String CIRCE = "Circe";
   static const String PROXIMA_NOVA = "ProximaNova";
 }

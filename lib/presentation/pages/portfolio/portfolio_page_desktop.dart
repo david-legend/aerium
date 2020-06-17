@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
 import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
+import 'package:portfoliosite/presentation/pages/project_detail/project_detail.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/customer_scroller.dart';
 import 'package:portfoliosite/presentation/widgets/menu_list.dart';
@@ -286,6 +287,7 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
             title: portfolioData[i].title,
             subtitle: portfolioData[i].subtitle,
             actionTitle: StringConst.VIEW,
+            onTap: _navigateToProjectDetail,
             height: assignHeight(context: context, fraction: 0.45),
             width: assignWidth(
               context: context,
@@ -309,5 +311,9 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
       duration: Duration(milliseconds: 500),
       curve: Curves.easeIn,
     );
+  }
+
+  void _navigateToProjectDetail() {
+    Navigator.pushNamed(context, ProjectDetailPage.projectDetailPageRoute);
   }
 }

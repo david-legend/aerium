@@ -130,21 +130,21 @@ class _PortfolioCardState extends State<PortfolioCard>
                             SpaceH4(),
                             Text(
                               widget.subtitle,
+                              textAlign: TextAlign.center,
                               style: widget.subtitleTextStyle ??
-                                  theme.textTheme.subtitle1.copyWith(
-                                    color: AppColors.secondaryColor,
-//                                    fontSize: Sizes.TEXT_SIZE_14,
-//                                    fontWeight: FontWeight.w400,
-                                  ),
+                                  theme.textTheme.bodyText1.copyWith(
+                                      color: AppColors.secondaryColor,
+                                      fontSize: Sizes.TEXT_SIZE_16),
                             ),
                             SpaceH16(),
                             Text(
                               widget.actionTitleTextStyle ?? widget.actionTitle,
-                              style: theme.textTheme.headline6
+                              textAlign: TextAlign.center,
+                              style: theme.textTheme.subtitle1
                                   .copyWith(color: AppColors.secondaryColor),
                             ),
                             SpaceH4(),
-                            HorizontalBar(),
+                            HorizontalBar(color: AppColors.secondaryColor),
                             Spacer(flex: 1),
                           ],
                         ),

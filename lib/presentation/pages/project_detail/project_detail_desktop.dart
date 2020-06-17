@@ -53,7 +53,7 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
         setState(() {
           _isHeadingVisible = true;
         });
-        WidgetsBinding.instance.addPersistentFrameCallback((_) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
           _playFlickerAnimation();
         });
       }
@@ -63,7 +63,7 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
         setState(() {
           _isSubtitleVisible = true;
         });
-        WidgetsBinding.instance.addPersistentFrameCallback((_) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
           _playFlickerAnimation2();
         });
       }
@@ -74,7 +74,7 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
         setState(() {
           _isContentVisible = true;
         });
-        WidgetsBinding.instance.addPersistentFrameCallback((_) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
           _playProjectContentAnimation();
         });
       }
@@ -296,8 +296,10 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
                 duration: _contentAnimationController.duration,
                 child: Text(
                   StringConst.ABOUT_DEV_TEXT,
-                  style: theme.textTheme.bodyText1
-                      .copyWith(color: AppColors.bodyText1),
+                  style: theme.textTheme.bodyText1.copyWith(
+                    color: AppColors.black,
+                    fontSize: Sizes.TEXT_SIZE_16,
+                  ),
                 ),
               ),
             ],

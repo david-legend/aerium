@@ -146,14 +146,19 @@ class _SubMenuListState extends State<SubMenuList>
   }
 
   Widget _buildContent(List<SubMenuData> menuData) {
-    List<Widget> content = [];
+    ThemeData theme = Theme.of(context);
     for (var index = 0; index < menuData.length; index++) {
       if (menuData[index].isSelected) {
         if (menuData[index].isAnimation) {
           return _buildSkillsSection(skills: menuData[index].skillData);
         } else {
-//          return contentData();
-          return Text(menuData[index].content);
+          return Text(
+            menuData[index].content,
+            style: theme.textTheme.bodyText2.copyWith(
+              color: AppColors.black,
+              fontSize: Sizes.TEXT_SIZE_16,
+            ),
+          );
         }
       }
     }

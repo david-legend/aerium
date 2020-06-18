@@ -16,11 +16,43 @@ class PortfolioPageMobile extends StatefulWidget {
   _PortfolioPageMobileState createState() => _PortfolioPageMobileState();
 }
 
-class _PortfolioPageMobileState extends State<PortfolioPageMobile> {
+class _PortfolioPageMobileState extends State<PortfolioPageMobile>
+    with SingleTickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
+  AnimationController _portfolioController;
+
+  @override
+  void initState() {
+    _portfolioController = AnimationController(
+      duration: const Duration(milliseconds: 1500),
+      vsync: this,
+    );
+    _playPortfolioAnimation();
+    super.initState();
+  }
+
+  Future<void> _playPortfolioAnimation() async {
+    try {
+      await _portfolioController.forward().orCancel;
+    } on TickerCanceled {
+      // the animation got canceled, probably because it was disposed of
+    }
+  }
+
+  @override
+  void dispose() {
+    _portfolioController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
+    double duration =
+        _portfolioController.duration.inMilliseconds.roundToDouble();
+    double durationForEachPortfolio =
+        _portfolioController.duration.inMilliseconds.roundToDouble() /
+            Data.portfolioData.length;
+
     return Scaffold(
       key: _scaffoldKey,
       appBar: PreferredSize(
@@ -57,28 +89,50 @@ class _PortfolioPageMobileState extends State<PortfolioPageMobile> {
             return SpaceH20();
           },
           itemBuilder: (BuildContext context, index) {
-            return PortfolioCard(
-              imageUrl: Data.portfolioData[index].image,
-              title: Data.portfolioData[index].title,
-              subtitle: Data.portfolioData[index].subtitle,
-              actionTitle: StringConst.VIEW,
-              height: assignHeight(context: context, fraction: 0.35),
-              width: widthOfScreen(context),
-              onTap: () {
-                _navigateToProjectDetail(
-                  projectDetails: ProjectDetails(
-                    projectImage: Data.portfolioData[index].image,
-                    projectName: Data.portfolioData[index].title,
-                    projectDescription:
-                        Data.portfolioData[index].portfolioDescription,
-                    isPublic: Data.portfolioData[index].isPublic,
-                    isLive: Data.portfolioData[index].isLive,
-                    isOnPlayStore: Data.portfolioData[index].isOnPlayStore,
-                    gitHubUrl: Data.portfolioData[index].gitHubUrl,
-                    playStoreUrl: Data.portfolioData[index].playStoreUrl,
-                    webUrl: Data.portfolioData[index].webUrl,
-                  ),
-                );
+            double start = durationForEachPortfolio * index;
+            double end = durationForEachPortfolio * (index + 1);
+            return AnimatedBuilder(
+              animation: _portfolioController,
+              child: PortfolioCard(
+                imageUrl: Data.portfolioData[index].image,
+                title: Data.portfolioData[index].title,
+                subtitle: Data.portfolioData[index].subtitle,
+                actionTitle: StringConst.VIEW,
+                height: assignHeight(context: context, fraction: 0.35),
+                width: widthOfScreen(context),
+                onTap: () {
+                  _navigateToProjectDetail(
+                    projectDetails: ProjectDetails(
+                      projectImage: Data.portfolioData[index].image,
+                      projectName: Data.portfolioData[index].title,
+                      projectDescription:
+                          Data.portfolioData[index].portfolioDescription,
+                      isPublic: Data.portfolioData[index].isPublic,
+                      isLive: Data.portfolioData[index].isLive,
+                      isOnPlayStore: Data.portfolioData[index].isOnPlayStore,
+                      gitHubUrl: Data.portfolioData[index].gitHubUrl,
+                      playStoreUrl: Data.portfolioData[index].playStoreUrl,
+                      webUrl: Data.portfolioData[index].webUrl,
+                    ),
+                  );
+                },
+              ),
+              builder: (BuildContext context, Widget child) {
+                return FadeTransition(
+                    opacity: Tween<double>(
+                      begin: 0,
+                      end: 1,
+                    ).animate(
+                      CurvedAnimation(
+                        parent: _portfolioController,
+                        curve: Interval(
+                          start > 0.0 ? start / duration : 0.0,
+                          end > 0.0 ? end / duration : 1.0,
+                          curve: Curves.easeIn,
+                        ),
+                      ),
+                    ),
+                    child: child);
               },
             );
           },

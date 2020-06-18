@@ -14,6 +14,8 @@ class SkillLevel extends StatelessWidget {
     this.textStyle,
     this.skillNameTextStyle,
     this.duration = const Duration(milliseconds: 500),
+    this.progressColor = AppColors.primaryColor,
+    this.baseColor = AppColors.cream500,
   });
 
   final double skillLevel;
@@ -24,6 +26,8 @@ class SkillLevel extends StatelessWidget {
   final TextStyle textStyle;
   final TextStyle skillNameTextStyle;
   final Duration duration;
+  final Color progressColor;
+  final Color baseColor;
 
   @override
   Widget build(BuildContext context) {
@@ -43,10 +47,10 @@ class SkillLevel extends StatelessWidget {
               child: Center(
                 child: Text(
                   actualSkillLevel.toString(),
-                  style: theme.textTheme.subtitle1.copyWith(
+                  style: textStyle ??
+                      theme.textTheme.subtitle1.copyWith(
                         color: AppColors.accentColor2,
-                      ) ??
-                      textStyle,
+                      ),
                 ),
               ),
             ),
@@ -58,8 +62,8 @@ class SkillLevel extends StatelessWidget {
               return CustomPaint(
                 foregroundPainter: SkillProgressPainter(
                   currentProgress: value,
-//                  circleColor: AppColors.secondaryColor,
-                  progressArcColor: AppColors.primaryColor,
+                  circleColor: baseColor,
+                  progressArcColor: progressColor,
                 ),
                 child: AnimatedOpacity(
                   opacity: value / 100,
@@ -72,10 +76,10 @@ class SkillLevel extends StatelessWidget {
           SpaceW8(),
           Text(
             skillName,
-            style: theme.textTheme.subtitle1.copyWith(
+            style: skillNameTextStyle ??
+                theme.textTheme.subtitle1.copyWith(
                   color: AppColors.accentColor2,
-                ) ??
-                skillNameTextStyle,
+                ),
           ),
         ],
       ),

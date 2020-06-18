@@ -11,7 +11,7 @@ class SubMenuItem extends StatelessWidget {
   });
 
   final String title;
-   bool isSelected;
+  bool isSelected;
   final Color color;
   final double thickness;
   final TextStyle textStyle;
@@ -23,16 +23,19 @@ class SubMenuItem extends StatelessWidget {
       child: IntrinsicHeight(
         child: Row(
           children: [
-           AnimatedOpacity(
-             opacity: isSelected ? 1 : 0.0,
-             duration: Duration(milliseconds: 300),
-             child: VerticalDivider(
+            AnimatedOpacity(
+              opacity: isSelected ? 1 : 0.0,
+              duration: Duration(milliseconds: 300),
+              child: VerticalDivider(
                 color: color,
                 thickness: thickness,
               ),
-           ) ,
+            ),
             isSelected ? SpaceW8() : Container(),
-            Text(title, style: textStyle ?? theme.textTheme.headline6.copyWith(),)
+            Text(
+              title,
+              style: textStyle ?? theme.textTheme.headline6.copyWith(),
+            )
           ],
         ),
       ),

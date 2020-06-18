@@ -3,8 +3,10 @@ import 'package:portfoliosite/core/layout/adaptive.dart';
 import 'package:portfoliosite/presentation/pages/about/about_page.dart';
 import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
+import 'package:portfoliosite/presentation/widgets/bottom_draggable_scrollable_sheet.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/custom_app_bar.dart';
+import 'package:portfoliosite/presentation/widgets/horizontal_bar.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
 
@@ -21,6 +23,7 @@ class _AboutPageMobileState extends State<AboutPageMobile> {
     ThemeData theme = Theme.of(context);
     return Scaffold(
       key: _scaffoldKey,
+      extendBody: true,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(56.0),
         child: CustomAppBar(
@@ -100,7 +103,8 @@ class _AboutPageMobileState extends State<AboutPageMobile> {
               height: heightOfScreen(context),
               fit: BoxFit.cover,
             ),
-          )
+          ),
+          BottomDraggableScrollableSheet(),
         ],
       ),
     );

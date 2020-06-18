@@ -119,20 +119,21 @@ class _PortfolioPageMobileState extends State<PortfolioPageMobile>
               ),
               builder: (BuildContext context, Widget child) {
                 return FadeTransition(
-                    opacity: Tween<double>(
-                      begin: 0,
-                      end: 1,
-                    ).animate(
-                      CurvedAnimation(
-                        parent: _portfolioController,
-                        curve: Interval(
-                          start > 0.0 ? start / duration : 0.0,
-                          end > 0.0 ? end / duration : 1.0,
-                          curve: Curves.easeIn,
-                        ),
+                  opacity: Tween<double>(
+                    begin: 0,
+                    end: 1,
+                  ).animate(
+                    CurvedAnimation(
+                      parent: _portfolioController,
+                      curve: Interval(
+                        start > 0.0 ? start / duration : 0.0,
+                        end > 0.0 ? end / duration : 1.0,
+                        curve: Curves.easeIn,
                       ),
                     ),
-                    child: child);
+                  ),
+                  child: child,
+                );
               },
             );
           },

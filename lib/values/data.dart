@@ -244,8 +244,8 @@ class Data {
       imageSize: 0.15,
       isPublic: true,
       isLive: true,
-      gitHubUrl: StringConst.FINOPP_GITHUB_URL,
-      webUrl: StringConst.FINOPP_GITHUB_URL,
+      gitHubUrl: StringConst.OTP_TEXT_FIELD_GITHUB_URL,
+      webUrl: StringConst.OTP_TEXT_FIELD_WEB_URL,
     ),
     PortfolioData(
       title: StringConst.AERIUM,

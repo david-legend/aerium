@@ -29,6 +29,8 @@ class MenuList extends StatelessWidget {
         Socials(
           isVertical: true,
           alignment: Alignment.centerLeft,
+          color: AppColors.secondaryColor,
+          barColor: AppColors.secondaryColor,
           crossAxisAlignment: CrossAxisAlignment.start,
         ),
         Spacer(

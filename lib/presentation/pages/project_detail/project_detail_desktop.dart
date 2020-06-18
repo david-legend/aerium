@@ -28,31 +28,25 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
     with TickerProviderStateMixin {
   AnimationController _controller;
   AnimationController _flickerAnimationController;
-  AnimationController _flickerAnimationController2;
   AnimationController _contentAnimationController;
   Animation<double> _projectCoverScaleAnimation;
   Animation<double> _projectBackgroundScaleAnimation;
   Animation<double> _projectContentAnimation;
   bool _isHeadingVisible = false;
-  bool _isSubtitleVisible = false;
   bool _isContentVisible = false;
 
   @override
   void initState() {
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 1600),
+      duration: const Duration(milliseconds: 1200),
       vsync: this,
     );
     _flickerAnimationController = AnimationController(
       duration: const Duration(milliseconds: 300),
       vsync: this,
     );
-    _flickerAnimationController2 = AnimationController(
-      duration: const Duration(milliseconds: 300),
-      vsync: this,
-    );
     _contentAnimationController = AnimationController(
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 500),
       vsync: this,
     );
     initTweens();
@@ -69,15 +63,6 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
       }
     });
     _flickerAnimationController.addStatusListener((status) {
-//      if (status == AnimationStatus.completed) {
-//        setState(() {
-//          _isSubtitleVisible = true;
-//        });
-//        WidgetsBinding.instance.addPostFrameCallback((_) {
-//          _playFlickerAnimation2();
-//        });
-//      }
-
       if (status == AnimationStatus.completed) {
         setState(() {
           _isContentVisible = true;
@@ -88,16 +73,6 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
       }
     });
 
-//    _flickerAnimationController2.addStatusListener((status) {
-//      if (status == AnimationStatus.completed) {
-//        setState(() {
-//          _isContentVisible = true;
-//        });
-//        WidgetsBinding.instance.addPostFrameCallback((_) {
-//          _playProjectContentAnimation();
-//        });
-//      }
-//    });
     super.initState();
   }
 
@@ -106,7 +81,7 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
     super.dispose();
     _controller.dispose();
     _flickerAnimationController.dispose();
-    _flickerAnimationController2.dispose();
+    _contentAnimationController.dispose();
   }
 
   initTweens() {
@@ -168,15 +143,6 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
     }
   }
 
-  Future<void> _playFlickerAnimation2() async {
-    try {
-      await _flickerAnimationController2.forward().orCancel;
-      await _flickerAnimationController2.reverse().orCancel;
-    } on TickerCanceled {
-      // the animation got canceled, probably because it was disposed of
-    }
-  }
-
   Future<void> _playProjectContentAnimation() async {
     try {
       await _contentAnimationController.forward().orCancel;
@@ -198,7 +164,7 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
                       context: context,
                       fraction: 0.2,
                     ),
-                    gradient: Gradients.primaryGradient,
+                    color: AppColors.primaryColor,
                     child: Container(
                       margin: EdgeInsets.only(
                         left: Sizes.MARGIN_20,
@@ -276,7 +242,7 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
           offset: offset,
           projectCoverScale: _projectCoverScaleAnimation.value,
           backgroundScale: _projectBackgroundScaleAnimation.value,
-          projectCoverBackgroundColor: AppColors.deepBlue900,
+          projectCoverBackgroundColor: AppColors.primaryColor,
           projectCoverUrl: widget.projectDetails.projectImage,
         ),
         SizedBox(
@@ -297,71 +263,60 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
                       controller: _flickerAnimationController.view,
                     )
                   : Container(),
-//              _isSubtitleVisible
-//                  ? FlickerTextAnimation(
-//                      text: 'Subtitle',
-//                      textColor: AppColors.primaryColor,
-//                      fadeInColor: AppColors.primaryColor,
-//                      controller: _flickerAnimationController2.view,
-//                      textStyle: theme.textTheme.bodyText1
-//                          .copyWith(color: AppColors.bodyText1),
-//                    )
-//                  : Container(),
               SpaceH16(),
-              FadeTransition(
-                opacity: _projectContentAnimation,
-//                    _isContentVisible ? _projectContentAnimation.value : 0.0,
-//                duration: _contentAnimationController.duration,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      widget.projectDetails.projectDescription,
-                      style: theme.textTheme.bodyText1.copyWith(
-//                    color: AppColors.black,
-                        color: AppColors.primaryColor,
-                        fontSize: Sizes.TEXT_SIZE_16,
+              _isContentVisible
+                  ? FadeTransition(
+                      opacity: _projectContentAnimation,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            widget.projectDetails.projectDescription,
+                            style: theme.textTheme.bodyText1.copyWith(
+                              color: AppColors.primaryColor,
+                              fontSize: Sizes.TEXT_SIZE_16,
+                            ),
+                          ),
+                          SpaceH8(),
+                          Wrap(
+                            spacing: 8,
+                            runSpacing: 8,
+                            children: [
+                              widget.projectDetails.isPublic
+                                  ? SocialButton(
+                                      icon: FontAwesomeIcons.github,
+                                      onPressed: () {
+                                        Functions.launchUrl(
+                                            widget.projectDetails.gitHubUrl);
+                                      },
+                                    )
+                                  : Container(),
+                              widget.projectDetails.isLive
+                                  ? SocialButton(
+                                      //web
+                                      icon: FontAwesomeIcons.internetExplorer,
+                                      onPressed: () {
+                                        Functions.launchUrl(
+                                            widget.projectDetails.webUrl);
+                                      },
+                                    )
+                                  : Container(),
+                              widget.projectDetails.isOnPlayStore
+                                  ? SocialButton(
+                                      //playstore
+                                      icon: FontAwesomeIcons.github,
+                                      onPressed: () {
+                                        Functions.launchUrl(
+                                            widget.projectDetails.playStoreUrl);
+                                      },
+                                    )
+                                  : Container(),
+                            ],
+                          )
+                        ],
                       ),
-                    ),
-                    SpaceH8(),
-                    Wrap(
-                      spacing: 8,
-                      runSpacing: 8,
-                      children: [
-                        widget.projectDetails.isPublic
-                            ? SocialButton(
-                                icon: FontAwesomeIcons.github,
-                                onPressed: () {
-                                  Functions.launchUrl(
-                                      widget.projectDetails.gitHubUrl);
-                                },
-                              )
-                            : Container(),
-                        widget.projectDetails.isLive
-                            ? SocialButton(
-                                //web
-                                icon: FontAwesomeIcons.internetExplorer,
-                                onPressed: () {
-                                  Functions.launchUrl(
-                                      widget.projectDetails.webUrl);
-                                },
-                              )
-                            : Container(),
-                        widget.projectDetails.isOnPlayStore
-                            ? SocialButton(
-                                //playstore
-                                icon: FontAwesomeIcons.github,
-                                onPressed: () {
-                                  Functions.launchUrl(
-                                      widget.projectDetails.playStoreUrl);
-                                },
-                              )
-                            : Container(),
-                      ],
                     )
-                  ],
-                ),
-              ),
+                  : Container(),
             ],
           ),
         ),

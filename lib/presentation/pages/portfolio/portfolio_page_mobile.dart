@@ -87,37 +87,6 @@ class _PortfolioPageMobileState extends State<PortfolioPageMobile> {
     );
   }
 
-  List<Widget> hu(List<PortfolioData> portfolioData) {
-    List<Widget> widgets = [];
-    for (var i = 0; i < portfolioData.length; i++) {
-      widgets.add(
-        PortfolioCard(
-            imageUrl: portfolioData[i].image,
-            title: portfolioData[i].title,
-            subtitle: portfolioData[i].subtitle,
-            actionTitle: StringConst.VIEW,
-            height: assignHeight(context: context, fraction: 0.3),
-            width: widthOfScreen(context),
-            onTap: () {
-              _navigateToProjectDetail(
-                projectDetails: ProjectDetails(
-                  projectImage: portfolioData[i].image,
-                  projectName: portfolioData[i].title,
-                  projectDescription: portfolioData[i].portfolioDescription,
-                  isPublic: portfolioData[i].isPublic,
-                  isLive: portfolioData[i].isLive,
-                  isOnPlayStore: portfolioData[i].isOnPlayStore,
-                  gitHubUrl: portfolioData[i].gitHubUrl,
-                  playStoreUrl: portfolioData[i].playStoreUrl,
-                  webUrl: portfolioData[i].webUrl,
-                ),
-              );
-            }),
-      );
-    }
-    return widgets;
-  }
-
   void _navigateToProjectDetail({
     @required ProjectDetails projectDetails,
   }) {

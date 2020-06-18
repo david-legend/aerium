@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
+import 'package:portfoliosite/core/utils/functions.dart';
 import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
 import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/custom_app_bar.dart';
+import 'package:portfoliosite/presentation/widgets/flicker_text_animation.dart';
 import 'package:portfoliosite/presentation/widgets/project_cover.dart';
+import 'package:portfoliosite/presentation/widgets/project_cover_2.dart';
+import 'package:portfoliosite/presentation/widgets/socials.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
 
-class ProjectDetailMobile extends StatelessWidget {
+class ProjectDetailMobile extends StatefulWidget {
   ProjectDetailMobile({
     @required this.projectDetails,
   });
@@ -17,8 +22,140 @@ class ProjectDetailMobile extends StatelessWidget {
   final ProjectDetails projectDetails;
 
   @override
+  _ProjectDetailMobileState createState() => _ProjectDetailMobileState();
+}
+
+class _ProjectDetailMobileState extends State<ProjectDetailMobile>
+    with TickerProviderStateMixin {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
+  AnimationController _controller;
+  AnimationController _flickerAnimationController;
+  AnimationController _contentAnimationController;
+  Animation<double> _projectCoverScaleAnimation;
+  Animation<double> _projectBackgroundScaleAnimation;
+  Animation<double> _projectContentAnimation;
+  bool _isHeadingVisible = false;
+  bool _isContentVisible = false;
+
+  @override
+  void initState() {
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 1200),
+      vsync: this,
+    );
+    _flickerAnimationController = AnimationController(
+      duration: const Duration(milliseconds: 300),
+      vsync: this,
+    );
+    _contentAnimationController = AnimationController(
+      duration: const Duration(milliseconds: 500),
+      vsync: this,
+    );
+    initTweens();
+    _playAnimation();
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        setState(() {
+          _isHeadingVisible = true;
+        });
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _playFlickerAnimation();
+        });
+      }
+    });
+    _flickerAnimationController.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        setState(() {
+          _isContentVisible = true;
+        });
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _playProjectContentAnimation();
+        });
+      }
+    });
+
+    super.initState();
+  }
+
+  initTweens() {
+    _projectCoverScaleAnimation = Tween<double>(
+      begin: 0.0,
+      end: 1.0,
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Interval(
+          0.0,
+          0.5,
+          curve: Curves.easeIn,
+        ),
+      ),
+    );
+    _projectBackgroundScaleAnimation = Tween<double>(
+      begin: 0.0,
+      end: 1.0,
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Interval(
+          0.5,
+          1.0,
+          curve: Curves.easeIn,
+        ),
+      ),
+    );
+    _projectContentAnimation = Tween<double>(
+      begin: 0.0,
+      end: 1.0,
+    ).animate(
+      CurvedAnimation(
+        parent: _contentAnimationController,
+        curve: Interval(
+          0.0,
+          1.0,
+          curve: Curves.easeIn,
+        ),
+      ),
+    );
+  }
+
+  Future<void> _playAnimation() async {
+    try {
+      await _controller.forward().orCancel;
+    } on TickerCanceled {
+      // the animation got canceled, probably because it was disposed of
+    }
+  }
+
+  Future<void> _playFlickerAnimation() async {
+    try {
+      await _flickerAnimationController.forward().orCancel;
+      await _flickerAnimationController.reverse().orCancel;
+    } on TickerCanceled {
+      // the animation got canceled, probably because it was disposed of
+    }
+  }
+
+  Future<void> _playProjectContentAnimation() async {
+    try {
+      await _contentAnimationController.forward().orCancel;
+    } on TickerCanceled {
+      // the animation got canceled, probably because it was disposed of
+    }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+    _flickerAnimationController.dispose();
+    _contentAnimationController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(56.0),
         child: CustomAppBar(
@@ -26,8 +163,15 @@ class ProjectDetailMobile extends StatelessWidget {
           actionIcon: Icon(
             Icons.arrow_back_ios,
             color: AppColors.accentColor2,
+            size: Sizes.ICON_SIZE_20,
           ),
-          onLeadingPressed: () {},
+          onLeadingPressed: () {
+            if (_scaffoldKey.currentState.isEndDrawerOpen) {
+              _scaffoldKey.currentState.openEndDrawer();
+            } else {
+              _scaffoldKey.currentState.openDrawer();
+            }
+          },
           onActionsPressed: () {
             Navigator.pop(context);
           },
@@ -38,27 +182,100 @@ class ProjectDetailMobile extends StatelessWidget {
         selectedItemRouteName: PortfolioPage.portfolioPageRoute,
       ),
       body: ContentWrapper(
-        child: ListView(
-          padding: const EdgeInsets.symmetric(
-            horizontal: Sizes.PADDING_24,
-            vertical: Sizes.PADDING_16,
-          ),
-          children: [
-            ProjectCover(
-              width: widthOfScreen(context),
-              height: assignHeight(context: context, fraction: 0.4),
-              offset: 16,
-              projectCoverUrl: ImagePath.PORTFOLIO_3,
-            ),
-            SpaceH16(),
-            Text(StringConst.PROJECT_NAME),
-            SpaceH4(),
-            Text(StringConst.PROJECT_NAME),
-            SpaceH8(),
-            Text(StringConst.ABOUT_DEV_TEXT),
-          ],
-        ),
+        child: _buildAnimation(),
       ),
+    );
+  }
+
+  Widget _buildPage(BuildContext context, Widget child) {
+    ThemeData theme = Theme.of(context);
+    return ListView(
+      padding: const EdgeInsets.symmetric(
+        horizontal: Sizes.PADDING_24,
+        vertical: Sizes.PADDING_16,
+      ),
+      children: [
+        ProjectCover(
+          width: widthOfScreen(context),
+          height: assignHeight(context: context, fraction: 0.4),
+          offset: 20,
+          projectCoverScale: _projectCoverScaleAnimation.value,
+          backgroundScale: _projectBackgroundScaleAnimation.value,
+          projectCoverBackgroundColor: AppColors.primaryColor,
+          projectCoverUrl: widget.projectDetails.projectImage,
+        ),
+        SpaceH12(),
+        _isHeadingVisible
+            ? FlickerTextAnimation(
+                text: widget.projectDetails.projectName,
+                textColor: AppColors.primaryColor,
+                fadeInColor: AppColors.primaryColor,
+                fontSize: Sizes.TEXT_SIZE_34,
+                controller: _flickerAnimationController.view,
+              )
+            : Container(),
+        SpaceH16(),
+        _isContentVisible
+            ? FadeTransition(
+                opacity: _projectContentAnimation,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      widget.projectDetails.projectDescription,
+                      style: theme.textTheme.bodyText1.copyWith(
+                        color: AppColors.primaryColor,
+                        fontSize: Sizes.TEXT_SIZE_16,
+                      ),
+                    ),
+                    SpaceH8(),
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: [
+                        widget.projectDetails.isPublic
+                            ? SocialButton(
+                                icon: FontAwesomeIcons.github,
+                                onPressed: () {
+                                  Functions.launchUrl(
+                                      widget.projectDetails.gitHubUrl);
+                                },
+                              )
+                            : Container(),
+                        widget.projectDetails.isLive
+                            ? SocialButton(
+                                //web
+                                icon: FontAwesomeIcons.internetExplorer,
+                                onPressed: () {
+                                  Functions.launchUrl(
+                                      widget.projectDetails.webUrl);
+                                },
+                              )
+                            : Container(),
+                        widget.projectDetails.isOnPlayStore
+                            ? SocialButton(
+                                //playstore
+                                icon: FontAwesomeIcons.github,
+                                onPressed: () {
+                                  Functions.launchUrl(
+                                      widget.projectDetails.playStoreUrl);
+                                },
+                              )
+                            : Container(),
+                      ],
+                    )
+                  ],
+                ),
+              )
+            : Container(),
+      ],
+    );
+  }
+
+  Widget _buildAnimation() {
+    return AnimatedBuilder(
+      animation: _controller,
+      builder: _buildPage,
     );
   }
 }

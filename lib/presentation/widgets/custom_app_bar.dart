@@ -52,7 +52,6 @@ class CustomAppBar extends StatelessWidget {
                 width: Sizes.WIDTH_40,
                 height: Sizes.HEIGHT_40,
                 child: InkWell(
-//                  padding: const EdgeInsets.all(Sizes.PADDING_0),
                   child: actionIcon ??
                       Icon(
                         Icons.email,

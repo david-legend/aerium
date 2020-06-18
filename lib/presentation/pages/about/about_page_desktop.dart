@@ -362,7 +362,6 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
               color: AppColors.accentColor2,
             ),
           ),
-//          SpaceH2(),
           FlickerTextAnimation(
             text: StringConst.DEV_NAME,
             textColor: AppColors.primaryColor,

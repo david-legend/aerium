@@ -30,109 +30,107 @@ class _HomePageMobileState extends State<HomePageMobile> {
         selectedItemRouteName: HomePage.homePageRoute,
       ),
       body: Container(
-        child: SafeArea(
-          child: Stack(
-            children: [
-              Column(
-                children: [
-                  Row(
-                    children: [
-                      ContentWrapper(
-                        width: assignWidth(context: context, fraction: 0.8),
-                        color: AppColors.primaryColor,
+        child: Stack(
+          children: [
+            Column(
+              children: [
+                Row(
+                  children: [
+                    ContentWrapper(
+                      width: assignWidth(context: context, fraction: 0.8),
+                      color: AppColors.primaryColor,
 //                        gradient: Gradients.primaryGradient,
-                        child: Container(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                height: assignHeight(
-                                  context: context,
-                                  fraction: 0.2,
-                                ),
+                      child: Container(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: assignHeight(
+                                context: context,
+                                fraction: 0.2,
                               ),
-                              Container(
+                            ),
+                            Container(
+                              padding: const EdgeInsets.only(left: 24.0),
+                              child: ListBody(
+                                children: [
+                                  Text(
+                                    StringConst.DEV_NAME,
+                                    style: theme.textTheme.headline4.copyWith(
+                                      color: AppColors.secondaryColor,
+                                    ),
+                                  ),
+                                  SpaceH8(),
+                                  Text(
+                                    StringConst.SPECIALITY,
+                                    style: theme.textTheme.headline6.copyWith(
+                                      color: AppColors.secondaryColor,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Spacer(flex: 1),
+                            InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(
+                                  context,
+                                  PortfolioPage.portfolioPageRoute,
+                                );
+                              },
+                              child: Container(
                                 padding: const EdgeInsets.only(left: 24.0),
-                                child: ListBody(
+                                child: Column(
                                   children: [
-                                    Text(
-                                      StringConst.DEV_NAME,
-                                      style: theme.textTheme.headline4.copyWith(
-                                        color: AppColors.secondaryColor,
+                                    RotatedBox(
+                                      quarterTurns: 3,
+                                      child: Text(
+                                        StringConst.VIEW_PORTFOLIO,
+                                        textAlign: TextAlign.end,
+                                        style:
+                                            theme.textTheme.bodyText1.copyWith(
+                                          color: AppColors.secondaryColor,
+                                          fontSize: Sizes.TEXT_SIZE_18,
+                                        ),
                                       ),
                                     ),
-                                    SpaceH8(),
-                                    Text(
-                                      StringConst.SPECIALITY,
-                                      style: theme.textTheme.headline6.copyWith(
-                                        color: AppColors.secondaryColor,
+                                    SpaceH12(),
+                                    CircularContainer(
+                                      width: Sizes.WIDTH_24,
+                                      height: Sizes.HEIGHT_24,
+                                      color: AppColors.secondaryColor,
+                                      child: Icon(
+                                        Icons.keyboard_arrow_down,
+                                        color: AppColors.primaryColor,
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                              Spacer(flex: 1),
-                              InkWell(
-                                onTap: () {
-                                  Navigator.pushNamed(
-                                    context,
-                                    PortfolioPage.portfolioPageRoute,
-                                  );
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.only(left: 24.0),
-                                  child: Column(
-                                    children: [
-                                      RotatedBox(
-                                        quarterTurns: 3,
-                                        child: Text(
-                                          StringConst.VIEW_PORTFOLIO,
-                                          textAlign: TextAlign.end,
-                                          style: theme.textTheme.bodyText1
-                                              .copyWith(
-                                            color: AppColors.secondaryColor,
-                                            fontSize: Sizes.TEXT_SIZE_18,
-                                          ),
-                                        ),
-                                      ),
-                                      SpaceH12(),
-                                      CircularContainer(
-                                        width: Sizes.WIDTH_24,
-                                        height: Sizes.HEIGHT_24,
-                                        color: AppColors.secondaryColor,
-                                        child: Icon(
-                                          Icons.keyboard_arrow_down,
-                                          color: AppColors.primaryColor,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ).showCursorOnHover,
-                              SizedBox(
-                                height: assignHeight(
-                                  context: context,
-                                  fraction: 0.05,
-                                ),
+                            ).showCursorOnHover,
+                            SizedBox(
+                              height: assignHeight(
+                                context: context,
+                                fraction: 0.05,
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
-                      ContentWrapper(
-                        width: assignWidth(context: context, fraction: 0.2),
-                        color: AppColors.secondaryColor,
-                        child: Container(),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              _buildAppBar(),
-              _buildDevImage(),
-              _buildSocials(),
-            ],
-          ),
+                    ),
+                    ContentWrapper(
+                      width: assignWidth(context: context, fraction: 0.2),
+                      color: AppColors.secondaryColor,
+                      child: Container(),
+                    ),
+                  ],
+                )
+              ],
+            ),
+            _buildAppBar(),
+            _buildDevImage(),
+            _buildSocials(),
+          ],
         ),
       ),
     );
@@ -178,10 +176,10 @@ class _HomePageMobileState extends State<HomePageMobile> {
   Widget _buildDevImage() {
     return Positioned(
       top: 56,
-      left: assignWidth(context: context, fraction: 0.2),
+      right: -assignWidth(context: context, fraction: 0.6),
       child: Image.asset(
         ImagePath.DEV,
-        width: assignWidth(context: context, fraction: 1),
+//        width: assignWidth(context: context, fraction: 1),
         height: assignHeight(context: context, fraction: 1),
         fit: BoxFit.cover,
       ),

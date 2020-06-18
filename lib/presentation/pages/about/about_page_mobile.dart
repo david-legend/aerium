@@ -6,7 +6,7 @@ import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
 import 'package:portfoliosite/presentation/widgets/bottom_draggable_scrollable_sheet.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/custom_app_bar.dart';
-import 'package:portfoliosite/presentation/widgets/horizontal_bar.dart';
+import 'package:portfoliosite/presentation/widgets/flicker_text_animation.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
 
@@ -15,8 +15,108 @@ class AboutPageMobile extends StatefulWidget {
   _AboutPageMobileState createState() => _AboutPageMobileState();
 }
 
-class _AboutPageMobileState extends State<AboutPageMobile> {
+class _AboutPageMobileState extends State<AboutPageMobile>
+    with TickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
+  AnimationController _controller;
+  AnimationController _flickerAnimationController;
+  AnimationController _flickerAnimationController2;
+  Animation<double> opacityAnimation;
+  bool _isPunchLineVisible = false;
+  bool _isContentVisible = false;
+
+  @override
+  void initState() {
+    _flickerAnimationController = AnimationController(
+      duration: const Duration(milliseconds: 300),
+      vsync: this,
+    );
+    _flickerAnimationController2 = AnimationController(
+      duration: const Duration(milliseconds: 300),
+      vsync: this,
+    );
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 1000),
+      vsync: this,
+    );
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _playFlickerAnimation();
+    });
+    initializeTweens();
+    _flickerAnimationController.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        setState(() {
+          _isPunchLineVisible = true;
+        });
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _playFlickerAnimation2();
+        });
+      }
+    });
+
+    _flickerAnimationController2.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        setState(() {
+          _isContentVisible = true;
+        });
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _playAnimation();
+        });
+      }
+    });
+
+    super.initState();
+  }
+
+  initializeTweens() {
+    opacityAnimation = Tween<double>(
+      begin: 0.0,
+      end: 1.0,
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Interval(
+          0.0,
+          1.0,
+          curve: Curves.easeInOutCubic,
+        ),
+      ),
+    );
+  }
+
+  Future<void> _playFlickerAnimation() async {
+    try {
+      await _flickerAnimationController.forward().orCancel;
+      await _flickerAnimationController.reverse().orCancel;
+    } on TickerCanceled {
+      // the animation got canceled, probably because it was disposed of
+    }
+  }
+
+  Future<void> _playFlickerAnimation2() async {
+    try {
+      await _flickerAnimationController2.forward().orCancel;
+      await _flickerAnimationController2.reverse().orCancel;
+    } on TickerCanceled {
+      // the animation got canceled, probably because it was disposed of
+    }
+  }
+
+  Future<void> _playAnimation() async {
+    try {
+      await _controller.forward().orCancel;
+    } on TickerCanceled {
+      // the animation got canceled, probably because it was disposed of
+    }
+  }
+
+  @override
+  void dispose() {
+    _flickerAnimationController.dispose();
+    _flickerAnimationController2.dispose();
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,57 +156,89 @@ class _AboutPageMobileState extends State<AboutPageMobile> {
                 left: Sizes.PADDING_24,
               ),
               children: [
-                Text(
-                  StringConst.INTRO,
-                  style: theme.textTheme.bodyText1.copyWith(
-                    fontSize: Sizes.TEXT_SIZE_18,
+                FlickerTextAnimation(
+                  text: StringConst.INTRO,
+                  textColor: AppColors.primaryColor,
+                  fadeInColor: AppColors.primaryColor,
+                  controller: _flickerAnimationController.view,
+                  textStyle: theme.textTheme.bodyText1.copyWith(
+                    fontSize: Sizes.TEXT_SIZE_16,
                     fontWeight: FontWeight.w400,
                     color: AppColors.accentColor2,
                   ),
                 ),
-                Text(
-                  StringConst.DEV_NAME,
-                  style: theme.textTheme.headline6.copyWith(
-                    color: AppColors.primaryColor,
-                    fontSize: Sizes.TEXT_SIZE_24,
-                  ),
+                FlickerTextAnimation(
+                  text: StringConst.DEV_NAME,
+                  textColor: AppColors.primaryColor,
+                  fadeInColor: AppColors.primaryColor,
+                  fontSize: Sizes.TEXT_SIZE_24,
+                  controller: _flickerAnimationController.view,
                 ),
-                Text(
-                  StringConst.PUNCH_LINE,
-                  style: theme.textTheme.headline6.copyWith(
-                    color: AppColors.primaryColor,
-                    fontSize: Sizes.TEXT_SIZE_24,
-                  ),
-                ),
-                SpaceH16(),
-                Container(
-                  child: Row(
-                    children: [
-                      Container(
-                        width: assignWidth(context: context, fraction: 0.65),
-                        child: Text(
-                          StringConst.ABOUT_DEV_TEXT,
-                          style: theme.textTheme.bodyText1
-                              .copyWith(color: AppColors.bodyText1),
+                _isPunchLineVisible
+                    ? FlickerTextAnimation(
+                        text: StringConst.PUNCH_LINE,
+                        textColor: AppColors.primaryColor,
+                        fadeInColor: AppColors.primaryColor,
+                        controller: _flickerAnimationController2.view,
+                        textStyle: theme.textTheme.subtitle1.copyWith(
+                          fontSize: Sizes.TEXT_SIZE_24,
+                          color: AppColors.primaryColor,
                         ),
-                      ),
-                    ],
-                  ),
-                )
+                      )
+                    : Container(),
+                SpaceH16(),
+                _isContentVisible ? _fadeInContent() : Container(),
               ],
             ),
           ),
-          Positioned(
-            right: -assignWidth(context: context, fraction: 0.45),
-            child: Image.asset(
-              ImagePath.DEV,
-              height: heightOfScreen(context),
-              fit: BoxFit.cover,
-            ),
-          ),
+          _isContentVisible ? _fadeInImage() : Container(),
           BottomDraggableScrollableSheet(),
         ],
       ),
+    );
+  }
+
+  Widget _fadeInImage() {
+    return AnimatedBuilder(
+      animation: _controller,
+      child: Image.asset(
+        ImagePath.DEV,
+        height: heightOfScreen(context),
+        fit: BoxFit.cover,
+      ),
+      builder: (BuildContext context, Widget child) {
+        return Positioned(
+          right: -assignWidth(context: context, fraction: 0.75),
+          child: FadeTransition(
+            opacity: opacityAnimation,
+            child: child,
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _fadeInContent() {
+    ThemeData theme = Theme.of(context);
+    return AnimatedBuilder(
+      animation: _controller,
+      child: Text(
+        StringConst.ABOUT_DEV_TEXT,
+        style: theme.textTheme.bodyText1.copyWith(color: AppColors.bodyText1),
+      ),
+      builder: (BuildContext context, Widget child) {
+        return FadeTransition(
+          opacity: opacityAnimation,
+          child: Row(
+            children: [
+              Container(
+                width: assignWidth(context: context, fraction: 0.4),
+                child: child,
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

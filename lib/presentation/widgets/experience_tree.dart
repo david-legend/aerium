@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:portfoliosite/core/layout/adaptive.dart';
 import 'package:portfoliosite/core/utils/functions.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/presentation/widgets/tree_painter.dart';
 import 'package:portfoliosite/values/values.dart';
-import 'package:universal_html/html.dart';
 
 class ExperienceTree extends StatelessWidget {
   ExperienceTree({

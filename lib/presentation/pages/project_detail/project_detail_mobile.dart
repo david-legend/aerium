@@ -159,7 +159,7 @@ class _ProjectDetailMobileState extends State<ProjectDetailMobile>
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(56.0),
         child: CustomAppBar(
-          title: StringConst.PROJECT_NAME,
+          title: widget.projectDetails.projectName,
           actionIcon: Icon(
             Icons.arrow_back_ios,
             color: AppColors.accentColor2,

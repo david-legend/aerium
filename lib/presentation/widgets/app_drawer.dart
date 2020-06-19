@@ -76,22 +76,35 @@ class AppDrawer extends StatelessWidget {
               barColor: AppColors.accentColor2,
               crossAxisAlignment: CrossAxisAlignment.center,
             ),
-            SpaceH8(),
+            SpaceH16(),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   StringConst.DESIGNED_IN,
                   style: theme.textTheme.bodyText1.copyWith(
-                      color: AppColors.accentColor2,
-                      fontSize: Sizes.TEXT_SIZE_12),
+                    color: AppColors.accentColor2,
+                    fontSize: Sizes.TEXT_SIZE_10,
+                  ),
                 ),
                 SpaceW4(),
                 Icon(
                   FontAwesomeIcons.solidHeart,
                   color: Colors.red,
-                  size: Sizes.ICON_SIZE_12,
+                  size: Sizes.ICON_SIZE_10,
                 )
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  StringConst.BUILT_BY + ", " + StringConst.DESIGNED_BY,
+                  style: theme.textTheme.bodyText1.copyWith(
+                    color: AppColors.accentColor2,
+                    fontSize: Sizes.TEXT_SIZE_10,
+                  ),
+                ),
               ],
             ),
             SpaceH16(),

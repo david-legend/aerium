@@ -35,6 +35,8 @@ class StringConst {
   static const String DEV_EMAIL = "davidcobbina47@gmail.com";
   static const String SPECIALITY = "FLUTTER DEV";
   static const String DESIGNED_IN = "Made in Ghana with ";
+  static const String DESIGNED_BY = "Designed by Pavel G. ";
+  static const String BUILT_BY = "Built by David Cobbina ";
 
   static const String ABOUT_DEV_TEXT =
       "I'm a software engineer based in Ghana, specializing in building high quality mobile and web applications with a strong passion for opensource work. My goal is to always build pixel perfect high performant applications that provides users with a rich experience.";

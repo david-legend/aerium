@@ -1,5 +1,7 @@
 part of 'values.dart';
 
+//https://api.github.com/repos/david-legend/aerium/stargazers
+//https://api.github.com/repos/david-legend/aerium/forks
 class MenuData {
   MenuData({
     @required this.title,

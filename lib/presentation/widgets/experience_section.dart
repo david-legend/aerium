@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfoliosite/core/utils/functions.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
 
@@ -47,12 +48,15 @@ class ExperienceSection extends StatelessWidget {
                     ),
               ),
               SpaceW4(),
-              Text(
-                '@' + company,
-                style: companyTextStyle ??
-                    theme.textTheme.headline6.copyWith(
-                      color: AppColors.complimentColor1,
-                    ),
+              InkWell(
+                onTap: onTap ?? () => Functions.launchUrl(companyUrl),
+                child: Text(
+                  '@' + company,
+                  style: companyTextStyle ??
+                      theme.textTheme.headline6.copyWith(
+                        color: AppColors.complimentColor1,
+                      ),
+                ),
               )
             ],
           ),

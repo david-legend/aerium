@@ -16,6 +16,7 @@ class ExperiencePageMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return DefaultTabController(
       length: Data.experienceData.length,
       child: Scaffold(
@@ -36,8 +37,16 @@ class ExperiencePageMobile extends StatelessWidget {
               tabs: _buildTabBar(Data.experienceData),
               indicatorColor: AppColors.complimentColor1,
               labelColor: AppColors.complimentColor1,
-              labelPadding: EdgeInsets.all(Sizes.PADDING_12),
+              labelPadding: EdgeInsets.all(Sizes.PADDING_8),
+              labelStyle: theme.textTheme.headline6.copyWith(
+                fontSize: Sizes.TEXT_SIZE_16,
+                fontWeight: FontWeight.w600,
+              ),
               unselectedLabelColor: AppColors.accentColor,
+              unselectedLabelStyle: theme.textTheme.bodyText1.copyWith(
+                fontSize: Sizes.TEXT_SIZE_16,
+                fontWeight: FontWeight.w600,
+              ),
             ),
             actions: [],
             onActionsPressed: () {
@@ -75,8 +84,8 @@ class ExperiencePageMobile extends StatelessWidget {
       tabContent.add(
         Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: 8.0,
-            vertical: 16.0,
+            horizontal: Sizes.PADDING_12,
+            vertical: Sizes.PADDING_16,
           ),
           child: ExperienceSection(
             position: experienceData[index].position,
@@ -84,6 +93,7 @@ class ExperiencePageMobile extends StatelessWidget {
             duration: experienceData[index].duration,
             location: experienceData[index].location,
             roles: experienceData[index].roles,
+            companyUrl: experienceData[index].companyUrl,
           ),
         ),
       );

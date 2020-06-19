@@ -30,12 +30,14 @@ class ContactForm extends StatelessWidget {
             filled: true,
             fillColor: AppColors.grey100,
             hintText: StringConst.PHONE_HINT_TEXT,
+            textInputType: TextInputType.phone,
           ),
           SpaceH16(),
           CustomTextFormField(
             filled: true,
             fillColor: AppColors.grey100,
             hintText: StringConst.EMAIL_HINT_TEXT,
+            textInputType: TextInputType.emailAddress,
           ),
           SpaceH16(),
           CustomTextFormField(

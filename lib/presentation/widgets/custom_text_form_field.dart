@@ -50,10 +50,12 @@ class CustomTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return Container(
       child: TextFormField(
         controller: controller,
-        style: textFormFieldStyle,
+        style: textFormFieldStyle ??
+            theme.textTheme.subtitle1.copyWith(color: AppColors.primaryColor),
         validator: validator,
         onTap: onTap,
         autovalidate: true,

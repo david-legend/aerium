@@ -57,7 +57,7 @@ class _ContactPageMobileState extends State<ContactPageMobile> {
                 Center(
                   child: Text(
                     StringConst.GET_IN_TOUCH,
-                    style: theme.textTheme.bodyText1.copyWith(
+                    style: theme.textTheme.headline6.copyWith(
                       color: AppColors.grey100,
                     ),
                   ),
@@ -66,25 +66,16 @@ class _ContactPageMobileState extends State<ContactPageMobile> {
                 ContactInfo(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   iconsMainAxisAlignment: MainAxisAlignment.center,
-                  iconSize: Sizes.ICON_SIZE_30,
+                  iconSize: Sizes.ICON_SIZE_18,
                   iconColor: AppColors.grey100,
-                  contactTypeTextStyle: theme.textTheme.headline5.copyWith(
+                  contactTypeTextStyle: theme.textTheme.headline6.copyWith(
                     color: AppColors.grey100,
                   ),
-                  contactTextStyle: theme.textTheme.headline5.copyWith(
+                  contactTextStyle: theme.textTheme.bodyText1.copyWith(
                     color: AppColors.grey100,
                   ),
                   onTap: () {},
                 ),
-                SpaceH20(),
-                Text(
-                  StringConst.CONNECT,
-                  style: theme.textTheme.headline5.copyWith(
-                    color: AppColors.grey100,
-                  ),
-                ),
-                SpaceH12(),
-                _buildSocialButtons(),
                 SpaceH20(),
                 Center(
                   child: Text(
@@ -104,6 +95,15 @@ class _ContactPageMobileState extends State<ContactPageMobile> {
                 SendMessageButton(
                   onPressed: () {},
                 ),
+                SpaceH20(),
+                Text(
+                  StringConst.CONNECT,
+                  style: theme.textTheme.headline6.copyWith(
+                    color: AppColors.grey100,
+                  ),
+                ),
+                SpaceH12(),
+                _buildSocialButtons(),
               ],
             ),
           ),
@@ -151,65 +151,4 @@ class _ContactPageMobileState extends State<ContactPageMobile> {
       ],
     );
   }
-//  Widget _buildForm() {
-//    ThemeData theme = Theme.of(context);
-//    return Container(
-//      padding: const EdgeInsets.symmetric(
-//        horizontal: Sizes.PADDING_16,
-////        vertical: Sizes.PADDING_16,
-//      ),
-//      child: Column(
-//        children: [
-//          CustomTextFormField(
-//            filled: true,
-//            fillColor: AppColors.grey100,
-//            hintText: StringConst.NAME_HINT_TEXT,
-//          ),
-//          SpaceH16(),
-//          CustomTextFormField(
-//            filled: true,
-//            fillColor: AppColors.grey100,
-//            hintText: StringConst.PHONE_HINT_TEXT,
-//          ),
-//          SpaceH16(),
-//          CustomTextFormField(
-//            filled: true,
-//            fillColor: AppColors.grey100,
-//            hintText: StringConst.EMAIL_HINT_TEXT,
-//          ),
-//          SpaceH16(),
-//          CustomTextFormField(
-//            filled: true,
-//            fillColor: AppColors.grey100,
-//            hintText: StringConst.MESSAGE_HINT_TEXT,
-//            maxLines: 12,
-//          ),
-//          SpaceH40(),
-//          FlatButton(
-//            onPressed: () {},
-//            child: Row(
-//              mainAxisAlignment: MainAxisAlignment.center,
-//              children: [
-//                Text(
-//                  StringConst.SEND_MESSAGE,
-//                  style: theme.textTheme.headline6
-//                      .copyWith(color: AppColors.grey100),
-//                ),
-//                SpaceW12(),
-//                CircularContainer(
-//                  width: Sizes.WIDTH_30,
-//                  height: Sizes.HEIGHT_30,
-//                  child: Icon(
-//                    Icons.arrow_forward_ios,
-//                    color: AppColors.deepBlue400,
-//                    size: Sizes.ICON_SIZE_18,
-//                  ),
-//                )
-//              ],
-//            ),
-//          )
-//        ],
-//      ),
-//    );
-//  }
 }

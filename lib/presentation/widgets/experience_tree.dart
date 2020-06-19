@@ -88,7 +88,7 @@ class ExperienceTree extends StatelessWidget {
           company: experienceData[index].company,
           companyUrl: experienceData[index].companyUrl,
           position: experienceData[index].position,
-          role: experienceData[index].role,
+          role: experienceData[index].roles[0],
           location: experienceData[index].location,
           duration: experienceData[index].duration,
           width: widthOfTree,

@@ -1,66 +1,118 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/utils/functions.dart';
 import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/presentation/pages/experience/experience_page.dart';
 import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
 import 'package:portfoliosite/presentation/widgets/custom_app_bar.dart';
-import 'package:portfoliosite/presentation/widgets/experience_column.dart';
+import 'package:portfoliosite/presentation/widgets/experience_section.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
+//import 'package:universal_html/html.dart';
 
 class ExperiencePageMobile extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: _scaffoldKey,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(56.0),
-        child: CustomAppBar(
-          title: StringConst.EXPERIENCE,
-          onLeadingPressed: () {
-            if (_scaffoldKey.currentState.isEndDrawerOpen) {
-              _scaffoldKey.currentState.openEndDrawer();
-            } else {
-              _scaffoldKey.currentState.openDrawer();
-            }
-          },
-          onActionsPressed: () {
-            Navigator.pushNamed(
-              context,
-              ContactPage.contactPageRoute,
-            );
-          },
+    return DefaultTabController(
+      length: Data.experienceData.length,
+      child: Scaffold(
+        key: _scaffoldKey,
+        backgroundColor: AppColors.deepBlue700,
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(100.0),
+          child: CustomAppBar(
+            title: StringConst.WORK,
+            onLeadingPressed: () {
+              if (_scaffoldKey.currentState.isEndDrawerOpen) {
+                _scaffoldKey.currentState.openEndDrawer();
+              } else {
+                _scaffoldKey.currentState.openDrawer();
+              }
+            },
+            bottom: TabBar(
+              tabs: _buildTabBar(Data.experienceData),
+              indicatorColor: AppColors.complimentColor1,
+              labelColor: AppColors.complimentColor1,
+              labelPadding: EdgeInsets.all(Sizes.PADDING_12),
+              unselectedLabelColor: AppColors.accentColor,
+            ),
+            actions: [],
+            onActionsPressed: () {
+              Navigator.pushNamed(
+                context,
+                ContactPage.contactPageRoute,
+              );
+            },
+          ),
         ),
-      ),
-      drawer: AppDrawer(
-        menuList: Data.menuList,
-        selectedItemRouteName: ExperiencePage.experiencePageRoute,
-      ),
-      body: Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: Sizes.PADDING_16,
-          vertical: Sizes.PADDING_16,
+        drawer: AppDrawer(
+          menuList: Data.menuList,
+          selectedItemRouteName: ExperiencePage.experiencePageRoute,
         ),
-        child: ListView.separated(
-          itemCount: Data.experienceData.length,
-          separatorBuilder: (BuildContext context, int index) {
-            return SpaceH30();
-          },
-          itemBuilder: (BuildContext context, int index) {
-            return ExperienceColumn(
-              duration: Data.experienceData[index].duration,
-              position: Data.experienceData[index].position,
-              company: Data.experienceData[index].company,
-              location: Data.experienceData[index].location,
-              role: Data.experienceData[index].role,
-              onTap: () {
-                Functions.launchUrl(Data.experienceData[index].companyUrl);
-              },
-            );
-          },
+        body: TabBarView(
+          children: _buildTabContent(Data.experienceData),
         ),
       ),
     );
   }
+
+  List<Widget> _buildTabBar(List<ExperienceData> experienceData) {
+    List<Widget> tabBarItems = [];
+    for (var index = 0; index < experienceData.length; index++) {
+      tabBarItems.add(
+        Text(experienceData[index].company),
+      );
+    }
+    return tabBarItems;
+  }
+
+  List<Widget> _buildTabContent(List<ExperienceData> experienceData) {
+    List<Widget> tabContent = [];
+    for (var index = 0; index < experienceData.length; index++) {
+      tabContent.add(
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 8.0,
+            vertical: 16.0,
+          ),
+          child: ExperienceSection(
+            position: experienceData[index].position,
+            company: experienceData[index].company,
+            duration: experienceData[index].duration,
+            location: experienceData[index].location,
+            roles: experienceData[index].roles,
+          ),
+        ),
+      );
+    }
+    return tabContent;
+  }
 }
+
+//      body: Container(
+//        padding: EdgeInsets.symmetric(
+//          horizontal: Sizes.PADDING_16,
+//          vertical: Sizes.PADDING_16,
+//        ),
+//        child: ListView.separated(
+//          itemCount: Data.experienceData.length,
+//          separatorBuilder: (BuildContext context, int index) {
+//            return SpaceH30();
+//          },
+//          itemBuilder: (BuildContext context, int index) {
+//            return ExperienceColumn(
+//              duration: Data.experienceData[index].duration,
+//              position: Data.experienceData[index].position,
+//              company: Data.experienceData[index].company,
+//              location: Data.experienceData[index].location,
+//              role: Data.experienceData[index].role,
+//              onTap: () {
+//                Functions.launchUrl(Data.experienceData[index].companyUrl);
+//              },
+//            );
+//          },
+//        ),
+//      )

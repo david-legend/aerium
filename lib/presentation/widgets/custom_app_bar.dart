@@ -12,20 +12,32 @@ class CustomAppBar extends StatelessWidget {
     this.actions,
     this.onActionsPressed,
     this.actionIcon,
+    this.bottom,
+    this.titleTextStyle,
   });
 
   final String title;
+  final TextStyle titleTextStyle;
   final Widget leading;
   final VoidCallback onLeadingPressed;
   final List<Widget> actions;
   final VoidCallback onActionsPressed;
   final Icon actionIcon;
+  final PreferredSizeWidget bottom;
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return AppBar(
-      title: Text(title),
+      title: Text(
+        title,
+        style: titleTextStyle ??
+            theme.textTheme.headline6.copyWith(
+              color: AppColors.secondaryColor,
+            ),
+      ),
       backgroundColor: AppColors.primaryColor,
+      bottom: bottom,
       leading: leading ??
           IconButton(
             padding: const EdgeInsets.only(

@@ -81,7 +81,7 @@ class PortfolioData {
 class ExperienceData {
   ExperienceData({
     @required this.position,
-    @required this.role,
+    @required this.roles,
     @required this.location,
     @required this.duration,
     this.company,
@@ -93,7 +93,7 @@ class ExperienceData {
   final String location;
   final String duration;
   final String position;
-  final String role;
+  final List<String> roles;
 }
 
 class SkillData {
@@ -298,28 +298,36 @@ class Data {
     ExperienceData(
       company: StringConst.COMPANY_4,
       position: StringConst.POSITION_4,
-      role: StringConst.ROLE_4,
+      roles: [
+        StringConst.ROLE_4,
+        StringConst.ROLE_4,
+        StringConst.ROLE_4,
+      ],
       location: StringConst.LOCATION_4,
       duration: StringConst.DURATION_4,
     ),
     ExperienceData(
       company: StringConst.COMPANY_3,
       position: StringConst.POSITION_3,
-      role: StringConst.ROLE_3,
+      roles: [
+        StringConst.ROLE_3,
+        StringConst.ROLE_3,
+        StringConst.ROLE_3,
+      ],
       location: StringConst.LOCATION_3,
       duration: StringConst.DURATION_3,
     ),
     ExperienceData(
       company: StringConst.COMPANY_2,
       position: StringConst.POSITION_2,
-      role: StringConst.ROLE_2,
+      roles: [StringConst.ROLE_2],
       location: StringConst.LOCATION_2,
       duration: StringConst.DURATION_2,
     ),
     ExperienceData(
       company: StringConst.COMPANY_1,
       position: StringConst.POSITION_1,
-      role: StringConst.ROLE_1,
+      roles: [StringConst.ROLE_1],
       location: StringConst.LOCATION_1,
       duration: StringConst.DURATION_1,
     ),

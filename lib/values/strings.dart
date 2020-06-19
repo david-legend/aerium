@@ -8,6 +8,7 @@ class StringConst {
   static const String ABOUT_ME = "About Me";
   static const String PORTFOLIO = "Portfolio";
   static const String EXPERIENCE = "Experience";
+  static const String WORK = "Where I've Worked";
   static const String SERVICES = "Services";
   static const String CONTACT = "Contact";
   static const String PHONE_NUMBER = "Phone Number";
@@ -111,29 +112,29 @@ class StringConst {
   //Experience
   static const String CURRENT_MONTH_YEAR = "May 2020 - Current";
   static const String STARTED_MONTH_YEAR = "May 2017";
-  static const String COMPANY_1 = "Makedu Consult";
+  static const String COMPANY_1 = "Makedu";
   static const String POSITION_1 = "Software Engineer Intern";
   static const String ROLE_1 =
       "Collaborated with team members to create application system analysis based on customer specifications";
   static const String LOCATION_1 = "Aprade - Kumasi";
   static const String DURATION_1 = "May 2017 - July 2017";
 
-  static const String COMPANY_2 = "Shrinq Ltd.";
+  static const String COMPANY_2 = "Shrinq";
   static const String POSITION_2 = "Software Engineer";
   static const String ROLE_2 =
       "Collaborated with team members to create application system analysis based on customer specifications";
   static const String LOCATION_2 = "Asylum Down - Accra";
   static const String DURATION_2 = "April 2018 - June 2019";
 
-  static const String COMPANY_3 = "Bewsys Ltd.";
+  static const String COMPANY_3 = "Bewsys";
   static const String POSITION_3 = "Software Engineer";
   static const String ROLE_3 =
       "Collaborated with team members to create application system analysis based on customer specifications";
   static const String LOCATION_3 = "East Legon - Accra";
   static const String DURATION_3 = "August 2019 - April 2020";
 
-  static const String COMPANY_4 = "Bewsys Ltd.";
-  static const String POSITION_4 = "Software Engineer, FreeLancer";
+  static const String COMPANY_4 = "FreeLancer";
+  static const String POSITION_4 = "Software Engineer";
   static const String ROLE_4 =
       "Collaborated with team members to create application system analysis based on customer specifications";
   static const String LOCATION_4 = "East Legon - Accra";

@@ -7,6 +7,9 @@ class AppColors {
   static const Color secondaryColor = Color(0xFFEBEBEB);
   static const Color accentColor = Color(0xFF5F6E80);
   static const Color accentColor2 = Color(0xFF000000);
+  static const Color accentColor3 = Color(0xff75809C);
+  static const Color complimentColor1 = Color(0xff64FFDA);
+  static const Color complimentColor2 = Color(0xffCCD7F5);
 
 //  static const Color primaryColor = Color(0xFFE19269);
 //  static const Color secondaryColor = Color(0xFFFFFFFF);

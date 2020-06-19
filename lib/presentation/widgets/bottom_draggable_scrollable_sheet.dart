@@ -47,76 +47,73 @@ class _BottomDraggableScrollableSheetState
         BuildContext context,
         ScrollController scrollController,
       ) {
-        return GestureDetector(
-          onTap: () => Navigator.of(context).pop(),
-          child: Container(
-            color: widget.backgroundColor,
-            child: SingleChildScrollView(
-              controller: scrollController,
-              child: Column(
-                children: [
-                  SpaceH8(),
-                  HorizontalBar(
-                    color: AppColors.secondaryColor,
-                    margin: EdgeInsets.only(right: 8),
-                    width: 40,
-                    height: 2,
-                  ),
-                  SpaceH8(),
-                  IntrinsicHeight(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        InkWell(
-                          onTap: _switchTabs,
-                          child: Text(
-                            StringConst.KEY_SKILLS,
-                            style: isKeySkillsSelected
-                                ? selectedItem
-                                : unselectedItem,
-                          ),
+        return Container(
+          color: widget.backgroundColor,
+          child: SingleChildScrollView(
+            controller: scrollController,
+            child: Column(
+              children: [
+                SpaceH8(),
+                HorizontalBar(
+                  color: AppColors.secondaryColor,
+                  margin: EdgeInsets.only(right: 8),
+                  width: 40,
+                  height: 2,
+                ),
+                SpaceH8(),
+                IntrinsicHeight(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      InkWell(
+                        onTap: _switchTabs,
+                        child: Text(
+                          StringConst.KEY_SKILLS,
+                          style: isKeySkillsSelected
+                              ? selectedItem
+                              : unselectedItem,
                         ),
-                        VerticalDivider(
-                          thickness: 1,
-                          width: 24,
-                          color: AppColors.secondaryColor,
+                      ),
+                      VerticalDivider(
+                        thickness: 1,
+                        width: 24,
+                        color: AppColors.secondaryColor,
+                      ),
+                      InkWell(
+                        onTap: _switchTabs,
+                        child: Text(
+                          StringConst.EDUCATION,
+                          style: isEducationSelected
+                              ? selectedItem
+                              : unselectedItem,
                         ),
-                        InkWell(
-                          onTap: _switchTabs,
-                          child: Text(
-                            StringConst.EDUCATION,
-                            style: isEducationSelected
-                                ? selectedItem
-                                : unselectedItem,
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: Sizes.PADDING_16,
-                      vertical: Sizes.PADDING_16,
-                    ),
-                    child: Column(
-                      children: [
-                        isKeySkillsSelected
-                            ? _buildSkillsSection(skills: Data.skillData)
-                            : Container(),
-                        isEducationSelected
-                            ? Text(
-                                StringConst.ABOUT_DEV_TEXT,
-                                style: theme.textTheme.bodyText2.copyWith(
-                                  color: AppColors.secondaryColor,
-                                  fontSize: Sizes.TEXT_SIZE_16,
-                                ),
-                              )
-                            : Container(),
-                      ],
-                    ),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: Sizes.PADDING_16,
+                    vertical: Sizes.PADDING_16,
                   ),
-                ],
-              ),
+                  child: Column(
+                    children: [
+                      isKeySkillsSelected
+                          ? _buildSkillsSection(skills: Data.skillData)
+                          : Container(),
+                      isEducationSelected
+                          ? Text(
+                              StringConst.ABOUT_DEV_TEXT,
+                              style: theme.textTheme.bodyText2.copyWith(
+                                color: AppColors.secondaryColor,
+                                fontSize: Sizes.TEXT_SIZE_16,
+                              ),
+                            )
+                          : Container(),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         );

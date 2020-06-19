@@ -88,6 +88,7 @@ class ExperienceSection extends StatelessWidget {
     List<Widget> roleWidgets = [];
     for (var index = 0; index < roles.length; index++) {
       roleWidgets.add(Role(role: roles[index]));
+      roleWidgets.add(SpaceH8());
     }
 
     return roleWidgets;
@@ -97,14 +98,14 @@ class ExperienceSection extends StatelessWidget {
 class Role extends StatelessWidget {
   Role({
     @required this.role,
-    this.roleStyle,
+    this.roleTextStyle,
     this.icon = Icons.arrow_right,
     this.iconSize = Sizes.ICON_SIZE_18,
     this.color = AppColors.complimentColor1,
   });
 
   final String role;
-  final TextStyle roleStyle;
+  final TextStyle roleTextStyle;
   final IconData icon;
   final Color color;
   final double iconSize;
@@ -123,7 +124,7 @@ class Role extends StatelessWidget {
         Expanded(
           child: Text(
             role,
-            style: roleStyle ??
+            style: roleTextStyle ??
                 theme.textTheme.bodyText1.copyWith(
                   color: AppColors.accentColor3,
                 ),

@@ -4,6 +4,8 @@ import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/presentation/widgets/tree_painter.dart';
 import 'package:portfoliosite/values/values.dart';
 
+import 'experience_section.dart';
+
 class ExperienceTree extends StatelessWidget {
   ExperienceTree({
     @required this.experienceData,
@@ -88,7 +90,7 @@ class ExperienceTree extends StatelessWidget {
           company: experienceData[index].company,
           companyUrl: experienceData[index].companyUrl,
           position: experienceData[index].position,
-          role: experienceData[index].roles[0],
+          roles: experienceData[index].roles,
           location: experienceData[index].location,
           duration: experienceData[index].duration,
           width: widthOfTree,
@@ -98,16 +100,13 @@ class ExperienceTree extends StatelessWidget {
 
     return branchWidgets;
   }
-//  List<Widget> _buildRoles(List<String> roles) {
-
-//  }
 }
 
-class ExperienceBranch extends StatelessWidget {
+class ExperienceBranch extends StatefulWidget {
   ExperienceBranch({
     this.width,
     this.height = 200,
-    this.role,
+    this.roles,
     this.company,
     this.companyUrl,
     this.position,
@@ -125,14 +124,46 @@ class ExperienceBranch extends StatelessWidget {
   final String location;
   final String duration;
   final String position;
-  final String role;
+  final List<String> roles;
   final CustomPainter customPainter;
 
   @override
+  _ExperienceBranchState createState() => _ExperienceBranchState();
+}
+
+class _ExperienceBranchState extends State<ExperienceBranch> {
+  GlobalKey roleLeafKey = GlobalKey();
+  GlobalKey locationLeafKey = GlobalKey();
+  double offsetRoleLeaf;
+  double offsetLocationLeaf;
+
+  @override
+  void initState() {
+    offsetRoleLeaf = (widget.height / 5) - 10;
+    offsetLocationLeaf = (widget.height / 2) - 16;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _getHeightOfRoleLeaf();
+    });
+    super.initState();
+  }
+
+  _getHeightOfRoleLeaf() {
+    final RenderBox roleLeafRenderBox =
+        roleLeafKey.currentContext.findRenderObject();
+    final RenderBox locationLeafRenderBox =
+        locationLeafKey.currentContext.findRenderObject();
+    final roleLeafHeight = roleLeafRenderBox.size.height;
+    final locationLeafHeight = locationLeafRenderBox.size.height;
+    setState(() {
+      offsetRoleLeaf = (widget.height / 2) - (roleLeafHeight / 2);
+      offsetLocationLeaf = (widget.height / 2) - (locationLeafHeight / 2);
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-//    print("Halfwidth:: ${width / 2}  width:: ${width}");
     return CustomPaint(
-      foregroundPainter: customPainter ??
+      foregroundPainter: widget.customPainter ??
           TreePainter(
             stalk: 0.1,
             veinsColor: AppColors.primaryColor
@@ -142,38 +173,38 @@ class ExperienceBranch extends StatelessWidget {
             innerJointColor: AppColors.primaryColor,
           ),
       child: Container(
-        width: width,
-        height: height,
+        width: widget.width,
+        height: widget.height,
         child: Stack(
           children: [
             Positioned(
-              width: width / 2,
-              height: height,
-              top: (height / 2) - 10,
+              width: widget.width / 2,
+              top: offsetLocationLeaf,
               left: 0,
               child: Container(
-                padding: EdgeInsets.only(right: (width * stalk)),
+                key: locationLeafKey,
+                padding: EdgeInsets.only(right: (widget.width * widget.stalk)),
                 child: LocationDateLeaf(
-                  duration: duration,
-                  location: location,
+                  duration: widget.duration,
+                  location: widget.location,
                 ),
               ),
             ),
             SpaceH8(),
             Positioned(
-              width: width / 2,
-              height: height,
-              top: (height / 2) - 10,
+              width: widget.width / 2,
+              top: offsetRoleLeaf,
               right: 0,
               child: Container(
-                padding: EdgeInsets.only(left: (width * stalk)),
+                key: roleLeafKey,
+                padding: EdgeInsets.only(left: (widget.width * widget.stalk)),
                 child: RoleLeaf(
-                  company: company,
+                  company: widget.company,
                   onTap: () {
-                    Functions.launchUrl(companyUrl);
+                    Functions.launchUrl(widget.companyUrl);
                   },
-                  position: position,
-                  role: role,
+                  position: widget.position,
+                  roles: widget.roles,
                 ),
               ),
             )
@@ -252,7 +283,7 @@ class RoleLeaf extends StatelessWidget {
   RoleLeaf({
     @required this.company,
     @required this.position,
-    @required this.role,
+    @required this.roles,
     this.companyTextStyle,
     this.positionTextStyle,
     this.roleTextStyle,
@@ -261,7 +292,7 @@ class RoleLeaf extends StatelessWidget {
 
   final String company;
   final String position;
-  final String role;
+  final List<String> roles;
   final TextStyle companyTextStyle;
   final TextStyle positionTextStyle;
   final TextStyle roleTextStyle;
@@ -291,13 +322,33 @@ class RoleLeaf extends StatelessWidget {
                     fontStyle: FontStyle.italic, color: AppColors.accentColor2),
           ),
           SpaceH8(),
-          Text(
-            role,
-            style: positionTextStyle ??
-                theme.textTheme.bodyText2.copyWith(color: AppColors.black),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: _buildRoles(roles: roles, context: context),
           ),
         ],
       ),
     );
+  }
+
+  List<Widget> _buildRoles({
+    @required List<String> roles,
+    @required BuildContext context,
+  }) {
+    ThemeData theme = Theme.of(context);
+    List<Widget> roleWidgets = [];
+    for (var index = 0; index < roles.length; index++) {
+      roleWidgets.add(
+        Role(
+          role: roles[index],
+          roleTextStyle: roleTextStyle ??
+              theme.textTheme.bodyText2.copyWith(color: AppColors.black),
+          color: AppColors.primaryColor,
+        ),
+      );
+      roleWidgets.add(SpaceH2());
+    }
+
+    return roleWidgets;
   }
 }

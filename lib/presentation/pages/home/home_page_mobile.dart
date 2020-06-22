@@ -9,6 +9,7 @@ import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/socials.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 import 'home_page.dart';
 
@@ -176,12 +177,15 @@ class _HomePageMobileState extends State<HomePageMobile> {
   Widget _buildDevImage() {
     return Positioned(
       top: 56,
-      right: -assignWidth(context: context, fraction: 0.6),
-      child: Image.asset(
-        ImagePath.DEV,
-//        width: assignWidth(context: context, fraction: 1),
-        height: assignHeight(context: context, fraction: 1),
-        fit: BoxFit.cover,
+      right: widthOfScreen(context) > 480
+          ? -assignWidth(context: context, fraction: 0.4)
+          : -assignWidth(context: context, fraction: 0.65),
+      child: Container(
+        child: Image.asset(
+          ImagePath.DEV,
+          height: assignHeight(context: context, fraction: 1),
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }

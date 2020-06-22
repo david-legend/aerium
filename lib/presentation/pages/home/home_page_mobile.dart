@@ -190,6 +190,18 @@ class _HomePageMobileState extends State<HomePageMobile> {
     );
   }
 
+  double figureOutWidth() {
+    if (widthOfScreen(context) > 480 && widthOfScreen(context) < 600) {
+      return -assignWidth(context: context, fraction: 0.4);
+    } else if (widthOfScreen(context) >= 600 && widthOfScreen(context) < 700) {
+      return -assignWidth(context: context, fraction: 0.3);
+    } else if (widthOfScreen(context) >= 700 && widthOfScreen(context) < 950) {
+      return -assignWidth(context: context, fraction: 0.2);
+    } else {
+      return -assignWidth(context: context, fraction: 0.6);
+    }
+  }
+
   Widget _buildSocials() {
     return Positioned(
       right: 16,

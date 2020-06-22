@@ -1,6 +1,8 @@
+import 'dart:async';
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
-import 'package:portfoliosite/core/utils/network.dart';
 import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/presentation/pages/home/home_page.dart';
 import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
@@ -17,10 +19,23 @@ class HomePageDesktop extends StatefulWidget {
 }
 
 class _HomePageDesktopState extends State<HomePageDesktop> {
+  Future<ui.Image> _getImage() {
+    Completer<ui.Image> completer = new Completer<ui.Image>();
+    AssetImage(ImagePath.DEV).resolve(ImageConfiguration()).addListener(
+      ImageStreamListener(
+        (ImageInfo image, bool _) {
+          completer.complete(image.image);
+        },
+      ),
+    );
+    return completer.future;
+  }
+
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     double widthOfImage = assignWidth(context: context, fraction: 0.4);
+    print(widthOfImage);
     return Container(
       child: Stack(
         children: <Widget>[
@@ -32,7 +47,6 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                     ContentWrapper(
                       width: assignWidth(context: context, fraction: 0.5),
                       color: AppColors.primaryColor,
-//                      gradient: Gradients.primaryGradient,
                       child: Container(
                         margin: EdgeInsets.only(
                           left: Sizes.MARGIN_20,
@@ -48,7 +62,6 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                     ContentWrapper(
                       width: assignWidth(context: context, fraction: 0.5),
                       color: AppColors.secondaryColor,
-//                      color: AppColors.grey100,
                       child: TrailingInfo(
                         onLeadingWidgetPressed: () {
                           Navigator.pushNamed(
@@ -112,22 +125,48 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
               ],
             ),
           ),
-          Positioned(
-            top: assignHeight(context: context, fraction: 0.0),
-            left:
-                assignWidth(context: context, fraction: 0.5) - widthOfImage / 2,
-            child: Container(
-              child: Image.asset(
-                ImagePath.DEV,
-                width: widthOfImage,
-                height: assignHeight(context: context, fraction: 1),
-                fit: BoxFit.fitHeight,
-                scale: 2.0,
-              ),
-            ),
-          ),
+          FutureBuilder<ui.Image>(
+            future: _getImage(),
+            builder: (BuildContext context, AsyncSnapshot<ui.Image> snapshot) {
+              if (snapshot.hasData) {
+                ui.Image image = snapshot.data;
+                return Positioned(
+                  top: assignHeight(context: context, fraction: 0.0),
+                  left: assignWidth(context: context, fraction: 0.5) -
+                      (image.width + 100.0) / 2,
+                  child: Container(
+                    child: Image.asset(
+                      ImagePath.DEV,
+                      width: (image.width + 100.0),
+                      height: assignHeight(context: context, fraction: 1),
+                      fit: BoxFit.cover,
+                      scale: 2.0,
+                    ),
+                  ),
+                );
+              } else {
+                return Text('Loading...');
+              }
+            },
+          )
         ],
       ),
     );
   }
 }
+
+//          Positioned(
+////            key: imageKey,
+//            top: assignHeight(context: context, fraction: 0.0),
+//            left: assignWidth(context: context, fraction: 0.5) - 600 / 2,
+//            child: Container(
+////              color: Colors.red,
+//              child: Image.asset(
+//                ImagePath.DEV,
+//                width: 600,
+//                height: assignHeight(context: context, fraction: 1),
+//                fit: BoxFit.cover,
+//                scale: 2.0,
+//              ),
+//            ),
+//          ),

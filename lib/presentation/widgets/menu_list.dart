@@ -66,7 +66,7 @@ class MenuList extends StatelessWidget {
             )
           ],
         ),
-        Row(
+        Wrap(
           children: [
             Text(
               StringConst.BUILT_BY + ", " + StringConst.DESIGNED_BY,

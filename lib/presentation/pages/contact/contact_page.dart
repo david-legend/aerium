@@ -11,13 +11,14 @@ class ContactPage extends StatelessWidget {
   const ContactPage({
     Key key,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ScreenTypeLayout(
-        mobile: ContactPageMobile(),
-        tablet: ContactPageDesktop(),
         desktop: ContactPageDesktop(),
+        tablet: ContactPageDesktop(),
+        mobile: ContactPageMobile(),
       ),
     );
   }

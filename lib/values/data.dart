@@ -260,6 +260,15 @@ class Data {
       gitHubUrl: StringConst.AERIUM_GITHUB_URL,
       webUrl: StringConst.AERIUM_WEB_URL,
     ),
+    PortfolioData(
+      title: StringConst.LEARN_UPP,
+      subtitle: StringConst.LEARN_UPP_SUBTITLE,
+      image: ImagePath.LEARN_UPP,
+      portfolioDescription: StringConst.LEARN_UPP_DETAIL,
+      imageSize: 0.3,
+      isPublic: true,
+      gitHubUrl: StringConst.LEARN_UPP_GITHUB_URL,
+    ),
   ];
 
   static List<double> imageSizesForPortfolioGallery = [
@@ -267,7 +276,7 @@ class Data {
     0.15,
     0.3,
     0.45,
-    0.159,
+    0.15,
     0.3,
     0.15,
     0.15,

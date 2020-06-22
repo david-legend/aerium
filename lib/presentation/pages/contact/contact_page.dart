@@ -17,7 +17,7 @@ class ContactPage extends StatelessWidget {
     return Scaffold(
       body: ScreenTypeLayout(
         desktop: ContactPageDesktop(),
-        tablet: ContactPageDesktop(),
+        tablet: ContactPageMobile(),
         mobile: ContactPageMobile(),
       ),
     );

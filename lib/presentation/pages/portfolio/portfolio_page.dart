@@ -19,7 +19,7 @@ class PortfolioPage extends StatelessWidget {
       child: Scaffold(
         body: ScreenTypeLayout(
           mobile: PortfolioPageMobile(),
-          tablet: PortfolioPageDesktop(),
+          tablet: PortfolioPageMobile(),
           desktop: PortfolioPageDesktop(),
         ),
       ),

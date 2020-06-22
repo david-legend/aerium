@@ -218,6 +218,14 @@ class StringConst {
       "https://github.com/david-legend/aerium";
   static const String AERIUM_WEB_URL = "https://davidcobbina.dev";
 
+  static const String LEARN_UPP = "LearnUpp";
+  static const String LEARN_UPP_SUBTITLE =
+      "Beautifully designed website that expresses the services provided by the company.";
+  static const String LEARN_UPP_DETAIL =
+      "A beautiful cataalog of login designs";
+  static const String LEARN_UPP_GITHUB_URL =
+      "https://github.com/david-legend/learnUpp";
+
   static const String CIRCE = "Circe";
   static const String PROXIMA_NOVA = "ProximaNova";
 }

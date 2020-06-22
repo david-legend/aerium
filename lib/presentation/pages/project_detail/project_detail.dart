@@ -24,7 +24,7 @@ class ProjectDetailPage extends StatelessWidget {
           mobile: ProjectDetailMobile(
             projectDetails: projectDetails,
           ),
-          tablet: ProjectDetailDesktop(
+          tablet: ProjectDetailMobile(
             projectDetails: projectDetails,
           ),
           desktop: ProjectDetailDesktop(

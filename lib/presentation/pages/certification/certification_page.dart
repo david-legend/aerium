@@ -17,7 +17,7 @@ class CertificationPage extends StatelessWidget {
     return Scaffold(
       body: ScreenTypeLayout(
         mobile: CertificationPageMobile(),
-        tablet: CertificationPageDesktop(),
+        tablet: CertificationPageMobile(),
         desktop: CertificationPageDesktop(),
       ),
     );

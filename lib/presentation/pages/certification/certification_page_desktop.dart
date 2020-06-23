@@ -79,20 +79,17 @@ class _CertificationPageDesktopState extends State<CertificationPageDesktop>
                                 assignHeight(context: context, fraction: 0.04),
                           ),
                           child: _buildAnimation(),
-//                          _isCertificationVisible
-//                              ? _buildAnimation()
-//                              : Container(),
                         ),
                         SizedBox(
                           width: assignWidth(
                             context: context,
-                            fraction: 0.05,
+                            fraction: 0.025,
                           ),
                         ),
                         TrailingInfo(
                           width: assignWidth(
                             context: context,
-                            fraction: 0.05,
+                            fraction: 0.075,
                           ),
                           trailingWidget: CustomScroller(
                             onUpTap: () {
@@ -172,11 +169,18 @@ class _CertificationPageDesktopState extends State<CertificationPageDesktop>
             title: certificationData[i].title,
             subtitle: certificationData[i].awardedBy,
             actionTitle: StringConst.VIEW,
-            height: assignHeight(context: context, fraction: 0.45),
-            width: assignWidth(
-              context: context,
-              fraction: certificationData[i].imageSize,
-            ),
+            height: isDisplaySmallDesktopOrIpadPro(context)
+                ? assignHeight(context: context, fraction: 0.3)
+                : assignHeight(context: context, fraction: 0.45),
+            width: isDisplaySmallDesktopOrIpadPro(context)
+                ? assignWidth(
+                    context: context,
+                    fraction: 0.3,
+                  )
+                : assignWidth(
+                    context: context,
+                    fraction: certificationData[i].imageSize,
+                  ),
           ),
         ),
       );

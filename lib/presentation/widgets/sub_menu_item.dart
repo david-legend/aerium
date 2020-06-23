@@ -22,6 +22,7 @@ class SubMenuItem extends StatelessWidget {
     return Container(
       child: IntrinsicHeight(
         child: Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
             AnimatedOpacity(
               opacity: isSelected ? 1 : 0.0,

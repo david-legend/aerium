@@ -17,7 +17,7 @@ class AboutPage extends StatelessWidget {
     return Scaffold(
       body: ScreenTypeLayout(
         mobile: AboutPageMobile(),
-        tablet: AboutPageMobile(),
+        tablet: AboutPageDesktop(),
         desktop: AboutPageDesktop(),
       ),
     );

@@ -200,13 +200,13 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
                         SizedBox(
                           width: assignWidth(
                             context: context,
-                            fraction: 0.05,
+                            fraction: 0.025,
                           ),
                         ),
                         TrailingInfo(
                           width: assignWidth(
                             context: context,
-                            fraction: 0.05,
+                            fraction: 0.075,
                           ),
                         ),
                       ],

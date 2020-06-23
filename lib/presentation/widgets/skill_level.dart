@@ -74,15 +74,80 @@ class SkillLevel extends StatelessWidget {
             },
           ),
           SpaceW8(),
-          Text(
-            skillName,
-            style: skillNameTextStyle ??
-                theme.textTheme.subtitle1.copyWith(
-                  color: AppColors.accentColor2,
-                ),
+          Expanded(
+            child: Text(
+              skillName,
+              style: skillNameTextStyle ??
+                  theme.textTheme.subtitle1.copyWith(
+                    color: AppColors.accentColor2,
+                  ),
+            ),
           ),
         ],
       ),
     );
   }
+
+//  List<Widget> _buildSkillItem({
+//    @required BuildContext context,
+//    @required List<SkillData> skillData,
+//  }) {
+//    List<Widget> skillWidgets = [];
+//    ThemeData theme = Theme.of(context);
+//    for (var index = 0; index < skillData.length; index++) {
+//      var actualSkillLevel = skillData[index].skillLevel / 10;
+//      skillWidgets.add(
+//        Row(
+//          mainAxisSize: MainAxisSize.min,
+//          children: [
+//            TweenAnimationBuilder(
+//              tween: Tween<double>(begin: 0, end: skillLevel),
+//              duration: duration,
+//              child: Container(
+//                width: circleWidth,
+//                height: circleHeight,
+//                child: Center(
+//                  child: Text(
+//                    actualSkillLevel.toString(),
+//                    style: textStyle ??
+//                        theme.textTheme.subtitle1.copyWith(
+//                          color: AppColors.accentColor2,
+//                        ),
+//                  ),
+//                ),
+//              ),
+//              builder: (
+//                BuildContext context,
+//                double value,
+//                Widget child,
+//              ) {
+//                return CustomPaint(
+//                  foregroundPainter: SkillProgressPainter(
+//                    currentProgress: value,
+//                    circleColor: baseColor,
+//                    progressArcColor: progressColor,
+//                  ),
+//                  child: AnimatedOpacity(
+//                    opacity: value / 100,
+//                    duration: duration,
+//                    child: child,
+//                  ),
+//                );
+//              },
+//            ),
+//            SpaceW8(),
+//            Text(
+//              skillData[index].skillName,
+//              style: skillNameTextStyle ??
+//                  theme.textTheme.subtitle1.copyWith(
+//                    color: AppColors.accentColor2,
+//                  ),
+//            ),
+//          ],
+//        ),
+//      );
+//    }
+//
+//    return skillWidgets;
+//  }
 }

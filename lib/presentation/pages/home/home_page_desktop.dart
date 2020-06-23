@@ -19,6 +19,26 @@ class HomePageDesktop extends StatefulWidget {
 }
 
 class _HomePageDesktopState extends State<HomePageDesktop> {
+//  GlobalKey imageKey = GlobalKey();
+//  double offsetRoleLeaf;
+//
+//  @override
+//  void initState() {
+//    WidgetsBinding.instance.addPostFrameCallback((_) {
+//      _getSizeOfImage();
+//    });
+//    super.initState();
+//  }
+//
+//  _getSizeOfImage() {
+//    final RenderBox imageRenderBox = imageKey.currentContext.findRenderObject();
+//    final imageSize = imageRenderBox.size.height;
+//    setState(() {
+//      print("Size ${imageRenderBox.size}");
+//      offsetRoleLeaf = 0;
+//    });
+//  }
+
   Future<ui.Image> _getImage() {
     Completer<ui.Image> completer = new Completer<ui.Image>();
     AssetImage(ImagePath.DEV).resolve(ImageConfiguration()).addListener(
@@ -35,7 +55,7 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     double widthOfImage = assignWidth(context: context, fraction: 0.4);
-    print(widthOfImage);
+
     return Container(
       child: Stack(
         children: <Widget>[
@@ -125,30 +145,46 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
               ],
             ),
           ),
-          FutureBuilder<ui.Image>(
-            future: _getImage(),
-            builder: (BuildContext context, AsyncSnapshot<ui.Image> snapshot) {
-              if (snapshot.hasData) {
-                ui.Image image = snapshot.data;
-                return Positioned(
+          isDisplaySmallDesktop(context)
+              ? FutureBuilder<ui.Image>(
+                  future: _getImage(),
+                  builder:
+                      (BuildContext context, AsyncSnapshot<ui.Image> snapshot) {
+                    if (snapshot.hasData) {
+                      ui.Image image = snapshot.data;
+                      return Positioned(
+                        top: assignHeight(context: context, fraction: 0.0),
+                        left: assignWidth(context: context, fraction: 0.5) -
+                            (image.width + 100.0) / 2,
+                        child: Container(
+                          child: Image.asset(
+                            ImagePath.DEV,
+                            width: (image.width + 100.0),
+                            height: assignHeight(context: context, fraction: 1),
+                            fit: BoxFit.cover,
+                            scale: 2.0,
+                          ),
+                        ),
+                      );
+                    } else {
+                      return Text('Loading...');
+                    }
+                  },
+                )
+              : Positioned(
                   top: assignHeight(context: context, fraction: 0.0),
                   left: assignWidth(context: context, fraction: 0.5) -
-                      (image.width + 100.0) / 2,
+                      widthOfImage / 2,
                   child: Container(
                     child: Image.asset(
                       ImagePath.DEV,
-                      width: (image.width + 100.0),
+                      width: widthOfImage,
                       height: assignHeight(context: context, fraction: 1),
                       fit: BoxFit.cover,
                       scale: 2.0,
                     ),
                   ),
-                );
-              } else {
-                return Text('Loading...');
-              }
-            },
-          )
+                ),
         ],
       ),
     );

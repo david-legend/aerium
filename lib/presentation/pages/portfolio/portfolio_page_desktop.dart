@@ -85,7 +85,7 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
         curve: Interval(
           0.0,
           1.0,
-          curve: Curves.easeIn,
+          curve: Curves.easeInOutCubic,
         ),
       ),
     );
@@ -98,7 +98,7 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
         curve: Interval(
           0.0,
           1.0,
-          curve: Curves.easeIn,
+          curve: Curves.easeInOutCubic,
         ),
       ),
     );
@@ -187,13 +187,13 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
                         SizedBox(
                           width: assignWidth(
                             context: context,
-                            fraction: 0.05,
+                            fraction: 0.025,
                           ),
                         ),
                         TrailingInfo(
                           width: assignWidth(
                             context: context,
-                            fraction: 0.05,
+                            fraction: 0.075,
                           ),
                           onLeadingWidgetPressed: () => Navigator.pushNamed(
                             context,
@@ -307,11 +307,18 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
                 ),
               );
             },
-            height: assignHeight(context: context, fraction: 0.45),
-            width: assignWidth(
-              context: context,
-              fraction: portfolioData[i].imageSize,
-            ),
+            height: isDisplaySmallDesktopOrIpadPro(context)
+                ? assignHeight(context: context, fraction: 0.3)
+                : assignHeight(context: context, fraction: 0.45),
+            width: isDisplaySmallDesktopOrIpadPro(context)
+                ? assignWidth(
+                    context: context,
+                    fraction: 0.3,
+                  )
+                : assignWidth(
+                    context: context,
+                    fraction: portfolioData[i].imageSize,
+                  ),
           ),
         ),
       );

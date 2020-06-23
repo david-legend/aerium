@@ -5,6 +5,7 @@ import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/presentation/widgets/sub_menu_item.dart';
 import 'package:portfoliosite/values/values.dart';
 import 'package:portfoliosite/core/extensions/hover_extensions.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 import 'experience_tree.dart';
 
@@ -102,8 +103,9 @@ class _SubMenuListState extends State<SubMenuList>
           AnimatedOpacity(
             opacity: menuAnimation.value,
             duration: _controller.duration,
-            child: Row(
+            child: Wrap(
 //              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              runSpacing: 8,
               children: [
                 ..._buildSubMenuList(widget.subMenuData),
               ],
@@ -150,7 +152,17 @@ class _SubMenuListState extends State<SubMenuList>
     for (var index = 0; index < menuData.length; index++) {
       if (menuData[index].isSelected) {
         if (menuData[index].isAnimation) {
-          return _buildSkillsSection(skills: menuData[index].skillData);
+          return ResponsiveBuilder(
+            builder: (context, sizingInformation) {
+              if (sizingInformation.screenSize.width > 900 &&
+                  sizingInformation.screenSize.width < 1170) {
+                return _buildSkillsSection(
+                    skills: menuData[index].skillData, width: widget.width / 3);
+              }
+              return _buildSkillsSection(
+                  skills: menuData[index].skillData, width: widget.width / 3.7);
+            },
+          );
         } else {
           return Text(
             menuData[index].content,
@@ -172,22 +184,27 @@ class _SubMenuListState extends State<SubMenuList>
     });
   }
 
-  Widget _buildSkillsSection({@required List<SkillData> skills}) {
+  Widget _buildSkillsSection(
+      {@required List<SkillData> skills, @required double width}) {
     List<Widget> skillWidgets = [];
     for (var index = 0; index < skills.length; index++) {
       skillWidgets.add(
         SkillLevel(
-          width: widget.width / 3.7,
+          width: width,
           skillLevel: skills[index].skillLevel,
           skillName: skills[index].skillName,
         ),
       );
     }
-    return Wrap(
-//      spacing: 8,
-      runSpacing: 8,
+    return ListView(
+      shrinkWrap: true,
       children: [
-        ...skillWidgets,
+        Wrap(
+          runSpacing: 16,
+          children: [
+            ...skillWidgets,
+          ],
+        ),
       ],
     );
   }

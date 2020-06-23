@@ -17,7 +17,7 @@ class ExperiencePage extends StatelessWidget {
     return Scaffold(
       body: ScreenTypeLayout(
         mobile: ExperiencePageMobile(),
-        tablet: ExperiencePageMobile(),
+        tablet: ExperiencePageDesktop(),
         desktop: ExperiencePageDesktop(),
       ),
     );

@@ -106,7 +106,7 @@ class _MenuItemState extends State<MenuItem> with TickerProviderStateMixin {
                       text: widget.title,
                       textColor: AppColors.primaryColor,
                       fadeInColor: AppColors.primaryColor,
-                      mainAxisAlignment: MainAxisAlignment.center,
+//                      mainAxisAlignment: MainAxisAlignment.center,
                       controller: _controller.view,
                       textStyle: !widget.selected
                           ? theme.textTheme.bodyText1.copyWith(

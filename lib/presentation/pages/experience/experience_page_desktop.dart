@@ -69,13 +69,13 @@ class _ExperiencePageDesktopState extends State<ExperiencePageDesktop> {
                     SizedBox(
                       width: assignWidth(
                         context: context,
-                        fraction: 0.05,
+                        fraction: 0.025,
                       ),
                     ),
                     TrailingInfo(
                       width: assignWidth(
                         context: context,
-                        fraction: 0.05,
+                        fraction: 0.075,
                       ),
                       onLeadingWidgetPressed: () => Navigator.pushNamed(
                         context,

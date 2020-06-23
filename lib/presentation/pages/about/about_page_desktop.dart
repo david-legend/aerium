@@ -150,7 +150,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
     );
     widthPositionOfImage = Tween<double>(
       begin: 0.5,
-      end: 0.3,
+      end: 0.1,
     ).animate(
       CurvedAnimation(
         parent: _controller,
@@ -197,7 +197,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
         curve: Interval(
           0.0,
           1.0,
-          curve: Curves.easeIn,
+          curve: Curves.easeInOutCubic,
         ),
       ),
     );
@@ -239,7 +239,10 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
 
   Widget _buildAnimation(BuildContext context, Widget child) {
     double heightOfImage = assignHeight(context: context, fraction: 1);
-    widthOfImage = assignWidth(context: context, fraction: 0.4);
+
+    widthOfImage = isDisplaySmallDesktopOrIpadPro(context)
+        ? 0.2
+        : assignWidth(context: context, fraction: 0.4);
     return Stack(
       children: <Widget>[
         Container(
@@ -284,11 +287,11 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
                         SizedBox(
                           width: assignWidth(
                             context: context,
-                            fraction: 0.05,
+                            fraction: 0.025,
                           ),
                         ),
                         TrailingInfo(
-                          width: assignWidth(context: context, fraction: 0.05),
+                          width: assignWidth(context: context, fraction: 0.075),
                           onLeadingWidgetPressed: () => Navigator.pushNamed(
                             context,
                             ContactPage.contactPageRoute,
@@ -316,12 +319,20 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
           ),
           child: Transform.scale(
             scale: scale.value,
-            child: Image.asset(
-              ImagePath.DEV,
-              width: widthOfImage,
-              height: heightOfImage,
-              fit: BoxFit.cover,
-            ),
+            child: isDisplaySmallDesktopOrIpadPro(context)
+                ? Container(
+//                    color: Colors.red,
+                    width: widthOfImage,
+                  )
+                : Container(
+//                    color: Colors.yellow,
+                    child: Image.asset(
+                      ImagePath.DEV,
+                      width: widthOfImage,
+                      height: heightOfImage,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
           ),
         ),
       ],
@@ -343,68 +354,75 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
   Widget aboutPageContent() {
     ThemeData theme = Theme.of(context);
 
-    return Container(
-      padding: EdgeInsets.only(
-        left: (widthOfImage / 2) + 20,
-        top: assignHeight(context: context, fraction: 0.12),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          FlickerTextAnimation(
-            text: StringConst.INTRO,
-            textColor: AppColors.primaryColor,
-            fadeInColor: AppColors.primaryColor,
-            controller: _flickerAnimationController.view,
-            textStyle: theme.textTheme.bodyText1.copyWith(
-              fontSize: Sizes.TEXT_SIZE_18,
-              fontWeight: FontWeight.w400,
-              color: AppColors.accentColor2,
-            ),
+    return ListView(
+      padding: EdgeInsets.all(Sizes.PADDING_0),
+      children: [
+        Container(
+          padding: EdgeInsets.only(
+            left: (widthOfImage / 2) + 20,
+            top: isDisplaySmallDesktopOrIpadPro(context)
+                ? assignHeight(context: context, fraction: 0.05)
+                : assignHeight(context: context, fraction: 0.12),
           ),
-          FlickerTextAnimation(
-            text: StringConst.DEV_NAME,
-            textColor: AppColors.primaryColor,
-            fadeInColor: AppColors.primaryColor,
-            fontSize: Sizes.TEXT_SIZE_34,
-            controller: _flickerAnimationController.view,
-          ),
-          _isSubtitleVisible
-              ? FlickerTextAnimation(
-                  text: StringConst.PUNCH_LINE,
-                  textColor: AppColors.primaryColor,
-                  fadeInColor: AppColors.primaryColor,
-                  controller: _flickerAnimationController2.view,
-                  textStyle: theme.textTheme.subtitle1.copyWith(
-                    fontSize: Sizes.TEXT_SIZE_34,
-                    color: AppColors.accentColor2,
-                  ),
-                )
-              : Container(),
-          SpaceH16(),
-          AnimatedOpacity(
-            opacity: _visible ? aboutDevAnimation.value : 0.0,
-            duration: _aboutDevAnimationController.duration,
-            child: Text(
-              StringConst.ABOUT_DEV_TEXT,
-              style: theme.textTheme.bodyText2.copyWith(
-                color: AppColors.black,
-                fontSize: Sizes.TEXT_SIZE_16,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              FlickerTextAnimation(
+                text: StringConst.INTRO,
+                textColor: AppColors.primaryColor,
+                fadeInColor: AppColors.primaryColor,
+                controller: _flickerAnimationController.view,
+                textStyle: theme.textTheme.bodyText1.copyWith(
+                  fontSize: Sizes.TEXT_SIZE_18,
+                  fontWeight: FontWeight.w400,
+                  color: AppColors.accentColor2,
+                ),
               ),
-            ),
+              FlickerTextAnimation(
+                text: StringConst.DEV_NAME,
+                textColor: AppColors.primaryColor,
+                fadeInColor: AppColors.primaryColor,
+                fontSize: Sizes.TEXT_SIZE_34,
+                controller: _flickerAnimationController.view,
+              ),
+              _isSubtitleVisible
+                  ? FlickerTextAnimation(
+                      text: StringConst.PUNCH_LINE,
+                      textColor: AppColors.primaryColor,
+                      fadeInColor: AppColors.primaryColor,
+                      controller: _flickerAnimationController2.view,
+                      textStyle: theme.textTheme.subtitle1.copyWith(
+                        fontSize: Sizes.TEXT_SIZE_34,
+                        color: AppColors.accentColor2,
+                      ),
+                    )
+                  : Container(),
+              SpaceH16(),
+              AnimatedOpacity(
+                opacity: _visible ? aboutDevAnimation.value : 0.0,
+                duration: _aboutDevAnimationController.duration,
+                child: Text(
+                  StringConst.ABOUT_DEV_TEXT,
+                  style: theme.textTheme.bodyText2.copyWith(
+                    color: AppColors.black,
+                    fontSize: Sizes.TEXT_SIZE_16,
+                  ),
+                ),
+              ),
+              SpaceH40(),
+              _isSubMenuListVisible
+                  ? SubMenuList(
+                      subMenuData: Data.subMenuData,
+                      width: assignWidth(
+                          context: context,
+                          fraction: 0.6,
+                          subs: (widthOfImage / 2) + 20),
+                    )
+                  : Container(),
+            ],
           ),
-          SpaceH40(),
-          _isSubMenuListVisible
-              ? SubMenuList(
-                  subMenuData: Data.subMenuData,
-                  width: assignWidth(
-                      context: context,
-                      fraction: 0.6,
-                      subs: (widthOfImage / 2) + 20),
-                )
-              : Container(),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

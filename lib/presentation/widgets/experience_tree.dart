@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfoliosite/core/layout/adaptive.dart';
 import 'package:portfoliosite/core/utils/functions.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/presentation/widgets/tree_painter.dart';
@@ -58,7 +59,10 @@ class ExperienceTree extends StatelessWidget {
             ),
           ),
           Column(
-            children: _buildExperienceBranches(experienceData),
+            children: _buildExperienceBranches(
+              context: context,
+              experienceData: experienceData,
+            ),
           ),
           Center(
             child: Container(
@@ -82,7 +86,10 @@ class ExperienceTree extends StatelessWidget {
     );
   }
 
-  List<Widget> _buildExperienceBranches(List<ExperienceData> experienceData) {
+  List<Widget> _buildExperienceBranches({
+    @required BuildContext context,
+    @required List<ExperienceData> experienceData,
+  }) {
     List<Widget> branchWidgets = [];
     for (var index = 0; index < experienceData.length; index++) {
       branchWidgets.add(
@@ -94,6 +101,9 @@ class ExperienceTree extends StatelessWidget {
           location: experienceData[index].location,
           duration: experienceData[index].duration,
           width: widthOfTree,
+          height: isDisplaySmallDesktop(context)
+              ? assignHeight(context: context, fraction: 0.35)
+              : assignHeight(context: context, fraction: 0.20),
         ),
       );
     }

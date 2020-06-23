@@ -13,7 +13,7 @@ class FlickerTextAnimation extends StatefulWidget {
     this.textStyle,
     this.start,
     this.end,
-    this.mainAxisAlignment = MainAxisAlignment.start,
+    this.wrapAlignment = WrapAlignment.start,
     this.fontSize = Sizes.TEXT_SIZE_18,
   })  : color = ColorTween(
           begin: textColor,
@@ -54,7 +54,7 @@ class FlickerTextAnimation extends StatefulWidget {
 
   final double start;
   final double end;
-  final MainAxisAlignment mainAxisAlignment;
+  final WrapAlignment wrapAlignment;
 
   @override
   _FlickerTextAnimationState createState() => _FlickerTextAnimationState();
@@ -88,8 +88,10 @@ class _FlickerTextAnimationState extends State<FlickerTextAnimation> {
   Widget _buildAnimation(BuildContext context, Widget child) {
     ThemeData theme = Theme.of(context);
     return Container(
-      child: Row(
-        mainAxisAlignment: widget.mainAxisAlignment,
+      child: Wrap(
+        alignment: widget.wrapAlignment,
+        spacing: 0,
+        runSpacing: 0,
         children: [
           Text(
             isAnimating ? widget.title.value.toString() : widget.text,
@@ -97,7 +99,6 @@ class _FlickerTextAnimationState extends State<FlickerTextAnimation> {
                 theme.textTheme.headline6.copyWith(
                   color: widget.color.value,
                   fontSize: widget.fontSize,
-//                  fontWeight:
                 ),
           )
         ],

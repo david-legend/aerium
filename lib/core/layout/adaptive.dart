@@ -39,7 +39,7 @@ bool isDisplaySmallDesktop(BuildContext context) {
 }
 
 bool isDisplaySmallDesktopOrIpadPro(BuildContext context) {
-  return isDisplayDesktop(context) ||
+  return isDisplaySmallDesktop(context) ||
       (MediaQuery.of(context).size.width > ipadProBreakpoint &&
           MediaQuery.of(context).size.width < 1170);
 }

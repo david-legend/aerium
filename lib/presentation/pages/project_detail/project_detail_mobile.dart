@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
 import 'package:portfoliosite/core/utils/functions.dart';
@@ -229,6 +230,27 @@ class _ProjectDetailMobileState extends State<ProjectDetailMobile>
                       ),
                     ),
                     SpaceH8(),
+                    Text(
+                      StringConst.BUILT_WITH +
+                          widget.projectDetails.technologyUsed,
+                      style: theme.textTheme.headline6.copyWith(
+                        color: AppColors.primaryColor,
+                        fontSize: Sizes.TEXT_SIZE_14,
+                      ),
+                    ),
+                    SpaceH8(),
+                    !widget.projectDetails.hasBeenReleased
+                        ? Text(
+                            StringConst.COMING_SOON,
+                            style: theme.textTheme.headline6.copyWith(
+                              color: AppColors.primaryColor,
+                              fontSize: Sizes.TEXT_SIZE_16,
+                            ),
+                          )
+                        : Container(),
+                    !widget.projectDetails.hasBeenReleased
+                        ? SpaceH8()
+                        : Container(),
                     Wrap(
                       spacing: 8,
                       runSpacing: 8,
@@ -242,28 +264,37 @@ class _ProjectDetailMobileState extends State<ProjectDetailMobile>
                                 },
                               )
                             : Container(),
+                        widget.projectDetails.isOnPlayStore
+                            ? InkWell(
+                                onTap: () {
+                                  Functions.launchUrl(
+                                    widget.projectDetails.playStoreUrl,
+                                  );
+                                },
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.all(Sizes.PADDING_8),
+                                  child: Image.asset(
+                                    ImagePath.PLAYSTORE,
+                                    width: 24,
+                                    height: 24,
+                                  ),
+                                ),
+                              )
+                            : Container(),
                         widget.projectDetails.isLive
                             ? SocialButton(
                                 //web
                                 icon: FontAwesomeIcons.internetExplorer,
                                 onPressed: () {
                                   Functions.launchUrl(
-                                      widget.projectDetails.webUrl);
-                                },
-                              )
-                            : Container(),
-                        widget.projectDetails.isOnPlayStore
-                            ? SocialButton(
-                                //playstore
-                                icon: FontAwesomeIcons.github,
-                                onPressed: () {
-                                  Functions.launchUrl(
-                                      widget.projectDetails.playStoreUrl);
+                                    widget.projectDetails.webUrl,
+                                  );
                                 },
                               )
                             : Container(),
                       ],
-                    )
+                    ),
                   ],
                 ),
               )

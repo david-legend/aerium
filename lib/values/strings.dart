@@ -19,6 +19,8 @@ class StringConst {
   static const String MESSAGE_ME = "Message me";
   static const String GET_IN_TOUCH = "Get in touch";
   static const String VIEW = "View";
+  static const String COMING_SOON = "COMING SOON !!";
+  static const String BUILT_WITH = "Built with ";
 
   static const String KEY_SKILLS = "KEY SKILLS";
   static const String EXPERIENCE_2 = "EXPERIENCE";
@@ -147,35 +149,36 @@ class StringConst {
   static const String LOGIN_CATALOG_SUBTITLE =
       "A beautiful catalog of login designs";
   static const String LOGIN_CATALOG_DETAIL =
-      "A beautiful cataalog of login designs";
+      "Login Catalog is a beautiful catalog of login designs built with flutter. The goal is to catalog as many as a 1000 different login/Signup designs to help flutter devs get right to the most important part of their app. Another reason behind the project is to show that flutter can be used to build beautiful and exquisite UI.";
   static const String LOGIN_CATALOG_GITHUB_URL =
       "https://github.com/david-legend/login_catalog";
 
   static const String VYBZ = "Vybz";
   static const String VYBZ_SUBTITLE =
       "An app that enlist all tourist sites, restaurants etc.";
-  static const String VYBZ_DETAIL = "A beautiful catalog of login designs";
+  static const String VYBZ_DETAIL =
+      "Vybz is a very handy app for all outgoing and adventurous people. The app lists all the popular and favorites tourist sites, restaurants etc. in the country. This app was a collaboration between David Cobbina and Joseph Cobbina (Founder, CEO of Petamindz (https://petamindz.com/)).";
   static const String VYBZ_PLAYSTORE_URL = "";
 
   static const String COLOSSAL_TOONS = "Colossal Toons";
   static const String COLOSSAL_TOONS_SUBTITLE =
       "CT is an app for watching very creative and entertaining animations.";
   static const String COLOSSAL_TOONS_DETAIL =
-      "A beautiful cataalog of login designs";
+      "Colossal Toons is an animation production company that create exciting and fun to watch animations. The purpose of the app is to help centralize all the animations and stories made by the company. The app is also an easy and convenient way to let all the Colossal Toons fans out there get access to. This app was worked by David Cobbina, Stephen Opoku (https://www.linkedin.com/in/stephen-opoku-damoah/) and Eric Asare (https://www.linkedin.com/in/eric-asare-2550a7142/). ";
   static const String COLOSSAL_TOONS_PLAYSTORE_URL = "";
 
   static const String FOODY_BITE = "FoodyBite";
   static const String FOODY_BITE_SUBTITLE =
       "A useful free ui kit design for food related apps";
   static const String FOODY_BITE_DETAIL =
-      "A beautiful cataalog of login designs";
+      "Foodybite is a free ui kit designed by Yagnesh Pipariya and built by David Cobbina. The goal of this project is to fast track development and inspire developers who want to build a food related app. FoodyBite was beautifully crafted with flutter. You can find the foodybite designs at https://www.behance.net/gallery/81858385/Foodybite-Free-UI-Kit-for-Adobe-XD";
   static const String FOODY_BITE_GITHUB_URL =
       "https://github.com/david-legend/foodybite";
 
   static const String ONBOARDING_APP = "Onboarding App";
   static const String ONBOARDING_APP_SUBTITLE = "An onboarding experience app";
   static const String ONBOARDING_APP_DETAIL =
-      "A beautiful cataalog of login designs";
+      "Onboarding app is an app that takes you through an elegant onboarding experience. It helps the user understand the basic functionality of the app before using it and its free to use. Check it out on my github page";
   static const String ONBOARDING_APP_GITHUB_URL =
       "https://github.com/david-legend/onboarding-app";
 
@@ -183,7 +186,7 @@ class StringConst {
   static const String OTP_TEXT_FIELD_SUBTITLE =
       "A useful flutter package for helping with otp";
   static const String OTP_TEXT_FIELD_DETAIL =
-      "A beautiful cataalog of login designs";
+      "Otp text field is a simple flutter package built to help flutter devs easily implement OTP in their app. It is highly customizable and very easy to use.";
   static const String OTP_TEXT_FIELD_GITHUB_URL =
       "https://github.com/david-legend/otp_textfield";
   static const String OTP_TEXT_FIELD_WEB_URL =
@@ -192,7 +195,8 @@ class StringConst {
   static const String FINOPP = "Finopp";
   static const String FINOPP_SUBTITLE =
       "A conceptual app that helps investors find viable businesses to invest in.";
-  static const String FINOPP_DETAIL = "A beautiful catalog of login designs";
+  static const String FINOPP_DETAIL =
+      "Finopp is an app concept that was showcased by me and my team member Kwabena Adu Darkwa (https://www.linkedin.com/in/kwabenaadudarkwa/) at the African App Launchpad Cup which was held in Egypt, on December 2019. Finopp helps bridge the gap between Investors and business owners. It helps investors find viable businesses to invest in and vice versa.";
   static const String FINOPP_GITHUB_URL =
       "https://github.com/david-legend/finopp";
 
@@ -200,29 +204,29 @@ class StringConst {
   static const String FLUTTER_CATALOG_SUBTITLE =
       "A beautiful cataalog of login designs";
   static const String FLUTTER_CATALOG_DETAIL =
-      "A beautiful cataalog of login designs";
+      "Flutter Catalog is a beautiful catalog of designs built with flutter. The goal is to catalog different components and building blocks of a mobile app to help flutter devs get right to the most important part of their app. Another reason behind the project is to show that flutter can be used to build beautiful and exquisite UI.";
   static const String FLUTTER_CATALOG_GITHUB_URL = "";
 
   static const String BEQUIP_LOGISTICS = "B-equip Logistics";
   static const String BEQUIP_LOGISTICS_SUBTITLE =
       "Beautifully designed website that expresses the services provided by the company.";
   static const String BEQUIP_LOGISTICS_DETAIL =
-      "A beautiful cataalog of login designs";
+      "B-equip is well established technical support company registered in Ghana. The company is well versed in CAT machine repairs, troubleshooting, component change out, mid-life service and more. This website was built to show their services and portfolio.";
   static const String BEQUIP_LOGISTICS_WEB_URL = "http://bequiplogisticsgh.com";
 
   static const String AERIUM = "Aerium";
   static const String AERIUM_SUBTITLE =
       "A progressive web app for showcasing your portfolio.";
-  static const String AERIUM_DETAIL = "A beautiful cataalog of login designs";
+  static const String AERIUM_DETAIL =
+      "As you can tell, you're currently on Aerium right now. Aerium is an elegant progressive web app built to help developers tell their story by showcasing their works and skills.";
   static const String AERIUM_GITHUB_URL =
       "https://github.com/david-legend/aerium";
   static const String AERIUM_WEB_URL = "https://davidcobbina.dev";
 
   static const String LEARN_UPP = "LearnUpp";
-  static const String LEARN_UPP_SUBTITLE =
-      "Beautifully designed website that expresses the services provided by the company.";
+  static const String LEARN_UPP_SUBTITLE = "A Learning app concept";
   static const String LEARN_UPP_DETAIL =
-      "A beautiful cataalog of login designs";
+      "LearnUpp is a learning app concept that was designed by Georgina Sekyi (https://www.linkedin.com/in/georgina-sekyi-050932175/). It is a fun project that I am currently working on with flutter. The project is out in the open for anyone to take it to the next step.";
   static const String LEARN_UPP_GITHUB_URL =
       "https://github.com/david-legend/learnUpp";
 

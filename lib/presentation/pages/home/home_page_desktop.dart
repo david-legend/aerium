@@ -160,9 +160,10 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                           child: Image.asset(
                             ImagePath.DEV,
                             width: (image.width + 100.0),
-                            height: assignHeight(context: context, fraction: 1),
+                            height:
+                                assignHeight(context: context, fraction: 1.0),
                             fit: BoxFit.cover,
-                            scale: 2.0,
+                            scale: 1.0,
                           ),
                         ),
                       );
@@ -172,7 +173,7 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                   },
                 )
               : Positioned(
-                  top: assignHeight(context: context, fraction: 0.0),
+                  top: assignHeight(context: context, fraction: 0.1),
                   left: assignWidth(context: context, fraction: 0.5) -
                       widthOfImage / 2,
                   child: Container(

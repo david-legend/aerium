@@ -111,6 +111,9 @@ class _PortfolioPageMobileState extends State<PortfolioPageMobile>
                       isLive: Data.portfolioData[index].isLive,
                       isOnPlayStore: Data.portfolioData[index].isOnPlayStore,
                       gitHubUrl: Data.portfolioData[index].gitHubUrl,
+                      hasBeenReleased:
+                          Data.portfolioData[index].hasBeenReleased,
+                      technologyUsed: Data.portfolioData[index].technologyUsed,
                       playStoreUrl: Data.portfolioData[index].playStoreUrl,
                       webUrl: Data.portfolioData[index].webUrl,
                     ),

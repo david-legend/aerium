@@ -150,7 +150,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
     );
     widthPositionOfImage = Tween<double>(
       begin: 0.5,
-      end: 0.1,
+      end: 0.3,
     ).animate(
       CurvedAnimation(
         parent: _controller,
@@ -163,7 +163,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
     );
     heightPositionOfImage = Tween<double>(
       begin: 0.4,
-      end: 0.0,
+      end: 0.1,
     ).animate(
       CurvedAnimation(
         parent: _controller,

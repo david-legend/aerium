@@ -18,6 +18,8 @@ class ImagePath {
   static const String BEQUIP_LOGISTICS = "$imageDir/bequip_logistics.jpg";
   static const String AERIUM = "$imageDir/aerium.jpg";
   static const String LEARN_UPP = "$imageDir/learn_upp.jpg";
+
+  static const String PLAYSTORE = "$imageDir/playstore.png";
 //  static const String FLUTTER_CATALOG = "$imageDir/onboarding_app.png";
 
   //Certifications

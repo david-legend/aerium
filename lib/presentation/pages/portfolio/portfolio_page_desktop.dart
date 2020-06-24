@@ -32,7 +32,7 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
   @override
   void initState() {
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 700),
+      duration: const Duration(milliseconds: 800),
       vsync: this,
     );
     _portfolioController = AnimationController(
@@ -85,7 +85,7 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
         curve: Interval(
           0.0,
           1.0,
-          curve: Curves.easeInOutCubic,
+          curve: Curves.easeInOutSine,
         ),
       ),
     );
@@ -98,7 +98,7 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
         curve: Interval(
           0.0,
           1.0,
-          curve: Curves.easeInOutCubic,
+          curve: Curves.easeIn,
         ),
       ),
     );
@@ -302,6 +302,8 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
                   isLive: portfolioData[i].isLive,
                   isOnPlayStore: portfolioData[i].isOnPlayStore,
                   gitHubUrl: portfolioData[i].gitHubUrl,
+                  hasBeenReleased: portfolioData[i].hasBeenReleased,
+                  technologyUsed: portfolioData[i].technologyUsed,
                   playStoreUrl: portfolioData[i].playStoreUrl,
                   webUrl: portfolioData[i].webUrl,
                 ),

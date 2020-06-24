@@ -33,11 +33,13 @@ class ProjectDetails {
     @required this.projectImage,
     @required this.projectName,
     @required this.projectDescription,
+    this.technologyUsed,
     this.isPublic,
     this.isLive,
     this.isOnPlayStore,
     this.playStoreUrl,
     this.webUrl,
+    this.hasBeenReleased,
     this.gitHubUrl,
   });
 
@@ -47,9 +49,11 @@ class ProjectDetails {
   final bool isPublic;
   final bool isOnPlayStore;
   final bool isLive;
+  final bool hasBeenReleased;
   final String playStoreUrl;
   final String gitHubUrl;
   final String webUrl;
+  final String technologyUsed;
 }
 
 class PortfolioData {
@@ -59,10 +63,12 @@ class PortfolioData {
     @required this.imageSize,
     @required this.subtitle,
     @required this.portfolioDescription,
+    this.technologyUsed,
     this.isPublic = false,
     this.isOnPlayStore = false,
     this.isLive = false,
     this.gitHubUrl = "",
+    this.hasBeenReleased = true,
     this.playStoreUrl = "",
     this.webUrl = "",
   });
@@ -73,11 +79,13 @@ class PortfolioData {
   final String title;
   final String subtitle;
   final bool isPublic;
+  final bool hasBeenReleased;
   final String gitHubUrl;
   final bool isOnPlayStore;
   final String playStoreUrl;
   final bool isLive;
   final String webUrl;
+  final String technologyUsed;
 }
 
 class ExperienceData {
@@ -182,6 +190,8 @@ class Data {
       portfolioDescription: StringConst.VYBZ_DETAIL,
       imageSize: 0.15,
       isOnPlayStore: true,
+      hasBeenReleased: false,
+      technologyUsed: StringConst.FLUTTER,
       playStoreUrl: StringConst.VYBZ_PLAYSTORE_URL,
     ),
     PortfolioData(
@@ -191,6 +201,8 @@ class Data {
       portfolioDescription: StringConst.COLOSSAL_TOONS_DETAIL,
       imageSize: 0.15,
       isOnPlayStore: true,
+      hasBeenReleased: false,
+      technologyUsed: StringConst.FLUTTER,
       playStoreUrl: StringConst.COLOSSAL_TOONS_PLAYSTORE_URL,
     ),
     PortfolioData(
@@ -200,6 +212,7 @@ class Data {
       portfolioDescription: StringConst.LOGIN_CATALOG_DETAIL,
       imageSize: 0.3,
       isPublic: true,
+      technologyUsed: StringConst.FLUTTER,
       gitHubUrl: StringConst.LOGIN_CATALOG_GITHUB_URL,
     ),
     PortfolioData(
@@ -209,6 +222,7 @@ class Data {
       portfolioDescription: StringConst.FOODY_BITE_DETAIL,
       imageSize: 0.45,
       isPublic: true,
+      technologyUsed: StringConst.FLUTTER,
       gitHubUrl: StringConst.FOODY_BITE_GITHUB_URL,
     ),
     PortfolioData(
@@ -218,6 +232,7 @@ class Data {
       portfolioDescription: StringConst.ONBOARDING_APP_DETAIL,
       imageSize: 0.15,
       isPublic: true,
+      technologyUsed: StringConst.FLUTTER,
       gitHubUrl: StringConst.FOODY_BITE_GITHUB_URL,
     ),
     PortfolioData(
@@ -227,6 +242,7 @@ class Data {
       portfolioDescription: StringConst.BEQUIP_LOGISTICS_DETAIL,
       imageSize: 0.3,
       isLive: true,
+      technologyUsed: StringConst.WORDPRESS,
       webUrl: StringConst.BEQUIP_LOGISTICS_WEB_URL,
     ),
     PortfolioData(
@@ -236,6 +252,7 @@ class Data {
       portfolioDescription: StringConst.FINOPP_DETAIL,
       imageSize: 0.15,
       isPublic: true,
+      technologyUsed: StringConst.FLUTTER,
       gitHubUrl: StringConst.FINOPP_GITHUB_URL,
     ),
     PortfolioData(
@@ -246,6 +263,7 @@ class Data {
       imageSize: 0.15,
       isPublic: true,
       isLive: true,
+      technologyUsed: StringConst.FLUTTER,
       gitHubUrl: StringConst.OTP_TEXT_FIELD_GITHUB_URL,
       webUrl: StringConst.OTP_TEXT_FIELD_WEB_URL,
     ),
@@ -257,6 +275,7 @@ class Data {
       imageSize: 0.3,
       isPublic: true,
       isLive: true,
+      technologyUsed: StringConst.FLUTTER,
       gitHubUrl: StringConst.AERIUM_GITHUB_URL,
       webUrl: StringConst.AERIUM_WEB_URL,
     ),
@@ -267,6 +286,7 @@ class Data {
       portfolioDescription: StringConst.LEARN_UPP_DETAIL,
       imageSize: 0.3,
       isPublic: true,
+      technologyUsed: StringConst.FLUTTER,
       gitHubUrl: StringConst.LEARN_UPP_GITHUB_URL,
     ),
   ];

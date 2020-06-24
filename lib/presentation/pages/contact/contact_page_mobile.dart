@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfoliosite/application/email/email_bloc.dart';
 import 'package:portfoliosite/core/utils/functions.dart';
 import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
-import 'package:portfoliosite/presentation/widgets/circular_container.dart';
 import 'package:portfoliosite/presentation/widgets/contact_form.dart';
 import 'package:portfoliosite/presentation/widgets/contact_info.dart';
 import 'package:portfoliosite/presentation/widgets/custom_app_bar.dart';
-import 'package:portfoliosite/presentation/widgets/custom_text_form_field.dart';
 import 'package:portfoliosite/presentation/widgets/socials.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
@@ -19,6 +19,22 @@ class ContactPageMobile extends StatefulWidget {
 
 class _ContactPageMobileState extends State<ContactPageMobile> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
+  EmailBloc _emailBloc;
+  TextEditingController _emailController;
+  TextEditingController _messageController;
+  TextEditingController _phoneNumberController;
+  TextEditingController _nameController;
+
+  @override
+  void initState() {
+    _emailBloc = BlocProvider.of<EmailBloc>(context);
+    _emailController = TextEditingController();
+    _messageController = TextEditingController();
+    _phoneNumberController = TextEditingController();
+    _nameController = TextEditingController();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
@@ -90,10 +106,16 @@ class _ContactPageMobileState extends State<ContactPageMobile> {
                   padding: const EdgeInsets.symmetric(
                     horizontal: Sizes.PADDING_16,
                   ),
+                  controllers: [
+                    _nameController,
+                    _phoneNumberController,
+                    _emailController,
+                    _messageController,
+                  ],
                 ),
                 SpaceH30(),
                 SendMessageButton(
-                  onPressed: () {},
+                  onPressed: () => sendEmail(),
                 ),
                 SpaceH20(),
                 Text(
@@ -149,6 +171,17 @@ class _ContactPageMobileState extends State<ContactPageMobile> {
           },
         ),
       ],
+    );
+  }
+
+  void sendEmail() {
+    _emailBloc.add(
+      EmailEvent.sendEmail(
+        email: _emailController.text,
+        message: _messageController.text,
+        phoneNumber: _phoneNumberController.text,
+        name: _nameController.text,
+      ),
     );
   }
 }

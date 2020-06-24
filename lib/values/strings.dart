@@ -2,7 +2,8 @@ part of values;
 
 class StringConst {
   //strings
-  static const String APP_NAME = "Portfolio Site";
+  static const String APP_NAME = "Aerium";
+  static const String APP_TITLE = "David Cobbina Portfolio";
   static const String SITE_URL = "https://davidcobbina.dev";
 
   static const String HOME = "Home";
@@ -260,4 +261,9 @@ class StringConst {
 
   static const String CIRCE = "Circe";
   static const String PROXIMA_NOVA = "ProximaNova";
+
+  //API
+  static const String BASE_URL =
+      "https://asqbx1u5bg.execute-api.us-east-1.amazonaws.com/production/";
+  static const String SEND_END_POINT = "send";
 }

@@ -9,9 +9,11 @@ class ContactForm extends StatelessWidget {
   ContactForm({
     this.padding,
     this.maxLines = 12,
+    this.controllers,
   });
 
   final EdgeInsetsGeometry padding;
+  final List<TextEditingController> controllers;
   final int maxLines;
 
   @override
@@ -24,6 +26,7 @@ class ContactForm extends StatelessWidget {
             filled: true,
             fillColor: AppColors.grey100,
             hintText: StringConst.NAME_HINT_TEXT,
+            controller: controllers[0],
           ),
           SpaceH16(),
           CustomTextFormField(
@@ -31,6 +34,7 @@ class ContactForm extends StatelessWidget {
             fillColor: AppColors.grey100,
             hintText: StringConst.PHONE_HINT_TEXT,
             textInputType: TextInputType.phone,
+            controller: controllers[1],
           ),
           SpaceH16(),
           CustomTextFormField(
@@ -38,6 +42,7 @@ class ContactForm extends StatelessWidget {
             fillColor: AppColors.grey100,
             hintText: StringConst.EMAIL_HINT_TEXT,
             textInputType: TextInputType.emailAddress,
+            controller: controllers[2],
           ),
           SpaceH16(),
           CustomTextFormField(
@@ -45,6 +50,7 @@ class ContactForm extends StatelessWidget {
             fillColor: AppColors.grey100,
             hintText: StringConst.MESSAGE_HINT_TEXT,
             maxLines: maxLines,
+            controller: controllers[3],
           ),
         ],
       ),

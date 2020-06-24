@@ -27,12 +27,14 @@ dependencies:
   google_fonts: ^1.1.0
   get_it: ^4.0.2
   responsive_builder: ^0.2.0+2
-  #  auto_route: ^0.5.0
   font_awesome_flutter: ^8.8.1
   url_launcher: ^5.4.10
   universal_html: ^1.2.3
   flutter_feather_icons: ^1.0.3
-  flutter_svg: ^0.18.0
+  flutter_bloc: ^4.0.1
+  freezed_annotation: ^0.7.1
+  dartz: ^0.9.1
+  flushbar: ^1.10.4
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -43,7 +45,7 @@ dev_dependencies:
     sdk: flutter
 
   build_runner:
-  auto_route_generator: ^0.5.0
+  freezed: ^0.10.6
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

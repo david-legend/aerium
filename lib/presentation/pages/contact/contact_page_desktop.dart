@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfoliosite/application/email/email_bloc.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
 import 'package:portfoliosite/core/utils/functions.dart';
 import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
@@ -11,6 +13,7 @@ import 'package:portfoliosite/presentation/widgets/socials.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/presentation/widgets/trailing_info.dart';
 import 'package:portfoliosite/values/values.dart';
+import 'package:universal_html/html.dart';
 
 class ContactPageDesktop extends StatefulWidget {
   @override
@@ -18,8 +21,19 @@ class ContactPageDesktop extends StatefulWidget {
 }
 
 class _ContactPageDesktopState extends State<ContactPageDesktop> {
+  EmailBloc _emailBloc;
+  TextEditingController _emailController;
+  TextEditingController _messageController;
+  TextEditingController _phoneNumberController;
+  TextEditingController _nameController;
+
   @override
   void initState() {
+    _emailBloc = BlocProvider.of<EmailBloc>(context);
+    _emailController = TextEditingController();
+    _messageController = TextEditingController();
+    _phoneNumberController = TextEditingController();
+    _nameController = TextEditingController();
     super.initState();
   }
 
@@ -87,6 +101,12 @@ class _ContactPageDesktopState extends State<ContactPageDesktop> {
                               ),
                               middleWidget: ContactForm(
                                 maxLines: 15,
+                                controllers: [
+                                  _nameController,
+                                  _phoneNumberController,
+                                  _emailController,
+                                  _messageController,
+                                ],
                                 padding: EdgeInsets.only(
                                   left: assignWidth(
                                     context: context,
@@ -95,7 +115,7 @@ class _ContactPageDesktopState extends State<ContactPageDesktop> {
                                 ),
                               ),
                               trailingWidget: SendMessageButton(
-                                onPressed: () {},
+                                onPressed: () => sendEmail(),
                               ),
                               spacingWidget:
                                   isDisplaySmallDesktopOrIpadPro(context)
@@ -186,6 +206,17 @@ class _ContactPageDesktopState extends State<ContactPageDesktop> {
             ],
           )
         ],
+      ),
+    );
+  }
+
+  void sendEmail() {
+    _emailBloc.add(
+      EmailEvent.sendEmail(
+        email: _emailController.text,
+        message: _messageController.text,
+        phoneNumber: _phoneNumberController.text,
+        name: _nameController.text,
       ),
     );
   }

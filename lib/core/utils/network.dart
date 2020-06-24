@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 
 class Network {
   final http.Client client = http.Client();
+
   Future<int> fetchRepoStargazersCount(String repoName) async {
     final response = await client.get(
       "https://api.github.com/repos/david-legend/$repoName/stargazers?per_page=10000000",

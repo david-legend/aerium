@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
 import 'package:portfoliosite/core/utils/functions.dart';
-import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
 import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
 import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/custom_app_bar.dart';
 import 'package:portfoliosite/presentation/widgets/flicker_text_animation.dart';
 import 'package:portfoliosite/presentation/widgets/project_cover.dart';
-import 'package:portfoliosite/presentation/widgets/project_cover_2.dart';
 import 'package:portfoliosite/presentation/widgets/socials.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';

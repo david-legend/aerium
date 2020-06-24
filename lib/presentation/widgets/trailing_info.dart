@@ -8,6 +8,7 @@ class TrailingInfo extends StatelessWidget {
     this.leadingWidget,
     this.middleWidget,
     this.trailingWidget,
+    this.spacingWidget,
     this.padding,
     this.info = StringConst.DEV_EMAIL,
     this.width,
@@ -20,6 +21,7 @@ class TrailingInfo extends StatelessWidget {
   final Widget leadingWidget;
   final Widget middleWidget;
   final Widget trailingWidget;
+  final Widget spacingWidget;
   final EdgeInsetsGeometry padding;
   final String info;
   final double width;
@@ -57,7 +59,7 @@ class TrailingInfo extends StatelessWidget {
                   ),
                 ),
           ).showCursorOnHover,
-          Spacer(flex: 1),
+          spacingWidget ?? Spacer(flex: 1),
           middleWidget ??
               RotatedBox(
                 quarterTurns: 1,
@@ -70,7 +72,7 @@ class TrailingInfo extends StatelessWidget {
                   ),
                 ),
               ),
-          Spacer(flex: 1),
+          spacingWidget ?? Spacer(flex: 1),
           InkWell(
             onTap: onTrailingWidgetPressed,
             child: trailingWidget ??

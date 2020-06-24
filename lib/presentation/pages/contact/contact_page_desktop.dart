@@ -97,6 +97,10 @@ class _ContactPageDesktopState extends State<ContactPageDesktop> {
                               trailingWidget: SendMessageButton(
                                 onPressed: () {},
                               ),
+                              spacingWidget:
+                                  isDisplaySmallDesktopOrIpadPro(context)
+                                      ? SpaceH30()
+                                      : SpaceH44(),
                             )
                           ],
                         ),

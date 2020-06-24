@@ -3,6 +3,7 @@ part of values;
 class StringConst {
   //strings
   static const String APP_NAME = "Portfolio Site";
+  static const String SITE_URL = "https://davidcobbina.dev";
 
   static const String HOME = "Home";
   static const String ABOUT_ME = "About Me";
@@ -116,33 +117,60 @@ class StringConst {
   //Experience
   static const String CURRENT_MONTH_YEAR = "May 2020 - Current";
   static const String STARTED_MONTH_YEAR = "May 2017";
+
   static const String COMPANY_1 = "Makedu";
+  static const String COMPANY_1_URL = "https://bewsys.com/";
   static const String POSITION_1 = "Software Engineer Intern";
-  static const String ROLE_1 =
-      "Collaborated with team members to create application system analysis based on customer specifications";
+  static const String COMPANY_1_ROLE_1 =
+      "Built a Quiz app under the supervision of software engineers using PHP and Javascript";
+  static const String COMPANY_1_ROLE_2 =
+      "Architected and implemented the Back-end and Front-end of a Web application used for receiving complaints and feedback from other live apps.";
+  static const String COMPANY_1_ROLE_3 =
+      "Learnt about Database programming and SQL";
   static const String LOCATION_1 = "Aprade - Kumasi";
   static const String DURATION_1 = "May 2017 - July 2017";
 
   static const String COMPANY_2 = "Shrinq";
+  static const String COMPANY_2_URL = "https://shrinqghana.com/";
   static const String POSITION_2 = "Software Engineer";
-  static const String ROLE_2 =
-      "Collaborated with team members to create application system analysis based on customer specifications";
+  static const String COMPANY_2_ROLE_1 =
+      "Proposed and implemented scalable solutions to issues identified in web applications.";
+  static const String COMPANY_2_ROLE_2 =
+      "Built a mobile application used to verify the authenticity of an ID to help deter fraud and provide fast and seamless customer experience";
+  static const String COMPANY_2_ROLE_3 =
+      "Developed highly interactive mobile applications for Vodafone Ghana using Java Android";
+  static const String COMPANY_2_ROLE_4 =
+      "Developed and maintained code for in-house and client applications using primarily using HTML, CSS, JavaScript, PHP and Laravel";
   static const String LOCATION_2 = "Asylum Down - Accra";
   static const String DURATION_2 = "April 2018 - June 2019";
 
   static const String COMPANY_3 = "Bewsys";
+  static const String COMPANY_3_URL = "https://bewsys.com/";
   static const String POSITION_3 = "Software Engineer";
-  static const String ROLE_3 =
-      "Collaborated with team members to create application system analysis based on customer specifications";
+  static const String COMPANY_3_ROLE_1 =
+      "Worked with a team of two Software to build a management system for the National Prisons Service Of South Sudan";
+  static const String COMPANY_3_ROLE_2 =
+      "Interfaced with clients on a weekly basis, providing technological expertise";
+  static const String COMPANY_3_ROLE_3 =
+      "Modified existing software to correct errors, upgrade interfaces and improve performance";
+  static const String COMPANY_3_ROLE_4 =
+      "Interfaced with user experience designers and other developers to ensure thoughtful and coherent user experiences across web and mobile applications.";
   static const String LOCATION_3 = "East Legon - Accra";
   static const String DURATION_3 = "August 2019 - April 2020";
 
-  static const String COMPANY_4 = "FreeLancer";
+  static const String COMPANY_4 = "Freelancer";
+  static const String COMPANY_4_URL = SITE_URL;
   static const String POSITION_4 = "Software Engineer";
-  static const String ROLE_4 =
-      "Collaborated with team members to create application system analysis based on customer specifications";
-  static const String LOCATION_4 = "East Legon - Accra";
-  static const String DURATION_4 = "August 2019 - April 2020";
+  static const String COMPANY_4_ROLE_1 =
+      "Work collaboratively with a user experience designer to bring mobile and progressive apps to life using Flutter.";
+  static const String COMPANY_4_ROLE_2 =
+      "Write modern, performant, maintainable code for a clients and personal open source projects";
+  static const String COMPANY_4_ROLE_3 =
+      "Work with a variety of different languages, platforms, frameworks, and content management systems such as Dart, JavaScript, PHP, Flutter, Laravel, Wordpress, and Bootstrap";
+  static const String COMPANY_4_ROLE_4 =
+      "Interface with clients and provide technological expertise";
+  static const String LOCATION_4 = "Santase - Kumasi";
+  static const String DURATION_4 = "May 2020 - Current";
 
   //Portfolio, Projects
   static const String LOGIN_CATALOG = "Login Catalog";
@@ -221,7 +249,7 @@ class StringConst {
       "As you can tell, you're currently on Aerium right now. Aerium is an elegant progressive web app built to help developers tell their story by showcasing their works and skills.";
   static const String AERIUM_GITHUB_URL =
       "https://github.com/david-legend/aerium";
-  static const String AERIUM_WEB_URL = "https://davidcobbina.dev";
+  static const String AERIUM_WEB_URL = SITE_URL;
 
   static const String LEARN_UPP = "LearnUpp";
   static const String LEARN_UPP_SUBTITLE = "A Learning app concept";

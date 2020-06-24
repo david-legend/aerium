@@ -102,8 +102,8 @@ class ExperienceTree extends StatelessWidget {
           duration: experienceData[index].duration,
           width: widthOfTree,
           height: isDisplaySmallDesktop(context)
-              ? assignHeight(context: context, fraction: 0.35)
-              : assignHeight(context: context, fraction: 0.20),
+              ? assignHeight(context: context, fraction: 0.45)
+              : assignHeight(context: context, fraction: 0.35),
         ),
       );
     }
@@ -207,7 +207,9 @@ class _ExperienceBranchState extends State<ExperienceBranch> {
               right: 0,
               child: Container(
                 key: roleLeafKey,
-                padding: EdgeInsets.only(left: (widget.width * widget.stalk)),
+                padding: EdgeInsets.only(
+                  left: (widget.width * widget.stalk),
+                ),
                 child: RoleLeaf(
                   company: widget.company,
                   onTap: () {
@@ -356,7 +358,7 @@ class RoleLeaf extends StatelessWidget {
           color: AppColors.primaryColor,
         ),
       );
-      roleWidgets.add(SpaceH2());
+      roleWidgets.add(SpaceH8());
     }
 
     return roleWidgets;

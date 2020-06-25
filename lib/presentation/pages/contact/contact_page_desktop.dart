@@ -13,7 +13,6 @@ import 'package:portfoliosite/presentation/widgets/socials.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/presentation/widgets/trailing_info.dart';
 import 'package:portfoliosite/values/values.dart';
-import 'package:universal_html/html.dart';
 
 class ContactPageDesktop extends StatefulWidget {
   @override

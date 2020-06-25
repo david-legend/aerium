@@ -4,7 +4,7 @@ class StringConst {
   //strings
   static const String APP_NAME = "Aerium";
   static const String APP_TITLE = "David Cobbina Portfolio";
-  static const String SITE_URL = "https://davidcobbina.dev";
+  static const String SITE_URL = "https://davidcobbina.com";
 
   static const String HOME = "Home";
   static const String ABOUT_ME = "About Me";

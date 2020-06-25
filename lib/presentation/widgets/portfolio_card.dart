@@ -152,7 +152,7 @@ class _PortfolioCardState extends State<PortfolioCard>
                     )
                   : Container(),
             ],
-          ).showCursorOnHover,
+          ),
         ),
       ),
     );

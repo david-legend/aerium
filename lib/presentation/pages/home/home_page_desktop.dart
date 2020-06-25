@@ -175,7 +175,7 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                   },
                 )
               : Positioned(
-                  top: assignHeight(context: context, fraction: 0.1),
+                  top: assignHeight(context: context, fraction: 0.05),
                   left: assignWidth(context: context, fraction: 0.5) -
                       widthOfImage / 2,
                   child: Container(

@@ -57,7 +57,7 @@ class AppDrawer extends StatelessWidget {
                         color: AppColors.secondaryColor,
                       ),
                     ),
-                  ).showCursorOnHover,
+                  ),
                 ],
               ),
             ),

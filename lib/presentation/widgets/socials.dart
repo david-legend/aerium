@@ -79,7 +79,7 @@ class Socials extends StatelessWidget {
                 ),
               ],
             ),
-          ).showCursorOnHover
+          )
         : IntrinsicHeight(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -133,7 +133,7 @@ class Socials extends StatelessWidget {
                 ),
               ],
             ),
-          ).showCursorOnHover;
+          );
   }
 }
 

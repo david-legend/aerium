@@ -62,7 +62,7 @@ class TrailingInfo extends StatelessWidget {
                     size: Sizes.ICON_SIZE_20,
                   ),
                 ),
-          ).showCursorOnHover,
+          ),
           spacingWidget ?? Spacer(flex: 1),
           middleWidget ??
               RotatedBox(
@@ -89,7 +89,7 @@ class TrailingInfo extends StatelessWidget {
                     color: AppColors.secondaryColor,
                   ),
                 ),
-          ).showCursorOnHover,
+          ),
         ],
       ),
     );

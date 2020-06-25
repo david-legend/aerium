@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfoliosite/core/extensions/hover_extensions.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
 import 'package:portfoliosite/core/utils/functions.dart';
-import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
 import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
 import 'package:portfoliosite/presentation/widgets/circular_container.dart';
@@ -10,7 +8,6 @@ import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
 import 'package:portfoliosite/presentation/widgets/socials.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/values/values.dart';
-import 'package:responsive_builder/responsive_builder.dart';
 
 import 'home_page.dart';
 
@@ -109,7 +106,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                                   ],
                                 ),
                               ),
-                            ).showCursorOnHover,
+                            ),
                             SizedBox(
                               height: assignHeight(
                                 context: context,
@@ -181,9 +178,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
   Widget _buildDevImage() {
     return Positioned(
       top: 56,
-      right: widthOfScreen(context) > 480
-          ? -assignWidth(context: context, fraction: 0.4)
-          : -assignWidth(context: context, fraction: 0.65),
+      right: -assignWidth(context: context, fraction: 0.42),
       child: Container(
         child: Image.asset(
           ImagePath.DEV,
@@ -192,18 +187,6 @@ class _HomePageMobileState extends State<HomePageMobile> {
         ),
       ),
     );
-  }
-
-  double figureOutWidth() {
-    if (widthOfScreen(context) > 480 && widthOfScreen(context) < 600) {
-      return -assignWidth(context: context, fraction: 0.4);
-    } else if (widthOfScreen(context) >= 600 && widthOfScreen(context) < 700) {
-      return -assignWidth(context: context, fraction: 0.3);
-    } else if (widthOfScreen(context) >= 700 && widthOfScreen(context) < 950) {
-      return -assignWidth(context: context, fraction: 0.2);
-    } else {
-      return -assignWidth(context: context, fraction: 0.6);
-    }
   }
 
   Widget _buildSocials() {

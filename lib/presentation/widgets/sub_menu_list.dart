@@ -140,7 +140,7 @@ class _SubMenuListState extends State<SubMenuList>
             thickness: 3,
             color: AppColors.deepBlue800,
           ),
-        ).showCursorOnHover,
+        ),
       );
       menuList.add(SpaceW24());
     }

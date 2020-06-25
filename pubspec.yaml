@@ -29,7 +29,6 @@ dependencies:
   responsive_builder: ^0.2.0+2
   font_awesome_flutter: ^8.8.1
   url_launcher: ^5.4.11
-  universal_html: ^1.2.3
   flutter_feather_icons: ^1.0.3
   flutter_bloc: ^4.0.1
   freezed_annotation: ^0.7.1

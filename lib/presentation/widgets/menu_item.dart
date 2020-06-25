@@ -125,7 +125,7 @@ class _MenuItemState extends State<MenuItem> with TickerProviderStateMixin {
                 ),
         ),
       ),
-    ).showCursorOnHover;
+    );
   }
 
   void _mouseEnter(bool hovering) {

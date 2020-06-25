@@ -163,7 +163,7 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
     );
     heightPositionOfImage = Tween<double>(
       begin: 0.4,
-      end: 0.1,
+      end: 0.05,
     ).animate(
       CurvedAnimation(
         parent: _controller,
@@ -317,11 +317,9 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
             scale: scale.value,
             child: isDisplaySmallDesktopOrIpadPro(context)
                 ? Container(
-//                    color: Colors.red,
                     width: widthOfImage,
                   )
                 : Container(
-//                    color: Colors.yellow,
                     child: Image.asset(
                       ImagePath.DEV,
                       width: widthOfImage,

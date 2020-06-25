@@ -27,6 +27,6 @@ class CircularContainer extends StatelessWidget {
           color: color,
           borderRadius: borderRadius ?? BorderRadius.circular(Sizes.RADIUS_60)),
       child: child,
-    ).showCursorOnHover;
+    );
   }
 }

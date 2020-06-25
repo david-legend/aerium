@@ -191,8 +191,8 @@ class _HomePageMobileState extends State<HomePageMobile> {
 
   Widget _buildSocials() {
     return Positioned(
-      right: 16,
-      bottom: 30,
+      right: Sizes.SIZE_16,
+      bottom: Sizes.SIZE_30,
       child: Socials(
         isVertical: true,
         alignment: Alignment.centerRight,

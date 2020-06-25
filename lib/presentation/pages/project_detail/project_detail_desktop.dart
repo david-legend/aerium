@@ -11,6 +11,7 @@ import 'package:portfoliosite/presentation/widgets/project_cover_2.dart';
 import 'package:portfoliosite/presentation/widgets/socials.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
 import 'package:portfoliosite/presentation/widgets/trailing_info.dart';
+import 'package:portfoliosite/presentation/widgets/void.dart';
 import 'package:portfoliosite/values/values.dart';
 
 class ProjectDetailDesktop extends StatefulWidget {
@@ -309,10 +310,11 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
                                       icon: FontAwesomeIcons.github,
                                       onPressed: () {
                                         Functions.launchUrl(
-                                            widget.projectDetails.gitHubUrl);
+                                          widget.projectDetails.gitHubUrl,
+                                        );
                                       },
                                     )
-                                  : Container(),
+                                  : Emptiness(),
                               widget.projectDetails.isOnPlayStore
                                   ? InkWell(
                                       onTap: () {
@@ -322,7 +324,8 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
                                       },
                                       child: Padding(
                                         padding: const EdgeInsets.all(
-                                            Sizes.PADDING_8),
+                                          Sizes.PADDING_8,
+                                        ),
                                         child: Image.asset(
                                           ImagePath.PLAYSTORE,
                                           width: 24,
@@ -330,17 +333,16 @@ class _ProjectDetailDesktopState extends State<ProjectDetailDesktop>
                                         ),
                                       ),
                                     )
-                                  : Container(),
+                                  : Emptiness(),
                               widget.projectDetails.isLive
                                   ? SocialButton(
-                                      //web
                                       icon: FeatherIcons.globe,
                                       onPressed: () {
                                         Functions.launchUrl(
                                             widget.projectDetails.webUrl);
                                       },
                                     )
-                                  : Container(),
+                                  : Emptiness(),
                             ],
                           )
                         ],

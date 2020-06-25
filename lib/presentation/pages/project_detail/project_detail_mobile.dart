@@ -10,6 +10,7 @@ import 'package:portfoliosite/presentation/widgets/flicker_text_animation.dart';
 import 'package:portfoliosite/presentation/widgets/project_cover.dart';
 import 'package:portfoliosite/presentation/widgets/socials.dart';
 import 'package:portfoliosite/presentation/widgets/spaces.dart';
+import 'package:portfoliosite/presentation/widgets/void.dart';
 import 'package:portfoliosite/values/values.dart';
 
 class ProjectDetailMobile extends StatefulWidget {
@@ -260,7 +261,7 @@ class _ProjectDetailMobileState extends State<ProjectDetailMobile>
                                       widget.projectDetails.gitHubUrl);
                                 },
                               )
-                            : Container(),
+                            : Emptiness(),
                         widget.projectDetails.isOnPlayStore
                             ? InkWell(
                                 onTap: () {
@@ -278,7 +279,7 @@ class _ProjectDetailMobileState extends State<ProjectDetailMobile>
                                   ),
                                 ),
                               )
-                            : Container(),
+                            : Emptiness(),
                         widget.projectDetails.isLive
                             ? SocialButton(
                                 //web
@@ -289,7 +290,7 @@ class _ProjectDetailMobileState extends State<ProjectDetailMobile>
                                   );
                                 },
                               )
-                            : Container(),
+                            : Emptiness(),
                       ],
                     ),
                   ],

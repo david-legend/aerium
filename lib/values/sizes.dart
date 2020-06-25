@@ -89,6 +89,7 @@ class Sizes {
   static const double HEIGHT_3 = 3.0;
   static const double HEIGHT_2 = 2.0;
   static const double HEIGHT_1 = 1.0;
+  static const double HEIGHT_0 = 0.0;
 
   //Widths
   static const double WIDTH_300 = 300.0;

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
 import 'package:portfoliosite/core/utils/functions.dart';
@@ -283,7 +284,7 @@ class _ProjectDetailMobileState extends State<ProjectDetailMobile>
                         widget.projectDetails.isLive
                             ? SocialButton(
                                 //web
-                                icon: FontAwesomeIcons.internetExplorer,
+                                icon: FeatherIcons.globe,
                                 onPressed: () {
                                   Functions.launchUrl(
                                     widget.projectDetails.webUrl,

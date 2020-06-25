@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfoliosite/core/utils/functions.dart';
 import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/values/values.dart';
 
@@ -72,10 +73,11 @@ class CustomAppBar extends StatelessWidget {
                       ),
                   onTap: onActionsPressed ??
                       () {
-                        Navigator.pushNamed(
-                          context,
-                          ContactPage.contactPageRoute,
-                        );
+                        Functions.launchUrl(StringConst.EMAIL_URL);
+//                        Navigator.pushNamed(
+//                          context,
+//                          ContactPage.contactPageRoute,
+//                        );
                       },
                 ),
               ),

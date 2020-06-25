@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/extensions/hover_extensions.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
+import 'package:portfoliosite/core/utils/functions.dart';
 import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
 import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
@@ -159,10 +160,13 @@ class _HomePageMobileState extends State<HomePageMobile> {
           CircularContainer(
             color: AppColors.primaryColor,
             child: InkWell(
-              onTap: () => Navigator.pushNamed(
-                context,
-                ContactPage.contactPageRoute,
-              ),
+              onTap: () {
+                Functions.launchUrl(StringConst.EMAIL_URL);
+//                Navigator.pushNamed(
+//                  context,
+//                  ContactPage.contactPageRoute,
+//                );
+              },
               child: Icon(
                 Icons.email,
                 color: AppColors.secondaryColor,

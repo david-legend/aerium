@@ -3,6 +3,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/layout/adaptive.dart';
+import 'package:portfoliosite/core/utils/functions.dart';
 import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
 import 'package:portfoliosite/presentation/pages/home/home_page.dart';
 import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
@@ -84,10 +85,11 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                       color: AppColors.secondaryColor,
                       child: TrailingInfo(
                         onLeadingWidgetPressed: () {
-                          Navigator.pushNamed(
-                            context,
-                            ContactPage.contactPageRoute,
-                          );
+                          Functions.launchUrl(StringConst.EMAIL_URL);
+//                          Navigator.pushNamed(
+//                            context,
+//                            ContactPage.contactPageRoute,
+//                          );
                         },
                         leadingWidget: Row(
                           mainAxisAlignment: MainAxisAlignment.end,

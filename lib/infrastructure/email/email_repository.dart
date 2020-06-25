@@ -37,6 +37,7 @@ class EmailRepositoryImpl implements EmailRepository {
       );
       return Right(emailStatus);
     } catch (e) {
+      print(e.toString());
       if (e == EmailFailure.serverError()) {
         return Left(EmailFailure.serverError());
       } else {

@@ -49,12 +49,6 @@ class ExperiencePageMobile extends StatelessWidget {
               ),
             ),
             actions: [],
-            onActionsPressed: () {
-              Navigator.pushNamed(
-                context,
-                ContactPage.contactPageRoute,
-              );
-            },
           ),
         ),
         drawer: AppDrawer(

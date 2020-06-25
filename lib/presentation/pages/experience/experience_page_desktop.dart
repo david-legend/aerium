@@ -77,10 +77,6 @@ class _ExperiencePageDesktopState extends State<ExperiencePageDesktop> {
                         context: context,
                         fraction: 0.075,
                       ),
-                      onLeadingWidgetPressed: () => Navigator.pushNamed(
-                        context,
-                        ContactPage.contactPageRoute,
-                      ),
                       trailingWidget: CustomScroller(
                         onUpTap: () {
                           _scroll(_scrollController.position.minScrollExtent);

@@ -292,10 +292,6 @@ class _AboutPageDesktopState extends State<AboutPageDesktop>
                         ),
                         TrailingInfo(
                           width: assignWidth(context: context, fraction: 0.075),
-                          onLeadingWidgetPressed: () => Navigator.pushNamed(
-                            context,
-                            ContactPage.contactPageRoute,
-                          ),
                           onTrailingWidgetPressed: () => Navigator.pushNamed(
                             context,
                             PortfolioPage.portfolioPageRoute,

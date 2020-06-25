@@ -31,7 +31,8 @@ class EmailApiImpl implements EmailApi {
     final response = await client.post(
       StringConst.BASE_URL + StringConst.SEND_END_POINT,
       headers: {
-        "Content-Type": "application/json; charset=UTF-8",
+//        "Accept": "application/json",
+        "Content-Type": "application/json; charset=utf-8",
       },
       body: jsonEncode({
         "email": email,

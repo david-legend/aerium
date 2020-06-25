@@ -65,12 +65,6 @@ class _CertificationPageMobileState extends State<CertificationPageMobile>
               _scaffoldKey.currentState.openDrawer();
             }
           },
-          onActionsPressed: () {
-            Navigator.pushNamed(
-              context,
-              ContactPage.contactPageRoute,
-            );
-          },
         ),
       ),
       drawer: AppDrawer(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfoliosite/core/extensions/hover_extensions.dart';
+import 'package:portfoliosite/core/utils/functions.dart';
 import 'package:portfoliosite/presentation/widgets/circular_container.dart';
 import 'package:portfoliosite/values/values.dart';
 
@@ -46,7 +47,10 @@ class TrailingInfo extends StatelessWidget {
         crossAxisAlignment: crossAxisAlignment,
         children: [
           InkWell(
-            onTap: onLeadingWidgetPressed,
+            onTap: onLeadingWidgetPressed ??
+                () {
+                  Functions.launchUrl(StringConst.EMAIL_URL);
+                },
             child: leadingWidget ??
                 CircularContainer(
                   width: Sizes.WIDTH_30,

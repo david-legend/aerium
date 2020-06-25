@@ -125,8 +125,9 @@ class AppDrawer extends StatelessWidget {
           onTap: () {
             if (menuList[i].title == StringConst.RESUME) {
               Functions.launchUrl(DocumentPath.CV);
+            } else if (menuList[i].title == StringConst.CONTACT) {
+              Functions.launchUrl(StringConst.EMAIL_URL);
             } else {
-              print(menuList[i].routeName);
               Navigator.of(context).pushNamed(menuList[i].routeName);
             }
           },

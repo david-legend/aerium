@@ -64,6 +64,19 @@ class Socials extends StatelessWidget {
                   },
                   color: color,
                 ),
+                HorizontalBar(
+                  width: Sizes.WIDTH_32,
+                  color: barColor,
+                  margin: EdgeInsets.symmetric(vertical: Sizes.MARGIN_4),
+                ),
+                SocialButton(
+                  icon: FontAwesomeIcons.telegramPlane,
+                  alignment: alignment,
+                  onPressed: () {
+                    Functions.launchUrl(StringConst.TELEGRAM_URL);
+                  },
+                  color: color,
+                ),
               ],
             ),
           ).showCursorOnHover
@@ -102,6 +115,19 @@ class Socials extends StatelessWidget {
                   alignment: alignment,
                   onPressed: () {
                     Functions.launchUrl(StringConst.TWITTER_URL);
+                  },
+                  color: color,
+                ),
+                VerticalDivider(
+                  width: Sizes.WIDTH_8,
+                  thickness: 2,
+                  color: barColor,
+                ),
+                SocialButton(
+                  icon: FontAwesomeIcons.telegramPlane,
+                  alignment: alignment,
+                  onPressed: () {
+                    Functions.launchUrl(StringConst.TELEGRAM_URL);
                   },
                   color: color,
                 ),

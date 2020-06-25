@@ -66,12 +66,6 @@ class _PortfolioPageMobileState extends State<PortfolioPageMobile>
               _scaffoldKey.currentState.openDrawer();
             }
           },
-          onActionsPressed: () {
-            Navigator.pushNamed(
-              context,
-              ContactPage.contactPageRoute,
-            );
-          },
         ),
       ),
       drawer: AppDrawer(

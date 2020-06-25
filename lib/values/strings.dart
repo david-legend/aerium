@@ -23,6 +23,8 @@ class StringConst {
   static const String VIEW = "View";
   static const String COMING_SOON = "COMING SOON !!";
   static const String BUILT_WITH = "Built with ";
+  static const String DEV_EMAIL = "davidcobbina47@gmail.com";
+  static const String EMAIL_URL = "mailto:<$DEV_EMAIL>?subject=&body=";
 
   static const String KEY_SKILLS = "KEY SKILLS";
   static const String EXPERIENCE_2 = "EXPERIENCE";
@@ -36,7 +38,6 @@ class StringConst {
   static const String INTRO = "Hi, my name is";
   static const String DEV_NAME = "David Cobbina";
   static const String PUNCH_LINE = "I build things with flutter";
-  static const String DEV_EMAIL = "davidcobbina47@gmail.com";
   static const String SPECIALITY = "FLUTTER DEV";
   static const String DESIGNED_IN = "Made in Ghana with ";
   static const String DESIGNED_BY = "Designed by Pavel G. ";

@@ -1,9 +1,7 @@
-//import 'package:js/js.dart' as js;
-//TODO:: find a way to hide js
-import 'dart:js' as js;
+import 'package:url_launcher/url_launcher.dart';
 
 class Functions {
-  static void launchUrl(String url) {
-    js.context.callMethod('openLink', [url, '_blank']);
+  static void launchUrl(String url) async {
+    await launch(url);
   }
 }

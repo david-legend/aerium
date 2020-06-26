@@ -25,8 +25,6 @@ Yes, you can fork this repo. Please give me proper credit by linking back to [da
 
 
 ## Enjoy
- 
-![Screenshot](assets/screenshots/portfolio_1.gif)
 
 ![Screenshot](assets/screenshots/portfolio_2.gif)
 

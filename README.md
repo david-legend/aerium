@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://davidcobbina.com" target="_blank">davidcobbina.com</a>
+  <a href="http://davidcobbina.com" target="_blank">davidcobbina.com</a>
 </h1>
 
 <p align="center">
@@ -21,7 +21,7 @@ I value keeping my site open source, but as you all know, _**plagiarism is bad**
 
 ### TL;DR
 
-Yes, you can fork this repo. Please give me proper credit by linking back to [davidcobbina.com](https://davidcobbina.com). Thanks!
+Yes, you can fork this repo. Please give me proper credit by linking back to [davidcobbina.com](http://davidcobbina.com). Thanks!
 
 
 ## Enjoy

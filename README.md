@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-    This Aerium, a beautifully designed portfolio website built with <strong>flutter</strong>.
+    This is Aerium, a beautifully designed portfolio website built with <strong>flutter</strong>.
 </p>
 <p align="center">
     It is inspired by <a href="https://www.behance.net/gallery/68081313/Portfolio-Design-Concept?tracking_source=search_projects_recommended%7Cportfolio" target="_blank">Pavel G's Designs on Behance</a>

@@ -1,17 +1,14 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:portfoliosite/core/layout/adaptive.dart';
-import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
-import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
-import 'package:portfoliosite/presentation/pages/project_detail/project_detail.dart';
-import 'package:portfoliosite/presentation/routes/routes.dart';
-import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
-import 'package:portfoliosite/presentation/widgets/customer_scroller.dart';
-import 'package:portfoliosite/presentation/widgets/menu_list.dart';
-import 'package:portfoliosite/presentation/widgets/portfolio_card.dart';
-import 'package:portfoliosite/presentation/widgets/trailing_info.dart';
-import 'package:portfoliosite/values/values.dart';
+import 'package:aerium/core/layout/adaptive.dart';
+import 'package:aerium/presentation/pages/portfolio/portfolio_page.dart';
+import 'package:aerium/presentation/pages/project_detail/project_detail.dart';
+import 'package:aerium/presentation/routes/routes.dart';
+import 'package:aerium/presentation/widgets/content_wrapper.dart';
+import 'package:aerium/presentation/widgets/customer_scroller.dart';
+import 'package:aerium/presentation/widgets/menu_list.dart';
+import 'package:aerium/presentation/widgets/portfolio_card.dart';
+import 'package:aerium/presentation/widgets/trailing_info.dart';
+import 'package:aerium/values/values.dart';
 
 class PortfolioPageDesktop extends StatefulWidget {
   @override
@@ -134,8 +131,8 @@ class _PortfolioPageDesktopState extends State<PortfolioPageDesktop>
   }
 
   Widget _buildAnimation(BuildContext context, Widget child) {
-    double widthOfImage = assignWidth(context: context, fraction: 0.4);
-    double heightOfImage = assignHeight(context: context, fraction: 1);
+//    double widthOfImage = assignWidth(context: context, fraction: 0.4);
+//    double heightOfImage = assignHeight(context: context, fraction: 1);
     return Stack(
       children: <Widget>[
         Container(

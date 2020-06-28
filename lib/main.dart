@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfoliosite/app_theme.dart';
-import 'package:portfoliosite/presentation/pages/home/home_page.dart';
-import 'package:portfoliosite/presentation/routes/routes.dart';
-import 'package:portfoliosite/values/values.dart';
+import 'package:aerium/app_theme.dart';
+import 'package:aerium/presentation/pages/home/home_page.dart';
+import 'package:aerium/presentation/routes/routes.dart';
+import 'package:aerium/values/values.dart';
 
 import 'injection_container.dart' as di;
 import 'application/simple_bloc_delegate.dart';

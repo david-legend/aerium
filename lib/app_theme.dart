@@ -1,8 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:portfoliosite/values/values.dart';
+import 'package:aerium/values/values.dart';
 
 class AppTheme {
   static const _lightFillColor = Colors.black;
@@ -45,7 +44,7 @@ class AppTheme {
     brightness: Brightness.light,
   );
 
-  static const _superBold = FontWeight.w900;
+//  static const _superBold = FontWeight.w900;
   static const _bold = FontWeight.w700;
   static const _semiBold = FontWeight.w600;
   static const _medium = FontWeight.w500;

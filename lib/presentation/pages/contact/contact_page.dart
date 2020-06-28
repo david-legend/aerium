@@ -1,8 +1,8 @@
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfoliosite/application/email/email_bloc.dart';
-import 'package:portfoliosite/values/values.dart';
+import 'package:aerium/application/email/email_bloc.dart';
+import 'package:aerium/values/values.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import '../../../injection_container.dart';

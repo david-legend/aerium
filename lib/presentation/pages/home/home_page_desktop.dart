@@ -2,17 +2,16 @@ import 'dart:async';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
-import 'package:portfoliosite/core/layout/adaptive.dart';
-import 'package:portfoliosite/core/utils/functions.dart';
-import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
-import 'package:portfoliosite/presentation/pages/home/home_page.dart';
-import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
-import 'package:portfoliosite/presentation/widgets/circular_container.dart';
-import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
-import 'package:portfoliosite/presentation/widgets/menu_list.dart';
-import 'package:portfoliosite/presentation/widgets/spaces.dart';
-import 'package:portfoliosite/presentation/widgets/trailing_info.dart';
-import 'package:portfoliosite/values/values.dart';
+import 'package:aerium/core/layout/adaptive.dart';
+import 'package:aerium/core/utils/functions.dart';
+import 'package:aerium/presentation/pages/home/home_page.dart';
+import 'package:aerium/presentation/pages/portfolio/portfolio_page.dart';
+import 'package:aerium/presentation/widgets/circular_container.dart';
+import 'package:aerium/presentation/widgets/content_wrapper.dart';
+import 'package:aerium/presentation/widgets/menu_list.dart';
+import 'package:aerium/presentation/widgets/spaces.dart';
+import 'package:aerium/presentation/widgets/trailing_info.dart';
+import 'package:aerium/values/values.dart';
 
 class HomePageDesktop extends StatefulWidget {
   @override

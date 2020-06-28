@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:portfoliosite/core/extensions/hover_extensions.dart';
-import 'package:portfoliosite/core/layout/adaptive.dart';
-import 'package:portfoliosite/core/utils/functions.dart';
-import 'package:portfoliosite/presentation/widgets/circular_container.dart';
-import 'package:portfoliosite/presentation/widgets/socials.dart';
-import 'package:portfoliosite/presentation/widgets/spaces.dart';
-import 'package:portfoliosite/values/values.dart';
+import 'package:aerium/core/layout/adaptive.dart';
+import 'package:aerium/core/utils/functions.dart';
+import 'package:aerium/presentation/widgets/circular_container.dart';
+import 'package:aerium/presentation/widgets/socials.dart';
+import 'package:aerium/presentation/widgets/spaces.dart';
+import 'package:aerium/values/values.dart';
 
 import 'menu_item.dart';
 

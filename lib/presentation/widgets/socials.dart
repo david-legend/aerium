@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:portfoliosite/core/utils/functions.dart';
-import 'package:portfoliosite/presentation/widgets/horizontal_bar.dart';
-import 'package:portfoliosite/values/values.dart';
-import 'package:portfoliosite/core/extensions/hover_extensions.dart';
+import 'package:aerium/core/utils/functions.dart';
+import 'package:aerium/presentation/widgets/horizontal_bar.dart';
+import 'package:aerium/values/values.dart';
 
 class Socials extends StatelessWidget {
   Socials({

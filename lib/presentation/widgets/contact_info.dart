@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfoliosite/presentation/widgets/spaces.dart';
-import 'package:portfoliosite/values/values.dart';
+import 'package:aerium/presentation/widgets/spaces.dart';
+import 'package:aerium/values/values.dart';
 
 class ContactInfo extends StatelessWidget {
   ContactInfo({

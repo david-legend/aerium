@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:portfoliosite/presentation/widgets/spaces.dart';
+import 'package:aerium/presentation/widgets/spaces.dart';
 
-import 'package:portfoliosite/core/extensions/hover_extensions.dart';
-import 'package:portfoliosite/presentation/widgets/horizontal_bar.dart';
-import 'package:portfoliosite/values/values.dart';
+import 'package:aerium/presentation/widgets/horizontal_bar.dart';
+import 'package:aerium/values/values.dart';
 
 class PortfolioCard extends StatefulWidget {
   PortfolioCard({
@@ -56,7 +55,7 @@ class _PortfolioCardState extends State<PortfolioCard>
       vsync: this,
     );
     initTweens();
-    ;
+
     super.initState();
   }
 

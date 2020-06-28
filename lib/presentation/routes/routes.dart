@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:portfoliosite/presentation/pages/about/about_page.dart';
-import 'package:portfoliosite/presentation/pages/certification/certification_page.dart';
-import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
-import 'package:portfoliosite/presentation/pages/experience/experience_page.dart';
-import 'package:portfoliosite/presentation/pages/home/home_page.dart';
-import 'package:portfoliosite/presentation/pages/portfolio/portfolio_page.dart';
-import 'package:portfoliosite/presentation/pages/project_detail/project_detail.dart';
+import 'package:aerium/presentation/pages/about/about_page.dart';
+import 'package:aerium/presentation/pages/certification/certification_page.dart';
+import 'package:aerium/presentation/pages/contact/contact_page.dart';
+import 'package:aerium/presentation/pages/experience/experience_page.dart';
+import 'package:aerium/presentation/pages/home/home_page.dart';
+import 'package:aerium/presentation/pages/portfolio/portfolio_page.dart';
+import 'package:aerium/presentation/pages/project_detail/project_detail.dart';
 
 typedef PathWidgetBuilder = Widget Function(
     BuildContext, String /*Map<String, String>*/);
@@ -79,10 +79,6 @@ class RouteConfiguration {
         final firstMatch = regExpPattern.firstMatch(settings.name);
         final match = (firstMatch.groupCount == 1) ? firstMatch.group(1) : null;
         return NoAnimationMaterialPageRoute<void>(
-          builder: (context) => path.builder(context, match),
-          settings: settings,
-        );
-        return MaterialPageRoute<void>(
           builder: (context) => path.builder(context, match),
           settings: settings,
         );

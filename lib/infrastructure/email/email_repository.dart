@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
-import 'package:portfoliosite/core/errors/email_failure.dart';
-import 'package:portfoliosite/infrastructure/email/email_model.dart';
+import 'package:aerium/core/errors/email_failure.dart';
+import 'package:aerium/infrastructure/email/email_model.dart';
 
 import 'email_api.dart';
 

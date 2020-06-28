@@ -1,15 +1,9 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:portfoliosite/core/utils/functions.dart';
-import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
-import 'package:portfoliosite/presentation/pages/experience/experience_page.dart';
-import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
-import 'package:portfoliosite/presentation/widgets/custom_app_bar.dart';
-import 'package:portfoliosite/presentation/widgets/experience_section.dart';
-import 'package:portfoliosite/presentation/widgets/spaces.dart';
-import 'package:portfoliosite/values/values.dart';
-//import 'package:universal_html/html.dart';
+import 'package:aerium/presentation/pages/experience/experience_page.dart';
+import 'package:aerium/presentation/widgets/app_drawer.dart';
+import 'package:aerium/presentation/widgets/custom_app_bar.dart';
+import 'package:aerium/presentation/widgets/experience_section.dart';
+import 'package:aerium/values/values.dart';
 
 class ExperiencePageMobile extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();

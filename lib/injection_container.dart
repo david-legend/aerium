@@ -1,7 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
-import 'package:portfoliosite/application/email/email_bloc.dart';
-import 'package:portfoliosite/infrastructure/email/email_api.dart';
+import 'package:aerium/application/email/email_bloc.dart';
+import 'package:aerium/infrastructure/email/email_api.dart';
 
 import 'infrastructure/email/email_repository.dart';
 

@@ -3,8 +3,8 @@ import 'package:bloc/bloc.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:portfoliosite/infrastructure/email/email_model.dart';
-import 'package:portfoliosite/infrastructure/email/email_repository.dart';
+import 'package:aerium/infrastructure/email/email_model.dart';
+import 'package:aerium/infrastructure/email/email_repository.dart';
 
 part 'email_event.dart';
 

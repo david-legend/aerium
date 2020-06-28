@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfoliosite/core/utils/functions.dart';
-import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
-import 'package:portfoliosite/values/values.dart';
+import 'package:aerium/core/utils/functions.dart';
+import 'package:aerium/values/values.dart';
 
 import 'circular_container.dart';
 

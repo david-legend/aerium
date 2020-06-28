@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:portfoliosite/values/values.dart';
 
 class ProjectCover2 extends StatelessWidget {
-  ProjectCover2({
-    this.width,
-    this.height,
-    this.offset,
-    this.projectCoverUrl,
-    this.projectCoverBackgroundColor,
-    this.backgroundScale = 1,
-    this.projectCoverScale = 1,
-    this.alignment = Alignment.topLeft,
-    this.origin = const Offset(0, 0)
-  });
+  ProjectCover2(
+      {this.width,
+      this.height,
+      this.offset,
+      this.projectCoverUrl,
+      this.projectCoverBackgroundColor,
+      this.backgroundScale = 1,
+      this.projectCoverScale = 1,
+      this.alignment = Alignment.topLeft,
+      this.origin = const Offset(0, 0)});
 
   final double width;
   final double height;

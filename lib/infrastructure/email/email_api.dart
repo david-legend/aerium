@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
-import 'package:portfoliosite/values/values.dart';
-import 'package:portfoliosite/core/errors/email_failure.dart';
+import 'package:aerium/values/values.dart';
+import 'package:aerium/core/errors/email_failure.dart';
 
 import 'email_model.dart';
 

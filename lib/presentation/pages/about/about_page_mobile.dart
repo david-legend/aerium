@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:portfoliosite/core/layout/adaptive.dart';
-import 'package:portfoliosite/presentation/pages/about/about_page.dart';
-import 'package:portfoliosite/presentation/pages/contact/contact_page.dart';
-import 'package:portfoliosite/presentation/widgets/app_drawer.dart';
-import 'package:portfoliosite/presentation/widgets/bottom_draggable_scrollable_sheet.dart';
-import 'package:portfoliosite/presentation/widgets/content_wrapper.dart';
-import 'package:portfoliosite/presentation/widgets/custom_app_bar.dart';
-import 'package:portfoliosite/presentation/widgets/flicker_text_animation.dart';
-import 'package:portfoliosite/presentation/widgets/spaces.dart';
-import 'package:portfoliosite/values/values.dart';
+import 'package:aerium/core/layout/adaptive.dart';
+import 'package:aerium/presentation/pages/about/about_page.dart';
+import 'package:aerium/presentation/widgets/app_drawer.dart';
+import 'package:aerium/presentation/widgets/bottom_draggable_scrollable_sheet.dart';
+import 'package:aerium/presentation/widgets/content_wrapper.dart';
+import 'package:aerium/presentation/widgets/custom_app_bar.dart';
+import 'package:aerium/presentation/widgets/flicker_text_animation.dart';
+import 'package:aerium/presentation/widgets/spaces.dart';
+import 'package:aerium/values/values.dart';
 
 class AboutPageMobile extends StatefulWidget {
   @override

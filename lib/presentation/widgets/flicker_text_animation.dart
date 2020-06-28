@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:portfoliosite/values/values.dart';
+import 'package:aerium/values/values.dart';
 
 class FlickerTextAnimation extends StatefulWidget {
   FlickerTextAnimation({

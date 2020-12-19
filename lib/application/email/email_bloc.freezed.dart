@@ -35,6 +35,28 @@ mixin _$EmailEvent {
   String get phoneNumber;
   String get name;
 
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result sendEmail(
+            String email, String message, String phoneNumber, String name),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result sendEmail(
+        String email, String message, String phoneNumber, String name),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result sendEmail(SendEmail value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result sendEmail(SendEmail value),
+    @required Result orElse(),
+  });
+
   $EmailEventCopyWith<EmailEvent> get copyWith;
 }
 
@@ -151,6 +173,53 @@ class _$SendEmail implements SendEmail {
   @override
   $SendEmailCopyWith<SendEmail> get copyWith =>
       _$SendEmailCopyWithImpl<SendEmail>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required
+        Result sendEmail(
+            String email, String message, String phoneNumber, String name),
+  }) {
+    assert(sendEmail != null);
+    return sendEmail(email, message, phoneNumber, name);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result sendEmail(
+        String email, String message, String phoneNumber, String name),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (sendEmail != null) {
+      return sendEmail(email, message, phoneNumber, name);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result sendEmail(SendEmail value),
+  }) {
+    assert(sendEmail != null);
+    return sendEmail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result sendEmail(SendEmail value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (sendEmail != null) {
+      return sendEmail(this);
+    }
+    return orElse();
+  }
 }
 
 abstract class SendEmail implements EmailEvent {

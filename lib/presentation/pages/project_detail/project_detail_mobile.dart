@@ -11,7 +11,7 @@ import 'package:aerium/presentation/widgets/flicker_text_animation.dart';
 import 'package:aerium/presentation/widgets/project_cover.dart';
 import 'package:aerium/presentation/widgets/socials.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
-import 'package:aerium/presentation/widgets/emptiness.dart';
+import 'package:aerium/presentation/widgets/void.dart';
 import 'package:aerium/values/values.dart';
 
 class ProjectDetailMobile extends StatefulWidget {

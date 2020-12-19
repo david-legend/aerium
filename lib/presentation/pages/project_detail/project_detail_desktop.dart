@@ -11,7 +11,7 @@ import 'package:aerium/presentation/widgets/project_cover_2.dart';
 import 'package:aerium/presentation/widgets/socials.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 import 'package:aerium/presentation/widgets/trailing_info.dart';
-import 'package:aerium/presentation/widgets/emptiness.dart';
+import 'package:aerium/presentation/widgets/void.dart';
 import 'package:aerium/values/values.dart';
 
 class ProjectDetailDesktop extends StatefulWidget {

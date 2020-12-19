@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:aerium/presentation/widgets/spaces.dart';
 
+// ignore: must_be_immutable
 class SubMenuItem extends StatelessWidget {
   SubMenuItem({
     @required this.title,

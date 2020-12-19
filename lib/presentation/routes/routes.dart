@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:aerium/presentation/pages/about/about_page.dart';
 import 'package:aerium/presentation/pages/certification/certification_page.dart';
-import 'package:aerium/presentation/pages/contact/contact_page.dart';
 import 'package:aerium/presentation/pages/experience/experience_page.dart';
 import 'package:aerium/presentation/pages/home/home_page.dart';
 import 'package:aerium/presentation/pages/portfolio/portfolio_page.dart';
@@ -37,19 +36,14 @@ class RouteConfiguration {
   /// will be returned. This means that the paths higher up in the list will
   /// take priority.
   static List<Path> paths = [
-//    Path(
-//      r'^' + HomePage.homePageRoute + r'/(?<slug>[\w-]+)$',
-//          (context, matches) => DemoPage(slug: matches['slug']),
-//    ),
-
     Path(
       r'^' + AboutPage.aboutPageRoute,
       (context, matches) => const AboutPage(),
     ),
-    Path(
-      r'^' + ContactPage.contactPageRoute,
-      (context, matches) => const ContactPage(),
-    ),
+//    Path(
+//      r'^' + ContactPage.contactPageRoute,
+//      (context, matches) => const ContactPage(),
+//    ),
     Path(
       r'^' + PortfolioPage.portfolioPageRoute,
       (context, matches) => const PortfolioPage(),

@@ -31,7 +31,7 @@ dependencies:
   url_launcher: ^5.4.11
   flutter_feather_icons: ^1.0.3
   flutter_bloc: ^4.0.1
-  freezed_annotation: ^0.7.1
+  freezed_annotation: ^0.11.0
   dartz: ^0.9.1
   flushbar: ^1.10.4
 
@@ -44,7 +44,7 @@ dev_dependencies:
     sdk: flutter
 
   build_runner:
-  freezed: ^0.10.6
+  freezed: ^0.11.2
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

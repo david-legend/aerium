@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="http://davidcobbina.com" target="_blank">davidcobbina.com</a>
+  <a href="https://david-legend.github.io/aerium/" target="_blank">david-legend.github.io/aerium/</a>
 </h1>
 
 <p align="center">

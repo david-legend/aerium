@@ -190,7 +190,7 @@ class AppTheme {
       fontFamily: StringConst.CIRCE,
       fontSize: Sizes.TEXT_SIZE_16,
       color: AppColors.secondaryColor,
-      fontWeight: _light,
+      fontWeight: _regular,
       fontStyle: FontStyle.normal,
     ),
     bodyText2: TextStyle(

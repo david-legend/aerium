@@ -4,8 +4,8 @@ part of 'values.dart';
 //https://api.github.com/repos/david-legend/aerium/forks
 class MenuData {
   MenuData({
-    @required this.title,
-    @required this.routeName,
+    required this.title,
+    required this.routeName,
   });
 
   final String title;
@@ -14,11 +14,11 @@ class MenuData {
 
 class CertificationData {
   CertificationData({
-    @required this.title,
-    @required this.image,
-    @required this.imageSize,
-    @required this.url,
-    @required this.awardedBy,
+    required this.title,
+    required this.image,
+    required this.imageSize,
+    required this.url,
+    required this.awardedBy,
   });
 
   final String image;
@@ -30,9 +30,9 @@ class CertificationData {
 
 class ProjectDetails {
   ProjectDetails({
-    @required this.projectImage,
-    @required this.projectName,
-    @required this.projectDescription,
+    required this.projectImage,
+    required this.projectName,
+    required this.projectDescription,
     this.technologyUsed,
     this.isPublic,
     this.isLive,
@@ -46,23 +46,23 @@ class ProjectDetails {
   final String projectImage;
   final String projectName;
   final String projectDescription;
-  final bool isPublic;
-  final bool isOnPlayStore;
-  final bool isLive;
-  final bool hasBeenReleased;
-  final String playStoreUrl;
-  final String gitHubUrl;
-  final String webUrl;
-  final String technologyUsed;
+  final bool? isPublic;
+  final bool? isOnPlayStore;
+  final bool? isLive;
+  final bool? hasBeenReleased;
+  final String? playStoreUrl;
+  final String? gitHubUrl;
+  final String? webUrl;
+  final String? technologyUsed;
 }
 
 class PortfolioData {
   PortfolioData({
-    @required this.title,
-    @required this.image,
-    @required this.imageSize,
-    @required this.subtitle,
-    @required this.portfolioDescription,
+    required this.title,
+    required this.image,
+    required this.imageSize,
+    required this.subtitle,
+    required this.portfolioDescription,
     this.technologyUsed,
     this.isPublic = false,
     this.isOnPlayStore = false,
@@ -85,21 +85,21 @@ class PortfolioData {
   final String playStoreUrl;
   final bool isLive;
   final String webUrl;
-  final String technologyUsed;
+  final String? technologyUsed;
 }
 
 class ExperienceData {
   ExperienceData({
-    @required this.position,
-    @required this.roles,
-    @required this.location,
-    @required this.duration,
+    required this.position,
+    required this.roles,
+    required this.location,
+    required this.duration,
     this.company,
     this.companyUrl,
   });
 
-  final String company;
-  final String companyUrl;
+  final String? company;
+  final String? companyUrl;
   final String location;
   final String duration;
   final String position;
@@ -108,8 +108,8 @@ class ExperienceData {
 
 class SkillData {
   SkillData({
-    @required this.skillName,
-    @required this.skillLevel,
+    required this.skillName,
+    required this.skillLevel,
   });
 
   final String skillName;
@@ -118,7 +118,7 @@ class SkillData {
 
 class SubMenuData {
   SubMenuData({
-    @required this.title,
+    required this.title,
     this.isSelected,
     this.content,
     this.skillData,
@@ -126,10 +126,10 @@ class SubMenuData {
   });
 
   final String title;
-  final String content;
-  final List<SkillData> skillData;
+  final String? content;
+  final List<SkillData>? skillData;
   bool isAnimation;
-  bool isSelected;
+  bool? isSelected;
 }
 
 class Data {
